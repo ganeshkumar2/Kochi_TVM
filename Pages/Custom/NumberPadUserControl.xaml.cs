@@ -25,6 +25,7 @@ namespace Kochi_TVM.Pages.Custom
         public NumberPadUserControl()
         {
             InitializeComponent();
+            txtTypeNumber.IsEnabled = false;
         }
 
         private void btn1_Click(object sender, RoutedEventArgs e)

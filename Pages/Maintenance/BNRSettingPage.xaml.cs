@@ -94,6 +94,9 @@ namespace Kochi_TVM.Pages.Maintenance
                             {
                                 notevalincasset1 = bill;
                             }
+                            lblCassete1Type.Content = cassetteset.cassetteStatus.ToString();
+                            lblCassete1Bill.Content = notevalincasset1.ToString();
+                            lblCassete1Count.Content = noteincasset1.ToString();
                         }
                         if (cassetteset.cassetteId == 2)
                         {
@@ -106,6 +109,9 @@ namespace Kochi_TVM.Pages.Maintenance
                             {
                                 notevalincasset2 = bill;
                             }
+                            lblCassete2Type.Content = cassetteset.cassetteStatus.ToString();
+                            lblCassete2Bill.Content = notevalincasset2.ToString();
+                            lblCassete2Count.Content = noteincasset2.ToString();
                         }
                         if (cassetteset.cassetteId == 3)
                         {
@@ -118,6 +124,9 @@ namespace Kochi_TVM.Pages.Maintenance
                             {
                                 notevalincasset3 = bill;
                             }
+                            lblCassete3Type.Content = cassetteset.cassetteStatus.ToString();
+                            lblCassete3Bill.Content = notevalincasset3.ToString();
+                            lblCassete3Count.Content = noteincasset3.ToString();
                         }
                     }
                 }
@@ -194,6 +203,11 @@ namespace Kochi_TVM.Pages.Maintenance
             {
                 Constants.BNRStatus = Enum.GetName(typeof(BNRState), state);
                 lblmessage.Content = "BNR Status : " + Constants.BNRStatus;
+                if (state == BNRState.DISABLED)
+                {
+                    Thread.Sleep(200);
+                    BNRManager.Instance.GetCassetteStatus();
+                }
             }), DispatcherPriority.Background);
         }
 

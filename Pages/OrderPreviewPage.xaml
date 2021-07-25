@@ -38,7 +38,7 @@
         </Grid.ColumnDefinitions>
         <Label Name="lblHeader" Content="" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader2}"/>
 
-        <Grid  Name="operationGrid" Grid.Column="1" Grid.Row="3" Margin="0,0,50,0" Grid.ColumnSpan="2" >
+        <Grid  Name="operationGrid" Grid.Column="1" Grid.Row="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="5.0*"/>
                 <RowDefinition Height="1.0*"/>

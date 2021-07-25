@@ -78,6 +78,10 @@ namespace Kochi_TVM.Pages
                 btnLang1.IsEnabled = false;
                 btnLang1.Opacity = 0.5;
 
+                Constants.HopperAddress1Coin = Convert.ToInt16(CoinValues.getCoin1());
+                Constants.HopperAddress2Coin = Convert.ToInt16(CoinValues.getCoin2());
+                Constants.HopperAddress3Coin = Convert.ToInt16(CoinValues.getCoin3());
+
                 Ticket.Clear();
             }
             catch (Exception ex)

@@ -37,7 +37,6 @@
                 <ColumnDefinition Width="0.25*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-
             <TextBox x:Name="txtTypeNumber" IsReadOnly="True" Text="0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Style="{StaticResource styleCountText}" FontSize="55" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
             <Button x:Name="btn1" Grid.Row="2" Grid.Column="0" Content="1"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btn1_Click" />
             <Button x:Name="btn2" Grid.Row="2" Grid.Column="2" Content="2"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btn2_Click" />

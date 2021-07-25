@@ -113,7 +113,7 @@ namespace Kochi_TVM.Pages
                 btnFinish.FontSize = 24;
                 lblSaleUnSucc.FontSize = 24;
                 lblPleaseCollect.FontSize = 24;
-                lblMaxAccept.FontSize = 20;
+                lblMaxAccept.FontSize = 16;
             }
             else
             {
@@ -125,13 +125,13 @@ namespace Kochi_TVM.Pages
                 btnFinish.FontSize = 18;
                 lblSaleUnSucc.FontSize = 18;
                 lblPleaseCollect.FontSize = 18;
-                lblMaxAccept.FontSize = 16;
+                lblMaxAccept.FontSize = 13;
             }
 
             lblTotalAmountValue.FontSize = 24;
             lblPaidAmountValue.FontSize = 24;
             lblChangeAmountValue.FontSize = 24;
-            lblMaxNoteAccept.FontSize = 22;
+            lblMaxNoteAccept.FontSize = 18;
 
             lblMaxNoteAccept.Content = 20;           
 

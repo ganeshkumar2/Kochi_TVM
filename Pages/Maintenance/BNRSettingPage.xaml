@@ -180,51 +180,122 @@
                 <!--Right space -->
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-        <Label Name="lblHeader" Content="BNR Settings" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader2}" Margin="0.2,0.6,0.2,1.4" />
+        <Label Name="lblHeader" Content="BNA Settings" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader2}" Margin="0.2,0.6,0.2,1.4" />
 
-        <Grid Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="70"/>
-                <RowDefinition  />
-                <RowDefinition Height="100"/>
-                <RowDefinition Height="40"/>
-            </Grid.RowDefinitions>
-            <Label Grid.Row="0" Content="Cassette Settings" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Helvetica" Foreground="Black" Style="{StaticResource LableMaintanAllWhiteFont}"></Label>
-            <Border Grid.Row="1" Name="borCombo" Grid.Column="2" Background="Transparent">
-                <ComboBox  Name="cbCassette" Text="Select Cassette No." IsEditable="True" IsReadOnly="True" FontFamily="Helvetica" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Stretch" SelectionChanged="cbCassette_SelectionChanged"></ComboBox>
-            </Border>
-            <StackPanel Grid.Row="2">
-                <Viewbox Height="40" HorizontalAlignment="Left">
-                    <RadioButton  Name="rbNotAssign" Content="Not Assign" Foreground="Black" FontFamily="Helvetica" GroupName="CassetteSetting"></RadioButton>
-                </Viewbox>
+        <Grid Grid.Row="3" Grid.Column="1" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="6*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="6*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
+                <Border Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="6" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
+                <Border Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="6" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Cassette Status" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Titillium" Foreground="Black" Style="{StaticResource LableMaintanAllWhiteFont}"></Label>
+                <Label Grid.Row="1" Content="Cassette 1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Titillium" Foreground="Black" Style="{StaticResource LableMaintanAllWhiteFont}"></Label>
+                <Label Grid.Row="2" Content="Cassette 2" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Titillium" Foreground="Black" Style="{StaticResource LableMaintanAllWhiteFont}"></Label>
+                <Label Grid.Row="3" Content="Cassette 3" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Titillium" Foreground="Black" Style="{StaticResource LableMaintanAllWhiteFont}"></Label>
+                <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Label Content="Type :" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
+                        <Label Name="lblCassete1Type" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Label Content="Bill :" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
+                        <Label Name="lblCassete1Bill" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Label Content="Count :" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
+                        <Label Name="lblCassete1Count" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
+                    </StackPanel>
+                </StackPanel>
 
-                <StackPanel Height="80" Orientation="Horizontal">
+                <StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Label Content="Type :" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
+                        <Label Name="lblCassete2Type" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Label Content="Bill :" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
+                        <Label Name="lblCassete2Bill" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Label Content="Count :" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
+                        <Label Name="lblCassete2Count" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Label Content="Type :" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
+                        <Label Name="lblCassete3Type" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Label Content="Bill :" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
+                        <Label Name="lblCassete3Bill" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Label Content="Count :" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
+                        <Label Name="lblCassete3Count" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition  />
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6" Grid.RowSpan="3" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
+
+                <Label Grid.Row="0" Content="Cassette Settings" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Titillium" Foreground="Black" Style="{StaticResource LableMaintanAllWhiteFont}"></Label>
+                <Border Grid.Row="1" Name="borCombo" Grid.Column="2" Background="Transparent" Width="450">
+                    <ComboBox  Name="cbCassette" Text="Select Cassette No." IsEditable="True" IsReadOnly="True" FontFamily="Titillium" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Stretch" SelectionChanged="cbCassette_SelectionChanged"></ComboBox>
+                </Border>
+                <StackPanel Grid.Row="2">
                     <Viewbox Height="40" HorizontalAlignment="Left">
-                        <RadioButton Name="rbEscrow" Content="Escrow Bill" Foreground="Black" FontFamily="Helvetica"  GroupName="CassetteSetting"></RadioButton>
+                        <RadioButton  Name="rbNotAssign" Content="Not Assign" Foreground="Black" FontFamily="Titillium" GroupName="CassetteSetting"></RadioButton>
                     </Viewbox>
-                    <Border Margin="50,0,0,0" Grid.Row="1" Grid.Column="2" Background="Transparent" >
-                        <ComboBox  Name="cbEscrowBillType" Text="Bill Type" IsEditable="True" IsReadOnly="True" FontFamily="Helvetica" FontSize="25" Width="200" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Stretch"></ComboBox>
-                    </Border>
+
+                    <StackPanel Height="80" Orientation="Horizontal">
+                        <Viewbox Height="40" HorizontalAlignment="Left">
+                            <RadioButton Name="rbEscrow" Content="Escrow Bill" Foreground="Black" FontFamily="Titillium"  GroupName="CassetteSetting"></RadioButton>
+                        </Viewbox>
+                        <Border Margin="50,0,0,0" Grid.Row="1" Grid.Column="2" Background="Transparent" >
+                            <ComboBox  Name="cbEscrowBillType" Text="Bill Type" IsEditable="True" IsReadOnly="True" FontFamily="Titillium" FontSize="25" Width="200" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Stretch"></ComboBox>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Height="100" Orientation="Horizontal">
+                        <Viewbox Height="40">
+                            <RadioButton Name="rbCassetAssign" Content="Casset Bill  " FontFamily="Titillium" GroupName="CassetteSetting"></RadioButton>
+                        </Viewbox>
+                        <Border Grid.Row="1" Margin="50,0,0,0" Grid.Column="2" Background="Transparent" >
+                            <ComboBox  Name="cbBillType" Text="Bill Type" IsEditable="True" IsReadOnly="True" FontFamily="Titillium" FontSize="25" Width="200" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Stretch"></ComboBox>
+                        </Border>
+                    </StackPanel>
                 </StackPanel>
 
-                <StackPanel Height="100" Orientation="Horizontal">
-                    <Viewbox Height="40">
-                        <RadioButton Name="rbCassetAssign" Content="Casset Bill  " FontFamily="Helvetica" GroupName="CassetteSetting"></RadioButton>
-                    </Viewbox>
-                    <Border Grid.Row="1" Margin="50,0,0,0" Grid.Column="2" Background="Transparent" >
-                        <ComboBox  Name="cbBillType" Text="Bill Type" IsEditable="True" IsReadOnly="True" FontFamily="Helvetica" FontSize="25" Width="200" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Stretch"></ComboBox>
-                    </Border>
-                </StackPanel>
-            </StackPanel>
-
-            <Border Grid.Row="3" Grid.ColumnSpan="2"  BorderBrush="Black" Height="60" Width="130" MouseLeftButtonDown="GridSubmitSetting_MouseLeftButtonDown" BorderThickness="0,0,0,0" CornerRadius="10" Background="#f3f3f3">
-                <Border.Effect>
-                    <DropShadowEffect />
-                </Border.Effect>
-                <Label Content="Submit" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Helvetica" FontSize="25" FontWeight="Bold"/>
-            </Border>
-            <Label x:Name="lblmessage" Grid.Row="4" Content=""  HorizontalContentAlignment="Center" Foreground="White" FontSize="21"  FontWeight="Bold"/>
+                <Border Grid.Row="3" Grid.ColumnSpan="2"  BorderBrush="Black" Height="60" Width="130" MouseLeftButtonDown="GridSubmitSetting_MouseLeftButtonDown" BorderThickness="0,0,0,0" CornerRadius="10" Background="#f3f3f3">
+                    <Border.Effect>
+                        <DropShadowEffect />
+                    </Border.Effect>
+                    <Label Content="Submit" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Titillium" FontSize="25" FontWeight="Bold"/>
+                </Border>
+                <Label x:Name="lblmessage" Grid.Row="4" Content=""  HorizontalContentAlignment="Center" Foreground="White" FontSize="21"  FontWeight="Bold"/>
+            </Grid>
         </Grid>
             
         <Grid Name="navigationGrid" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3" Margin="0,0.6,0,0">

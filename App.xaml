@@ -964,7 +964,7 @@
             <Setter Property="Foreground" Value="White"/>
         </Style>
 
-        <FontFamily x:Key="AppFont">Arial</FontFamily>
+        <FontFamily x:Key="AppFont">Titillium</FontFamily>
         
         <Style x:Key="MainInstructionTextblock" TargetType="TextBlock">
             <Setter Property="FontFamily" Value="{StaticResource AppFont}" />

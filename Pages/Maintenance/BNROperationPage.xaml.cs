@@ -97,8 +97,9 @@ namespace Kochi_TVM.Pages.Maintenance
                             lblCassette1.Content = "₹ " + notevalincasset1;
                             lblCassette1Add.Content = "₹ " + notevalincasset1;
                             Casette1Billtype = cassetteset.billType;
-                            lblCassette1Info.Content = "₹" + notevalincasset1 + "/₹" + (noteincasset1 * notevalincasset1);
-                            if(noteincasset1 > 0)
+                            lblCassette1Count.Content = noteincasset1.ToString();
+                            lblCassette1Amount.Content = "₹" + (noteincasset1 * notevalincasset1);
+                            if (noteincasset1 > 0)
                             {
                                 btnSendBox1.IsEnabled = true;
                                 btnSendBox1.Opacity = 1;
@@ -123,7 +124,8 @@ namespace Kochi_TVM.Pages.Maintenance
                             lblCassette2.Content = "₹ " + notevalincasset2;
                             lblCassette2Add.Content = "₹ " + notevalincasset2;
                             Casette2Billtype = cassetteset.billType;
-                            lblCassette2Info.Content = "₹" + notevalincasset2 + "/₹" + (noteincasset2 * notevalincasset2);
+                            lblCassette2Count.Content = noteincasset1.ToString();
+                            lblCassette2Amount.Content = "₹" + (noteincasset2 * notevalincasset2);
                             if (noteincasset2 > 0)
                             {
                                 btnSendBox2.IsEnabled = true;
@@ -149,7 +151,8 @@ namespace Kochi_TVM.Pages.Maintenance
                             lblCassette3.Content = "₹ " + notevalincasset3;
                             lblCassette3Add.Content = "₹ " + notevalincasset3;
                             Casette3Billtype = cassetteset.billType;
-                            lblCassette3Info.Content = "₹" + notevalincasset3 + "/₹" + (noteincasset3 * notevalincasset3);
+                            lblCassette3Count.Content = noteincasset1.ToString();
+                            lblCassette3Amount.Content = "₹" + (noteincasset3 * notevalincasset3);
                             if (noteincasset3 > 0)
                             {
                                 btnSendBox3.IsEnabled = true;
@@ -607,8 +610,8 @@ namespace Kochi_TVM.Pages.Maintenance
             StockOperations.SelStockStatus();
             Dispatcher.BeginInvoke(new Action(() =>
             {
-                lblBoxInfo.Content = String.Format("Box Amount : {0}", Conversion.MoneyFormat(MoneyOperations.box));
-                lblBoxCount.Content = String.Format("Box Count : {0}", StockOperations.box);
+                lblBoxInfo.Content = String.Format("{0}", Conversion.MoneyFormat(MoneyOperations.box));
+                lblBoxCount.Content = String.Format("{0}", StockOperations.box);
                 if (StockOperations.box == 0)
                 {
                     btnClearBox.IsEnabled = false;

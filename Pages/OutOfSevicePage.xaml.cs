@@ -272,14 +272,14 @@ namespace Kochi_TVM.Pages
                     PRINTER_STATE ReceiptPrinter = CustomTL60Printer.Instance.getStatusWithUsb();
                     if (ReceiptPrinter == PRINTER_STATE.OK)
                     {
-                        outOfServiceLbl.Content = "Receipt Status :";
+                        outOfServiceLbl.Content = "Receipt Printer Status :";
                         outOfServiceGreenLbl.Visibility = System.Windows.Visibility.Visible;
                         outOfServiceRedLbl.Visibility = System.Windows.Visibility.Collapsed;
                         outOfServiceGreenLbl.Content = "OK";
                     }
                     else
                     {
-                        outOfServiceLbl.Content = "Receipt Status :";
+                        outOfServiceLbl.Content = "Receipt Printer Status :";
                         outOfServiceGreenLbl.Visibility = System.Windows.Visibility.Collapsed;
                         outOfServiceRedLbl.Visibility = System.Windows.Visibility.Visible;
                         outOfServiceGreenLbl.Content = "Not OK";

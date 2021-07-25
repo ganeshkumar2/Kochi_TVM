@@ -36,66 +36,64 @@
             <!--Right space -->
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Label Name="lblHeader" Content="Manage Banknotes" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader2}" Margin="0.2,0.6,0.2,1.4" />
+        <Label Name="lblHeader" Content="Manage Banknotes" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader1}" Margin="0.2,0.6,0.2,1.4" />
 
         <Grid Name="operationGrid" Grid.Column="1" Grid.Row="3" Margin="0.2,0.4,0.2,22.4" Grid.RowSpan="2" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*"/>
-                <ColumnDefinition Width="8*"/>
-                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="15"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="15"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="15"/>
                 <ColumnDefinition Width="5*"/>
                 <ColumnDefinition Width="0.5*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="55" />
+                <RowDefinition Height="50" />
                 <RowDefinition Height="5*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="15" />
                 <RowDefinition Height="5*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="15" />
                 <RowDefinition Height="5*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="15" />
                 <RowDefinition Height="5*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="15" />
                 <RowDefinition Height="5*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center">
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Visibility="Collapsed">
                 <Label Content="BNR Status" Style="{StaticResource styleLabel2}"/>
                 <Label x:Name="lblBNR" Style="{StaticResource styleLabel2}" />
-            </StackPanel>        
+            </StackPanel>
+
+            <Label Grid.Row="0" Grid.Column="1" Content="Denomination" Style="{StaticResource styleLabelHeader3}"/>
+            <Label Grid.Row="0" Grid.Column="3" Content="Count" Style="{StaticResource styleLabelHeader3}"/>
+            <Label Grid.Row="0" Grid.Column="5" Content="Amount" Style="{StaticResource styleLabelHeader3}"/>
+
+            <Label Grid.Row="1" Grid.Column="3" x:Name="lblCassette1Count" Style="{StaticResource styleLabelHeader3}"/>
+            <Label Grid.Row="3" Grid.Column="3" x:Name="lblCassette2Count" Style="{StaticResource styleLabelHeader3}"/>
+            <Label Grid.Row="5" Grid.Column="3" x:Name="lblCassette3Count" Style="{StaticResource styleLabelHeader3}"/>
+
+            <Label Grid.Row="1" Grid.Column="5" x:Name="lblCassette1Amount" Style="{StaticResource styleLabelHeader3}"/>
+            <Label Grid.Row="3" Grid.Column="5" x:Name="lblCassette2Amount" Style="{StaticResource styleLabelHeader3}"/>
+            <Label Grid.Row="5" Grid.Column="5" x:Name="lblCassette3Amount" Style="{StaticResource styleLabelHeader3}"/>
+
             <Label Name="lblCassette1" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader3}"/>
-            <Button x:Name="btnAddMoney" Content="Start Accept" Grid.Row="1" Grid.Column="3" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnAddMoney_Click" />
-            <Button x:Name="btnSendBox1" Content="Send to box" Grid.Row="1" Grid.Column="5" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnSendBox1_Click"/>
+            <Button x:Name="btnAddMoney" Content="Start Accepting" Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnAddMoney_Click" />
+            <Button x:Name="btnSendBox1" Content="Send to box" Grid.Row="1" Grid.Column="7" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnSendBox1_Click"/>
             <Label Name="lblCassette2" Grid.Row="3" Grid.Column="1" Style="{StaticResource styleLabelHeader3}"/>
             
-            <Button x:Name="btnSendBox2" Content="Send to box" Grid.Row="3" Grid.Column="5" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnSendBox2_Click"/>
+            <Button x:Name="btnSendBox2" Content="Send to box" Grid.Row="3" Grid.Column="7" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnSendBox2_Click"/>
             
             <Label Name="lblCassette3" Grid.Row="5" Grid.Column="1" Style="{StaticResource styleLabelHeader3}"/>            
-            <Button x:Name="btnSendBox3" Content="Send to box" Grid.Row="5" Grid.Column="5" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnSendBox3_Click" />
+            <Button x:Name="btnSendBox3" Content="Send to box" Grid.Row="5" Grid.Column="7" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnSendBox3_Click" />
             
             <Label Name="lblBox" Content="Cash Box" Grid.Row="7" Grid.Column="1" Style="{StaticResource styleLabelHeader3}"/>
-            <StackPanel Grid.Row="7" Grid.Column="3" Orientation="Vertical" VerticalAlignment="Center">
-                <Label x:Name="lblBoxCount" Content="Box Count : " Grid.Row="7" Grid.Column="2" Style="{StaticResource styleLabel2}"/>
-                <Label x:Name="lblBoxInfo" Content="Box Amount : " Grid.Row="9" Grid.Column="1" Style="{StaticResource styleLabel2}" />
-            </StackPanel>
-            <Button x:Name="btnClearBox" Content="Clear Box" Grid.Row="7" Grid.Column="5" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnClearBox_Click" />
-
-            <!--Cassette1 is escrow-->
-            <StackPanel Grid.Row="9" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Label Content="Denomination/Amount" Style="{StaticResource styleLabel2}"/>
-                <Label x:Name="lblCassette1Info" Content="Box Count : 10"  Style="{StaticResource styleLabel2}"/>           
-            </StackPanel>
-            <StackPanel Grid.Row="9" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Label Content="Denomination/Amount" Style="{StaticResource styleLabel2}"/>
-                <Label x:Name="lblCassette2Info" Content="20 Rs Amount : 0 Rs" Style="{StaticResource styleLabel2}"/>
-            </StackPanel>
-            <StackPanel Grid.Row="9" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Label Content="Denomination/Amount" Style="{StaticResource styleLabel2}"/>
-                <Label x:Name="lblCassette3Info" Content="10 Rs Amount : 0 Rs"  Style="{StaticResource styleLabel2}"/>
-            </StackPanel>               
-            
+            <Label x:Name="lblBoxCount" Grid.Row="7" Grid.Column="3" Style="{StaticResource styleLabelHeader3}"/>
+            <Label x:Name="lblBoxInfo" Grid.Row="7" Grid.Column="5" Style="{StaticResource styleLabelHeader3}" />
+            <Button x:Name="btnClearBox" Content="Clear Box" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="2" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnClearBox_Click" />
         </Grid>
 
         <Grid Name="grdMoneyAccept" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" Visibility="Hidden">

@@ -44,12 +44,14 @@ namespace Kochi_TVM.Pages
                 LedOperations.GreenText("Select Destination");
                 if (Ticket.language == Languages.English || Ticket.language == Languages.Hint)
                 {
+                    lblHeader.FontSize = 22;
                     lblDestination.FontSize = 14;
                     lblNoOfTickets.FontSize = 14;
                     lblAmount.FontSize = 14;
                 }
                 else
                 {
+                    lblHeader.FontSize = 18;
                     lblDestination.FontSize = 12;
                     lblNoOfTickets.FontSize = 12;
                     lblAmount.FontSize = 12;

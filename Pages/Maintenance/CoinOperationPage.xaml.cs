@@ -47,9 +47,9 @@ namespace Kochi_TVM.Pages.Maintenance
         }
         void loadValues()
         {
-            lblCoin1.Content = "₹ " + Constants.HopperAddress1Coin;
-            lblCoin2.Content = "₹ " + Constants.HopperAddress2Coin;
-            lblCoin5.Content = "₹ " + Constants.HopperAddress3Coin;
+            lblCoin1.Content = "₹" + Constants.HopperAddress1Coin;
+            lblCoin2.Content = "₹" + Constants.HopperAddress2Coin;
+            lblCoin5.Content = "₹" + Constants.HopperAddress3Coin;
 
             if (StockOperations.SelStockStatus())
             {
@@ -63,6 +63,10 @@ namespace Kochi_TVM.Pages.Maintenance
                 lblTypeCoin1.Text = Convert.ToString(0);
                 lblTypeCoin2.Text = Convert.ToString(0);
                 lblTypeCoin5.Text = Convert.ToString(0);
+
+                lblCoin1Count.Content = StockOperations.coin1.ToString();
+                lblCoin2Count.Content = StockOperations.coin2.ToString();
+                lblCoin5Count.Content = StockOperations.coin5.ToString();
 
                 lblCoin1Info.Content = "₹ " + Constants.HopperAddress1Coin + " Coin Count : " + StockOperations.coin1.ToString();
                 lblCoin2Info.Content = "₹ " + Constants.HopperAddress2Coin + " Coin Count : " + StockOperations.coin2.ToString();

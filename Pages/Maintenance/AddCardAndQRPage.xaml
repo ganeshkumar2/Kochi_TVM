@@ -89,7 +89,7 @@
                     <RowDefinition Height="0.8*"/>
                     <RowDefinition Height="60"/>
                 </Grid.RowDefinitions>
-                <uc:NumberPadUserControl Grid.Row="0" x:Name="numberpad" Height="400" Width="300"></uc:NumberPadUserControl>
+                <uc:NumberPadUserControl Grid.Row="0" x:Name="numberpad" Height="380" Width="300"></uc:NumberPadUserControl>
                 <Button x:Name="btnOK" Grid.Row="1" Content="OK"  Style="{StaticResource styleOkBtn}" Width="150" VerticalAlignment="Stretch" Click="btnOK_Click" />
 
             </Grid>

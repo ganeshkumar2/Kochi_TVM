@@ -101,8 +101,8 @@
                 <RowDefinition Height="8*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="250"/>
-                <ColumnDefinition Width="9*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="8*"/>
             </Grid.ColumnDefinitions>
             <Grid x:Name="gridSJT" Grid.Row="0" Grid.Column="0" Height="200" Width="200">
                 <Grid.RowDefinitions>

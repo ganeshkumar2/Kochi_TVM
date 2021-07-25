@@ -34,7 +34,16 @@
                     <ColumnDefinition Width="3*" />
                 </Grid.ColumnDefinitions>
 
-                <Label x:Name="lblHeader" Content="Header" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource styleLabelCustomMessageBoxHeader}"/>
+                <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="6*" />
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="imgIndicator" Grid.Column="0" />
+                    <Label x:Name="lblHeader" Grid.Column="0" Grid.ColumnSpan="2" Content="Header" Style="{StaticResource styleLabelCustomMessageBoxHeader}"/>
+                </Grid>
+               
+                
                 <Label x:Name="lblInfo" Content="Some explanation" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource styleLabelCustomMessageBoxInfo}" Margin="0,5.4,-0.4,29.2" Grid.RowSpan="3"/>
 
                 <Button x:Name="btnCancel" Grid.Row="4" Grid.Column="0" Content="Exit"  Style="{StaticResource styleFinishBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnNo_Click" />

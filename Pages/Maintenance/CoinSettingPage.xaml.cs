@@ -1,6 +1,7 @@
 ﻿using dk.CctalkLib.Devices;
 using Kochi_TVM.Business;
 using Kochi_TVM.CCTalk;
+using Kochi_TVM.Logs;
 using Kochi_TVM.Pages.Custom;
 using Kochi_TVM.Utils;
 using log4net;
@@ -45,12 +46,20 @@ namespace Kochi_TVM.Pages.Maintenance
 
                     if (level  == "Low Level")
                     {
-                        Constants.HopperAddress1Coin = Convert.ToInt16(lblTypeCoin1.Text);
-                        MessageBoxOperations.ShowMessage("COIN", "Coin hopper 1 value saved.", MessageBoxButtonSet.OK);
+                        if (Constants.CoinAvailable.Contains(lblTypeCoin1.Text))
+                        {
+                            CoinValues.setCoin1(lblTypeCoin1.Text);
+                            Constants.HopperAddress1Coin = Convert.ToInt16(lblTypeCoin1.Text);
+                            MessageBoxOperations.ShowMessage("COIN", "Coin hopper 1 value saved.", MessageBoxButtonSet.OK);
+                        }
+                        else
+                        {
+                            MessageBoxOperations.ShowMessage("COIN", "Entered coin value is wrong.", MessageBoxButtonSet.OK);
+                        }
                     }
                     else
                     {
-                        MessageBoxOperations.ShowMessage("COIN", "Please unload the hopper 1.", MessageBoxButtonSet.OK);
+                        MessageBoxOperations.ShowMessage("COIN", "Please empty the hopper 1.", MessageBoxButtonSet.OK);
                     }
                 }
             }
@@ -76,12 +85,20 @@ namespace Kochi_TVM.Pages.Maintenance
 
                     if (level == "Low Level")
                     {
-                        Constants.HopperAddress2Coin = Convert.ToInt16(lblTypeCoin2.Text);
-                        MessageBoxOperations.ShowMessage("COIN", "Coin hopper 2 value saved.", MessageBoxButtonSet.OK);
+                        if (Constants.CoinAvailable.Contains(lblTypeCoin1.Text))
+                        {
+                            CoinValues.setCoin2(lblTypeCoin2.Text);
+                            Constants.HopperAddress2Coin = Convert.ToInt16(lblTypeCoin2.Text);
+                            MessageBoxOperations.ShowMessage("COIN", "Coin hopper 2 value saved.", MessageBoxButtonSet.OK);
+                        }
+                        else
+                        {
+                            MessageBoxOperations.ShowMessage("COIN", "Entered coin value is wrong.", MessageBoxButtonSet.OK);
+                        }
                     }
                     else
                     {
-                        MessageBoxOperations.ShowMessage("COIN", "Please unload the hopper 2.", MessageBoxButtonSet.OK);
+                        MessageBoxOperations.ShowMessage("COIN", "Please empty the hopper 2.", MessageBoxButtonSet.OK);
                     }
                 }
             }
@@ -108,12 +125,20 @@ namespace Kochi_TVM.Pages.Maintenance
 
                     if (level == "Low Level")
                     {
-                        Constants.HopperAddress3Coin = Convert.ToInt16(lblTypeCoin3.Text);
-                        MessageBoxOperations.ShowMessage("COIN", "Coin hopper 3 value saved.", MessageBoxButtonSet.OK);
+                        if (Constants.CoinAvailable.Contains(lblTypeCoin1.Text))
+                        {
+                            CoinValues.setCoin3(lblTypeCoin3.Text);
+                            Constants.HopperAddress3Coin = Convert.ToInt16(lblTypeCoin3.Text);
+                            MessageBoxOperations.ShowMessage("COIN", "Coin hopper 3 value saved.", MessageBoxButtonSet.OK);
+                        }
+                        else
+                        {
+                            MessageBoxOperations.ShowMessage("COIN", "Entered coin value is wrong.", MessageBoxButtonSet.OK);
+                        }
                     }
                     else
                     {
-                        MessageBoxOperations.ShowMessage("COIN", "Please unload the hopper 3.", MessageBoxButtonSet.OK);
+                        MessageBoxOperations.ShowMessage("COIN", "Please empty the hopper 3.", MessageBoxButtonSet.OK);
                     }
                 }
             }

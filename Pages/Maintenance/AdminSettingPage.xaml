@@ -54,7 +54,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="btnCoinSetting" Grid.Row="1" Grid.Column="1" Content="Coin Settings" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnCoinSetting_Click" />
-            <Button x:Name="btnBNRSetting" Grid.Row="1" Grid.Column="3" Content="BNR Settings" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnBNRSetting_Click" />
+            <Button x:Name="btnBNRSetting" Grid.Row="1" Grid.Column="3" Content="BNA Settings" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnBNRSetting_Click" />
             <Button x:Name="btnPIDSetting" Grid.Row="3" Grid.Column="1" Content="PID Settings" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnPIDSetting_Click" />
            </Grid>
 

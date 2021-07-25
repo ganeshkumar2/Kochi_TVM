@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace Kochi_TVM.Pages.Custom
 {
@@ -45,6 +46,7 @@ namespace Kochi_TVM.Pages.Custom
                             //messageBox.btnCancel.Content = "Cancel";
                             messageBox.btnOK.Visibility = Visibility.Visible;
                             messageBox.btnOK.Content = "OK";
+                            messageBox.imgIndicator.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\information.png"));
                         }
                         break;
                     case MessageBoxButtonSet.Cancel:
@@ -53,6 +55,7 @@ namespace Kochi_TVM.Pages.Custom
                             messageBox.btnCancel.Content = "Cancel";
                             messageBox.btnOK.Visibility = Visibility.Hidden;
                             //messageBox.btnOK.Content = "OK";
+                            messageBox.imgIndicator.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\crossmark.png"));
                         }
                         break;
                     case MessageBoxButtonSet.OKCancel:
@@ -61,6 +64,7 @@ namespace Kochi_TVM.Pages.Custom
                             messageBox.btnCancel.Content = "Cancel";
                             messageBox.btnOK.Visibility = Visibility.Visible;
                             messageBox.btnOK.Content = "OK";
+                            messageBox.imgIndicator.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\exclamationmark.png"));
                         }
                         break;
                     case MessageBoxButtonSet.Yes:
@@ -69,6 +73,7 @@ namespace Kochi_TVM.Pages.Custom
                             //messageBox.btnCancel.Content = "Cancel";
                             messageBox.btnOK.Visibility = Visibility.Visible;
                             messageBox.btnOK.Content = "Yes";
+                            messageBox.imgIndicator.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\exclamationmark.png"));
                         }
                         break;
                     case MessageBoxButtonSet.No:
@@ -76,6 +81,7 @@ namespace Kochi_TVM.Pages.Custom
                             messageBox.btnCancel.Visibility = Visibility.Visible;
                             messageBox.btnCancel.Content = "No";
                             messageBox.btnOK.Visibility = Visibility.Hidden;
+                            messageBox.imgIndicator.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\crossmark.png"));
                             //messageBox.btnOK.Content = "OK";
                         }
                         break;
@@ -85,6 +91,7 @@ namespace Kochi_TVM.Pages.Custom
                             messageBox.btnCancel.Content = "No";
                             messageBox.btnOK.Visibility = Visibility.Visible;
                             messageBox.btnOK.Content = "Yes";
+                            messageBox.imgIndicator.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\information.png"));
                         }
                         break;
                 }

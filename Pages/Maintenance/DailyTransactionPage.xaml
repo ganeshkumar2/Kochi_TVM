@@ -63,11 +63,14 @@
                     <ColumnDefinition Width="5*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="5*"/>
                 </Grid.ColumnDefinitions>
-                <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
+                <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="8" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
                 <Label Grid.Row="0" Grid.Column="0" Content="Type" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
                 <Label Grid.Row="0" Grid.Column="2" Content="Count" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
-                <Label Grid.Row="0" Grid.Column="4" Content="Amount" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
+                <Label Grid.Row="0" Grid.Column="4" Content="Cash" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
+                <Label Grid.Row="0" Grid.Column="6" Content="Non Cash" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
             </Grid>
 
             <Grid  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
@@ -77,8 +80,10 @@
                     <ColumnDefinition Width="5*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="5*"/>
                 </Grid.ColumnDefinitions>
-                <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
+                <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="8" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
                 <Label  Grid.Row="0" Grid.Column="0" Content="QR - SJT" HorizontalAlignment="Left" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>                
                 <Label Name="lblQRSJTCashCount"  Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
                 <Label Name="lblQRSJTCashAmount"  Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
@@ -93,8 +98,9 @@
                     <ColumnDefinition Width="5*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="5*"/>
+                    
                 </Grid.ColumnDefinitions>
-                <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
+                <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="8" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
                 <Label  Grid.Row="0" Grid.Column="0" Content="QR - RJT" HorizontalAlignment="Left" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
                 <Label Name="lblQRRJTCashCount"  Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
                 <Label Name="lblQRRJTCashAmount"  Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
@@ -109,8 +115,10 @@
                     <ColumnDefinition Width="5*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="5*"/>
                 </Grid.ColumnDefinitions>
-                <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
+                <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="8" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
                 <Label  Grid.Row="0" Grid.Column="0" Content="RPT - SJT" HorizontalAlignment="Left" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
                 <Label Name="lblRPTQRSJTCashCount"  Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
                 <Label Name="lblRPTQRSJTCashAmount"  Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
@@ -126,8 +134,10 @@
                     <ColumnDefinition Width="5*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="5*"/>
                 </Grid.ColumnDefinitions>
-                <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
+                <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="8" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
                 <Label  Grid.Row="0" Grid.Column="0" Content="RPT - Day Pass" HorizontalAlignment="Left" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
                 <Label Name="lblRPTDayPassCashCount"  Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
                 <Label Name="lblRPTDayPassCashAmount"  Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
@@ -140,8 +150,10 @@
                     <ColumnDefinition Width="5*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="5*"/>
                 </Grid.ColumnDefinitions>
-                <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
+                <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="8" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
                 <Label  Grid.Row="0" Grid.Column="0" Content="RPT - Weekend Pass" HorizontalAlignment="Left" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
                 <Label Name="lblRPTWeekendCashCount"  Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
                 <Label Name="lblRPTWeekendCashAmount"  Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
