@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="InsTvmAlarm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="model" type="tns:TvmAlarm" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TvmAlarm">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="stationId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="deviceNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="alarmTypeId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="alarmMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsTvmAlarmResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsTvmAlarmResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSRequestHeader" type="tns:WSRequestHeader" />
+      <s:complexType name="WSRequestHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="UpdTvmMonitoring">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="model" type="tns:TvmMonitoring" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TvmMonitoring">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="bnrStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="speakerStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="hopperCoins1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="hopperCoins2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="hopperCoins5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="hopperStatus1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="hopperStatus2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="hopperStatus5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="banknote10" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="banknote20" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="numberOfQr" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="qrPrinterStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receiptPrinterStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ledPanelStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="doorSensorStatus" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QRSJT_Count" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QRSJT_Amount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QRRJT_Count" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QRRJT_Amount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Total_Count" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Total_Amount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="tvmId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="stationId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="appVersion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="lastTransactionDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdTvmMonitoringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdTvmMonitoringResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertMonitoring">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertMonitoringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertMonitoringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteDML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="script" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteDMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExecuteDMLResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteNonQuery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="script" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteNonQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecuteNonQueryResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StationComputerVersion">
+        <s:complexType />
+      </s:element>
+      <s:element name="StationComputerVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StationComputerVersionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelUnitByUID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="machineUID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelUnitByUIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelUnitByUIDResult" type="tns:ReturnPackage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ReturnPackage">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Data">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TomLoginControl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user_cd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="channel_cd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="stationId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TomLoginControlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TomLoginControlResult" type="tns:ReturnPackage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserAuthForPayPoint">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="user_UID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="channel_cd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserAuthForPayPointResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserAuthForPayPointResult" type="tns:ReturnPackage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdUserCommand">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userCommandId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdUserCommandResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdUserCommandResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="InsTvmAlarmSoapIn">
+    <wsdl:part name="parameters" element="tns:InsTvmAlarm" />
+  </wsdl:message>
+  <wsdl:message name="InsTvmAlarmSoapOut">
+    <wsdl:part name="parameters" element="tns:InsTvmAlarmResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsTvmAlarmWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdTvmMonitoringSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdTvmMonitoring" />
+  </wsdl:message>
+  <wsdl:message name="UpdTvmMonitoringSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdTvmMonitoringResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdTvmMonitoringWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="InsertMonitoringSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertMonitoring" />
+  </wsdl:message>
+  <wsdl:message name="InsertMonitoringSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertMonitoringResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertMonitoringWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteDMLSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteDML" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteDMLSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteDMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteDMLWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteNonQuerySoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteNonQuery" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteNonQuerySoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteNonQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteNonQueryWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="StationComputerVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:StationComputerVersion" />
+  </wsdl:message>
+  <wsdl:message name="StationComputerVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:StationComputerVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="StationComputerVersionWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="SelUnitByUIDSoapIn">
+    <wsdl:part name="parameters" element="tns:SelUnitByUID" />
+  </wsdl:message>
+  <wsdl:message name="SelUnitByUIDSoapOut">
+    <wsdl:part name="parameters" element="tns:SelUnitByUIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelUnitByUIDWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="TomLoginControlSoapIn">
+    <wsdl:part name="parameters" element="tns:TomLoginControl" />
+  </wsdl:message>
+  <wsdl:message name="TomLoginControlSoapOut">
+    <wsdl:part name="parameters" element="tns:TomLoginControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="TomLoginControlWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="UserAuthForPayPointSoapIn">
+    <wsdl:part name="parameters" element="tns:UserAuthForPayPoint" />
+  </wsdl:message>
+  <wsdl:message name="UserAuthForPayPointSoapOut">
+    <wsdl:part name="parameters" element="tns:UserAuthForPayPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserAuthForPayPointWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdUserCommandSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdUserCommand" />
+  </wsdl:message>
+  <wsdl:message name="UpdUserCommandSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdUserCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdUserCommandWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="InsTvmAlarm">
+      <wsdl:input message="tns:InsTvmAlarmSoapIn" />
+      <wsdl:output message="tns:InsTvmAlarmSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdTvmMonitoring">
+      <wsdl:input message="tns:UpdTvmMonitoringSoapIn" />
+      <wsdl:output message="tns:UpdTvmMonitoringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertMonitoring">
+      <wsdl:input message="tns:InsertMonitoringSoapIn" />
+      <wsdl:output message="tns:InsertMonitoringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteDML">
+      <wsdl:input message="tns:ExecuteDMLSoapIn" />
+      <wsdl:output message="tns:ExecuteDMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteNonQuery">
+      <wsdl:input message="tns:ExecuteNonQuerySoapIn" />
+      <wsdl:output message="tns:ExecuteNonQuerySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StationComputerVersion">
+      <wsdl:input message="tns:StationComputerVersionSoapIn" />
+      <wsdl:output message="tns:StationComputerVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelUnitByUID">
+      <wsdl:input message="tns:SelUnitByUIDSoapIn" />
+      <wsdl:output message="tns:SelUnitByUIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TomLoginControl">
+      <wsdl:input message="tns:TomLoginControlSoapIn" />
+      <wsdl:output message="tns:TomLoginControlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserAuthForPayPoint">
+      <wsdl:input message="tns:UserAuthForPayPointSoapIn" />
+      <wsdl:output message="tns:UserAuthForPayPointSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdUserCommand">
+      <wsdl:input message="tns:UpdUserCommandSoapIn" />
+      <wsdl:output message="tns:UpdUserCommandSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsTvmAlarm">
+      <soap:operation soapAction="http://tempuri.org/InsTvmAlarm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:InsTvmAlarmWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTvmMonitoring">
+      <soap:operation soapAction="http://tempuri.org/UpdTvmMonitoring" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdTvmMonitoringWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertMonitoring">
+      <soap:operation soapAction="http://tempuri.org/InsertMonitoring" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:InsertMonitoringWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteDML">
+      <soap:operation soapAction="http://tempuri.org/ExecuteDML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ExecuteDMLWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteNonQuery">
+      <soap:operation soapAction="http://tempuri.org/ExecuteNonQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ExecuteNonQueryWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StationComputerVersion">
+      <soap:operation soapAction="http://tempuri.org/StationComputerVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:StationComputerVersionWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelUnitByUID">
+      <soap:operation soapAction="http://tempuri.org/SelUnitByUID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SelUnitByUIDWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TomLoginControl">
+      <soap:operation soapAction="http://tempuri.org/TomLoginControl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:TomLoginControlWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserAuthForPayPoint">
+      <soap:operation soapAction="http://tempuri.org/UserAuthForPayPoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UserAuthForPayPointWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdUserCommand">
+      <soap:operation soapAction="http://tempuri.org/UpdUserCommand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdUserCommandWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsTvmAlarm">
+      <soap12:operation soapAction="http://tempuri.org/InsTvmAlarm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:InsTvmAlarmWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTvmMonitoring">
+      <soap12:operation soapAction="http://tempuri.org/UpdTvmMonitoring" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdTvmMonitoringWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertMonitoring">
+      <soap12:operation soapAction="http://tempuri.org/InsertMonitoring" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:InsertMonitoringWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteDML">
+      <soap12:operation soapAction="http://tempuri.org/ExecuteDML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ExecuteDMLWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteNonQuery">
+      <soap12:operation soapAction="http://tempuri.org/ExecuteNonQuery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ExecuteNonQueryWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StationComputerVersion">
+      <soap12:operation soapAction="http://tempuri.org/StationComputerVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:StationComputerVersionWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelUnitByUID">
+      <soap12:operation soapAction="http://tempuri.org/SelUnitByUID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SelUnitByUIDWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TomLoginControl">
+      <soap12:operation soapAction="http://tempuri.org/TomLoginControl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:TomLoginControlWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserAuthForPayPoint">
+      <soap12:operation soapAction="http://tempuri.org/UserAuthForPayPoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UserAuthForPayPointWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdUserCommand">
+      <soap12:operation soapAction="http://tempuri.org/UpdUserCommand" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdUserCommandWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://10.240.4.23/NStationService/service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://10.240.4.23/NStationService/service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

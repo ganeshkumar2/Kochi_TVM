@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/OccLib" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/OccLib" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ReturnPackage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Data" nillable="true">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:appinfo>
+              <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:sequence>
+            <xs:element ref="xs:schema" />
+            <xs:any />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnPackage" nillable="true" type="tns:ReturnPackage" />
+  <xs:complexType name="ArrayOfTSelectedTickets">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TSelectedTickets" nillable="true" type="tns:TSelectedTickets" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTSelectedTickets" nillable="true" type="tns:ArrayOfTSelectedTickets" />
+  <xs:complexType name="TSelectedTickets">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="From" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromId" type="xs:int" />
+      <xs:element minOccurs="0" name="TicketGUID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="To" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ToId" type="xs:int" />
+      <xs:element minOccurs="0" name="activeFrom" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="activeTo" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="alias" type="xs:int" />
+      <xs:element minOccurs="0" name="amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="count" type="xs:int" />
+      <xs:element minOccurs="0" name="explanation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="peopleCount" type="xs:short" />
+      <xs:element minOccurs="0" name="price" type="xs:decimal" />
+      <xs:element minOccurs="0" name="rowNo" type="xs:int" />
+      <xs:element minOccurs="0" name="ticketDT" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ticketType" type="xs:int" />
+      <xs:element minOccurs="0" name="weekendPassType" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TSelectedTickets" nillable="true" type="tns:TSelectedTickets" />
+</xs:schema>

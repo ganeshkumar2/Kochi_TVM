@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:53129/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/OccLib" />
+  <xs:element name="ExecSP">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sp" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecSPResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="ExecSPResult" nillable="true" type="q1:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsQRCodeTicket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tickets" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="createMode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="createdStation" type="xs:int" />
+        <xs:element minOccurs="0" name="createdDeviceId" type="xs:int" />
+        <xs:element minOccurs="0" name="transactionId" type="xs:int" />
+        <xs:element minOccurs="0" name="refNo" type="xs:long" />
+        <xs:element minOccurs="0" name="createUserId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsQRCodeTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="InsQRCodeTicketResult" nillable="true" type="q2:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsTicketTransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionNo" type="xs:long" />
+        <xs:element minOccurs="0" name="statusCd" type="xs:short" />
+        <xs:element minOccurs="0" name="totalAmount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="tranType" type="xs:short" />
+        <xs:element minOccurs="0" name="paymentType" type="xs:short" />
+        <xs:element minOccurs="0" name="cashAmount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="creditCardAmount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="cashPayment" type="xs:decimal" />
+        <xs:element minOccurs="0" name="creditCardPayment" type="xs:decimal" />
+        <xs:element minOccurs="0" name="change" type="xs:decimal" />
+        <xs:element minOccurs="0" name="insUserId" type="xs:int" />
+        <xs:element minOccurs="0" name="unitId" type="xs:int" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsTicketTransactionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="InsTicketTransactionResult" nillable="true" type="q3:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsQrCodeTicketMobile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="listTicket" nillable="true" type="q4:ArrayOfTSelectedTickets" />
+        <xs:element minOccurs="0" name="sessionNo" type="xs:long" />
+        <xs:element minOccurs="0" name="totalAmoount" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsQrCodeTicketMobileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="InsQrCodeTicketMobileResult" nillable="true" type="q5:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelTicketPrice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fareMediaCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fareMediatype" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fromValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="toValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticketDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelTicketPriceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="SelTicketPriceResult" nillable="true" type="q6:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelStations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelStationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="SelStationsResult" nillable="true" type="q7:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelQRCodeTicket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelQRCodeTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="SelQRCodeTicketResult" nillable="true" type="q8:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelLastTransactionSalePoint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelLastTransactionSalePointResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="SelLastTransactionSalePointResult" nillable="true" type="q9:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculatePenAmount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="penaltyDesc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fareMedia" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="ticketId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculatePenAmountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="CalculatePenAmountResult" nillable="true" type="q10:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdQRReplacement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="oldTicketId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdQRReplacementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="UpdQRReplacementResult" nillable="true" type="q11:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdCancelTicket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="recIdList" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="transactionId" type="xs:long" />
+        <xs:element minOccurs="0" name="tranType" type="xs:int" />
+        <xs:element minOccurs="0" name="cancelAmount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="paymentType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdCancelTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="UpdCancelTicketResult" nillable="true" type="q12:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelRefundTicket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="alias" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="createStationId" type="xs:int" />
+        <xs:element minOccurs="0" name="workMode" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelRefundTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="SelRefundTicketResult" nillable="true" type="q13:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelRefund">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="alias" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="createStationId" type="xs:int" />
+        <xs:element minOccurs="0" name="workMode" type="xs:int" />
+        <xs:element minOccurs="0" name="refundEntryMin" type="xs:int" />
+        <xs:element minOccurs="0" name="refundSurcharge" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelRefundResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="SelRefundResult" nillable="true" type="q14:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdRefundTicket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticketId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="unitId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdRefundTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="UpdRefundTicketResult" nillable="true" type="q15:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdAdjustment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticketId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="adjustmentType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="peopleCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdAdjustmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="UpdAdjustmentResult" nillable="true" type="q16:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelAdjustment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="alias" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stationIdint" type="xs:int" />
+        <xs:element minOccurs="0" name="paidArea" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelAdjustmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="SelAdjustmentResult" nillable="true" type="q17:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelAdjustmentTicket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="alias" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stationIdint" type="xs:int" />
+        <xs:element minOccurs="0" name="paidArea" type="xs:int" />
+        <xs:element minOccurs="0" name="adjOvertravelQR" type="xs:int" />
+        <xs:element minOccurs="0" name="adjOverstaySurcharge" type="xs:int" />
+        <xs:element minOccurs="0" name="adjOverstayMaxSurcharge" type="xs:int" />
+        <xs:element minOccurs="0" name="adjOverstayTotalMin" type="xs:int" />
+        <xs:element minOccurs="0" name="adjOverstaySameStation" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelAdjustmentTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="SelAdjustmentTicketResult" nillable="true" type="q18:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelAdjustmentTicketWithMinEntry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="alias" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stationIdint" type="xs:int" />
+        <xs:element minOccurs="0" name="paidArea" type="xs:int" />
+        <xs:element minOccurs="0" name="adjOvertravelQR" type="xs:int" />
+        <xs:element minOccurs="0" name="adjOverstaySurcharge" type="xs:int" />
+        <xs:element minOccurs="0" name="adjOverstayMaxSurcharge" type="xs:int" />
+        <xs:element minOccurs="0" name="adjOverstayTotalMin" type="xs:int" />
+        <xs:element minOccurs="0" name="adjOverstaySameStation" type="xs:int" />
+        <xs:element minOccurs="0" name="adjMinEntryTime" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelAdjustmentTicketWithMinEntryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="SelAdjustmentTicketWithMinEntryResult" nillable="true" type="q19:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelTicketHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="alias" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="mediaType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelTicketHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="SelTicketHistoryResult" nillable="true" type="q20:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdQRVerify">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticketId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tranType" type="xs:int" />
+        <xs:element minOccurs="0" name="qrcDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ticketType" type="xs:int" />
+        <xs:element minOccurs="0" name="stationIn" type="xs:int" />
+        <xs:element minOccurs="0" name="stationOut" type="xs:int" />
+        <xs:element minOccurs="0" name="amount" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdQRVerifyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="UpdQRVerifyResult" nillable="true" type="q21:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdQRVerifyWithPeopleCnt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticketId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tranType" type="xs:int" />
+        <xs:element minOccurs="0" name="qrcDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ticketType" type="xs:int" />
+        <xs:element minOccurs="0" name="stationIn" type="xs:int" />
+        <xs:element minOccurs="0" name="stationOut" type="xs:int" />
+        <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="peopleCnt" type="xs:short" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdQRVerifyWithPeopleCntResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="UpdQRVerifyWithPeopleCntResult" nillable="true" type="q22:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdTicketForFreeExit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticketId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdTicketForFreeExitResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="UpdTicketForFreeExitResult" nillable="true" type="q23:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdTicketForFreeExitWithStation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticketId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdTicketForFreeExitWithStationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="UpdTicketForFreeExitWithStationResult" nillable="true" type="q24:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsAdjustment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticketId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="typeId" type="xs:int" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="amount" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsAdjustmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="InsAdjustmentResult" nillable="true" type="q25:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsTrxHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticketId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="typeId" type="xs:int" />
+        <xs:element minOccurs="0" name="subTypeId" type="xs:int" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="amount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsTrxHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="InsTrxHistoryResult" nillable="true" type="q26:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdRefundTicketWithAmount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticketId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="unitId" type="xs:int" />
+        <xs:element minOccurs="0" name="ticketAmount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="surcharge" type="xs:decimal" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdRefundTicketWithAmountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/OccLib" minOccurs="0" name="UpdRefundTicketWithAmountResult" nillable="true" type="q27:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

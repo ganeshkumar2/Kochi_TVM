@@ -1,0 +1,1869 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:54690/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PayPointLib" />
+  <xs:import schemaLocation="http://localhost:54690/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:element name="SelRiderShipReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="firsDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelRiderShipReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelRiderShipReportResult" nillable="true" type="q1:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CustomerRefNo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="refNo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CustomerRefNoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="CustomerRefNoResult" nillable="true" type="q2:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckDuplication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="cd" nillable="true" type="q3:BankClasses.CheckDuplication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckDuplicationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="CheckDuplicationResult" nillable="true" type="q4:BankClasses.CheckDuplicationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTokenNo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="tNo" nillable="true" type="q5:BankClasses.GetTokenNo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTokenNoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="GetTokenNoResult" nillable="true" type="q6:BankClasses.GetTokenNoResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelTableRecord">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tab" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pk1Name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="statementType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ignoreIdentityCo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="owner" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelTableRecordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelTableRecordResult" nillable="true" type="q7:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelTableRecordSc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tables" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="statementType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelTableRecordScResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelTableRecordScResult" nillable="true" type="q8:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="oldPass" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newPass" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="ChangePasswordResult" nillable="true" type="q9:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlarmHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlarmHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="AlarmHistoryResult" nillable="true" type="q10:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelCardNoByTokenNo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tokenNo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelCardNoByTokenNoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelCardNoByTokenNoResult" nillable="true" type="q11:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelLastTransactions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pan" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="trxDT" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelLastTransactionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelLastTransactionsResult" nillable="true" type="q12:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendSms">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="otp" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="mobileNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="refNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stationName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendSmsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SendSmsResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCustomerFees">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="transactionId" type="xs:long" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCustomerFeesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="UpdateCustomerFeesResult" nillable="true" type="q13:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpdTopup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="transactionId" type="xs:long" />
+        <xs:element minOccurs="0" name="trxDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="merchantCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="rrn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="clessId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pan" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currencyCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tranId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="terminalId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stan" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="batchNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="topupAmount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="topupFee" type="xs:decimal" />
+        <xs:element minOccurs="0" name="globalBalance" type="xs:decimal" />
+        <xs:element minOccurs="0" name="insertDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="editDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="isDeleted" type="xs:short" />
+        <xs:element minOccurs="0" name="insUserId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpdTopupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsUpdTopupResult" nillable="true" type="q14:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpdTopup2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="transactionId" type="xs:long" />
+        <xs:element minOccurs="0" name="trxDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="merchantCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="rrn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="clessId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pan" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currencyCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tranId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="terminalId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stan" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="batchNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="topupAmount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="topupFee" type="xs:decimal" />
+        <xs:element minOccurs="0" name="globalBalance" type="xs:decimal" />
+        <xs:element minOccurs="0" name="insertDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="editDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="isDeleted" type="xs:short" />
+        <xs:element minOccurs="0" name="insUserId" type="xs:int" />
+        <xs:element minOccurs="0" name="topupTypeId" type="xs:int" />
+        <xs:element minOccurs="0" name="topupTripCount" type="xs:int" />
+        <xs:element minOccurs="0" name="passFromStationId" type="xs:int" />
+        <xs:element minOccurs="0" name="passToStationId" type="xs:int" />
+        <xs:element minOccurs="0" name="previousTripCount" type="xs:int" />
+        <xs:element minOccurs="0" name="totalTripCount" type="xs:int" />
+        <xs:element minOccurs="0" name="validityStartDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="validityEndDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="subTypeId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpdTopup2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsUpdTopup2Result" nillable="true" type="q15:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpTicketTransactionDetailsWithShift">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionNo" type="xs:long" />
+        <xs:element minOccurs="0" name="isActive" type="xs:int" />
+        <xs:element minOccurs="0" name="totalAmount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="tranType" type="xs:int" />
+        <xs:element minOccurs="0" name="paymentType" type="xs:int" />
+        <xs:element minOccurs="0" name="cashAmount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="creditCardAmount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="cashPayment" type="xs:decimal" />
+        <xs:element minOccurs="0" name="creditCardPayment" type="xs:decimal" />
+        <xs:element minOccurs="0" name="change" type="xs:decimal" />
+        <xs:element minOccurs="0" name="insUserId" type="xs:int" />
+        <xs:element minOccurs="0" name="insDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="editUserId" type="xs:int" />
+        <xs:element minOccurs="0" name="editDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="isDeleted" type="xs:short" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="OccTransactionId" type="xs:long" />
+        <xs:element minOccurs="0" name="shiftId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpTicketTransactionDetailsWithShiftResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsUpTicketTransactionDetailsWithShiftResult" nillable="true" type="q16:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpdTripTopup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="transactionId" type="xs:long" />
+        <xs:element minOccurs="0" name="mifareId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subType" type="xs:int" />
+        <xs:element minOccurs="0" name="tripCount" type="xs:int" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="trxDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="insUserId" type="xs:int" />
+        <xs:element minOccurs="0" name="insDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="editUserId" type="xs:int" />
+        <xs:element minOccurs="0" name="editDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="isDeleted" type="xs:short" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpdTripTopupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsUpdTripTopupResult" nillable="true" type="q17:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteProcess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="gend" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dbo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AdharNo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteProcessResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="ExecuteProcessResult" nillable="true" type="q18:BankClasses.ResponseDemoAuth" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelUsers">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelUsersResult" nillable="true" type="q19:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEventPass">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEventPassResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="GetEventPassResult" nillable="true" type="q20:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Login">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user_cd" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="channel_cd" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelUnitByUID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="machineUID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelUnitByUIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelUnitByUIDResult" nillable="true" type="q21:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UserAuthForPayPoint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user_UID" type="xs:int" />
+        <xs:element minOccurs="0" name="channel_cd" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UserAuthForPayPointResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="UserAuthForPayPointResult" nillable="true" type="q22:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelQRCodeTicket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelQRCodeTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelQRCodeTicketResult" nillable="true" type="q23:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelRFIDTicket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelRFIDTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelRFIDTicketResult" nillable="true" type="q24:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelStations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelStationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelStationsResult" nillable="true" type="q25:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecSP">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sp" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecSPResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="ExecSPResult" nillable="true" type="q26:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelTicketPrice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fareMediaCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fareMediatype" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fromValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="toValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticketDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelTicketPriceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelTicketPriceResult" nillable="true" type="q27:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="recId" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="channelCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sessionContent" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="statusCode" type="xs:short" />
+        <xs:element minOccurs="0" name="ticket" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ipAdress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="memberContent" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSessionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateSessionResult" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsQRCodeTicket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tickets" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="createMode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="createdStation" type="xs:int" />
+        <xs:element minOccurs="0" name="createdDeviceId" type="xs:int" />
+        <xs:element minOccurs="0" name="transactionId" type="xs:int" />
+        <xs:element minOccurs="0" name="refNo" type="xs:long" />
+        <xs:element minOccurs="0" name="createUserId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsQRCodeTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsQRCodeTicketResult" nillable="true" type="q28:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsTicketTransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionNo" type="xs:long" />
+        <xs:element minOccurs="0" name="statusCd" type="xs:short" />
+        <xs:element minOccurs="0" name="totalAmount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="tranType" type="xs:short" />
+        <xs:element minOccurs="0" name="paymentType" type="xs:short" />
+        <xs:element minOccurs="0" name="cashAmount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="creditCardAmount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="cashPayment" type="xs:decimal" />
+        <xs:element minOccurs="0" name="creditCardPayment" type="xs:decimal" />
+        <xs:element minOccurs="0" name="change" type="xs:decimal" />
+        <xs:element minOccurs="0" name="insUserId" type="xs:int" />
+        <xs:element minOccurs="0" name="unitId" type="xs:int" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsTicketTransactionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsTicketTransactionResult" nillable="true" type="q29:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsRFIDTicket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tickets" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="createMode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="createdStation" type="xs:int" />
+        <xs:element minOccurs="0" name="createdDeviceId" type="xs:int" />
+        <xs:element minOccurs="0" name="transactionId" type="xs:int" />
+        <xs:element minOccurs="0" name="createUserId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsRFIDTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsRFIDTicketResult" nillable="true" type="q30:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="channnelCd" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tranCd" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="actvLog" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorDesc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="actvDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ipAdress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stationNo" type="xs:int" />
+        <xs:element minOccurs="0" name="macAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SetLogResult" nillable="true" type="q31:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShiftOpenClose">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="OpenOrClose" type="xs:int" />
+        <xs:element minOccurs="0" name="unitNo" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShiftOpenCloseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="ShiftOpenCloseResult" nillable="true" type="q32:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsShiftPayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="paymentUserId" type="xs:int" />
+        <xs:element minOccurs="0" name="unitNo" type="xs:int" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="type" type="xs:short" />
+        <xs:element minOccurs="0" name="cashAmount" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsShiftPaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsShiftPaymentResult" nillable="true" type="q33:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelShiftPayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelShiftPaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelShiftPaymentResult" nillable="true" type="q34:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShiftPaymentReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShiftPaymentReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="ShiftPaymentReportResult" nillable="true" type="q35:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelCashPayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="unitNo" type="xs:int" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelCashPaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelCashPaymentResult" nillable="true" type="q36:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShiftControl">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="unitNo" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShiftControlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="ShiftControlResult" nillable="true" type="q37:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LastShiftUserId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="unitNo" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LastShiftUserIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="LastShiftUserIdResult" nillable="true" type="q38:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelLastTransactionSalePoint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelLastTransactionSalePointResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelLastTransactionSalePointResult" nillable="true" type="q39:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelLastRFIDTransactionSalePoint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelLastRFIDTransactionSalePointResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelLastRFIDTransactionSalePointResult" nillable="true" type="q40:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdPrintTicket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="transactionId" type="xs:long" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="tranType" type="xs:int" />
+        <xs:element minOccurs="0" name="printTicketList" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdPrintTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="UpdPrintTicketResult" nillable="true" type="q41:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRFIDTicket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticketId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRFIDTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="GetRFIDTicketResult" nillable="true" type="q42:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelPenaltyTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelPenaltyTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelPenaltyTypesResult" nillable="true" type="q43:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculatePenAmount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="penaltyDesc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fareMedia" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="ticketId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculatePenAmountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="CalculatePenAmountResult" nillable="true" type="q44:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CardUsageReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="startDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="cardId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fareMediaCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CardUsageReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="CardUsageReportResult" nillable="true" type="q45:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsLogin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="appVersion" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsLoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsLoginResult" nillable="true" type="q46:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShifttOpenClose">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="salepointId" type="xs:int" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="openClose" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShifttOpenCloseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="ShifttOpenCloseResult" nillable="true" type="q47:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelShiftReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelShiftReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelShiftReportResult" nillable="true" type="q48:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelShiftReportDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="recId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelShiftReportDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelShiftReportDetailResult" nillable="true" type="q49:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelTicketHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="alias" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="mediaType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelTicketHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelTicketHistoryResult" nillable="true" type="q50:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelReplacementReasons">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="langCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelReplacementReasonsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelReplacementReasonsResult" nillable="true" type="q51:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelReplacementFees">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mediaType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="reasonId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelReplacementFeesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelReplacementFeesResult" nillable="true" type="q52:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsReplacement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="transactionId" type="xs:long" />
+        <xs:element minOccurs="0" name="mediaType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="oldTicketId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newTicketId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="reasonId" type="xs:int" />
+        <xs:element minOccurs="0" name="replacementFee" type="xs:decimal" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsReplacementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsReplacementResult" nillable="true" type="q53:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelLastTransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelLastTransactionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelLastTransactionResult" nillable="true" type="q54:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdCancelTicket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="recIdList" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="transactionId" type="xs:long" />
+        <xs:element minOccurs="0" name="tranType" type="xs:int" />
+        <xs:element minOccurs="0" name="cancelAmount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="paymentType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdCancelTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="UpdCancelTicketResult" nillable="true" type="q55:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelSynchronization">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="macAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelSynchronizationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelSynchronizationResult" nillable="true" type="q56:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdSynchronization">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="taskId" type="xs:int" />
+        <xs:element minOccurs="0" name="macAdres" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdSynchronizationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="UpdSynchronizationResult" nillable="true" type="q57:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelRefundTicket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="alias" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="createStationId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelRefundTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelRefundTicketResult" nillable="true" type="q58:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdRefundTicket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticketId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdRefundTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="UpdRefundTicketResult" nillable="true" type="q59:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelAdjustment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mediaType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="alias" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="paidAre" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelAdjustmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelAdjustmentResult" nillable="true" type="q60:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsAdjustment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mediaType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticketId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="surcharge" type="xs:decimal" />
+        <xs:element minOccurs="0" name="adjustmentType" type="xs:int" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="unitId" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="sessionNo" type="xs:int" />
+        <xs:element minOccurs="0" name="paymentType" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsAdjustmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsAdjustmentResult" nillable="true" type="q61:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProducts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="sessInfo" nillable="true" type="q62:BankClasses.SessInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="GetProductsResult" nillable="true" type="q63:BankClasses.GetProductResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="countryCode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="sessInfo" nillable="true" type="q64:BankClasses.SessInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="GetStatesResult" nillable="true" type="q65:BankClasses.GetStatesResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCities">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="countryCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stateCode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="sessInfo" nillable="true" type="q66:BankClasses.SessInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCitiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="GetCitiesResult" nillable="true" type="q67:BankClasses.GetCitiesResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="c" nillable="true" type="q68:BankClasses.Customer" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="refNo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="CreateCustomerResult" nillable="true" type="q69:BankClasses.CreateCustomerResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateCustomerWithTransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="c" nillable="true" type="q70:BankClasses.Customer" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="refNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="transactionId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateCustomerWithTransactionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="CreateCustomerWithTransactionResult" nillable="true" type="q71:BankClasses.CreateCustomerResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreteCard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="c" nillable="true" type="q72:BankClasses.Card" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreteCardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="CreteCardResult" nillable="true" type="q73:BankClasses.CreateCardResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WsLogin">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WsLoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="WsLoginResult" nillable="true" type="q74:BankClasses.WsLoginResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="c" nillable="true" type="q75:BankClasses.GetCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="GetCustomerResult" nillable="true" type="q76:BankClasses.GetCustomerResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustCardInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="c" nillable="true" type="q77:BankClasses.CustCardInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustCardInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="GetCustCardInfoResult" nillable="true" type="q78:BankClasses.GetCustCardInfoResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCardStatu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="c" nillable="true" type="q79:BankClasses.UpdateCardStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCardStatuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="UpdateCardStatuResult" nillable="true" type="q80:BankClasses.UpdateCardStatusResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustinfoTokenNo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TokenNo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustinfoTokenNoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="GetCustinfoTokenNoResult" nillable="true" type="q81:BankClasses.GetCustomerInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustDetailStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CustUniquEnolNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CustEnrollType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustDetailStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="GetCustDetailStatusResult" nillable="true" type="q82:BankClasses.GetCustDetailStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerRenewal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="c" nillable="true" type="q83:BankClasses.CardRenewal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerRenewalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="GetCustomerRenewalResult" nillable="true" type="q84:BankClasses.GetCardRenewalResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpTicketTransactionDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionNo" type="xs:long" />
+        <xs:element minOccurs="0" name="isActive" type="xs:int" />
+        <xs:element minOccurs="0" name="totalAmount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="tranType" type="xs:int" />
+        <xs:element minOccurs="0" name="paymentType" type="xs:int" />
+        <xs:element minOccurs="0" name="cashAmount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="creditCardAmount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="cashPayment" type="xs:decimal" />
+        <xs:element minOccurs="0" name="creditCardPayment" type="xs:decimal" />
+        <xs:element minOccurs="0" name="change" type="xs:decimal" />
+        <xs:element minOccurs="0" name="insUserId" type="xs:int" />
+        <xs:element minOccurs="0" name="insDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="editUserId" type="xs:int" />
+        <xs:element minOccurs="0" name="editDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="isDeleted" type="xs:short" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="OccTransactionId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpTicketTransactionDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsUpTicketTransactionDetailsResult" nillable="true" type="q85:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpdQrCodeTicket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="QRCodeId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="QRCodeType" type="xs:int" />
+        <xs:element xmlns:q86="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="QRCodeCreateMode" type="q86:char" />
+        <xs:element minOccurs="0" name="QRCreateStation" type="xs:int" />
+        <xs:element minOccurs="0" name="QRCreateSalePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="transactionId" type="xs:long" />
+        <xs:element minOccurs="0" name="QRCodePrice" type="xs:decimal" />
+        <xs:element minOccurs="0" name="fromSectionId" type="xs:int" />
+        <xs:element minOccurs="0" name="toSectionId" type="xs:int" />
+        <xs:element minOccurs="0" name="ticketStatusId" type="xs:int" />
+        <xs:element minOccurs="0" name="insertDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="editDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="activeFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="activeTo" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="peopleCount" type="xs:int" />
+        <xs:element minOccurs="0" name="alias" type="xs:int" />
+        <xs:element minOccurs="0" name="isDeleted" type="xs:short" />
+        <xs:element minOccurs="0" name="printSalePointId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="printDT" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="QRCodeUId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="QRCreateUserId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpdQrCodeTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsUpdQrCodeTicketResult" nillable="true" type="q87:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpdRFIDTicket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RFIDTicketId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RFIDTicketType" type="xs:int" />
+        <xs:element xmlns:q88="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="RFIDCreateMode" type="q88:char" />
+        <xs:element minOccurs="0" name="RFIDCreateStation" type="xs:int" />
+        <xs:element minOccurs="0" name="RFIDCreateSalePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="transactionId" type="xs:long" />
+        <xs:element minOccurs="0" name="RFIDTicketPrice" type="xs:decimal" />
+        <xs:element minOccurs="0" name="fromSectionId" type="xs:int" />
+        <xs:element minOccurs="0" name="toSectionId" type="xs:int" />
+        <xs:element minOccurs="0" name="ticketStatusId" type="xs:int" />
+        <xs:element minOccurs="0" name="weekendPassType" type="xs:int" />
+        <xs:element minOccurs="0" name="insertDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="editDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="activeFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="activeTo" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="peopleCount" type="xs:int" />
+        <xs:element minOccurs="0" name="alias" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isDeleted" type="xs:short" />
+        <xs:element minOccurs="0" name="printSalePointId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="printDT" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="RFIDCreateUserId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpdRFIDTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsUpdRFIDTicketResult" nillable="true" type="q89:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsupdShiftManagement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="startDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDT" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="isActive" type="xs:int" />
+        <xs:element minOccurs="0" name="isDeleted" type="xs:short" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="recId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsupdShiftManagementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsupdShiftManagementResult" nillable="true" type="q90:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelPenaltyReasons">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="langCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelPenaltyReasonsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelPenaltyReasonsResult" nillable="true" type="q91:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelPenaltyFees">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mediaType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="reasonId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelPenaltyFeesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelPenaltyFeesResult" nillable="true" type="q92:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsPenaltyTicket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mediaType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="reasonId" type="xs:int" />
+        <xs:element minOccurs="0" name="transactionId" type="xs:long" />
+        <xs:element minOccurs="0" name="penaltyFee" type="xs:decimal" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsPenaltyTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsPenaltyTicketResult" nillable="true" type="q93:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsFreeExitTicket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mediaType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="transactionId" type="xs:long" />
+        <xs:element minOccurs="0" name="oldTickeId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newTicketId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsFreeExitTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsFreeExitTicketResult" nillable="true" type="q94:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TomLoginControl">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user_cd" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="channel_cd" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TomLoginControlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="TomLoginControlResult" nillable="true" type="q95:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdRFIDReplacement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="oldTicketId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdRFIDReplacementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="UpdRFIDReplacementResult" nillable="true" type="q96:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Auth">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="channelCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuthResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AuthResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelToSync">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tableName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="channelCd" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelToSyncResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelToSyncResult" nillable="true" type="q97:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdTicketForFreeExit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticketId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdTicketForFreeExitResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="UpdTicketForFreeExitResult" nillable="true" type="q98:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelCommandStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelCommandStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelCommandStatusResult" nillable="true" type="q99:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertCommandStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="command" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertCommandStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsertCommandStatusResult" nillable="true" type="q100:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertUserCommandStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="command" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertUserCommandStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsertUserCommandStatusResult" nillable="true" type="q101:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpdAdjustment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="transactionId" type="xs:long" />
+        <xs:element minOccurs="0" name="mediaType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticketId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="oldStationId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="oldTicketDT" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="adjustmentType" type="xs:int" />
+        <xs:element minOccurs="0" name="surcharge" type="xs:decimal" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="unitId" type="xs:int" />
+        <xs:element minOccurs="0" name="insertUserId" type="xs:int" />
+        <xs:element minOccurs="0" name="insertDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="editUserId" type="xs:int" />
+        <xs:element minOccurs="0" name="editDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="isDeleted" type="xs:short" />
+        <xs:element minOccurs="0" name="paidExitTicketId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpdAdjustmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsUpdAdjustmentResult" nillable="true" type="q102:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsCancelTickets">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ticketId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tranType" type="xs:short" />
+        <xs:element minOccurs="0" name="cancelAmount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="paymentType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="insertUserId" type="xs:int" />
+        <xs:element minOccurs="0" name="insertDT" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsCancelTicketsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q103="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsCancelTicketsResult" nillable="true" type="q103:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpdFreeExitTicket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="transactionId" type="xs:long" />
+        <xs:element minOccurs="0" name="mediaType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="oldTicketId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newTicketId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="insertUserId" type="xs:int" />
+        <xs:element minOccurs="0" name="insertDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="editUserId" type="xs:int" />
+        <xs:element minOccurs="0" name="editDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="isDeleted" type="xs:short" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpdFreeExitTicketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsUpdFreeExitTicketResult" nillable="true" type="q104:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpdPenaltyTickets">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="transactionId" type="xs:long" />
+        <xs:element minOccurs="0" name="mediaType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="reasonId" type="xs:int" />
+        <xs:element minOccurs="0" name="penaltyFee" type="xs:decimal" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="insertUserId" type="xs:int" />
+        <xs:element minOccurs="0" name="insertDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="editUserId" type="xs:int" />
+        <xs:element minOccurs="0" name="editDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="isDeleted" type="xs:short" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpdPenaltyTicketsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsUpdPenaltyTicketsResult" nillable="true" type="q105:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpdRefund">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="transactionId" type="xs:long" />
+        <xs:element minOccurs="0" name="mediaType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticketId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ticketAmount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="surcharge" type="xs:decimal" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="insertUserId" type="xs:int" />
+        <xs:element minOccurs="0" name="insertDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="editUserId" type="xs:int" />
+        <xs:element minOccurs="0" name="editDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="isDeleted" type="xs:short" />
+        <xs:element minOccurs="0" name="lastPassCount" type="xs:int" />
+        <xs:element minOccurs="0" name="passTypeId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpdRefundResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsUpdRefundResult" nillable="true" type="q106:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpdReplacement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="transactionId" type="xs:long" />
+        <xs:element minOccurs="0" name="mediaType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="oldTicketId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newTicketId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="reasonId" type="xs:int" />
+        <xs:element minOccurs="0" name="replacementFee" type="xs:decimal" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+        <xs:element minOccurs="0" name="insertUserId" type="xs:int" />
+        <xs:element minOccurs="0" name="insertDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="editUserId" type="xs:int" />
+        <xs:element minOccurs="0" name="editDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="isDeleted" type="xs:short" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpdReplacementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsUpdReplacementResult" nillable="true" type="q107:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpdShiftSummary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="shiftId" type="xs:long" />
+        <xs:element minOccurs="0" name="typeId" type="xs:int" />
+        <xs:element minOccurs="0" name="groupId" type="xs:int" />
+        <xs:element minOccurs="0" name="explanation" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="totalCount" type="xs:int" />
+        <xs:element minOccurs="0" name="totalAmount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="insDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="salePointId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsUpdShiftSummaryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q108="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="InsUpdShiftSummaryResult" nillable="true" type="q108:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectShiftManagement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="firstDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="lastDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectShiftManagementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q109="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelectShiftManagementResult" nillable="true" type="q109:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelShiftSummary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="shiftId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelShiftSummaryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q110="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="SelShiftSummaryResult" nillable="true" type="q110:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StationSaleReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stationId" type="xs:int" />
+        <xs:element minOccurs="0" name="firstDT" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="lastDT" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StationSaleReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q111="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="StationSaleReportResult" nillable="true" type="q111:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeUserPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userUid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeUserPasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q112="http://schemas.datacontract.org/2004/07/PayPointLib" minOccurs="0" name="ChangeUserPasswordResult" nillable="true" type="q112:ReturnPackage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

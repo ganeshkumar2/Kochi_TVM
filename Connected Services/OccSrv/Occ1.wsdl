@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Occ" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:53129/Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:53129/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:53129/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/OccLib" />
+      <xsd:import schemaLocation="http://localhost:53129/Service.svc?xsd=xsd3" />
+      <xsd:import schemaLocation="http://localhost:53129/Service.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IOcc_ExecSP_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecSP" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_ExecSP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecSPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_InsQRCodeTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsQRCodeTicket" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_InsQRCodeTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsQRCodeTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_InsTicketTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsTicketTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_InsTicketTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsTicketTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_InsQrCodeTicketMobile_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsQrCodeTicketMobile" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_InsQrCodeTicketMobile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsQrCodeTicketMobileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_SelTicketPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelTicketPrice" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_SelTicketPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelTicketPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_SelStations_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelStations" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_SelStations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelStationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_SelQRCodeTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelQRCodeTicket" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_SelQRCodeTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelQRCodeTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_SelLastTransactionSalePoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelLastTransactionSalePoint" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_SelLastTransactionSalePoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelLastTransactionSalePointResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_CalculatePenAmount_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalculatePenAmount" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_CalculatePenAmount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalculatePenAmountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_UpdQRReplacement_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdQRReplacement" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_UpdQRReplacement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdQRReplacementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_UpdCancelTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdCancelTicket" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_UpdCancelTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdCancelTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_SelRefundTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelRefundTicket" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_SelRefundTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelRefundTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_SelRefund_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelRefund" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_SelRefund_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelRefundResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_UpdRefundTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdRefundTicket" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_UpdRefundTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdRefundTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_UpdAdjustment_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdAdjustment" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_UpdAdjustment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdAdjustmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_SelAdjustment_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelAdjustment" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_SelAdjustment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelAdjustmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_SelAdjustmentTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelAdjustmentTicket" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_SelAdjustmentTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelAdjustmentTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_SelAdjustmentTicketWithMinEntry_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelAdjustmentTicketWithMinEntry" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_SelAdjustmentTicketWithMinEntry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelAdjustmentTicketWithMinEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_SelTicketHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelTicketHistory" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_SelTicketHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelTicketHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_UpdQRVerify_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdQRVerify" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_UpdQRVerify_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdQRVerifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_UpdQRVerifyWithPeopleCnt_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdQRVerifyWithPeopleCnt" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_UpdQRVerifyWithPeopleCnt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdQRVerifyWithPeopleCntResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_UpdTicketForFreeExit_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdTicketForFreeExit" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_UpdTicketForFreeExit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdTicketForFreeExitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_UpdTicketForFreeExitWithStation_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdTicketForFreeExitWithStation" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_UpdTicketForFreeExitWithStation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdTicketForFreeExitWithStationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_InsAdjustment_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsAdjustment" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_InsAdjustment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsAdjustmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_InsTrxHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsTrxHistory" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_InsTrxHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsTrxHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_UpdRefundTicketWithAmount_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdRefundTicketWithAmount" />
+  </wsdl:message>
+  <wsdl:message name="IOcc_UpdRefundTicketWithAmount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdRefundTicketWithAmountResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IOcc">
+    <wsdl:operation name="ExecSP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/ExecSP" message="tns:IOcc_ExecSP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/ExecSPResponse" message="tns:IOcc_ExecSP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsQRCodeTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/InsQRCodeTicket" message="tns:IOcc_InsQRCodeTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/InsQRCodeTicketResponse" message="tns:IOcc_InsQRCodeTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsTicketTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/InsTicketTransaction" message="tns:IOcc_InsTicketTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/InsTicketTransactionResponse" message="tns:IOcc_InsTicketTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsQrCodeTicketMobile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/InsQrCodeTicketMobile" message="tns:IOcc_InsQrCodeTicketMobile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/InsQrCodeTicketMobileResponse" message="tns:IOcc_InsQrCodeTicketMobile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelTicketPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/SelTicketPrice" message="tns:IOcc_SelTicketPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/SelTicketPriceResponse" message="tns:IOcc_SelTicketPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelStations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/SelStations" message="tns:IOcc_SelStations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/SelStationsResponse" message="tns:IOcc_SelStations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelQRCodeTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/SelQRCodeTicket" message="tns:IOcc_SelQRCodeTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/SelQRCodeTicketResponse" message="tns:IOcc_SelQRCodeTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelLastTransactionSalePoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/SelLastTransactionSalePoint" message="tns:IOcc_SelLastTransactionSalePoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/SelLastTransactionSalePointResponse" message="tns:IOcc_SelLastTransactionSalePoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculatePenAmount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/CalculatePenAmount" message="tns:IOcc_CalculatePenAmount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/CalculatePenAmountResponse" message="tns:IOcc_CalculatePenAmount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdQRReplacement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/UpdQRReplacement" message="tns:IOcc_UpdQRReplacement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/UpdQRReplacementResponse" message="tns:IOcc_UpdQRReplacement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdCancelTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/UpdCancelTicket" message="tns:IOcc_UpdCancelTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/UpdCancelTicketResponse" message="tns:IOcc_UpdCancelTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelRefundTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/SelRefundTicket" message="tns:IOcc_SelRefundTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/SelRefundTicketResponse" message="tns:IOcc_SelRefundTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelRefund">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/SelRefund" message="tns:IOcc_SelRefund_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/SelRefundResponse" message="tns:IOcc_SelRefund_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdRefundTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/UpdRefundTicket" message="tns:IOcc_UpdRefundTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/UpdRefundTicketResponse" message="tns:IOcc_UpdRefundTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdAdjustment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/UpdAdjustment" message="tns:IOcc_UpdAdjustment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/UpdAdjustmentResponse" message="tns:IOcc_UpdAdjustment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelAdjustment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/SelAdjustment" message="tns:IOcc_SelAdjustment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/SelAdjustmentResponse" message="tns:IOcc_SelAdjustment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelAdjustmentTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/SelAdjustmentTicket" message="tns:IOcc_SelAdjustmentTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/SelAdjustmentTicketResponse" message="tns:IOcc_SelAdjustmentTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelAdjustmentTicketWithMinEntry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/SelAdjustmentTicketWithMinEntry" message="tns:IOcc_SelAdjustmentTicketWithMinEntry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/SelAdjustmentTicketWithMinEntryResponse" message="tns:IOcc_SelAdjustmentTicketWithMinEntry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelTicketHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/SelTicketHistory" message="tns:IOcc_SelTicketHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/SelTicketHistoryResponse" message="tns:IOcc_SelTicketHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdQRVerify">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/UpdQRVerify" message="tns:IOcc_UpdQRVerify_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/UpdQRVerifyResponse" message="tns:IOcc_UpdQRVerify_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdQRVerifyWithPeopleCnt">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/UpdQRVerifyWithPeopleCnt" message="tns:IOcc_UpdQRVerifyWithPeopleCnt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/UpdQRVerifyWithPeopleCntResponse" message="tns:IOcc_UpdQRVerifyWithPeopleCnt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdTicketForFreeExit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/UpdTicketForFreeExit" message="tns:IOcc_UpdTicketForFreeExit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/UpdTicketForFreeExitResponse" message="tns:IOcc_UpdTicketForFreeExit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdTicketForFreeExitWithStation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/UpdTicketForFreeExitWithStation" message="tns:IOcc_UpdTicketForFreeExitWithStation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/UpdTicketForFreeExitWithStationResponse" message="tns:IOcc_UpdTicketForFreeExitWithStation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsAdjustment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/InsAdjustment" message="tns:IOcc_InsAdjustment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/InsAdjustmentResponse" message="tns:IOcc_InsAdjustment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsTrxHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/InsTrxHistory" message="tns:IOcc_InsTrxHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/InsTrxHistoryResponse" message="tns:IOcc_InsTrxHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdRefundTicketWithAmount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOcc/UpdRefundTicketWithAmount" message="tns:IOcc_UpdRefundTicketWithAmount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOcc/UpdRefundTicketWithAmountResponse" message="tns:IOcc_UpdRefundTicketWithAmount_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IOcc" type="tns:IOcc">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExecSP">
+      <soap:operation soapAction="http://tempuri.org/IOcc/ExecSP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsQRCodeTicket">
+      <soap:operation soapAction="http://tempuri.org/IOcc/InsQRCodeTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsTicketTransaction">
+      <soap:operation soapAction="http://tempuri.org/IOcc/InsTicketTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsQrCodeTicketMobile">
+      <soap:operation soapAction="http://tempuri.org/IOcc/InsQrCodeTicketMobile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelTicketPrice">
+      <soap:operation soapAction="http://tempuri.org/IOcc/SelTicketPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelStations">
+      <soap:operation soapAction="http://tempuri.org/IOcc/SelStations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelQRCodeTicket">
+      <soap:operation soapAction="http://tempuri.org/IOcc/SelQRCodeTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelLastTransactionSalePoint">
+      <soap:operation soapAction="http://tempuri.org/IOcc/SelLastTransactionSalePoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculatePenAmount">
+      <soap:operation soapAction="http://tempuri.org/IOcc/CalculatePenAmount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdQRReplacement">
+      <soap:operation soapAction="http://tempuri.org/IOcc/UpdQRReplacement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdCancelTicket">
+      <soap:operation soapAction="http://tempuri.org/IOcc/UpdCancelTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelRefundTicket">
+      <soap:operation soapAction="http://tempuri.org/IOcc/SelRefundTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelRefund">
+      <soap:operation soapAction="http://tempuri.org/IOcc/SelRefund" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdRefundTicket">
+      <soap:operation soapAction="http://tempuri.org/IOcc/UpdRefundTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdAdjustment">
+      <soap:operation soapAction="http://tempuri.org/IOcc/UpdAdjustment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelAdjustment">
+      <soap:operation soapAction="http://tempuri.org/IOcc/SelAdjustment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelAdjustmentTicket">
+      <soap:operation soapAction="http://tempuri.org/IOcc/SelAdjustmentTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelAdjustmentTicketWithMinEntry">
+      <soap:operation soapAction="http://tempuri.org/IOcc/SelAdjustmentTicketWithMinEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelTicketHistory">
+      <soap:operation soapAction="http://tempuri.org/IOcc/SelTicketHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdQRVerify">
+      <soap:operation soapAction="http://tempuri.org/IOcc/UpdQRVerify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdQRVerifyWithPeopleCnt">
+      <soap:operation soapAction="http://tempuri.org/IOcc/UpdQRVerifyWithPeopleCnt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTicketForFreeExit">
+      <soap:operation soapAction="http://tempuri.org/IOcc/UpdTicketForFreeExit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTicketForFreeExitWithStation">
+      <soap:operation soapAction="http://tempuri.org/IOcc/UpdTicketForFreeExitWithStation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsAdjustment">
+      <soap:operation soapAction="http://tempuri.org/IOcc/InsAdjustment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsTrxHistory">
+      <soap:operation soapAction="http://tempuri.org/IOcc/InsTrxHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdRefundTicketWithAmount">
+      <soap:operation soapAction="http://tempuri.org/IOcc/UpdRefundTicketWithAmount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Occ">
+    <wsdl:port name="BasicHttpBinding_IOcc" binding="tns:BasicHttpBinding_IOcc">
+      <soap:address location="http://localhost:53129/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

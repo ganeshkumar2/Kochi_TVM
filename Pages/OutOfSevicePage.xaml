@@ -1,0 +1,25 @@
+﻿<Page x:Class="Kochi_TVM.Pages.OutOfSevicePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Kochi_TVM.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="768"
+      d:DesignWidth="1024"
+      Loaded="Page_Loaded"
+      Unloaded="Page_Unloaded"
+      Title="OutOfSevicePage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" Name="imgLoading" Source="/Kochi_TVM;component/Images/out_of_service.jpg" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label x:Name="outOfServiceLbl"  Content="" Height="80" FontSize="36"/>
+            <Label x:Name="outOfServiceGreenLbl" Visibility="Collapsed" Content="OK" Height="80" FontSize="36" Foreground="Green" />
+            <Label x:Name="outOfServiceRedLbl"  Visibility="Collapsed" Content="Not OK" Height="80" FontSize="36" Foreground="Red" />
+        </StackPanel>        
+    </Grid>
+</Page>

@@ -1,0 +1,59 @@
+﻿<Page x:Class="Kochi_TVM.Pages.StationClosedPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Kochi_TVM.Pages"
+      mc:Ignorable="d" 
+       d:DesignHeight="768"
+      d:DesignWidth="1024"
+      Background="red"
+      Loaded="Page_Loaded" 
+      Unloaded="Page_Unloaded"
+      Title="StationClosedPage">
+    <Grid x:Name="mainGrid" Background="Transparent">
+        <Grid.RowDefinitions>
+            <!--Top space -->
+            <RowDefinition Height="*"/>
+            <!--Header -->
+            <RowDefinition Height="3*"/>
+            <!--Top space -->
+            <RowDefinition Height="*"/>
+            <!--Operation Area -->
+            <RowDefinition Height="24*"/>
+            <!--Top space -->
+            <RowDefinition Height="*"/>
+            <!--Navigate -->
+            <RowDefinition Height="3*"/>
+            <!--Bottom space -->
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <!--Left space -->
+            <ColumnDefinition Width="*"/>
+            <!--Operation -->
+            <ColumnDefinition Width="19*"/>
+            <!--Right space -->
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Image Name="imgStationClosedMode" Grid.Row="3" Grid.Column="1"   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/Kochi_TVM;component/images/station_closed.jpg" />
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="OUT OF SERVICE" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontFamily="Titillium" FontSize="45" FontWeight="Bold" Foreground="{StaticResource WhiteFontColor}" />
+
+        <!--<Grid Name="operationGrid" Grid.Column="1" Grid.Row="5" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="*" />                
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>                
+                <ColumnDefinition Width="*"/>             
+            </Grid.ColumnDefinitions>
+
+
+           
+
+
+        </Grid>-->
+
+
+    </Grid>
+</Page>

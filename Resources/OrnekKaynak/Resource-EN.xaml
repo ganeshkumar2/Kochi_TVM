@@ -1,0 +1,91 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"        
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="uyariLutfen">Please Wait...</system:String>
+    <system:String x:Key="uyariKartOkut">Tap your card to operate</system:String>
+    <system:String x:Key="uyariDevreDisi">Temporarily out of service.</system:String>
+    <system:String x:Key="uyariCalismaSaati">Work Time:</system:String>
+    <system:String x:Key="sDurum">Status</system:String>
+    <system:String x:Key="uyariTahsilat">Charge Card Payment</system:String>
+    <system:String x:Key="sBiletSatTah">Ticket Sell Payment</system:String>
+    <system:String x:Key="uyariKartBilgisi">Reading card information. Please wait...</system:String>
+    <system:String x:Key="uyariIslemBaslatilamiyor">Operation can not start, please try again later!</system:String>
+    <system:String x:Key="uyariYukleme">Charge card in process, please wait...</system:String>
+    <system:String x:Key="uyariKartOkut2">Please tap your card again.</system:String>
+    <system:String x:Key="uyariDolumBasarili">Charge card is successful. {0:C} charging completed. New balance: {1:C}.</system:String>
+    <system:String x:Key="uyariBasarisizFis">Charge card failed! Please take the ‘Failed Operation’ slip.</system:String>
+
+    <system:String x:Key="uyariTahsilat2">Money acceptance starting...</system:String>
+    <system:String x:Key="uyariParaYerlestir">Money acceptance started, put your money in banknote acceptance unit.</system:String>
+    <system:String x:Key="uyariTahsilatCalismiyor">Banknote acceptance unit is out of service right now. Please try again later.</system:String>
+    <system:String x:Key="uyariBasarisizFis2">An error occurred during the money acceptance operation! Please take the ‘failed operation’ slip and call the phone number on the slip. Aborting process</system:String>
+    <system:String x:Key="uyariIslemIptal">Aborting process...</system:String>
+    <system:String x:Key="uyariParaYukleOnay">Do you approve to add {0:C} on your balance? </system:String>
+    <system:String x:Key="uyariIslemDogrula">Please confirm your operation.</system:String>
+    <system:String x:Key="uyariTekrarDene">Operation can not start, Please try again.</system:String>
+    <system:String x:Key="uyariIade">Money will be returned.</system:String>
+    <system:String x:Key="uyariBakiyeFazla">Card balance cannot be higher than {0:C}!</system:String>
+    <system:String x:Key="uyariGecersizKart">Invalid card.</system:String>
+    <system:String x:Key="uyariIslemIptal2">Aborting operation, money will be returned!</system:String>
+    <system:String x:Key="uyariBakiye">Card balance: {0:C}</system:String>
+    <system:String x:Key="uyariTahsilatTamam">Transfer has been completed, operation in progress...</system:String>
+    <system:String x:Key="uyariIslemeDevam">Operation in progress. Please wait...</system:String>
+    <system:String x:Key="uyariKartOkut3">Please tap your card again.</system:String>
+
+    <system:String x:Key="uyariIslemSonucBilgi">Operation Result Information</system:String>
+    <system:String x:Key="uyariKioskDevreDisi2">Working hours of TVM is between '{0} and {1}' Operation cannot be started.</system:String>
+
+
+    <system:String x:Key="printBasarisizFis">FAIL OPERATION SLIP</system:String>
+    <system:String x:Key="printTarih">Date</system:String>
+    <system:String x:Key="printKayitNo">Record No</system:String>
+    <system:String x:Key="printKartNo">Card No</system:String>
+    <system:String x:Key="printKartTip">Card Type</system:String>
+    <system:String x:Key="printTahsilat">Transfer</system:String>
+    <system:String x:Key="printParaUstu">Remainder</system:String>
+    <system:String x:Key="printNetTahsilat">Net Transfer</system:String>
+    <system:String x:Key="printTel">Phone Number</system:String>
+    <system:String x:Key="printUyari">Please call the phone number on the slip.!</system:String>
+
+
+    <system:String x:Key="printDolumFis">CARD CHARGE SLIP</system:String>
+    <system:String x:Key="printDolumOncesi">Before Charge</system:String>
+    <system:String x:Key="printYuklenen">Transferred</system:String>
+    <system:String x:Key="printDolumSonrasi">After Transfer</system:String>
+    <system:String x:Key="printUyari2">Keep this until next charge!</system:String>
+
+    <system:String x:Key="BakiyeGorlLastUsageDT">Last Used Date :</system:String>
+    <system:String x:Key="BakiyeGorlHeader">Card Balance Information</system:String>
+    <system:String x:Key="BakiyeGorlRemainingMoney">Balance</system:String>
+    
+    <system:String x:Key="Devam">Continue</system:String>
+    <system:String x:Key="Tamam">Done</system:String>
+
+    <system:String x:Key="BiletInfolHeader">Buy Tickets</system:String>
+    <system:String x:Key="TicketPrice">Ticket Price: {0:C}</system:String>
+
+    <system:String x:Key="pageInfolHeader">Operation Successful</system:String>
+
+    <system:String x:Key="pageParaTahsilatbtnCancel">Cancel</system:String>
+    <system:String x:Key="pageParaTahsilatbtnDevam">Done</system:String>
+    <system:String x:Key="pageParaTahsilatbtnRed">ESC</system:String>
+    <system:String x:Key="pageParaTahsilatbtnOnay">OK</system:String>
+
+    <system:String x:Key="pageStatuslHeader">Operation Status Information</system:String>
+
+    <system:String x:Key="pageHomelDate">{0:dd} {1:MMMM} {2:dddd}</system:String>
+    
+    <system:String x:Key="dlgOnayText">Do you want slip?</system:String>
+    <system:String x:Key="dlgOnayEvet">Yes</system:String>
+    <system:String x:Key="dlgOnayHayir">No</system:String>
+
+    <system:String x:Key="uyariParaYerlestirCoin">Money acceptance started, put your money in acceptance unit.</system:String>
+    <system:String x:Key="Toplam">Total: {0:C}</system:String>
+    <system:String x:Key="sEksikToplam">Missing: {0:C}, Total: {1:C}</system:String>
+    <system:String x:Key="sFazlaToplam">Plus: {0:C}, Total: {1:C}</system:String>
+    <system:String x:Key="uyariFisVerilemiyor">TVM can give no slip!</system:String>
+    <system:String x:Key="payoutCompleted">Pay out completed, take your money...</system:String>
+    <system:String x:Key="paymentCompleting">Payment completing, plase wait...</system:String>
+    <system:String x:Key="payingout">Paying out, plase wait...</system:String>
+</ResourceDictionary>

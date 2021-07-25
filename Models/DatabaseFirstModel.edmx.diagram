@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="afcfe6371ba447cabf8295a9c9655a09" Name="Diagram1" ZoomLevel="52">
+        <EntityTypeShape EntityType="TVMModel.DeviceType" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.StockType" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.TransactionType" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.UpdateType" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.MoneyDetails1" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.MoneyStatu" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.QRCodeTicket" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.StockDetail" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.StockStatu" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.TicketTransactionDetail" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.Transactions1" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.Account" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.Card" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.CardType" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.Command" Width="1.5" PointX="10.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.ErrorCode" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.InfoLog" Width="1.5" PointX="2.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.Language" Width="1.5" PointX="4.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.Limit" Width="1.5" PointX="6.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.MoneyDetail" Width="1.5" PointX="8.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.Parameter" Width="1.5" PointX="10.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.ResourceText" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.ResourceType" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.Station" Width="1.5" PointX="12.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.TicketDetail" Width="1.5" PointX="12.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.Transaction" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.TransactionType1" Width="1.5" PointX="14.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.TVMInfo" Width="1.5" PointX="14.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.Description" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.Device" Width="1.5" PointX="2.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.FareMediaType" Width="1.5" PointX="4.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.FareTable" Width="1.5" PointX="6.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.SalePointDevice" Width="1.5" PointX="8.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.SalePoint" Width="1.5" PointX="14.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.Stations1" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.SystemParam" Width="1.5" PointX="16.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.TicketSubType" Width="1.5" PointX="16.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.TicketType" Width="1.5" PointX="10.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.RFIDTicket" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TVMModel.Adjustment" Width="1.5" PointX="17.75" PointY="18.75" />
+        <EntityTypeShape EntityType="TVMModel.PenaltyTicket" Width="1.5" PointX="19.75" PointY="8.75" />
+        <EntityTypeShape EntityType="TVMModel.Refund" Width="1.5" PointX="19.75" PointY="13.75" />
+        <EntityTypeShape EntityType="TVMModel.Replacement" Width="1.5" PointX="19.75" PointY="19.75" />
+        <EntityTypeShape EntityType="TVMModel.SyncUpdDate" Width="1.5" PointX="0.75" PointY="20.75" />
+        <EntityTypeShape EntityType="TVMModel.Topup" Width="1.5" PointX="2.75" PointY="20.75" />
+        <EntityTypeShape EntityType="TVMModel.TripTopup" Width="1.5" PointX="4.75" PointY="20.75" />
+        <EntityTypeShape EntityType="TVMModel.Authority" Width="1.5" PointX="6.75" PointY="20.75" />
+        <EntityTypeShape EntityType="TVMModel.AuthTran" Width="1.5" PointX="13.75" PointY="20.75" />
+        <EntityTypeShape EntityType="TVMModel.Menu" Width="1.5" PointX="21.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TVMModel.UserAuth" Width="1.5" PointX="21.75" PointY="5.75" />
+        <EntityTypeShape EntityType="TVMModel.UserAuth_test" Width="1.5" PointX="21.75" PointY="10.75" />
+        <EntityTypeShape EntityType="TVMModel.User" Width="1.5" PointX="21.75" PointY="15.75" />
+        <EntityTypeShape EntityType="TVMModel.CancelTicket" Width="1.5" PointX="8.75" PointY="22.75" />
+        <EntityTypeShape EntityType="TVMModel.FreeExitTicket" Width="1.5" PointX="10.75" PointY="22.75" />
+        <EntityTypeShape EntityType="TVMModel.TVMAlarm" Width="1.5" PointX="21.75" PointY="22.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

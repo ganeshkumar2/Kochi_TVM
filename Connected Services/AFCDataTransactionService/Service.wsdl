@@ -1,0 +1,1084 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="StatusReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StatusReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StatusReportResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSRequestHeader" type="tns:WSRequestHeader" />
+      <s:complexType name="WSRequestHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="TransferTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransferTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TransferTransactionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransferTransactionV2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransferTransactionV2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TransferTransactionV2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommandsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommandsResponseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CommandsResponseResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdUserCommand">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userCommandId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdUserCommandResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdUserCommandResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdCommandStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="commandId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdCommandStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdCommandStatusResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsLogResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsEmvSettlement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsEmvSettlementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsEmvSettlementResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="channelCd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartCardInitBegin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartCardInitBeginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SmartCardInitBeginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartCardInitDone">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SmartCardInitDoneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SmartCardInitDoneResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RfIdInitReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RfIdInitReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RfIdInitReportResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TokenInitBegin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="uid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="initCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TokenInitBeginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TokenInitBeginResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TokenInitDone">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="uid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="version" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="issuedSAMId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TokenInitDoneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TokenInitDoneResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsUpdShiftSummary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="shiftId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="typeId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="groupId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="explanation" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="totalCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="totalAmount" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="insDT" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="stationId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="salePointId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="busId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsUpdShiftSummaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsUpdShiftSummaryResult" type="tns:ReturnPackage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ReturnPackage">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Data">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOccUrl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="valNo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOccUrlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOccUrlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDbVersion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="versionNo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDbVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDbVersionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DailyReconciliation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="firstDt" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastDt" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="stationId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="deviceType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="deviceId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DailyReconciliationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DailyReconciliationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectTopupInstructions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mifareId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectTopupInstructionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectTopupInstructionsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTopupInstructions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="instructionId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="salepointId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="trxDt" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTopupInstructionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateTopupInstructionsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="StatusReportSoapIn">
+    <wsdl:part name="parameters" element="tns:StatusReport" />
+  </wsdl:message>
+  <wsdl:message name="StatusReportSoapOut">
+    <wsdl:part name="parameters" element="tns:StatusReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="StatusReportWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="TransferTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:TransferTransaction" />
+  </wsdl:message>
+  <wsdl:message name="TransferTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:TransferTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="TransferTransactionWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="TransferTransactionV2SoapIn">
+    <wsdl:part name="parameters" element="tns:TransferTransactionV2" />
+  </wsdl:message>
+  <wsdl:message name="TransferTransactionV2SoapOut">
+    <wsdl:part name="parameters" element="tns:TransferTransactionV2Response" />
+  </wsdl:message>
+  <wsdl:message name="TransferTransactionV2WSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="LogRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:LogRequest" />
+  </wsdl:message>
+  <wsdl:message name="LogRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:LogRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogRequestWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="CommandsResponseSoapIn">
+    <wsdl:part name="parameters" element="tns:CommandsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CommandsResponseSoapOut">
+    <wsdl:part name="parameters" element="tns:CommandsResponseResponse" />
+  </wsdl:message>
+  <wsdl:message name="CommandsResponseWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdUserCommandSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdUserCommand" />
+  </wsdl:message>
+  <wsdl:message name="UpdUserCommandSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdUserCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdUserCommandWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdCommandStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdCommandStatus" />
+  </wsdl:message>
+  <wsdl:message name="UpdCommandStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdCommandStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdCommandStatusWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="InsLogSoapIn">
+    <wsdl:part name="parameters" element="tns:InsLog" />
+  </wsdl:message>
+  <wsdl:message name="InsLogSoapOut">
+    <wsdl:part name="parameters" element="tns:InsLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsLogWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="InsEmvSettlementSoapIn">
+    <wsdl:part name="parameters" element="tns:InsEmvSettlement" />
+  </wsdl:message>
+  <wsdl:message name="InsEmvSettlementSoapOut">
+    <wsdl:part name="parameters" element="tns:InsEmvSettlementResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsEmvSettlementWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="SmartCardInitBeginSoapIn">
+    <wsdl:part name="parameters" element="tns:SmartCardInitBegin" />
+  </wsdl:message>
+  <wsdl:message name="SmartCardInitBeginSoapOut">
+    <wsdl:part name="parameters" element="tns:SmartCardInitBeginResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartCardInitBeginWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="SmartCardInitDoneSoapIn">
+    <wsdl:part name="parameters" element="tns:SmartCardInitDone" />
+  </wsdl:message>
+  <wsdl:message name="SmartCardInitDoneSoapOut">
+    <wsdl:part name="parameters" element="tns:SmartCardInitDoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmartCardInitDoneWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="RfIdInitReportSoapIn">
+    <wsdl:part name="parameters" element="tns:RfIdInitReport" />
+  </wsdl:message>
+  <wsdl:message name="RfIdInitReportSoapOut">
+    <wsdl:part name="parameters" element="tns:RfIdInitReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="RfIdInitReportWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="TokenInitBeginSoapIn">
+    <wsdl:part name="parameters" element="tns:TokenInitBegin" />
+  </wsdl:message>
+  <wsdl:message name="TokenInitBeginSoapOut">
+    <wsdl:part name="parameters" element="tns:TokenInitBeginResponse" />
+  </wsdl:message>
+  <wsdl:message name="TokenInitBeginWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="TokenInitDoneSoapIn">
+    <wsdl:part name="parameters" element="tns:TokenInitDone" />
+  </wsdl:message>
+  <wsdl:message name="TokenInitDoneSoapOut">
+    <wsdl:part name="parameters" element="tns:TokenInitDoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="TokenInitDoneWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="InsUpdShiftSummarySoapIn">
+    <wsdl:part name="parameters" element="tns:InsUpdShiftSummary" />
+  </wsdl:message>
+  <wsdl:message name="InsUpdShiftSummarySoapOut">
+    <wsdl:part name="parameters" element="tns:InsUpdShiftSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsUpdShiftSummaryWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetOccUrlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOccUrl" />
+  </wsdl:message>
+  <wsdl:message name="GetOccUrlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOccUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOccUrlWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDbVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDbVersion" />
+  </wsdl:message>
+  <wsdl:message name="GetDbVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDbVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDbVersionWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="DailyReconciliationSoapIn">
+    <wsdl:part name="parameters" element="tns:DailyReconciliation" />
+  </wsdl:message>
+  <wsdl:message name="DailyReconciliationSoapOut">
+    <wsdl:part name="parameters" element="tns:DailyReconciliationResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyReconciliationWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="SelectTopupInstructionsSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectTopupInstructions" />
+  </wsdl:message>
+  <wsdl:message name="SelectTopupInstructionsSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectTopupInstructionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectTopupInstructionsWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTopupInstructionsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateTopupInstructions" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTopupInstructionsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateTopupInstructionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTopupInstructionsWSRequestHeader">
+    <wsdl:part name="WSRequestHeader" element="tns:WSRequestHeader" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="StatusReport">
+      <wsdl:input message="tns:StatusReportSoapIn" />
+      <wsdl:output message="tns:StatusReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TransferTransaction">
+      <wsdl:input message="tns:TransferTransactionSoapIn" />
+      <wsdl:output message="tns:TransferTransactionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TransferTransactionV2">
+      <wsdl:input message="tns:TransferTransactionV2SoapIn" />
+      <wsdl:output message="tns:TransferTransactionV2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogRequest">
+      <wsdl:input message="tns:LogRequestSoapIn" />
+      <wsdl:output message="tns:LogRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CommandsResponse">
+      <wsdl:input message="tns:CommandsResponseSoapIn" />
+      <wsdl:output message="tns:CommandsResponseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdUserCommand">
+      <wsdl:input message="tns:UpdUserCommandSoapIn" />
+      <wsdl:output message="tns:UpdUserCommandSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdCommandStatus">
+      <wsdl:input message="tns:UpdCommandStatusSoapIn" />
+      <wsdl:output message="tns:UpdCommandStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsLog">
+      <wsdl:input message="tns:InsLogSoapIn" />
+      <wsdl:output message="tns:InsLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsEmvSettlement">
+      <wsdl:input message="tns:InsEmvSettlementSoapIn" />
+      <wsdl:output message="tns:InsEmvSettlementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SmartCardInitBegin">
+      <wsdl:input message="tns:SmartCardInitBeginSoapIn" />
+      <wsdl:output message="tns:SmartCardInitBeginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SmartCardInitDone">
+      <wsdl:input message="tns:SmartCardInitDoneSoapIn" />
+      <wsdl:output message="tns:SmartCardInitDoneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RfIdInitReport">
+      <wsdl:input message="tns:RfIdInitReportSoapIn" />
+      <wsdl:output message="tns:RfIdInitReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TokenInitBegin">
+      <wsdl:input message="tns:TokenInitBeginSoapIn" />
+      <wsdl:output message="tns:TokenInitBeginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TokenInitDone">
+      <wsdl:input message="tns:TokenInitDoneSoapIn" />
+      <wsdl:output message="tns:TokenInitDoneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdShiftSummary">
+      <wsdl:input message="tns:InsUpdShiftSummarySoapIn" />
+      <wsdl:output message="tns:InsUpdShiftSummarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOccUrl">
+      <wsdl:input message="tns:GetOccUrlSoapIn" />
+      <wsdl:output message="tns:GetOccUrlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDbVersion">
+      <wsdl:input message="tns:GetDbVersionSoapIn" />
+      <wsdl:output message="tns:GetDbVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DailyReconciliation">
+      <wsdl:input message="tns:DailyReconciliationSoapIn" />
+      <wsdl:output message="tns:DailyReconciliationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectTopupInstructions">
+      <wsdl:input message="tns:SelectTopupInstructionsSoapIn" />
+      <wsdl:output message="tns:SelectTopupInstructionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTopupInstructions">
+      <wsdl:input message="tns:UpdateTopupInstructionsSoapIn" />
+      <wsdl:output message="tns:UpdateTopupInstructionsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="StatusReport">
+      <soap:operation soapAction="http://tempuri.org/StatusReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:StatusReportWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransferTransaction">
+      <soap:operation soapAction="http://tempuri.org/TransferTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:TransferTransactionWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransferTransactionV2">
+      <soap:operation soapAction="http://tempuri.org/TransferTransactionV2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:TransferTransactionV2WSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogRequest">
+      <soap:operation soapAction="http://tempuri.org/LogRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:LogRequestWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommandsResponse">
+      <soap:operation soapAction="http://tempuri.org/CommandsResponse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CommandsResponseWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdUserCommand">
+      <soap:operation soapAction="http://tempuri.org/UpdUserCommand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdUserCommandWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdCommandStatus">
+      <soap:operation soapAction="http://tempuri.org/UpdCommandStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdCommandStatusWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsLog">
+      <soap:operation soapAction="http://tempuri.org/InsLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:InsLogWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsEmvSettlement">
+      <soap:operation soapAction="http://tempuri.org/InsEmvSettlement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:InsEmvSettlementWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:LoginWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartCardInitBegin">
+      <soap:operation soapAction="http://tempuri.org/SmartCardInitBegin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SmartCardInitBeginWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartCardInitDone">
+      <soap:operation soapAction="http://tempuri.org/SmartCardInitDone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SmartCardInitDoneWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RfIdInitReport">
+      <soap:operation soapAction="http://tempuri.org/RfIdInitReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RfIdInitReportWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TokenInitBegin">
+      <soap:operation soapAction="http://tempuri.org/TokenInitBegin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:TokenInitBeginWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TokenInitDone">
+      <soap:operation soapAction="http://tempuri.org/TokenInitDone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:TokenInitDoneWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdShiftSummary">
+      <soap:operation soapAction="http://tempuri.org/InsUpdShiftSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:InsUpdShiftSummaryWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOccUrl">
+      <soap:operation soapAction="http://tempuri.org/GetOccUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetOccUrlWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDbVersion">
+      <soap:operation soapAction="http://tempuri.org/GetDbVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDbVersionWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DailyReconciliation">
+      <soap:operation soapAction="http://tempuri.org/DailyReconciliation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DailyReconciliationWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectTopupInstructions">
+      <soap:operation soapAction="http://tempuri.org/SelectTopupInstructions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SelectTopupInstructionsWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTopupInstructions">
+      <soap:operation soapAction="http://tempuri.org/UpdateTopupInstructions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateTopupInstructionsWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="StatusReport">
+      <soap12:operation soapAction="http://tempuri.org/StatusReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:StatusReportWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransferTransaction">
+      <soap12:operation soapAction="http://tempuri.org/TransferTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:TransferTransactionWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransferTransactionV2">
+      <soap12:operation soapAction="http://tempuri.org/TransferTransactionV2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:TransferTransactionV2WSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogRequest">
+      <soap12:operation soapAction="http://tempuri.org/LogRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:LogRequestWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommandsResponse">
+      <soap12:operation soapAction="http://tempuri.org/CommandsResponse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CommandsResponseWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdUserCommand">
+      <soap12:operation soapAction="http://tempuri.org/UpdUserCommand" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdUserCommandWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdCommandStatus">
+      <soap12:operation soapAction="http://tempuri.org/UpdCommandStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdCommandStatusWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsLog">
+      <soap12:operation soapAction="http://tempuri.org/InsLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:InsLogWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsEmvSettlement">
+      <soap12:operation soapAction="http://tempuri.org/InsEmvSettlement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:InsEmvSettlementWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:LoginWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartCardInitBegin">
+      <soap12:operation soapAction="http://tempuri.org/SmartCardInitBegin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SmartCardInitBeginWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SmartCardInitDone">
+      <soap12:operation soapAction="http://tempuri.org/SmartCardInitDone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SmartCardInitDoneWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RfIdInitReport">
+      <soap12:operation soapAction="http://tempuri.org/RfIdInitReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RfIdInitReportWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TokenInitBegin">
+      <soap12:operation soapAction="http://tempuri.org/TokenInitBegin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:TokenInitBeginWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TokenInitDone">
+      <soap12:operation soapAction="http://tempuri.org/TokenInitDone" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:TokenInitDoneWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdShiftSummary">
+      <soap12:operation soapAction="http://tempuri.org/InsUpdShiftSummary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:InsUpdShiftSummaryWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOccUrl">
+      <soap12:operation soapAction="http://tempuri.org/GetOccUrl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetOccUrlWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDbVersion">
+      <soap12:operation soapAction="http://tempuri.org/GetDbVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetDbVersionWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DailyReconciliation">
+      <soap12:operation soapAction="http://tempuri.org/DailyReconciliation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DailyReconciliationWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectTopupInstructions">
+      <soap12:operation soapAction="http://tempuri.org/SelectTopupInstructions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SelectTopupInstructionsWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTopupInstructions">
+      <soap12:operation soapAction="http://tempuri.org/UpdateTopupInstructions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateTopupInstructionsWSRequestHeader" part="WSRequestHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://10.240.1.80:89/COMM/Val2Afc/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://10.240.1.80:89/COMM/Val2Afc/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

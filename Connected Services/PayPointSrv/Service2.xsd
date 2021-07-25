@@ -1,0 +1,809 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayPointLib" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayPointLib" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ReturnPackage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Data" nillable="true">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:appinfo>
+              <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:sequence>
+            <xs:element ref="xs:schema" />
+            <xs:any />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnPackage" nillable="true" type="tns:ReturnPackage" />
+  <xs:complexType name="BankClasses.CheckDuplication">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BirthDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustEnrollType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustUniquEnolNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsCustEnroll" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MobileNo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.CheckDuplication" nillable="true" type="tns:BankClasses.CheckDuplication" />
+  <xs:complexType name="BankClasses.CheckDuplicationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CustUniquEnolNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="respResult" nillable="true" type="tns:BankClasses.responseResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.CheckDuplicationResult" nillable="true" type="tns:BankClasses.CheckDuplicationResult" />
+  <xs:complexType name="BankClasses.responseResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDetails" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResponseCode" type="xs:int" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResultCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReturnCode" type="xs:int" />
+      <xs:element minOccurs="0" name="ReturnDescription" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.responseResult" nillable="true" type="tns:BankClasses.responseResult" />
+  <xs:complexType name="BankClasses.GetTokenNo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AadharNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressLine1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressLine3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressOfInstitute" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BankDetail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BankDetailType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateOfBirth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmbossName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsBankCustomer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsECst" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsNewPass" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MotherMaidenName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameOfInstitute" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NomineeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Occupation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PanNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PinCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TypeOfCourse" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.GetTokenNo" nillable="true" type="tns:BankClasses.GetTokenNo" />
+  <xs:complexType name="BankClasses.GetTokenNoResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TokenNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="respResult" nillable="true" type="tns:BankClasses.responseResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.GetTokenNoResult" nillable="true" type="tns:BankClasses.GetTokenNoResult" />
+  <xs:complexType name="BankClasses.ResponseDemoAuth">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Flag" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Msg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Txn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="authCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="uid_ref" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.ResponseDemoAuth" nillable="true" type="tns:BankClasses.ResponseDemoAuth" />
+  <xs:complexType name="BankClasses.CheckDuplicationNonPersonalized">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateOfBirth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsPersonalizedCard" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MobileNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationalIdNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationalIdType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.CheckDuplicationNonPersonalized" nillable="true" type="tns:BankClasses.CheckDuplicationNonPersonalized" />
+  <xs:complexType name="BankClasses.NonPersonalizedCheckDuplicationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CustId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UniNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="respResult" nillable="true" type="tns:BankClasses.responseResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.NonPersonalizedCheckDuplicationResult" nillable="true" type="tns:BankClasses.NonPersonalizedCheckDuplicationResult" />
+  <xs:complexType name="BankClasses.NonPersonalizedCustomerDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CrnNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateOfBirth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsPersonalizedCard" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MotherMaidenName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationalIdNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationalIdType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.NonPersonalizedCustomerDetails" nillable="true" type="tns:BankClasses.NonPersonalizedCustomerDetails" />
+  <xs:complexType name="BankClasses.NonPersonalizedCardLink">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BankClasses.NonPersonalizedCustomerDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EmbossName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KYCStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UniqueNo" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BankClasses.NonPersonalizedCardLink" nillable="true" type="tns:BankClasses.NonPersonalizedCardLink" />
+  <xs:complexType name="BankClasses.NonPersonalizedGetExistCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TokenNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.NonPersonalizedGetExistCustomer" nillable="true" type="tns:BankClasses.NonPersonalizedGetExistCustomer" />
+  <xs:complexType name="BankClasses.NonPersonalizedGetExistCustomerResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CustId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerInfo" nillable="true" type="tns:BankClasses.NonPersonalizedCustomerDetailStatus" />
+      <xs:element minOccurs="0" name="UniNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="respResult" nillable="true" type="tns:BankClasses.responseResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.NonPersonalizedGetExistCustomerResult" nillable="true" type="tns:BankClasses.NonPersonalizedGetExistCustomerResult" />
+  <xs:complexType name="BankClasses.NonPersonalizedCustomerDetailStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AadharNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressLine1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressLine3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressOfInstitute" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BankDetail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BankDetailType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BranchId" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Caste" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CategoryType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ChangeOver" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateCardDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateCardNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateCardRequestTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateCardResponseTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateCardResult" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateCardReturnCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateCustomerDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateCustomerNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateCustomerRequestTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateCustomerResponseTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateCustomerResult" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateCustomerReturnCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CrnNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateOfBirth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Destination" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="District" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmbossName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FinancialType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FourthLineEmboss" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IPAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsBankCustomer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsCardCreated" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsCustomerCreated" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsDelete" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsDisable" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsEFormCustomer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsPersonalizedCard" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JobCardbyNREGA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KYCStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LogoCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MotherMaidenName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameOfInstitute" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationalId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationalIdType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewPass" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NomineeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PANNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhotoPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pincode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrinterId" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ProductType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Route" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TokenNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TypeOfCourse" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TypeOfPass" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UniqueNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ValidityFrom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ValidityTo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Via" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cstRefNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="drivingLiecence" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="jobCard" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="pCustEnrollType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="pIsCustEnroll" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="passport" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="serviceType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="voterId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.NonPersonalizedCustomerDetailStatus" nillable="true" type="tns:BankClasses.NonPersonalizedCustomerDetailStatus" />
+  <xs:complexType name="BankClasses.SessInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BranchId" type="xs:int" />
+      <xs:element minOccurs="0" name="BranchUser" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CurrencyCode" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrentMenuItemGuid" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrentScreenClass" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CurrentScreenID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CurrentScreenVersion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Database" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Guid" type="xs:long" />
+      <xs:element minOccurs="0" name="IsAdminMbrUser" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoginType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MbrId" type="xs:int" />
+      <xs:element minOccurs="0" name="TableAuth" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UserCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.SessInfo" nillable="true" type="tns:BankClasses.SessInfo" />
+  <xs:complexType name="BankClasses.GetProductResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ProductList" nillable="true" type="tns:ArrayOfBankClasses.Product" />
+      <xs:element minOccurs="0" name="respResult" nillable="true" type="tns:BankClasses.responseResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.GetProductResult" nillable="true" type="tns:BankClasses.GetProductResult" />
+  <xs:complexType name="ArrayOfBankClasses.Product">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BankClasses.Product" nillable="true" type="tns:BankClasses.Product" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBankClasses.Product" nillable="true" type="tns:ArrayOfBankClasses.Product" />
+  <xs:complexType name="BankClasses.Product">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="isbusiness" type="xs:boolean" />
+      <xs:element minOccurs="0" name="isvirtual" type="xs:boolean" />
+      <xs:element minOccurs="0" name="productdci" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="productid" type="xs:int" />
+      <xs:element minOccurs="0" name="productname" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.Product" nillable="true" type="tns:BankClasses.Product" />
+  <xs:complexType name="BankClasses.GetStatesResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="StateList" nillable="true" type="tns:ArrayOfBankClasses.States" />
+      <xs:element minOccurs="0" name="respResult" nillable="true" type="tns:BankClasses.responseResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.GetStatesResult" nillable="true" type="tns:BankClasses.GetStatesResult" />
+  <xs:complexType name="ArrayOfBankClasses.States">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BankClasses.States" nillable="true" type="tns:BankClasses.States" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBankClasses.States" nillable="true" type="tns:ArrayOfBankClasses.States" />
+  <xs:complexType name="BankClasses.States">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SessInfo" nillable="true" type="tns:BankClasses.SessInfo" />
+      <xs:element minOccurs="0" name="StateCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StateName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.States" nillable="true" type="tns:BankClasses.States" />
+  <xs:complexType name="BankClasses.GetCitiesResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CityList" nillable="true" type="tns:ArrayOfBankClasses.Cities" />
+      <xs:element minOccurs="0" name="respResult" nillable="true" type="tns:BankClasses.responseResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.GetCitiesResult" nillable="true" type="tns:BankClasses.GetCitiesResult" />
+  <xs:complexType name="ArrayOfBankClasses.Cities">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BankClasses.Cities" nillable="true" type="tns:BankClasses.Cities" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBankClasses.Cities" nillable="true" type="tns:ArrayOfBankClasses.Cities" />
+  <xs:complexType name="BankClasses.Cities">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CityCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CityName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StateCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.Cities" nillable="true" type="tns:BankClasses.Cities" />
+  <xs:complexType name="BankClasses.Customer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdressList" nillable="true" type="tns:ArrayOfBankClasses.AdressInfo" />
+      <xs:element minOccurs="0" name="AllocationDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AssuranceType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BirthCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BirthCountry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BirthDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BirthPlace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ChannelCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CommunicationLanguage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustEnrollType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustUniquEnolNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Custodian" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustodianNationalId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmergencyContactPersonNameSurname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmergencyPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmergencyPhoneExt" type="xs:int" />
+      <xs:element minOccurs="0" name="EmergencyPhoneFieldCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FatherName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText10" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText11" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText12" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText13" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText14" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText15" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText16" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText17" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText18" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText19" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText20" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText21" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText22" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText23" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText24" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText25" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText6" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText7" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText8" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText9" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GuaranteeFlag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IssuedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KYCStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MainBranchField" type="xs:int" />
+      <xs:element minOccurs="0" name="MidName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MobileNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MotherMaidenName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MotherName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameOnCard" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationalId" type="xs:int" />
+      <xs:element minOccurs="0" name="Nationality" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Occupation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OneClickId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentNationalId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassportControlPeriol" type="xs:int" />
+      <xs:element minOccurs="0" name="PassportDateOfExpire" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassportDateOfIssue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassportIssuedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassportNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneHome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneWork" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneWorkExtension" type="xs:int" />
+      <xs:element minOccurs="0" name="PictureFilePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResidenceCountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SMSOTPNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SendEMail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SendSMS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SessInfo" nillable="true" type="tns:BankClasses.SessInfo" />
+      <xs:element minOccurs="0" name="SurName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkPlace" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.Customer" nillable="true" type="tns:BankClasses.Customer" />
+  <xs:complexType name="ArrayOfBankClasses.AdressInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BankClasses.AdressInfo" nillable="true" type="tns:BankClasses.AdressInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBankClasses.AdressInfo" nillable="true" type="tns:ArrayOfBankClasses.AdressInfo" />
+  <xs:complexType name="BankClasses.AdressInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressCityCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressCountry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressIdx" type="xs:int" />
+      <xs:element minOccurs="0" name="AddressTown" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressTownCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressZipCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AdressType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.AdressInfo" nillable="true" type="tns:BankClasses.AdressInfo" />
+  <xs:complexType name="BankClasses.CreateCustomerResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CustomerNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="respResult" nillable="true" type="tns:BankClasses.responseResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.CreateCustomerResult" nillable="true" type="tns:BankClasses.CreateCustomerResult" />
+  <xs:complexType name="BankClasses.Card">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AgreementFlag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AnnualFeeFlag" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ApplicationNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AuthDomEcom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AuthDomMoto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AuthIntEcom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AuthIntMoto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CardBranch" type="xs:int" />
+      <xs:element minOccurs="0" name="CardDeliveryBranch" type="xs:int" />
+      <xs:element minOccurs="0" name="CardLevel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CardPostIdx" type="xs:int" />
+      <xs:element minOccurs="0" name="CardPostType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CardType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmbossName1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmbossName2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmbossType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FinancialType" type="xs:int" />
+      <xs:element minOccurs="0" name="InstantFlag" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IssuingFeeFlag" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LanguagePreferenceCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LogoCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MainCardNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NoCustomer" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NoMoreRenewal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PinDeliveryBranch" type="xs:int" />
+      <xs:element minOccurs="0" name="PinPostIdx" type="xs:int" />
+      <xs:element minOccurs="0" name="PinPostType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SessInfo" nillable="true" type="tns:BankClasses.SessInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.Card" nillable="true" type="tns:BankClasses.Card" />
+  <xs:complexType name="BankClasses.CreateCardResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CardNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mask_CardNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="respResult" nillable="true" type="tns:BankClasses.responseResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.CreateCardResult" nillable="true" type="tns:BankClasses.CreateCardResult" />
+  <xs:complexType name="BankClasses.WsLoginResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BranchId" type="xs:int" />
+      <xs:element minOccurs="0" name="IsAdminMbrUser" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsLoginSucceeded" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastLoginDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastLoginTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MbrCountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MbrCrrCode" type="xs:int" />
+      <xs:element minOccurs="0" name="MustChangePwd" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ResponseMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SessionGuid" type="xs:long" />
+      <xs:element minOccurs="0" name="UserLocked" type="xs:boolean" />
+      <xs:element minOccurs="0" name="respResult" nillable="true" type="tns:BankClasses.responseResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.WsLoginResult" nillable="true" type="tns:BankClasses.WsLoginResult" />
+  <xs:complexType name="BankClasses.GetCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CustomerNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SessInfo" nillable="true" type="tns:BankClasses.SessInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.GetCustomer" nillable="true" type="tns:BankClasses.GetCustomer" />
+  <xs:complexType name="BankClasses.GetCustomerResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Customer" nillable="true" type="tns:BankClasses.GetForCustomer" />
+      <xs:element minOccurs="0" name="respResult" nillable="true" type="tns:BankClasses.responseResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.GetCustomerResult" nillable="true" type="tns:BankClasses.GetCustomerResult" />
+  <xs:complexType name="BankClasses.GetForCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdressList" nillable="true" type="tns:ArrayOfBankClasses.AdressInfo" />
+      <xs:element minOccurs="0" name="AllocationDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AssuranceType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BirthCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BirthCountry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BirthDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BirthPlace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ChannelCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CommunicationLanguage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Custodian" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustodianNationalId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmergencyContactPersonNameSurname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmergencyPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmergencyPhoneExt" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="EmergencyPhoneFieldCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FatherName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText10" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText11" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText12" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText13" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText14" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText15" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText16" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText17" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText18" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText19" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText20" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText21" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText22" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText23" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText24" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText6" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText7" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText8" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FreeText9" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GuaranteeFlag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IssuedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MainBranchField" type="xs:int" />
+      <xs:element minOccurs="0" name="MidName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MobileNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MotherMaidenName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MotherName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationalId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Nationality" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Occupation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OneClickId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentNationalId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassportControlPeriol" type="xs:int" />
+      <xs:element minOccurs="0" name="PassportDateOfExpire" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassportDateOfIssue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassportIssuedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassportNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneHome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneWork" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneWorkExtension" type="xs:int" />
+      <xs:element minOccurs="0" name="PictureFilePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResidenceCountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SMSOTPNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SendEMail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SendSMS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SurName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkPlace" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.GetForCustomer" nillable="true" type="tns:BankClasses.GetForCustomer" />
+  <xs:complexType name="BankClasses.CustCardInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BankingCustomerno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BarcodeNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BirthDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CardNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerMidName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerSurname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MobileNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SessInfo" nillable="true" type="tns:BankClasses.SessInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.CustCardInfo" nillable="true" type="tns:BankClasses.CustCardInfo" />
+  <xs:complexType name="BankClasses.GetCustCardInfoResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CustomerCard" nillable="true" type="tns:ArrayOfBankClasses.CardDetails" />
+      <xs:element minOccurs="0" name="respResult" nillable="true" type="tns:BankClasses.responseResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.GetCustCardInfoResult" nillable="true" type="tns:BankClasses.GetCustCardInfoResult" />
+  <xs:complexType name="ArrayOfBankClasses.CardDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BankClasses.CardDetails" nillable="true" type="tns:BankClasses.CardDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBankClasses.CardDetails" nillable="true" type="tns:ArrayOfBankClasses.CardDetails" />
+  <xs:complexType name="BankClasses.CardDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BarcodeNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Branch" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CardNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CardType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmbossName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IssuanceDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mask_CardNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalBalance" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalChipBalance" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalHostBalance" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.CardDetails" nillable="true" type="tns:BankClasses.CardDetails" />
+  <xs:complexType name="BankClasses.UpdateCardStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BarcodeNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CancelReasoncode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CardNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmbossFlag" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubStatus" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.UpdateCardStatus" nillable="true" type="tns:BankClasses.UpdateCardStatus" />
+  <xs:complexType name="BankClasses.UpdateCardStatusResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MaskCardNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewCardNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewExpiry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="respResult" nillable="true" type="tns:BankClasses.responseResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.UpdateCardStatusResult" nillable="true" type="tns:BankClasses.UpdateCardStatusResult" />
+  <xs:complexType name="BankClasses.GetCustomerInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Custinfo" nillable="true" type="tns:BankClasses.CustomerInfo" />
+      <xs:element minOccurs="0" name="respResult" nillable="true" type="tns:BankClasses.responseResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.GetCustomerInfo" nillable="true" type="tns:BankClasses.GetCustomerInfo" />
+  <xs:complexType name="BankClasses.CustomerInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AadharNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressLine1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressLine3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressOfInstitute" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BankDetail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BankDetailType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustId" type="xs:int" />
+      <xs:element minOccurs="0" name="DateOfBirth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmbossName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsBankCustomer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsECst" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsNewPass" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MotherMaidenName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameOfInstitute" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NomineeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Occupation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PANNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pincode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TypeOfCourse" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UniqueNo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.CustomerInfo" nillable="true" type="tns:BankClasses.CustomerInfo" />
+  <xs:complexType name="BankClasses.GetCustDetailStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Custinfo" nillable="true" type="tns:BankClasses.CustDetailStatus" />
+      <xs:element minOccurs="0" name="respResult" nillable="true" type="tns:BankClasses.responseResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.GetCustDetailStatus" nillable="true" type="tns:BankClasses.GetCustDetailStatus" />
+  <xs:complexType name="BankClasses.CustDetailStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AadharNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressLine1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressLine3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressOfInstitute" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BankDetail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BankDetailType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustUniquEnolNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateOfBirth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmbossName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsBankCustomer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsCardCreated" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsCustomerCreated" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsECst" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsNewPass" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MotherMaidenName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameOfInstitute" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationalId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NationalIdType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NomineeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Occupation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PANNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pincode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TypeOfCourse" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.CustDetailStatus" nillable="true" type="tns:BankClasses.CustDetailStatus" />
+  <xs:complexType name="BankClasses.CardRenewal">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BarcodeNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CardNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustUniquEnolNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExtendExpiry" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SessInfo" nillable="true" type="tns:BankClasses.SessInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.CardRenewal" nillable="true" type="tns:BankClasses.CardRenewal" />
+  <xs:complexType name="BankClasses.GetCardRenewalResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Mask_CardNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewCardNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewExpiry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="respResult" nillable="true" type="tns:BankClasses.responseResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankClasses.GetCardRenewalResult" nillable="true" type="tns:BankClasses.GetCardRenewalResult" />
+</xs:schema>

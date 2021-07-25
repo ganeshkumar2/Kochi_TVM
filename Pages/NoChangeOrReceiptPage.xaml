@@ -1,0 +1,111 @@
+﻿<Page x:Class="Kochi_TVM.Pages.NoChangeOrReceiptPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Kochi_TVM.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="768"
+      d:DesignWidth="1024"
+      Unloaded="Page_Unloaded"
+      Background="{StaticResource pageColor}"
+      Title="NoChangeOrReceiptPage">
+    <Grid x:Name="mainGrid" Background="Transparent">
+        <Grid.RowDefinitions>
+            <!--Top space -->
+            <RowDefinition Height="*"/>
+            <!--Header -->
+            <RowDefinition Height="3*"/>
+            <!--Top space -->
+            <RowDefinition Height="*"/>
+            <!--Operation Area -->
+            <RowDefinition Height="24*"/>
+            <!--Top space -->
+            <RowDefinition Height="*"/>
+            <!--Navigate -->
+            <RowDefinition Height="3*"/>
+            <!--Bottom space -->
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <!--Left space -->
+            <ColumnDefinition Width="*"/>
+            <!--Operation -->
+            <ColumnDefinition Width="19*"/>
+            <!--Right space -->
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid  Name="operationGrid" Grid.Column="1" Grid.Row="3" Margin="0,0,50,0" Grid.ColumnSpan="2" >
+            <Grid Name="grdNoChangeMode" Visibility="Hidden">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.6*"/>
+                        <RowDefinition Height="0.2*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Row="0" Source="..\Images\NoCoin.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="200"></Image>
+                    <Label Name="lblNoChange" Grid.Row="1" Content="NO CHANGE MODE" Style="{StaticResource styleLabelHeader1}"  />
+                    <StackPanel Name="stackCoin" Orientation="Horizontal" Margin="0,5,0,0" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Visibility="Hidden">
+                        <Label Name="lblAvailable"  Content="Available Coins : " Style="{StaticResource styleLabelHeader2}" />
+
+                        <Border Name="lbl5RS" Height="60" Width="60" BorderBrush="Black" BorderThickness="2" Margin="0,0,5,0" CornerRadius="40">
+                            <Label  Content="₹5" Style="{StaticResource styleLabelHeader2}" />
+                        </Border>
+                        <Border Name="lbl2RS" Height="60" Width="60" BorderBrush="Black" BorderThickness="2" Margin="0,0,5,0" CornerRadius="40">
+                            <Label  Content="₹2" Style="{StaticResource styleLabelHeader2}" />
+                        </Border>
+                        <Border Name="lbl1RS" Height="60" Width="60" BorderBrush="Black" BorderThickness="2" Margin="0,0,5,0" CornerRadius="40">
+                            <Label  Content="₹1" Style="{StaticResource styleLabelHeader2}" />
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+
+            <Grid Name="grdNoReceiptPrinterMode" Visibility="Hidden">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.6*"/>
+                        <RowDefinition Height="0.2*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Row="0" Source="..\Images\NoReceipt.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="300" Width="300"></Image>
+                    <Label Name="lblNoReceipt" Grid.Row="1" Content="NO RECEIPT MODE" Style="{StaticResource styleLabelHeader1}"  />                   
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Grid Name="navigationGrid" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="btnOk" Grid.Row="0" Grid.Column="3" Content="Ok"  Style="{StaticResource styleOkBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnOk_Click" />
+            <Button x:Name="btnFinish" Grid.Row="0" Grid.Column="1" Content="Cancel"  Style="{StaticResource styleFinishBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnFinish_Click"/>
+
+        </Grid>
+
+    </Grid>
+</Page>

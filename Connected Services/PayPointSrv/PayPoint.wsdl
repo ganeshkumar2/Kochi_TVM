@@ -1,0 +1,2265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PayPoint" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://svasistest12.asis.local:89/COMM/Paypoint/Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://svasistest12.asis.local:89/COMM/Paypoint/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://svasistest12.asis.local:89/COMM/Paypoint/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PayPointLib" />
+      <xsd:import schemaLocation="http://svasistest12.asis.local:89/COMM/Paypoint/Service.svc?xsd=xsd3" />
+      <xsd:import schemaLocation="http://svasistest12.asis.local:89/COMM/Paypoint/Service.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/TOM.DAL.Classes" />
+      <xsd:import schemaLocation="http://svasistest12.asis.local:89/COMM/Paypoint/Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPayPoint_SelShiftSummary_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelShiftSummary" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelShiftSummary_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelShiftSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_StationSaleReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:StationSaleReport" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_StationSaleReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StationSaleReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_ChangeUserPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeUserPassword" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_ChangeUserPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeUserPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelRiderShipReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelRiderShipReport" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelRiderShipReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelRiderShipReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_CustomerRefNo_InputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerRefNo" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_CustomerRefNo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerRefNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_CheckDuplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckDuplication" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_CheckDuplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckDuplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_GetTokenNo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTokenNo" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_GetTokenNo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTokenNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelTableRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelTableRecord" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelTableRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelTableRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelTableRecordSc_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelTableRecordSc" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelTableRecordSc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelTableRecordScResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_ChangePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_ChangePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_AlarmHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlarmHistory" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_AlarmHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlarmHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelCardNoByTokenNo_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelCardNoByTokenNo" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelCardNoByTokenNo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelCardNoByTokenNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelLastTransactions_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelLastTransactions" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelLastTransactions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelLastTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SendSms_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendSms" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SendSms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendSmsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_UpdateCustomerFees_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomerFees" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_UpdateCustomerFees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomerFeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpdTopup_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpdTopup" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpdTopup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpdTopupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpdTopup2_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpdTopup2" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpdTopup2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpdTopup2Response" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpTicketTransactionDetailsWithShift_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpTicketTransactionDetailsWithShift" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpTicketTransactionDetailsWithShift_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpTicketTransactionDetailsWithShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpTicketTransactionDetailsWithShiftUpi_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpTicketTransactionDetailsWithShiftUpi" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpTicketTransactionDetailsWithShiftUpi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpTicketTransactionDetailsWithShiftUpiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpdTripTopup_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpdTripTopup" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpdTripTopup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpdTripTopupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_ExecuteProcess_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteProcess" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_ExecuteProcess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelVersion" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelEmvCardDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelEmvCardDetails" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelEmvCardDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelEmvCardDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_NonPersonalizedCheckDuplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:NonPersonalizedCheckDuplication" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_NonPersonalizedCheckDuplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NonPersonalizedCheckDuplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_NonPersonalizedUpdateCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:NonPersonalizedUpdateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_NonPersonalizedUpdateCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NonPersonalizedUpdateCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_NonPersonalizedCardLink_InputMessage">
+    <wsdl:part name="parameters" element="tns:NonPersonalizedCardLink" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_NonPersonalizedCardLink_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NonPersonalizedCardLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_NonPersonalizedGetExistCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:NonPersonalizedGetExistCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_NonPersonalizedGetExistCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NonPersonalizedGetExistCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_DailyReconciliation_InputMessage">
+    <wsdl:part name="parameters" element="tns:DailyReconciliation" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_DailyReconciliation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DailyReconciliationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsSpecialModeActivity_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsSpecialModeActivity" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsSpecialModeActivity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsSpecialModeActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_UpdSpecialModeActivity_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdSpecialModeActivity" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_UpdSpecialModeActivity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdSpecialModeActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelEmvReplacementTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelEmvReplacementTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelEmvReplacementTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelEmvReplacementTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsEmvReplacementTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsEmvReplacementTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsEmvReplacementTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsEmvReplacementTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_UpdEmvReplacementTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdEmvReplacementTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_UpdEmvReplacementTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdEmvReplacementTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelUsers" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_GetEventPass_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventPass" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_GetEventPass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventPassResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelUnitByUID_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelUnitByUID" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelUnitByUID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelUnitByUIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_UserAuthForPayPoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserAuthForPayPoint" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_UserAuthForPayPoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserAuthForPayPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelQRCodeTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelQRCodeTicket" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelQRCodeTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelQRCodeTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelRFIDTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelRFIDTicket" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelRFIDTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelRFIDTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelStations_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelStations" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelStations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelStationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_ExecSP_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecSP" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_ExecSP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecSPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelTicketPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelTicketPrice" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelTicketPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelTicketPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_CreateSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSession" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_CreateSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsQRCodeTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsQRCodeTicket" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsQRCodeTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsQRCodeTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsTicketTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsTicketTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsTicketTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsTicketTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsRFIDTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsRFIDTicket" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsRFIDTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsRFIDTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SetLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetLog" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SetLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_ShiftOpenClose_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShiftOpenClose" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_ShiftOpenClose_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ShiftOpenCloseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsShiftPayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsShiftPayment" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsShiftPayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsShiftPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelShiftPayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelShiftPayment" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelShiftPayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelShiftPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_ShiftPaymentReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShiftPaymentReport" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_ShiftPaymentReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ShiftPaymentReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelCashPayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelCashPayment" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelCashPayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelCashPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_ShiftControl_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShiftControl" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_ShiftControl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ShiftControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_LastShiftUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:LastShiftUserId" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_LastShiftUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LastShiftUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelLastTransactionSalePoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelLastTransactionSalePoint" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelLastTransactionSalePoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelLastTransactionSalePointResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelLastRFIDTransactionSalePoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelLastRFIDTransactionSalePoint" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelLastRFIDTransactionSalePoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelLastRFIDTransactionSalePointResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_UpdPrintTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdPrintTicket" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_UpdPrintTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdPrintTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_GetRFIDTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRFIDTicket" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_GetRFIDTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRFIDTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelPenaltyTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelPenaltyTypes" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelPenaltyTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelPenaltyTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_CalculatePenAmount_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalculatePenAmount" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_CalculatePenAmount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalculatePenAmountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_CardUsageReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:CardUsageReport" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_CardUsageReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CardUsageReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsLogin" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_ShifttOpenClose_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShifttOpenClose" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_ShifttOpenClose_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ShifttOpenCloseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelShiftReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelShiftReport" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelShiftReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelShiftReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelShiftReportDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelShiftReportDetail" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelShiftReportDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelShiftReportDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelTicketHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelTicketHistory" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelTicketHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelTicketHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelReplacementReasons_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelReplacementReasons" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelReplacementReasons_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelReplacementReasonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelReplacementFees_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelReplacementFees" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelReplacementFees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelReplacementFeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsReplacement_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsReplacement" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsReplacement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsReplacementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelLastTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelLastTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelLastTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelLastTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_UpdCancelTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdCancelTicket" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_UpdCancelTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdCancelTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelSynchronization_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelSynchronization" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelSynchronization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelSynchronizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_UpdSynchronization_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdSynchronization" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_UpdSynchronization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdSynchronizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelRefundTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelRefundTicket" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelRefundTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelRefundTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelRefundTicketWithMode_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelRefundTicketWithMode" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelRefundTicketWithMode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelRefundTicketWithModeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelRptTicketDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelRptTicketDetails" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelRptTicketDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelRptTicketDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelSpecialMode_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelSpecialMode" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelSpecialMode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelSpecialModeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_UpdRefundTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdRefundTicket" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_UpdRefundTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdRefundTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelAdjustment_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelAdjustment" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelAdjustment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelAdjustmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsAdjustment_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsAdjustment" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsAdjustment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsAdjustmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_GetProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProducts" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_GetProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_GetStates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStates" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_GetStates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_GetCities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCities" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_GetCities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_CreateCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_CreateCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_CreateCustomerWithTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCustomerWithTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_CreateCustomerWithTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCustomerWithTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_CreteCard_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreteCard" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_CreteCard_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreteCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_WsLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:WsLogin" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_WsLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WsLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_GetCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_GetCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_GetCustCardInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustCardInfo" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_GetCustCardInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustCardInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_UpdateCardStatu_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCardStatu" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_UpdateCardStatu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCardStatuResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_GetCustinfoTokenNo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustinfoTokenNo" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_GetCustinfoTokenNo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustinfoTokenNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_GetCustDetailStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustDetailStatus" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_GetCustDetailStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustDetailStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_GetCustomerRenewal_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerRenewal" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_GetCustomerRenewal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerRenewalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpTicketTransactionDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpTicketTransactionDetails" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpTicketTransactionDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpTicketTransactionDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpdQrCodeTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpdQrCodeTicket" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpdQrCodeTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpdQrCodeTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpdRFIDTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpdRFIDTicket" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpdRFIDTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpdRFIDTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsupdShiftManagement_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsupdShiftManagement" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsupdShiftManagement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsupdShiftManagementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelPenaltyReasons_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelPenaltyReasons" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelPenaltyReasons_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelPenaltyReasonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelPenaltyFees_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelPenaltyFees" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelPenaltyFees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelPenaltyFeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsPenaltyTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsPenaltyTicket" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsPenaltyTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsPenaltyTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsFreeExitTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsFreeExitTicket" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsFreeExitTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsFreeExitTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_TomLoginControl_InputMessage">
+    <wsdl:part name="parameters" element="tns:TomLoginControl" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_TomLoginControl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TomLoginControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_UpdRFIDReplacement_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdRFIDReplacement" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_UpdRFIDReplacement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdRFIDReplacementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_Auth_InputMessage">
+    <wsdl:part name="parameters" element="tns:Auth" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_Auth_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelToSync_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelToSync" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelToSync_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelToSyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_UpdTicketForFreeExit_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdTicketForFreeExit" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_UpdTicketForFreeExit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdTicketForFreeExitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelCommandStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelCommandStatus" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelCommandStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelCommandStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsertCommandStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCommandStatus" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsertCommandStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCommandStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsertUserCommandStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUserCommandStatus" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsertUserCommandStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUserCommandStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpdAdjustment_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpdAdjustment" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpdAdjustment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpdAdjustmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsCancelTickets_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsCancelTickets" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsCancelTickets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsCancelTicketsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpdFreeExitTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpdFreeExitTicket" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpdFreeExitTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpdFreeExitTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpdPenaltyTickets_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpdPenaltyTickets" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpdPenaltyTickets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpdPenaltyTicketsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpdRefund_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpdRefund" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpdRefund_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpdRefundResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpdReplacement_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpdReplacement" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpdReplacement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpdReplacementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpdShiftSummary_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpdShiftSummary" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_InsUpdShiftSummary_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsUpdShiftSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelectShiftManagement_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectShiftManagement" />
+  </wsdl:message>
+  <wsdl:message name="IPayPoint_SelectShiftManagement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectShiftManagementResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPayPoint">
+    <wsdl:operation name="SelShiftSummary">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelShiftSummary" message="tns:IPayPoint_SelShiftSummary_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelShiftSummaryResponse" message="tns:IPayPoint_SelShiftSummary_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StationSaleReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/StationSaleReport" message="tns:IPayPoint_StationSaleReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/StationSaleReportResponse" message="tns:IPayPoint_StationSaleReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/ChangeUserPassword" message="tns:IPayPoint_ChangeUserPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/ChangeUserPasswordResponse" message="tns:IPayPoint_ChangeUserPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelRiderShipReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelRiderShipReport" message="tns:IPayPoint_SelRiderShipReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelRiderShipReportResponse" message="tns:IPayPoint_SelRiderShipReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomerRefNo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/CustomerRefNo" message="tns:IPayPoint_CustomerRefNo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/CustomerRefNoResponse" message="tns:IPayPoint_CustomerRefNo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckDuplication">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/CheckDuplication" message="tns:IPayPoint_CheckDuplication_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/CheckDuplicationResponse" message="tns:IPayPoint_CheckDuplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenNo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/GetTokenNo" message="tns:IPayPoint_GetTokenNo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/GetTokenNoResponse" message="tns:IPayPoint_GetTokenNo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelTableRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelTableRecord" message="tns:IPayPoint_SelTableRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelTableRecordResponse" message="tns:IPayPoint_SelTableRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelTableRecordSc">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelTableRecordSc" message="tns:IPayPoint_SelTableRecordSc_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelTableRecordScResponse" message="tns:IPayPoint_SelTableRecordSc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/ChangePassword" message="tns:IPayPoint_ChangePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/ChangePasswordResponse" message="tns:IPayPoint_ChangePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlarmHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/AlarmHistory" message="tns:IPayPoint_AlarmHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/AlarmHistoryResponse" message="tns:IPayPoint_AlarmHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelCardNoByTokenNo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelCardNoByTokenNo" message="tns:IPayPoint_SelCardNoByTokenNo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelCardNoByTokenNoResponse" message="tns:IPayPoint_SelCardNoByTokenNo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelLastTransactions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelLastTransactions" message="tns:IPayPoint_SelLastTransactions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelLastTransactionsResponse" message="tns:IPayPoint_SelLastTransactions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSms">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SendSms" message="tns:IPayPoint_SendSms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SendSmsResponse" message="tns:IPayPoint_SendSms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomerFees">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/UpdateCustomerFees" message="tns:IPayPoint_UpdateCustomerFees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/UpdateCustomerFeesResponse" message="tns:IPayPoint_UpdateCustomerFees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdTopup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsUpdTopup" message="tns:IPayPoint_InsUpdTopup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsUpdTopupResponse" message="tns:IPayPoint_InsUpdTopup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdTopup2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsUpdTopup2" message="tns:IPayPoint_InsUpdTopup2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsUpdTopup2Response" message="tns:IPayPoint_InsUpdTopup2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsUpTicketTransactionDetailsWithShift">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsUpTicketTransactionDetailsWithShift" message="tns:IPayPoint_InsUpTicketTransactionDetailsWithShift_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsUpTicketTransactionDetailsWithShiftResponse" message="tns:IPayPoint_InsUpTicketTransactionDetailsWithShift_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsUpTicketTransactionDetailsWithShiftUpi">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsUpTicketTransactionDetailsWithShiftUpi" message="tns:IPayPoint_InsUpTicketTransactionDetailsWithShiftUpi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsUpTicketTransactionDetailsWithShiftUpiResponse" message="tns:IPayPoint_InsUpTicketTransactionDetailsWithShiftUpi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdTripTopup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsUpdTripTopup" message="tns:IPayPoint_InsUpdTripTopup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsUpdTripTopupResponse" message="tns:IPayPoint_InsUpdTripTopup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteProcess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/ExecuteProcess" message="tns:IPayPoint_ExecuteProcess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/ExecuteProcessResponse" message="tns:IPayPoint_ExecuteProcess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelVersion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelVersion" message="tns:IPayPoint_SelVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelVersionResponse" message="tns:IPayPoint_SelVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelEmvCardDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelEmvCardDetails" message="tns:IPayPoint_SelEmvCardDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelEmvCardDetailsResponse" message="tns:IPayPoint_SelEmvCardDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NonPersonalizedCheckDuplication">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/NonPersonalizedCheckDuplication" message="tns:IPayPoint_NonPersonalizedCheckDuplication_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/NonPersonalizedCheckDuplicationResponse" message="tns:IPayPoint_NonPersonalizedCheckDuplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NonPersonalizedUpdateCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/NonPersonalizedUpdateCustomer" message="tns:IPayPoint_NonPersonalizedUpdateCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/NonPersonalizedUpdateCustomerResponse" message="tns:IPayPoint_NonPersonalizedUpdateCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NonPersonalizedCardLink">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/NonPersonalizedCardLink" message="tns:IPayPoint_NonPersonalizedCardLink_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/NonPersonalizedCardLinkResponse" message="tns:IPayPoint_NonPersonalizedCardLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NonPersonalizedGetExistCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/NonPersonalizedGetExistCustomer" message="tns:IPayPoint_NonPersonalizedGetExistCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/NonPersonalizedGetExistCustomerResponse" message="tns:IPayPoint_NonPersonalizedGetExistCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DailyReconciliation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/DailyReconciliation" message="tns:IPayPoint_DailyReconciliation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/DailyReconciliationResponse" message="tns:IPayPoint_DailyReconciliation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsSpecialModeActivity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsSpecialModeActivity" message="tns:IPayPoint_InsSpecialModeActivity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsSpecialModeActivityResponse" message="tns:IPayPoint_InsSpecialModeActivity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdSpecialModeActivity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/UpdSpecialModeActivity" message="tns:IPayPoint_UpdSpecialModeActivity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/UpdSpecialModeActivityResponse" message="tns:IPayPoint_UpdSpecialModeActivity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelEmvReplacementTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelEmvReplacementTransaction" message="tns:IPayPoint_SelEmvReplacementTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelEmvReplacementTransactionResponse" message="tns:IPayPoint_SelEmvReplacementTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsEmvReplacementTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsEmvReplacementTransaction" message="tns:IPayPoint_InsEmvReplacementTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsEmvReplacementTransactionResponse" message="tns:IPayPoint_InsEmvReplacementTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdEmvReplacementTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/UpdEmvReplacementTransaction" message="tns:IPayPoint_UpdEmvReplacementTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/UpdEmvReplacementTransactionResponse" message="tns:IPayPoint_UpdEmvReplacementTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelUsers" message="tns:IPayPoint_SelUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelUsersResponse" message="tns:IPayPoint_SelUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEventPass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/GetEventPass" message="tns:IPayPoint_GetEventPass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/GetEventPassResponse" message="tns:IPayPoint_GetEventPass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/Login" message="tns:IPayPoint_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/LoginResponse" message="tns:IPayPoint_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelUnitByUID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelUnitByUID" message="tns:IPayPoint_SelUnitByUID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelUnitByUIDResponse" message="tns:IPayPoint_SelUnitByUID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserAuthForPayPoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/UserAuthForPayPoint" message="tns:IPayPoint_UserAuthForPayPoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/UserAuthForPayPointResponse" message="tns:IPayPoint_UserAuthForPayPoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelQRCodeTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelQRCodeTicket" message="tns:IPayPoint_SelQRCodeTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelQRCodeTicketResponse" message="tns:IPayPoint_SelQRCodeTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelRFIDTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelRFIDTicket" message="tns:IPayPoint_SelRFIDTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelRFIDTicketResponse" message="tns:IPayPoint_SelRFIDTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelStations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelStations" message="tns:IPayPoint_SelStations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelStationsResponse" message="tns:IPayPoint_SelStations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecSP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/ExecSP" message="tns:IPayPoint_ExecSP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/ExecSPResponse" message="tns:IPayPoint_ExecSP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelTicketPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelTicketPrice" message="tns:IPayPoint_SelTicketPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelTicketPriceResponse" message="tns:IPayPoint_SelTicketPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/CreateSession" message="tns:IPayPoint_CreateSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/CreateSessionResponse" message="tns:IPayPoint_CreateSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsQRCodeTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsQRCodeTicket" message="tns:IPayPoint_InsQRCodeTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsQRCodeTicketResponse" message="tns:IPayPoint_InsQRCodeTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsTicketTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsTicketTransaction" message="tns:IPayPoint_InsTicketTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsTicketTransactionResponse" message="tns:IPayPoint_InsTicketTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsRFIDTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsRFIDTicket" message="tns:IPayPoint_InsRFIDTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsRFIDTicketResponse" message="tns:IPayPoint_InsRFIDTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SetLog" message="tns:IPayPoint_SetLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SetLogResponse" message="tns:IPayPoint_SetLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShiftOpenClose">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/ShiftOpenClose" message="tns:IPayPoint_ShiftOpenClose_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/ShiftOpenCloseResponse" message="tns:IPayPoint_ShiftOpenClose_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsShiftPayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsShiftPayment" message="tns:IPayPoint_InsShiftPayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsShiftPaymentResponse" message="tns:IPayPoint_InsShiftPayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelShiftPayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelShiftPayment" message="tns:IPayPoint_SelShiftPayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelShiftPaymentResponse" message="tns:IPayPoint_SelShiftPayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShiftPaymentReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/ShiftPaymentReport" message="tns:IPayPoint_ShiftPaymentReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/ShiftPaymentReportResponse" message="tns:IPayPoint_ShiftPaymentReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelCashPayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelCashPayment" message="tns:IPayPoint_SelCashPayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelCashPaymentResponse" message="tns:IPayPoint_SelCashPayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShiftControl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/ShiftControl" message="tns:IPayPoint_ShiftControl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/ShiftControlResponse" message="tns:IPayPoint_ShiftControl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LastShiftUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/LastShiftUserId" message="tns:IPayPoint_LastShiftUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/LastShiftUserIdResponse" message="tns:IPayPoint_LastShiftUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelLastTransactionSalePoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelLastTransactionSalePoint" message="tns:IPayPoint_SelLastTransactionSalePoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelLastTransactionSalePointResponse" message="tns:IPayPoint_SelLastTransactionSalePoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelLastRFIDTransactionSalePoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelLastRFIDTransactionSalePoint" message="tns:IPayPoint_SelLastRFIDTransactionSalePoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelLastRFIDTransactionSalePointResponse" message="tns:IPayPoint_SelLastRFIDTransactionSalePoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdPrintTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/UpdPrintTicket" message="tns:IPayPoint_UpdPrintTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/UpdPrintTicketResponse" message="tns:IPayPoint_UpdPrintTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRFIDTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/GetRFIDTicket" message="tns:IPayPoint_GetRFIDTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/GetRFIDTicketResponse" message="tns:IPayPoint_GetRFIDTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelPenaltyTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelPenaltyTypes" message="tns:IPayPoint_SelPenaltyTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelPenaltyTypesResponse" message="tns:IPayPoint_SelPenaltyTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculatePenAmount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/CalculatePenAmount" message="tns:IPayPoint_CalculatePenAmount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/CalculatePenAmountResponse" message="tns:IPayPoint_CalculatePenAmount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CardUsageReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/CardUsageReport" message="tns:IPayPoint_CardUsageReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/CardUsageReportResponse" message="tns:IPayPoint_CardUsageReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsLogin" message="tns:IPayPoint_InsLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsLoginResponse" message="tns:IPayPoint_InsLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ShifttOpenClose">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/ShifttOpenClose" message="tns:IPayPoint_ShifttOpenClose_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/ShifttOpenCloseResponse" message="tns:IPayPoint_ShifttOpenClose_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelShiftReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelShiftReport" message="tns:IPayPoint_SelShiftReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelShiftReportResponse" message="tns:IPayPoint_SelShiftReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelShiftReportDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelShiftReportDetail" message="tns:IPayPoint_SelShiftReportDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelShiftReportDetailResponse" message="tns:IPayPoint_SelShiftReportDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelTicketHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelTicketHistory" message="tns:IPayPoint_SelTicketHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelTicketHistoryResponse" message="tns:IPayPoint_SelTicketHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelReplacementReasons">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelReplacementReasons" message="tns:IPayPoint_SelReplacementReasons_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelReplacementReasonsResponse" message="tns:IPayPoint_SelReplacementReasons_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelReplacementFees">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelReplacementFees" message="tns:IPayPoint_SelReplacementFees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelReplacementFeesResponse" message="tns:IPayPoint_SelReplacementFees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsReplacement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsReplacement" message="tns:IPayPoint_InsReplacement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsReplacementResponse" message="tns:IPayPoint_InsReplacement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelLastTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelLastTransaction" message="tns:IPayPoint_SelLastTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelLastTransactionResponse" message="tns:IPayPoint_SelLastTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdCancelTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/UpdCancelTicket" message="tns:IPayPoint_UpdCancelTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/UpdCancelTicketResponse" message="tns:IPayPoint_UpdCancelTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelSynchronization">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelSynchronization" message="tns:IPayPoint_SelSynchronization_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelSynchronizationResponse" message="tns:IPayPoint_SelSynchronization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdSynchronization">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/UpdSynchronization" message="tns:IPayPoint_UpdSynchronization_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/UpdSynchronizationResponse" message="tns:IPayPoint_UpdSynchronization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelRefundTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelRefundTicket" message="tns:IPayPoint_SelRefundTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelRefundTicketResponse" message="tns:IPayPoint_SelRefundTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelRefundTicketWithMode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelRefundTicketWithMode" message="tns:IPayPoint_SelRefundTicketWithMode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelRefundTicketWithModeResponse" message="tns:IPayPoint_SelRefundTicketWithMode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelRptTicketDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelRptTicketDetails" message="tns:IPayPoint_SelRptTicketDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelRptTicketDetailsResponse" message="tns:IPayPoint_SelRptTicketDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelSpecialMode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelSpecialMode" message="tns:IPayPoint_SelSpecialMode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelSpecialModeResponse" message="tns:IPayPoint_SelSpecialMode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdRefundTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/UpdRefundTicket" message="tns:IPayPoint_UpdRefundTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/UpdRefundTicketResponse" message="tns:IPayPoint_UpdRefundTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelAdjustment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelAdjustment" message="tns:IPayPoint_SelAdjustment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelAdjustmentResponse" message="tns:IPayPoint_SelAdjustment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsAdjustment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsAdjustment" message="tns:IPayPoint_InsAdjustment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsAdjustmentResponse" message="tns:IPayPoint_InsAdjustment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/GetProducts" message="tns:IPayPoint_GetProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/GetProductsResponse" message="tns:IPayPoint_GetProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStates">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/GetStates" message="tns:IPayPoint_GetStates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/GetStatesResponse" message="tns:IPayPoint_GetStates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCities">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/GetCities" message="tns:IPayPoint_GetCities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/GetCitiesResponse" message="tns:IPayPoint_GetCities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/CreateCustomer" message="tns:IPayPoint_CreateCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/CreateCustomerResponse" message="tns:IPayPoint_CreateCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomerWithTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/CreateCustomerWithTransaction" message="tns:IPayPoint_CreateCustomerWithTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/CreateCustomerWithTransactionResponse" message="tns:IPayPoint_CreateCustomerWithTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreteCard">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/CreteCard" message="tns:IPayPoint_CreteCard_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/CreteCardResponse" message="tns:IPayPoint_CreteCard_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WsLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/WsLogin" message="tns:IPayPoint_WsLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/WsLoginResponse" message="tns:IPayPoint_WsLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/GetCustomer" message="tns:IPayPoint_GetCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/GetCustomerResponse" message="tns:IPayPoint_GetCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustCardInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/GetCustCardInfo" message="tns:IPayPoint_GetCustCardInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/GetCustCardInfoResponse" message="tns:IPayPoint_GetCustCardInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCardStatu">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/UpdateCardStatu" message="tns:IPayPoint_UpdateCardStatu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/UpdateCardStatuResponse" message="tns:IPayPoint_UpdateCardStatu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustinfoTokenNo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/GetCustinfoTokenNo" message="tns:IPayPoint_GetCustinfoTokenNo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/GetCustinfoTokenNoResponse" message="tns:IPayPoint_GetCustinfoTokenNo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustDetailStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/GetCustDetailStatus" message="tns:IPayPoint_GetCustDetailStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/GetCustDetailStatusResponse" message="tns:IPayPoint_GetCustDetailStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerRenewal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/GetCustomerRenewal" message="tns:IPayPoint_GetCustomerRenewal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/GetCustomerRenewalResponse" message="tns:IPayPoint_GetCustomerRenewal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsUpTicketTransactionDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsUpTicketTransactionDetails" message="tns:IPayPoint_InsUpTicketTransactionDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsUpTicketTransactionDetailsResponse" message="tns:IPayPoint_InsUpTicketTransactionDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdQrCodeTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsUpdQrCodeTicket" message="tns:IPayPoint_InsUpdQrCodeTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsUpdQrCodeTicketResponse" message="tns:IPayPoint_InsUpdQrCodeTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdRFIDTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsUpdRFIDTicket" message="tns:IPayPoint_InsUpdRFIDTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsUpdRFIDTicketResponse" message="tns:IPayPoint_InsUpdRFIDTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsupdShiftManagement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsupdShiftManagement" message="tns:IPayPoint_InsupdShiftManagement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsupdShiftManagementResponse" message="tns:IPayPoint_InsupdShiftManagement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelPenaltyReasons">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelPenaltyReasons" message="tns:IPayPoint_SelPenaltyReasons_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelPenaltyReasonsResponse" message="tns:IPayPoint_SelPenaltyReasons_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelPenaltyFees">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelPenaltyFees" message="tns:IPayPoint_SelPenaltyFees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelPenaltyFeesResponse" message="tns:IPayPoint_SelPenaltyFees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsPenaltyTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsPenaltyTicket" message="tns:IPayPoint_InsPenaltyTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsPenaltyTicketResponse" message="tns:IPayPoint_InsPenaltyTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsFreeExitTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsFreeExitTicket" message="tns:IPayPoint_InsFreeExitTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsFreeExitTicketResponse" message="tns:IPayPoint_InsFreeExitTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TomLoginControl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/TomLoginControl" message="tns:IPayPoint_TomLoginControl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/TomLoginControlResponse" message="tns:IPayPoint_TomLoginControl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdRFIDReplacement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/UpdRFIDReplacement" message="tns:IPayPoint_UpdRFIDReplacement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/UpdRFIDReplacementResponse" message="tns:IPayPoint_UpdRFIDReplacement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Auth">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/Auth" message="tns:IPayPoint_Auth_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/AuthResponse" message="tns:IPayPoint_Auth_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelToSync">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelToSync" message="tns:IPayPoint_SelToSync_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelToSyncResponse" message="tns:IPayPoint_SelToSync_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdTicketForFreeExit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/UpdTicketForFreeExit" message="tns:IPayPoint_UpdTicketForFreeExit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/UpdTicketForFreeExitResponse" message="tns:IPayPoint_UpdTicketForFreeExit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelCommandStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelCommandStatus" message="tns:IPayPoint_SelCommandStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelCommandStatusResponse" message="tns:IPayPoint_SelCommandStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCommandStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsertCommandStatus" message="tns:IPayPoint_InsertCommandStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsertCommandStatusResponse" message="tns:IPayPoint_InsertCommandStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUserCommandStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsertUserCommandStatus" message="tns:IPayPoint_InsertUserCommandStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsertUserCommandStatusResponse" message="tns:IPayPoint_InsertUserCommandStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdAdjustment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsUpdAdjustment" message="tns:IPayPoint_InsUpdAdjustment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsUpdAdjustmentResponse" message="tns:IPayPoint_InsUpdAdjustment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsCancelTickets">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsCancelTickets" message="tns:IPayPoint_InsCancelTickets_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsCancelTicketsResponse" message="tns:IPayPoint_InsCancelTickets_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdFreeExitTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsUpdFreeExitTicket" message="tns:IPayPoint_InsUpdFreeExitTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsUpdFreeExitTicketResponse" message="tns:IPayPoint_InsUpdFreeExitTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdPenaltyTickets">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsUpdPenaltyTickets" message="tns:IPayPoint_InsUpdPenaltyTickets_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsUpdPenaltyTicketsResponse" message="tns:IPayPoint_InsUpdPenaltyTickets_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdRefund">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsUpdRefund" message="tns:IPayPoint_InsUpdRefund_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsUpdRefundResponse" message="tns:IPayPoint_InsUpdRefund_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdReplacement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsUpdReplacement" message="tns:IPayPoint_InsUpdReplacement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsUpdReplacementResponse" message="tns:IPayPoint_InsUpdReplacement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdShiftSummary">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/InsUpdShiftSummary" message="tns:IPayPoint_InsUpdShiftSummary_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/InsUpdShiftSummaryResponse" message="tns:IPayPoint_InsUpdShiftSummary_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectShiftManagement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayPoint/SelectShiftManagement" message="tns:IPayPoint_SelectShiftManagement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayPoint/SelectShiftManagementResponse" message="tns:IPayPoint_SelectShiftManagement_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPayPoint" type="tns:IPayPoint">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SelShiftSummary">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelShiftSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StationSaleReport">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/StationSaleReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserPassword">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/ChangeUserPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelRiderShipReport">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelRiderShipReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerRefNo">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/CustomerRefNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckDuplication">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/CheckDuplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenNo">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/GetTokenNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelTableRecord">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelTableRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelTableRecordSc">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelTableRecordSc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlarmHistory">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/AlarmHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelCardNoByTokenNo">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelCardNoByTokenNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelLastTransactions">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelLastTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSms">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SendSms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomerFees">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/UpdateCustomerFees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdTopup">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsUpdTopup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdTopup2">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsUpdTopup2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsUpTicketTransactionDetailsWithShift">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsUpTicketTransactionDetailsWithShift" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsUpTicketTransactionDetailsWithShiftUpi">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsUpTicketTransactionDetailsWithShiftUpi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdTripTopup">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsUpdTripTopup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteProcess">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/ExecuteProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelVersion">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelEmvCardDetails">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelEmvCardDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NonPersonalizedCheckDuplication">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/NonPersonalizedCheckDuplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NonPersonalizedUpdateCustomer">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/NonPersonalizedUpdateCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NonPersonalizedCardLink">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/NonPersonalizedCardLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NonPersonalizedGetExistCustomer">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/NonPersonalizedGetExistCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DailyReconciliation">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/DailyReconciliation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsSpecialModeActivity">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsSpecialModeActivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdSpecialModeActivity">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/UpdSpecialModeActivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelEmvReplacementTransaction">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelEmvReplacementTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsEmvReplacementTransaction">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsEmvReplacementTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdEmvReplacementTransaction">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/UpdEmvReplacementTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelUsers">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEventPass">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/GetEventPass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelUnitByUID">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelUnitByUID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserAuthForPayPoint">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/UserAuthForPayPoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelQRCodeTicket">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelQRCodeTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelRFIDTicket">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelRFIDTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelStations">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelStations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecSP">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/ExecSP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelTicketPrice">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelTicketPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSession">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/CreateSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsQRCodeTicket">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsQRCodeTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsTicketTransaction">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsTicketTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsRFIDTicket">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsRFIDTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetLog">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SetLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShiftOpenClose">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/ShiftOpenClose" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsShiftPayment">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsShiftPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelShiftPayment">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelShiftPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShiftPaymentReport">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/ShiftPaymentReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelCashPayment">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelCashPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShiftControl">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/ShiftControl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LastShiftUserId">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/LastShiftUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelLastTransactionSalePoint">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelLastTransactionSalePoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelLastRFIDTransactionSalePoint">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelLastRFIDTransactionSalePoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdPrintTicket">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/UpdPrintTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRFIDTicket">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/GetRFIDTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelPenaltyTypes">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelPenaltyTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculatePenAmount">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/CalculatePenAmount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CardUsageReport">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/CardUsageReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsLogin">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShifttOpenClose">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/ShifttOpenClose" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelShiftReport">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelShiftReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelShiftReportDetail">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelShiftReportDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelTicketHistory">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelTicketHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelReplacementReasons">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelReplacementReasons" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelReplacementFees">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelReplacementFees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsReplacement">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsReplacement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelLastTransaction">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelLastTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdCancelTicket">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/UpdCancelTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelSynchronization">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelSynchronization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdSynchronization">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/UpdSynchronization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelRefundTicket">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelRefundTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelRefundTicketWithMode">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelRefundTicketWithMode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelRptTicketDetails">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelRptTicketDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelSpecialMode">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelSpecialMode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdRefundTicket">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/UpdRefundTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelAdjustment">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelAdjustment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsAdjustment">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsAdjustment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProducts">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/GetProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStates">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/GetStates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCities">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/GetCities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomer">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/CreateCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomerWithTransaction">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/CreateCustomerWithTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreteCard">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/CreteCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WsLogin">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/WsLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/GetCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustCardInfo">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/GetCustCardInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCardStatu">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/UpdateCardStatu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustinfoTokenNo">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/GetCustinfoTokenNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustDetailStatus">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/GetCustDetailStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerRenewal">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/GetCustomerRenewal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsUpTicketTransactionDetails">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsUpTicketTransactionDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdQrCodeTicket">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsUpdQrCodeTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdRFIDTicket">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsUpdRFIDTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsupdShiftManagement">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsupdShiftManagement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelPenaltyReasons">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelPenaltyReasons" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelPenaltyFees">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelPenaltyFees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsPenaltyTicket">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsPenaltyTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsFreeExitTicket">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsFreeExitTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TomLoginControl">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/TomLoginControl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdRFIDReplacement">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/UpdRFIDReplacement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Auth">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/Auth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelToSync">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelToSync" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdTicketForFreeExit">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/UpdTicketForFreeExit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelCommandStatus">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelCommandStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCommandStatus">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsertCommandStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUserCommandStatus">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsertUserCommandStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdAdjustment">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsUpdAdjustment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsCancelTickets">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsCancelTickets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdFreeExitTicket">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsUpdFreeExitTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdPenaltyTickets">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsUpdPenaltyTickets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdRefund">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsUpdRefund" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdReplacement">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsUpdReplacement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsUpdShiftSummary">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/InsUpdShiftSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectShiftManagement">
+      <soap:operation soapAction="http://tempuri.org/IPayPoint/SelectShiftManagement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PayPoint">
+    <wsdl:port name="BasicHttpBinding_IPayPoint" binding="tns:BasicHttpBinding_IPayPoint">
+      <soap:address location="http://svasistest12.asis.local:89/COMM/Paypoint/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

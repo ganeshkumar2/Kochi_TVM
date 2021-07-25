@@ -1,0 +1,132 @@
+﻿<Page x:Class="Kochi_TVM.Pages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Kochi_TVM.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="768"
+      d:DesignWidth="1024"
+      Background="{StaticResource pageColor}"      
+      Loaded="Page_Loaded"
+      Unloaded="Page_Unloaded"
+      Title="MainPage">
+    <Grid>
+        <Grid x:Name="mainGrid" Background="Transparent">
+            <Grid.RowDefinitions>
+                <!--Top space -->
+                <RowDefinition Height="*"/>
+                <!--Header -->
+                <RowDefinition Height="3*"/>
+                <!--Top space -->
+                <RowDefinition Height="*"/>
+                <!--Operation Area -->
+                <RowDefinition Height="24*"/>
+                <!--Top space -->
+                <RowDefinition Height="*"/>
+                <!--Navigate -->
+                <RowDefinition Height="3*"/>
+                <!--Bottom space -->
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <!--Left space -->
+                <ColumnDefinition Width="*"/>
+                <!--Operation -->
+                <ColumnDefinition Width="19*"/>
+                <!--Right space -->
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Name="lblHeader" Content="Welcome to Kochi Metro!" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader1}"/>
+            <!--<Label Name="lblHeader" Content="Service is not available. Please try again later!" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader1}"/>-->
+
+            <Grid Name="operationGrid" Grid.Column="1" Grid.Row="3" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <Button x:Name="btnSelectTicket"   Grid.Row="2" Grid.Column="0" Grid.RowSpan="3" Content="Buy Ticket "  Style="{StaticResource styleSelectionQRBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Top"  VerticalContentAlignment="Center" FontSize="38" Height="181" Margin="0.2,0.2,10.4,0" Click="btnSelectTicket_Click" />
+                <Label Name="lblNoConnection" Opacity="1" Panel.ZIndex="1" Visibility="Collapsed"  Grid.Row="3" Grid.Column="0"  Grid.RowSpan="2" Content="" HorizontalAlignment="Stretch" VerticalAlignment="Top"  Style="{StaticResource styleLabelComingSoon}"/>
+
+                <Image  x:Name="imgFingerLeft" Visibility="Hidden" Panel.ZIndex="1" Grid.Row="3" Grid.Column="0"    Grid.RowSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Center"  Source="/Kochi_TVM;component/images/startHandIcon.png" />
+
+
+                <Grid Name="seperatorLineGrid" Grid.Column="1" Grid.Row="0"  Grid.RowSpan="6" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="8*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Row="1" Grid.Column="1" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource WhiteFontColor}" CornerRadius="5" BorderThickness="3"/>
+                </Grid>
+                <Button x:Name="btnSelectCard" Opacity="0.2" Panel.ZIndex="1" Grid.Row="2" Grid.Column="2" Grid.RowSpan="3"  Content="Kochi-1 Card Operation "  Style="{StaticResource styleSelectionBtn}" VerticalAlignment="Top"  FontSize="38" Height="181" Click="btnSelectCard_Click" Margin="0.2,0.2,10.4,0"/>
+                <Label Name="lblComingSoon" Opacity="1" Panel.ZIndex="1"  Grid.Row="3" Grid.Column="2"  Grid.RowSpan="2" Content="Coming Soon " HorizontalAlignment="Stretch" VerticalAlignment="Top"  Style="{StaticResource styleLabelComingSoon}"/>
+                <Image x:Name="imgFingerRight" Visibility="Hidden" Panel.ZIndex="1"  Grid.Row="3" Grid.Column="2"  Grid.RowSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Center"  Source="/Kochi_TVM;component/images/startHandIcon.png" />
+                <TextBlock Name="txtInfo" Panel.ZIndex="1" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3"  Text="No receipt!" Visibility="Hidden" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Bottom" TextAlignment="Center" FontFamily="Titillium" FontSize="48" Foreground="{StaticResource RedColor}" />
+
+            </Grid>
+
+            <Grid Name="languageGrid" Grid.Row="5" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="4*" />
+                </Grid.ColumnDefinitions>
+                <Label Name="lblSelectLanguage" Content="Select Your Language" Grid.Row="1" HorizontalAlignment="Right" Style="{StaticResource styleLabelHeader2}" Grid.Column="0"/>
+                <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Button x:Name="btnLang1" Grid.Row="1" Grid.Column="2" Content="English" Visibility="Collapsed" Style="{StaticResource styleLanguageSetBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="180" Margin="0,0,20,0" Click="btnLang1_Click"/>
+                    <Button x:Name="btnLang3" Grid.Row="1" Grid.Column="2" Content="हिन्दी"  Style="{StaticResource styleLanguageSetBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="180"  Margin="0,0,20,0" Click="btnLang3_Click"/>
+                    <Button x:Name="btnLang2" Grid.Row="1" Grid.Column="2" Content="മലയാളം" Style="{StaticResource styleLanguageSetBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="180"  Margin="0,0,20,0" Click="btnLang2_Click"/>
+                </StackPanel>
+
+            </Grid>
+            
+        </Grid>
+        <Grid x:Name="outofservice" HorizontalAlignment="Stretch" Visibility="Collapsed" VerticalAlignment="Stretch" Background="Red">
+            <Grid.RowDefinitions>
+                <!--Top space -->
+                <RowDefinition Height="*"/>
+                <!--Header -->
+                <RowDefinition Height="3*"/>
+                <!--Top space -->
+                <RowDefinition Height="*"/>
+                <!--Operation Area -->
+                <RowDefinition Height="24*"/>
+                <!--Top space -->
+                <RowDefinition Height="*"/>
+                <!--Navigate -->
+                <RowDefinition Height="3*"/>
+                <!--Bottom space -->
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <!--Left space -->
+                <ColumnDefinition Width="*"/>
+                <!--Operation -->
+                <ColumnDefinition Width="19*"/>
+                <!--Right space -->
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Name="imgStationClosedMode" Grid.Row="3" Grid.Column="1"   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/Kochi_TVM;component/images/station_closed.jpg" />
+            <TextBlock Name="txtErrorMode" Grid.Row="1" Grid.Column="1" Text="OUT OF SERVICE" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontFamily="Titillium" FontSize="45" FontWeight="Bold" Foreground="{StaticResource WhiteFontColor}" />
+            <TextBlock Name="txtErrorCode" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Right" VerticalAlignment="Center" TextAlignment="Center" FontFamily="Titillium" FontSize="25" Foreground="{StaticResource WhiteFontColor}" />
+        </Grid>
+    </Grid>
+</Page>

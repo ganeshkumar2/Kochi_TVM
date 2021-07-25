@@ -1,0 +1,42 @@
+﻿<Page x:Class="Kochi_TVM.Pages.PrintReciptPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Kochi_TVM.Pages"
+      mc:Ignorable="d" 
+       d:DesignHeight="758"
+      d:DesignWidth="1024"
+      Background="{StaticResource pageColor}"
+      Loaded="Page_Loaded"
+      Unloaded="Page_Unloaded"
+      Title="PrintReciptPage">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <MediaElement x:Name="returnCashImageGif" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" MediaEnded="returnCashImageGif_MediaEnded" UnloadedBehavior="Manual" LoadedBehavior="Play" Stretch="None"/>
+
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Name="lblSaleSucc" Content="TICKET SALE IS SUCCESSFUL" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Style="{StaticResource styleLabelPrint}" Margin="0,-80,0,100"/>
+                <Label Name="lblCollect"  Content="Please collect your ticket and change!"  HorizontalAlignment="Center" Style="{StaticResource styleLabelPrint}" Margin="0,0,0,20"/>
+                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Label Name="lblNoOfTick" Content="Number of Ticket : "  HorizontalAlignment="Center" Style="{StaticResource styleLabelPrint}" Margin="0,0,0,20"/>
+                    <Label Name="lblTicketCount"  HorizontalAlignment="Center" Style="{StaticResource styleLabelPrint}" Margin="0,0,0,20"/>
+                </StackPanel>
+                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Label Name="lblChaAmt" Content="Change Amount: "  HorizontalAlignment="Center" Style="{StaticResource styleLabelPrint}" Margin="0,0,0,20"/>
+                    <Label Name="lblChange"  HorizontalAlignment="Center" Style="{StaticResource styleLabelPrint}" Margin="0,0,0,20"/>
+                </StackPanel>
+                
+                <StackPanel x:Name="stkPrint" Orientation="Horizontal" Height="80" HorizontalAlignment="Center" Visibility="Collapsed">
+                    <Button x:Name="btnPrintRecipt"  Content="Print Receipt " Style="{StaticResource styleCardTypeBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" FontSize="25" Click="btnPrintRecipt_Click" Margin="0,0,50,0"/>
+                    <Button x:Name="btnPrintReciptSkip" Grid.Row="0" Grid.Column="1" Content="Skip Receipt " Style="{StaticResource styleCardTypeBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" FontSize="25" Click="btnPrintReciptSkip_Click" />
+                </StackPanel>
+                <Button x:Name="btnFinish" Height="80" Content="Finish" Visibility="Collapsed" Style="{StaticResource styleCardTypeBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" FontSize="25" Click="btnPrintReciptSkip_Click" Margin="50,0,50,0"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

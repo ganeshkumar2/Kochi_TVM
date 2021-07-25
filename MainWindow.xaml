@@ -1,0 +1,65 @@
+﻿<Window x:Class="Kochi_TVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kochi_TVM"
+        mc:Ignorable="d"
+        Title="MainWindow"  Height="768" Width="1024"  ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen" Topmost="False" Background="{StaticResource MainColor}">
+    <Grid Name="mainGrid" Width="Auto" Height="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="74*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Name="headerGrid" Grid.Row="0" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="4*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Name="gridLogo" Grid.Row="0" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="8*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="8*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MouseLeftButtonDown="gridLogo_MouseLeftButtonDown">
+                    <Image Name="iLogo"  Source="Images\kmrl.png" Stretch="Uniform"/>
+                </Grid>
+                <Grid x:Name="gridBankLogo" Grid.Column="3" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MouseLeftButtonDown="gridBankLogo_MouseLeftButtonDown">
+                    <Image Name="axisLogo"  Source="Images\axisbank_logo.png" Stretch="Uniform"/>
+                </Grid>                
+            </Grid>
+
+            <Grid Name="gridName" Grid.Row="0" Grid.Column="1" Visibility="Visible" MouseLeftButtonDown="gridDT_MouseLeftButtonDown">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Name="lStation" Grid.Row="0" Grid.Column="0" Content="Aluva Station" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Titillium" FontSize="23" FontWeight="Bold" Foreground="{StaticResource WhiteFontColor}" HorizontalAlignment="Stretch" />
+             </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Name="lDate" Grid.Row="1" Grid.Column="0" Content="14th December 2015 09:14 AM" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,20,0" FontFamily="Titillium" FontSize="21" FontWeight="Bold" Foreground="{StaticResource WhiteFontColor}"  HorizontalAlignment="Stretch" />
+            </Grid>
+        </Grid>
+        <Border Grid.Row="1" Grid.Column="0" Background="{StaticResource ViceColor}" />
+        <Frame Name="frameHomeMain" Grid.Row="2" Grid.Column="0" Background="{StaticResource  pageColor}" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>
