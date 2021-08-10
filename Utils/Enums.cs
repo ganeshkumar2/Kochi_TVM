@@ -117,7 +117,7 @@ namespace Kochi_TVM.Utils
             TT_PASS_RENEWAL = 13,
             TT_EMV_PASS_REFUND = 14,
             TT_ADD_RPT = 15,
-            TT_REMOVE_PRT = 16,
+            TT_REMOVE_RPT = 16,
             TT_EMPTY_RPT = 17,
             TT_ADD_BANKNOTE20 = 18,
             TT_REMOVE_BANKNOTE20 = 19,

@@ -56,7 +56,29 @@
                 <ColumnDefinition Width="5*"/>
             </Grid.ColumnDefinitions>
 
-            <Grid Name="BNA" Grid.Row="0" Grid.ColumnSpan="3">
+            <Grid Name="Receipts" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="124*"/>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="124*"/>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="150*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" Grid.RowSpan="2" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" Margin="0,0,-0.2,0.4" />
+                <Label Name="receiptsCaption" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Content="Fare Media :" HorizontalAlignment="Left" Style="{StaticResource styleLabel2}" />
+                <Label Name="QRPaperCaption" Grid.Row="0" Grid.Column="2" Content="QR Paper" Style="{StaticResource styleLabel2}"/>
+                <Label Name="QRPaperValue" Grid.Row="1" Grid.Column="2" Content="%40" Style="{StaticResource styleLabel2}"/>
+                <Label Name="DispenserCaption" Grid.Row="0" Grid.Column="4" Content="RPT Card Count" Style="{StaticResource styleLabel2}"/>
+                <Label Name="DispenserValue" Grid.Row="1" Grid.Column="4" Content="40" Style="{StaticResource styleLabel2}"/>
+            </Grid>
+
+
+            <Grid Name="BNA" Grid.Row="2" Grid.ColumnSpan="3">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
@@ -75,7 +97,7 @@
                     <ColumnDefinition Width="120"/>
                 </Grid.ColumnDefinitions>
                 <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="12" Grid.RowSpan="2" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
-                <Label Name="bnaCaption" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Content="  Banknotes : " Style="{StaticResource styleLabel2}" />              
+                <Label Name="bnaCaption" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Content="Bank Notes :" Style="{StaticResource styleLabel2}" />              
                 <Label Name="bnaCassette1Caption" Grid.Row="0" Grid.Column="2" Content="Cassette 1" Style="{StaticResource styleLabel2}"/>
                 <Label Name="bnaCassette1Value" Grid.Row="1" Grid.Column="2" Content="8 x 20 = 160 Rs." Style="{StaticResource styleLabel2}"/>
                 <Label Name="bnaCassette2Caption" Grid.Row="0" Grid.Column="4" Content="Cassette 2" Style="{StaticResource styleLabel2}"/>
@@ -89,7 +111,7 @@
                 <Label Name="bnaTotalValue" Grid.Row="1" Grid.Column="10" Content="780 Rs. " Style="{StaticResource styleLabel2}" />
             </Grid>
 
-            <Grid Name="Hoppers" Grid.Row="2" Grid.ColumnSpan="3">
+            <Grid Name="Hoppers" Grid.Row="4" Grid.ColumnSpan="3">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
@@ -106,20 +128,19 @@
                     <ColumnDefinition Width="5*"/>
                 </Grid.ColumnDefinitions>
                 <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="10" Grid.RowSpan="2" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
-                <Label Name="hoppersCaption" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Content="  Hoppers : " Style="{StaticResource styleLabel2}"/>               
-                <Label Name="hopper5Caption" Grid.Row="0" Grid.Column="6" Content="Hopper 5 RS" Style="{StaticResource styleLabel2}"/>
+                <Label Name="hoppersCaption" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Content="Coins :" HorizontalAlignment="Left" Style="{StaticResource styleLabel2}"/>               
+                <Label Name="hopper5Caption" Grid.Row="0" Grid.Column="6" Content="Hopper 3" Style="{StaticResource styleLabel2}"/>
                 <Label Name="hopper5Value" Grid.Row="1" Grid.Column="6" Content="38x5 = 190 Rs." Style="{StaticResource styleLabel2}"/>
-                <Label Name="hopper2Caption" Grid.Row="0" Grid.Column="4" Content="Hopper 2 RS" Style="{StaticResource styleLabel2}"/>
+                <Label Name="hopper2Caption" Grid.Row="0" Grid.Column="4" Content="Hopper 2" Style="{StaticResource styleLabel2}"/>
                 <Label Name="hopper2Value" Grid.Row="1" Grid.Column="4" Content="45 x 2 = 90 Rs." Style="{StaticResource styleLabel2}"/>
-                <Label Name="hopper1Caption" Grid.Row="0" Grid.Column="2" Content="Hopper 1 RS" Style="{StaticResource styleLabel2}"/>
+                <Label Name="hopper1Caption" Grid.Row="0" Grid.Column="2" Content="Hopper 1" Style="{StaticResource styleLabel2}"/>
                 <Label Name="hopper1Value" Grid.Row="1" Grid.Column="2" Content="14 x 1 = 14 Rs." Style="{StaticResource styleLabel2}"/>
                 <Label Name="hoppersTotalCaption" Grid.Row="0" Grid.Column="10" Content="Total" Style="{StaticResource styleLabel2}"/>
                 <Label Name="hoppersTotalValue" Grid.Row="1" Grid.Column="10" Content="294 Rs. " Style="{StaticResource styleLabel2}" />
-            </Grid>
+            </Grid>           
 
-            <Grid Name="Receipts" Grid.Row="4" Grid.Column="0">
+            <Grid Name="TotalMoney" Grid.Row="6" Grid.Column="2">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -130,54 +151,16 @@
                     <ColumnDefinition Width="120*"/>
                     <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
-                <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" Grid.RowSpan="2" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" Margin="0,0,-0.2,0.4" />
-                <Label Name="receiptsCaption" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Content="  Receipts : " Style="{StaticResource styleLabel2}" Margin="0,0,0,0.4"/>
-                <Label Name="QRPaperCaption" Grid.Row="0" Grid.Column="2" Content="QR Paper" Style="{StaticResource styleLabel2}" Grid.ColumnSpan="2" Margin="0.2,0,24.6,45.4" Grid.RowSpan="2"/>
-                <Label Name="QRPaperValue" Grid.Row="1" Grid.Column="2" Content="%40" Style="{StaticResource styleLabel2}" Grid.ColumnSpan="2" Margin="0.2,0.2,24.6,0.4" />
-                <!--<Label Name="receiptCaption" Grid.Row="0" Grid.Column="4" Content="Receipt" Style="{StaticResource styleLabel2}" Grid.ColumnSpan="2" Margin="0.4,0,-0.2,45.4" Grid.RowSpan="2"/>-->
-                <!--<Label Name="receiptValue" Grid.Row="1" Grid.Column="4" Content="%85" Style="{StaticResource styleLabel2}" Grid.ColumnSpan="2" Margin="0.4,0.2,-0.2,0.4"/>-->
-            </Grid>
-
-            <Grid Name="TotalMoney" Grid.Row="4" Grid.Column="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="124*"/>
-                    <ColumnDefinition Width="25*"/>
-                    <ColumnDefinition Width="124*"/>
-                    <ColumnDefinition Width="25*"/>
-                    <ColumnDefinition Width="120*"/>
-                    <ColumnDefinition Width="3*"/>
-                </Grid.ColumnDefinitions>
-                <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" Grid.RowSpan="2" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" Margin="0,0,-0.2,0.4" />
-                <Label Name="HopperGrand" Grid.Row="0" Grid.Column="2" Content="Hoppers" Style="{StaticResource styleLabel2}"/>
-                <Label Name="HopperGrandAmount" Grid.Row="1" Grid.Column="2" Content="1000 Rs." Style="{StaticResource styleLabel2}"/>
-                <Label Name="BanknoteGrand" Grid.Row="0" Grid.Column="0" Content="Banknotes" Style="{StaticResource styleLabel2}"/>
-                <Label Name="BanknoteGrandAmount" Grid.Row="1" Grid.Column="0" Content="2000 Rs." Style="{StaticResource styleLabel2}"/>
-                <Label Name="GrandTotal" Grid.Row="0" Grid.Column="4" Grid.RowSpan="1" Content="Grand Total" Style="{StaticResource styleLabel2}" />
+                <Border Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="6" Grid.RowSpan="2" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" Margin="0,0,-0.2,0.4" />
+                <Label Name="HopperGrand" Grid.Row="0" Grid.Column="2" Content="Hoppers" Visibility="Collapsed" Style="{StaticResource styleLabel2}"/>
+                <Label Name="HopperGrandAmount" Grid.Row="1" Grid.Column="2" Content="1000 Rs." Visibility="Collapsed" Style="{StaticResource styleLabel2}"/>
+                <Label Name="BanknoteGrand" Grid.Row="0" Grid.Column="0" Content="Banknotes" Visibility="Collapsed" Style="{StaticResource styleLabel2}"/>
+                <Label Name="BanknoteGrandAmount" Grid.Row="1" Grid.Column="0" Content="2000 Rs." Visibility="Collapsed" Style="{StaticResource styleLabel2}"/>
+                <Label Name="GrandTotal" Grid.Row="0" Grid.Column="2" Grid.RowSpan="1" Content="Grand Total" Style="{StaticResource styleLabel2}" />
                 <Label Name="GrandTotalAmount" Grid.Row="1" Grid.Column="4" Grid.RowSpan="2" Content="10000 Rs." Style="{StaticResource styleLabel2}" />
             </Grid>
 
-
-
-            <Grid Name="Dispenser" Grid.Row="6" Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="6*"/>
-                    <ColumnDefinition Width="186*"/>
-                    <ColumnDefinition Width="38*"/>
-                    <ColumnDefinition Width="191*"/>
-                </Grid.ColumnDefinitions>
-                <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" Margin="0,0,-0.2,0.4" />
-                <Label Name="DispenserCaption" Grid.Column="0" Content="  RPT Card Count : " Style="{StaticResource styleLabel2}" Grid.ColumnSpan="2" Margin="0,0,0.2,0.4"/>
-                <Label Name="DispenserValue" Grid.Column="3" Content="40" Style="{StaticResource styleLabel2}" Margin="0.4,0,-0.2,0.4"/>
-            </Grid>
-
-            <Button x:Name="btnPrint" Grid.Row="8" Grid.Column="2" Content="Print Page"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnPrint_Click" />
+            <Button x:Name="btnPrint" Grid.Row="8" Grid.Column="2" Content="Print TVM Stock Info"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnPrint_Click" />
         </Grid>
 
         <Grid Name="navigationGrid" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3">

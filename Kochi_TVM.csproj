@@ -360,6 +360,15 @@
     </Compile>
     <Compile Include="MultiLanguages\DefaultConversion.cs" />
     <Compile Include="MultiLanguages\MultiLanguage.cs" />
+    <Compile Include="Pages\CardOperationPage.xaml.cs">
+      <DependentUpon>CardOperationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Card\CardStatusPage.xaml.cs">
+      <DependentUpon>CardStatusPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Card\LastTransactionPage.xaml.cs">
+      <DependentUpon>LastTransactionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Custom\ActionInterface.xaml.cs">
       <DependentUpon>ActionInterface.xaml</DependentUpon>
     </Compile>
@@ -374,6 +383,12 @@
     <Compile Include="Pages\Custom\NumberPadOperations.cs" />
     <Compile Include="Pages\Custom\NumberPadUserControl.xaml.cs">
       <DependentUpon>NumberPadUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Custom\RounderProgressBarControl.xaml.cs">
+      <DependentUpon>RounderProgressBarControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Custom\TransactionRow.xaml.cs">
+      <DependentUpon>TransactionRow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Custom\UserControlNumberPadOperations.cs" />
     <Compile Include="Pages\JourneyTypePage.xaml.cs">
@@ -480,6 +495,7 @@
     <Compile Include="Sensors\KMY200DoorAlarm.cs" />
     <Compile Include="Utils\Constants.cs" />
     <Compile Include="Utils\Conversion.cs" />
+    <Compile Include="Utils\DateTimeUtil.cs" />
     <Compile Include="Utils\Enums.cs" />
     <Compile Include="Utils\ESCPOS.cs" />
     <Compile Include="Utils\IdleTimeDetector.cs" />
@@ -501,6 +517,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="VerifoneKochi1\EmvService.cs" />
+    <Compile Include="VerifoneKochi1\MessageTypes.cs" />
+    <Compile Include="VerifoneKochi1\SerialBase.cs" />
+    <Compile Include="VerifoneKochi1\ServiceData.cs" />
     <None Include="Connected Services\AFCDataTransactionService\Kochi_TVM.AFCDataTransactionService.CommandsResponseResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -574,6 +594,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Images\CashBox.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\crossmark.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -602,6 +625,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Spinner.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\SpinneTrans.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\warning_icon.png">
@@ -714,6 +740,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\CardOperationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Card\CardStatusPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Card\LastTransactionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Custom\ActionInterface.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -727,6 +765,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Custom\NumberPadUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Custom\RounderProgressBarControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Custom\TransactionRow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1156,5 +1202,6 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -71,7 +71,7 @@
             </Grid.ColumnDefinitions>
 
             <Button x:Name="btnBack" Grid.Row="0" Grid.Column="3" Content="Back"  Style="{StaticResource styleBackBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnBack_Click" />
-            <Button x:Name="btnFinish" Grid.Row="0" Grid.Column="1" Content="Cancel"  Style="{StaticResource styleFinishBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnFinish_Click"/>
+            <Button x:Name="btnFinish" Grid.Row="0" Grid.Column="1" Content="Cancel" Visibility="Collapsed" Style="{StaticResource styleFinishBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnFinish_Click"/>
             <Grid  Name="infoGrid" Grid.Column="2" Grid.Row="0"  Visibility="Visible">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>

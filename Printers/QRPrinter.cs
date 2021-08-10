@@ -145,20 +145,20 @@ namespace Kochi_TVM.Printers
 
         public Enums.PRINTER_STATE CheckQrPrinterStatus()
         {
-            return Enums.PRINTER_STATE.OK;
-            //bool result = false;
-            //PrinterStatus getStat = PrinterStatus.Unknown;
-            //result = GetStatus(ref getStat);
-            //if (getStat == PrinterStatus.NoError)
-            //{
-            //    result = true;
-            //    log.Debug("CheckQrPrinterStatus : " + result);
-            //    return Enums.PRINTER_STATE.OK;
-            //}
-            //else
-            //{
-            //    return Enums.PRINTER_STATE.ERROR;
-            //}
+            //return Enums.PRINTER_STATE.OK;
+            bool result = false;
+            PrinterStatus getStat = PrinterStatus.Unknown;
+            result = GetStatus(ref getStat);
+            if (getStat == PrinterStatus.NoError)
+            {
+                result = true;
+                log.Debug("CheckQrPrinterStatus : " + result);
+                return Enums.PRINTER_STATE.OK;
+            }
+            else
+            {
+                return Enums.PRINTER_STATE.ERROR;
+            }
         }
 
         #endregion

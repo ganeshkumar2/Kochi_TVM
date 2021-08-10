@@ -2,6 +2,7 @@
 using Kochi_TVM.Models;
 using Kochi_TVM.Pages.Custom;
 using Kochi_TVM.PID;
+using Kochi_TVM.Printers;
 using Kochi_TVM.Utils;
 using System;
 using System.Collections.Generic;
@@ -63,6 +64,19 @@ namespace Kochi_TVM.Pages.Maintenance
                         Parameters.menuItems.Add(row2.explanation.ToString());
                     }
                 }
+
+                Constants.BNRTest = false;
+                Constants.HopperTest = false;
+                Constants.CoinAddOperations = new List<CoinOperation>();
+                Constants.CoinDispOperations = new List<CoinOperation>();
+                Constants.CoinEmptyOperations = new List<CoinOperation>();
+                Constants.QR_RPT_OperationsAdd = new List<QR_RPT_Operation>();
+                Constants.QR_RPT_OperationsDisp = new List<QR_RPT_Operation>();
+                Constants.QR_RPT_OperationsEmpty = new List<QR_RPT_Operation>();
+                Constants.SendToBoxes = new List<SendToBox>();
+                Constants.Removecashbox = new List<SendToBox>();
+                Constants.AddNotes = new List<AddNote>();
+
                 TVMUtility.RestartExplorer();
                 NavigationService.Navigate(new Pages.Maintenance.AdminMainPage());
             }

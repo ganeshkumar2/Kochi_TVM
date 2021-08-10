@@ -31,20 +31,20 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <!--Left space -->
-            <ColumnDefinition Width="*"/>
             <!--Operation -->
             <ColumnDefinition Width="19*"/>
             <!--Right space -->
-            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Name="lblHeader" Content="Coin Operations" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader2}"/>
 
         <Grid Name="operationGrid" Grid.Column="1" Grid.Row="3" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0"/>
-                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="4*"/>
                 <ColumnDefinition Width="10"/>
                 <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="8*"/>
                 <ColumnDefinition Width="10"/>
                 <ColumnDefinition Width="8*"/>
                 <ColumnDefinition Width="10"/>
@@ -67,29 +67,33 @@
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Grid.Column="1" Content="Coin" Style="{StaticResource styleLabelHeader2}" />
             <Label Grid.Row="0" Grid.Column="3" Content="Count" Style="{StaticResource styleLabelHeader2}" />
+            <Label Grid.Row="0" Grid.Column="5" Content="Amount" Style="{StaticResource styleLabelHeader2}" />
             <Label Name="lblCoin1" Content="₹1" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader2}" />
             <Label Name="lblCoin1Count" Grid.Row="1" Grid.Column="3" Style="{StaticResource styleLabelHeader2}" />
-            <TextBox x:Name="lblTypeCoin1" Text="0" Grid.Row="1" Grid.Column="5" IsReadOnly="True" Style="{StaticResource styleCountText}" FontFamily="Titillium" FontSize="48" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" PreviewMouseDown="lblTypeCoin1_MouseLeftButtonDown" PreviewTextInput="lblTypeCoin1_PreviewTextInput"/>
-            <Button x:Name="btnAddCoin1" Grid.Row="1" Grid.Column="7" Content="Add"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnAddCoin1_Click" />
-            <Button x:Name="btnReduceCoin1" Grid.Row="1" Grid.Column="9" Content="Reduce"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnReduceCoin1_Click" />
-            <Button x:Name="btnMinusCoin1" Grid.Row="1" Grid.Column="11" Content="Dispense"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnMinusCoin1_Click" />
-            <Button x:Name="btnEmptyCoin1" Grid.Row="1" Grid.Column="13" Content="Empty"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnEmptyCoin1_Click" />
+            <Label Name="lblCoin1Amount" Grid.Row="1" Grid.Column="5" Style="{StaticResource styleLabelHeader2}" />
+            <TextBox x:Name="lblTypeCoin1" Text="0" Grid.Row="1" Grid.Column="7" IsReadOnly="True" Style="{StaticResource styleCountText}" FontFamily="Titillium" FontSize="48" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" PreviewMouseDown="lblTypeCoin1_MouseLeftButtonDown" PreviewTextInput="lblTypeCoin1_PreviewTextInput"/>
+            <Button x:Name="btnAddCoin1" Grid.Row="1" Grid.Column="9" Content="Add"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnAddCoin1_Click" />
+            <Button x:Name="btnReduceCoin1" Grid.Row="1" Grid.Column="11" Content="Reduce"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnReduceCoin1_Click" />
+            <Button x:Name="btnMinusCoin1" Grid.Row="1" Grid.Column="13" Content="Dispense"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnMinusCoin1_Click" />
+            <Button x:Name="btnEmptyCoin1" Grid.Row="1" Grid.Column="15" Content="Empty"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnEmptyCoin1_Click" />
             <Label Name="lblCoin2" Content="₹2" Grid.Row="3" Grid.Column="1" Style="{StaticResource styleLabelHeader2}" />
             <Label Name="lblCoin2Count" Grid.Row="3" Grid.Column="3" Style="{StaticResource styleLabelHeader2}" />
-            <TextBox x:Name="lblTypeCoin2" IsReadOnly="True" Text="0" Grid.Row="3" Grid.Column="5" Style="{StaticResource styleCountText}" FontSize="48" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" PreviewMouseDown="lblTypeCoin2_PreviewMouseDown" PreviewTextInput="lblTypeCoin1_PreviewTextInput"/>
-            <Button x:Name="btnAddCoin2" Grid.Row="3" Grid.Column="7" Content="Add"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnAddCoin2_Click" />
-            <Button x:Name="btnReduceCoin2" Grid.Row="3" Grid.Column="9" Content="Reduce"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnReduceCoin2_Click" />
-            <Button x:Name="btnMinusCoin2" Grid.Row="3" Grid.Column="11" Content="Dispense"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnMinusCoin2_Click" />
-            <Button x:Name="btnEmptyCoin2" Grid.Row="3" Grid.Column="13" Content="Empty"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnEmptyCoin2_Click" />
+            <Label Name="lblCoin2Amount" Grid.Row="3" Grid.Column="5" Style="{StaticResource styleLabelHeader2}" />
+            <TextBox x:Name="lblTypeCoin2" IsReadOnly="True" Text="0" Grid.Row="3" Grid.Column="7" Style="{StaticResource styleCountText}" FontSize="48" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" PreviewMouseDown="lblTypeCoin2_PreviewMouseDown" PreviewTextInput="lblTypeCoin1_PreviewTextInput"/>
+            <Button x:Name="btnAddCoin2" Grid.Row="3" Grid.Column="9" Content="Add"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnAddCoin2_Click" />
+            <Button x:Name="btnReduceCoin2" Grid.Row="3" Grid.Column="11" Content="Reduce"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnReduceCoin2_Click" />
+            <Button x:Name="btnMinusCoin2" Grid.Row="3" Grid.Column="13" Content="Dispense"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnMinusCoin2_Click" />
+            <Button x:Name="btnEmptyCoin2" Grid.Row="3" Grid.Column="15" Content="Empty"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnEmptyCoin2_Click" />
             <Label Name="lblCoin5" Content="₹5" Grid.Row="5" Grid.Column="1" Style="{StaticResource styleLabelHeader2}"/>
             <Label Name="lblCoin5Count" Grid.Row="5" Grid.Column="3" Style="{StaticResource styleLabelHeader2}" />
-            <TextBox x:Name="lblTypeCoin5" IsReadOnly="True" Text="0" Grid.Row="5" Grid.Column="5" Style="{StaticResource styleCountText}" FontSize="48" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" PreviewMouseDown="lblTypeCoin5_PreviewMouseDown" PreviewTextInput="lblTypeCoin1_PreviewTextInput"/>
-            <Button x:Name="btnAddCoin5" Grid.Row="5" Grid.Column="7" Content="Add"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnAddCoin5_Click" />
-            <Button x:Name="btnReduceCoin5" Grid.Row="5" Grid.Column="9" Content="Reduce"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnReduceCoin5_Click" />
-            <Button x:Name="btnMinusCoin5" Grid.Row="5" Grid.Column="11" Content="Dispense"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnMinusCoin5_Click" />
-            <Button x:Name="btnEmptyCoin5" Grid.Row="5" Grid.Column="13" Content="Empty"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnEmptyCoin5_Click" />
+            <Label Name="lblCoin5Amount" Grid.Row="5" Grid.Column="5" Style="{StaticResource styleLabelHeader2}" />
+            <TextBox x:Name="lblTypeCoin5" IsReadOnly="True" Text="0" Grid.Row="5" Grid.Column="7" Style="{StaticResource styleCountText}" FontSize="48" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" PreviewMouseDown="lblTypeCoin5_PreviewMouseDown" PreviewTextInput="lblTypeCoin1_PreviewTextInput"/>
+            <Button x:Name="btnAddCoin5" Grid.Row="5" Grid.Column="9" Content="Add"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnAddCoin5_Click" />
+            <Button x:Name="btnReduceCoin5" Grid.Row="5" Grid.Column="11" Content="Reduce"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnReduceCoin5_Click" />
+            <Button x:Name="btnMinusCoin5" Grid.Row="5" Grid.Column="13" Content="Dispense"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnMinusCoin5_Click" />
+            <Button x:Name="btnEmptyCoin5" Grid.Row="5" Grid.Column="15" Content="Empty"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnEmptyCoin5_Click" />
 
-            <Rectangle Grid.Row="1" Grid.RowSpan="5" Grid.Column="10" VerticalAlignment="Stretch" Fill="White" Width="5"/>
+            <Rectangle Grid.Row="1" Grid.RowSpan="5" Grid.Column="12" VerticalAlignment="Stretch" Fill="White" Width="5"/>
             
             <Grid Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="9" Visibility="Collapsed">
                 <Grid.ColumnDefinitions>

@@ -76,8 +76,8 @@
                     </Grid.ColumnDefinitions>
                     <Border Grid.Row="1" Grid.Column="1" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource WhiteFontColor}" CornerRadius="5" BorderThickness="3"/>
                 </Grid>
-                <Button x:Name="btnSelectCard" Opacity="0.2" Panel.ZIndex="1" Grid.Row="2" Grid.Column="2" Grid.RowSpan="3"  Content="Kochi-1 Card Operation "  Style="{StaticResource styleSelectionBtn}" VerticalAlignment="Top"  FontSize="38" Height="181" Click="btnSelectCard_Click" Margin="0.2,0.2,10.4,0"/>
-                <Label Name="lblComingSoon" Opacity="1" Panel.ZIndex="1"  Grid.Row="3" Grid.Column="2"  Grid.RowSpan="2" Content="Coming Soon " HorizontalAlignment="Stretch" VerticalAlignment="Top"  Style="{StaticResource styleLabelComingSoon}"/>
+                <Button x:Name="btnSelectCard" Grid.Row="2" Grid.Column="2" Grid.RowSpan="3"  Content="Kochi-1 Card Operation " Style="{StaticResource styleSelectionQRBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Top" VerticalContentAlignment="Center"  FontSize="38" Height="181" Click="btnSelectCard_Click" Margin="0.2,0.2,10.4,0"/>
+                <Label Name="lblComingSoon" Opacity="1" Visibility="Collapsed" Panel.ZIndex="1"  Grid.Row="3" Grid.Column="2"  Grid.RowSpan="2" Content="Coming Soon " HorizontalAlignment="Stretch" VerticalAlignment="Top"  Style="{StaticResource styleLabelComingSoon}"/>
                 <Image x:Name="imgFingerRight" Visibility="Hidden" Panel.ZIndex="1"  Grid.Row="3" Grid.Column="2"  Grid.RowSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Center"  Source="/Kochi_TVM;component/images/startHandIcon.png" />
                 <TextBlock Name="txtInfo" Panel.ZIndex="1" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3"  Text="No receipt!" Visibility="Hidden" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Bottom" TextAlignment="Center" FontFamily="Titillium" FontSize="48" Foreground="{StaticResource RedColor}" />
 
@@ -124,7 +124,7 @@
                 <!--Right space -->
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Image Name="imgStationClosedMode" Grid.Row="3" Grid.Column="1"   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/Kochi_TVM;component/images/station_closed.jpg" />
+            <Image Name="imgStationClosedMode" Grid.Row="3" Grid.Column="1"   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
             <TextBlock Name="txtErrorMode" Grid.Row="1" Grid.Column="1" Text="OUT OF SERVICE" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontFamily="Titillium" FontSize="45" FontWeight="Bold" Foreground="{StaticResource WhiteFontColor}" />
             <TextBlock Name="txtErrorCode" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Right" VerticalAlignment="Center" TextAlignment="Center" FontFamily="Titillium" FontSize="25" Foreground="{StaticResource WhiteFontColor}" />
         </Grid>

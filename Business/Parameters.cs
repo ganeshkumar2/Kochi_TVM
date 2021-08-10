@@ -475,7 +475,7 @@ namespace Kochi_TVM.Business
     public class DynamicParameterOpr : ParameterOperations
     {
         private static ILog log = LogManager.GetLogger(typeof(DynamicParameterOpr).Name);
-
+        public DateTime SysTime = DateTime.Now;
         bool isInit = false;
         public DynamicParameterOpr()
         {
@@ -651,6 +651,21 @@ namespace Kochi_TVM.Business
                 var rpAfc = Parameters.sr.ExecSP("def.sp_GetSrvDT");
                 var AfcConn = Validation.IsValidAFCRP(rpAfc);
                 log.Debug("Debug - GetAfcConnStatus() : " + AfcConn);
+                if (AfcConn)
+                {
+                    log.Debug("Debug - rpAfc.Result() : " + rpAfc.Result);
+
+                    bool isOk = (Validation.IsValidAFCRP(rpAfc) && (rpAfc.Result == 0));
+                    if (isOk)
+                    {
+                        log.Debug("Debug - SysTime() : " + rpAfc.Data.Tables[0].Rows[0]["srv_dt"]);
+                        SysTime = Convert.ToDateTime((rpAfc.Data.Tables[0].Rows[0]["srv_dt"]));
+                    }
+                }
+                else
+                {
+                    SysTime = DateTime.Now;
+                }
                 if (AfcConn)
                     result = true;
                 else

@@ -11,6 +11,152 @@
       Loaded="Page_Loaded"
       Unloaded="Page_Unloaded"
       Title="CoinSettingPage">
+    <Page.Resources>
+        <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="60" />
+                </Grid.ColumnDefinitions>
+                <Border
+                  x:Name="Border" 
+                  Grid.ColumnSpan="2"
+                  CornerRadius="0"
+                  Background="{StaticResource MainColor}"/>
+                <Border 
+                  Grid.Column="0"
+                  CornerRadius="0" 
+                  Margin="1" 
+                  Background="White">
+                </Border>
+                <Path 
+                  x:Name="Arrow"
+                  Grid.Column="1"     
+                  Fill="White"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  Data="M 0 0 L 10 14 L 20 0 Z"
+                />
+            </Grid>
+
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="ComboBoxTextBox" TargetType="{x:Type TextBox}">
+            <Border x:Name="PART_ContentHost" Focusable="False" Background="{TemplateBinding Background}" />
+        </ControlTemplate>
+
+        <Style x:Key="{x:Type ComboBox}" TargetType="{x:Type ComboBox}">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="MinWidth" Value="120"/>
+            <Setter Property="MinHeight" Value="50"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ComboBox}">
+                        <Grid>
+                            <ToggleButton 
+                            Name="ToggleButton" 
+                            Template="{StaticResource ComboBoxToggleButton}" 
+                            Grid.Column="2" 
+                            Focusable="false"
+                            IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}"
+                            ClickMode="Press">
+                            </ToggleButton>
+                            <ContentPresenter Name="ContentSite" IsHitTestVisible="False"  Content="{TemplateBinding SelectionBoxItem}"
+                            ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                            ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"                     
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left" />
+                            <TextBox x:Name="PART_EditableTextBox"
+                            Style="{x:Null}" 
+                            Template="{StaticResource ComboBoxTextBox}" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Center" 
+                            Focusable="True" 
+                            Background="White"
+                            Foreground="Black" Margin="2"
+                            IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                            <Popup 
+                            Name="Popup"
+                            Placement="Bottom"
+                            IsOpen="{TemplateBinding IsDropDownOpen}"
+                            AllowsTransparency="True" 
+                            Focusable="False"
+                            PopupAnimation="Slide">
+
+                                <Grid Name="DropDown"
+                              SnapsToDevicePixels="True"                
+                              MinWidth="{TemplateBinding ActualWidth}"
+                              MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border 
+                                x:Name="DropDownBorder"
+                                Background="White"
+
+                                BorderThickness="1"
+                                BorderBrush="#888888"/>
+                                    <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="HasItems" Value="false">
+                                <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsGrouping" Value="true">
+                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                            </Trigger>
+                            <Trigger SourceName="Popup" Property="Popup.AllowsTransparency" Value="true">
+                                <Setter TargetName="DropDownBorder" Property="CornerRadius" Value="0"/>
+                                <Setter TargetName="DropDownBorder" Property="Margin" Value="0,0,0,0"/>
+                            </Trigger>
+                            <Trigger Property="IsEditable"  Value="true">
+                                <Setter Property="IsTabStop" Value="false"/>
+                                <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible"/>
+                                <Setter TargetName="ContentSite" Property="Visibility" Value="Hidden"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+            </Style.Triggers>
+        </Style>
+
+        <!-- SimpleStyles: ComboBoxItem -->
+        <Style x:Key="{x:Type ComboBoxItem}" TargetType="{x:Type ComboBoxItem}">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                        <Border Name="Border"
+                              Padding="2"
+                              SnapsToDevicePixels="true">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsHighlighted" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="#FF4F4F4F"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="#888888"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
     <Grid x:Name="mainGrid" Background="Transparent">
         <Grid.RowDefinitions>
             <!--Top space -->
@@ -46,6 +192,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="8*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -55,42 +203,27 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="5*" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="5*" />
-                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <Label Name="lblCoin1" Content="Hopper 1 Rs. Coin : " Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader2}" />
-            <TextBox x:Name="lblTypeCoin1" IsReadOnly="True" Text="0" Grid.Row="1" Grid.Column="3"  Style="{StaticResource styleCountText}" FontFamily="Titillium" FontSize="48" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" PreviewMouseDown="lblTypeCoin1_PreviewMouseDown" PreviewTextInput="lblTypeCoin1_PreviewTextInput"/>
-            <Button x:Name="btnAddCoin1" Grid.Row="1" Grid.Column="5" Content="Save"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnAddCoin1_Click" />
+            <Label Name="lblCoin1" Content="Hopper 1" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader2}" />
+            <Label Content=":" Grid.Row="1" Grid.Column="2" Style="{StaticResource styleLabelHeader2}" />
+            <Label Content="Coin Value" Grid.Row="1" Grid.Column="3" Style="{StaticResource styleLabelHeader2}" />
+            <Label Content="₹" Grid.Row="1" Grid.Column="4" Style="{StaticResource styleLabelHeader2}" />
+            <ComboBox Name="cbCoinType1" Grid.Row="1" Grid.Column="5"  Text="Coin Type" IsEditable="True" IsReadOnly="True" FontFamily="Titillium" FontSize="25" Width="200" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Stretch"></ComboBox>
+            <Button x:Name="btnAddCoin1" Grid.Row="1" Grid.Column="7" Content="Save"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="100" Click="btnAddCoin1_Click" />
 
-            <Label Name="lblCoin2" Content="Hopper 2 Rs. Coin : " Grid.Row="3" Grid.Column="1" Style="{StaticResource styleLabelHeader2}" />
-            <TextBox x:Name="lblTypeCoin2" IsReadOnly="True" Text="0" Grid.Row="3" Grid.Column="3" Style="{StaticResource styleCountText}" FontSize="48" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" PreviewMouseDown="lblTypeCoin2_PreviewMouseDown" PreviewTextInput="lblTypeCoin1_PreviewTextInput"/>
-            <Button x:Name="btnAddCoin2" Grid.Row="3" Grid.Column="5" Content="Save"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnAddCoin2_Click" />
+            <Label Name="lblCoin2" Content="Hopper 2" Grid.Row="3" Grid.Column="1" Style="{StaticResource styleLabelHeader2}" />
+            <Label Content=":" Grid.Row="3" Grid.Column="2" Style="{StaticResource styleLabelHeader2}" />
+            <Label Content="Coin Value" Grid.Row="3" Grid.Column="3" Style="{StaticResource styleLabelHeader2}" />
+            <Label Content="₹" Grid.Row="3" Grid.Column="4" Style="{StaticResource styleLabelHeader2}" />
+            <ComboBox Name="cbCoinType2" Grid.Row="3" Grid.Column="5"  Text="Coin Type" IsEditable="True" IsReadOnly="True" FontFamily="Titillium" FontSize="25" Width="200" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Stretch"></ComboBox>
+            <Button x:Name="btnAddCoin2" Grid.Row="3" Grid.Column="7" Content="Save"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="100" Click="btnAddCoin2_Click" />
 
-            <Label Name="lblCoin3" Content="Hopper 3 Rs. Coin : " Grid.Row="5" Grid.Column="1" Style="{StaticResource styleLabelHeader2}"/>
-            <TextBox x:Name="lblTypeCoin3" IsReadOnly="True" Text="0" Grid.Row="5" Grid.Column="3" Style="{StaticResource styleCountText}" FontSize="48" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" PreviewMouseDown="lblTypeCoin3_PreviewMouseDown" PreviewTextInput="lblTypeCoin1_PreviewTextInput"/>
-            <Button x:Name="btnAddCoin3" Grid.Row="5" Grid.Column="5" Content="Save"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnAddCoin3_Click" />
-        </Grid>
-
-        <Grid x:Name="grdUserControl" Grid.Row="3" Grid.Column="1" Visibility="Collapsed">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Black" Opacity="0.6">
-            </Grid>
-            <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Gray">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0.8*"/>
-                    <RowDefinition Height="60"/>
-                </Grid.RowDefinitions>
-                <uc:NumberPadUserControl Grid.Row="0" x:Name="numberpad" Height="380" Width="300"></uc:NumberPadUserControl>
-                <Button x:Name="btnOK" Grid.Row="1" Content="OK"  Style="{StaticResource styleOkBtn}" Width="150" VerticalAlignment="Stretch" Click="btnOK_Click" />
-
-            </Grid>
+            <Label Name="lblCoin3" Content="Hopper 3" Grid.Row="5" Grid.Column="1" Style="{StaticResource styleLabelHeader2}"/>
+            <Label Content=":" Grid.Row="5" Grid.Column="2" Style="{StaticResource styleLabelHeader2}" />
+            <Label Content="Coin Value" Grid.Row="5" Grid.Column="3" Style="{StaticResource styleLabelHeader2}" />
+            <Label Content="₹" Grid.Row="5" Grid.Column="4" Style="{StaticResource styleLabelHeader2}" />
+            <ComboBox Name="cbCoinType3" Grid.Row="5" Grid.Column="5"  Text="Coin Type" IsEditable="True" IsReadOnly="True" FontFamily="Titillium" FontSize="25" Width="200" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Stretch"></ComboBox>
+            <Button x:Name="btnAddCoin3" Grid.Row="5" Grid.Column="7" Content="Save"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="100" Click="btnAddCoin3_Click" />
         </Grid>
 
         <Grid Name="navigationGrid" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3" Margin="0,0.6,0,0">

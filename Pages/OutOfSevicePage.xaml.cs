@@ -1,10 +1,12 @@
 ﻿using Kochi_TVM.BNR;
+using Kochi_TVM.Business;
 using Kochi_TVM.CCTalk;
 using Kochi_TVM.PID;
 using Kochi_TVM.Printers;
 using Kochi_TVM.RptDispenser;
 using Kochi_TVM.Sensors;
 using Kochi_TVM.Utils;
+using Kochi_TVM.VerifoneKochi1;
 using log4net;
 using System;
 using System.Threading;
@@ -253,6 +255,25 @@ namespace Kochi_TVM.Pages
                     UpdDevStat();
                     await Task.Delay(8000);
 
+                    EmvService emvService = new EmvService();
+                    ResponseResult checkEvmConnection = emvService.CheckEvmConnection(Parameters.TVMConst.UxPosPort);
+
+                    if (checkEvmConnection.ReturnCode == 2)
+                    {
+                        outOfServiceLbl.Content = "EMV Status :";
+                        outOfServiceGreenLbl.Visibility = System.Windows.Visibility.Visible;
+                        outOfServiceRedLbl.Visibility = System.Windows.Visibility.Collapsed;
+                        outOfServiceGreenLbl.Content = "OK";
+                    }
+                    else
+                    {
+                        outOfServiceLbl.Content = "EMV Status :";
+                        outOfServiceGreenLbl.Visibility = System.Windows.Visibility.Collapsed;
+                        outOfServiceRedLbl.Visibility = System.Windows.Visibility.Visible;
+                        outOfServiceGreenLbl.Content = "Not OK";
+                    }
+
+                    await Task.Delay(1000);
                     PRINTER_STATE QRStatus = QRPrinter.Instance.CheckQrPrinterStatus();//CustomKPM150HPrinter.Instance.getStatusWithUsb();
                     if (QRStatus == PRINTER_STATE.OK)
                     {

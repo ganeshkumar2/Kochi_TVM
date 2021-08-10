@@ -54,6 +54,22 @@ namespace Kochi_TVM.Pages
                 lblNoOfTickets.Content = MultiLanguage.GetText("DispNoOfTickets");
                 lblAmount.Content = MultiLanguage.GetText("DispAmount");
                 //lblGroup.Content
+                if (!Parameters.TVMDynamic.GetAfcConnStatus())
+                {
+                    gridRJT.Opacity = 0.2;
+                    gridRJT.IsEnabled = false;
+
+                    gridGrp.Opacity = 0.2;
+                    gridGrp.IsEnabled = false;
+                }
+                else
+                {
+                    gridRJT.Opacity = 1;
+                    gridRJT.IsEnabled = true;
+
+                    gridGrp.Opacity = 1;
+                    gridGrp.IsEnabled = true;
+                }
                 Message();
                 LedOperations.GreenText("SELECT TICKET TYPE");
             }

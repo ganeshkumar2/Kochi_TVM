@@ -1,5 +1,7 @@
 ﻿using Kochi_TVM.Business;
 using Kochi_TVM.Pages.Custom;
+using Kochi_TVM.PID;
+using Kochi_TVM.Printers;
 using Kochi_TVM.Sensors;
 using Kochi_TVM.Utils;
 using System;
@@ -36,7 +38,7 @@ namespace Kochi_TVM.Pages.Maintenance
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             Constants.MaintenanceSeq = 0;
-            Constants.IsMaintenanceActive = true;
+            Constants.IsMaintenanceActive = true;          
 
             KMY200DoorAlarm.Instance.SetAlarmClose();            
             if (Parameters.menuItems.Contains(Parameters.MenuStrings.QrRep) ||
@@ -55,7 +57,7 @@ namespace Kochi_TVM.Pages.Maintenance
         }
 
         private void Page_Unloaded(object sender, RoutedEventArgs e)
-        {
+        {           
             if (checkDeviceTimer != null)
                 checkDeviceTimer.Dispose();
         }
@@ -73,6 +75,11 @@ namespace Kochi_TVM.Pages.Maintenance
 
             if (messageBoxResult == Custom.MessageBoxResult.OK)
             {
+                if (CustomTL60Printer.Instance.getStatusWithUsb() == Enums.PRINTER_STATE.OK)
+                {
+                    CustomTL60Printer.Instance.MaintenanceSummary(Constants.BNRTest, Constants.HopperTest, Constants.CoinAddOperations, Constants.CoinDispOperations, Constants.CoinEmptyOperations,
+                                                                     Constants.QR_RPT_OperationsAdd, Constants.QR_RPT_OperationsDisp, Constants.QR_RPT_OperationsEmpty,Constants.SendToBoxes, Constants.Removecashbox, Constants.AddNotes);
+                }
                 int status = KMY200DoorAlarm.Instance.GetStatus();
                 Enums.DoorStatus doorStatus = (Enums.DoorStatus)(status);
                 if(doorStatus == Enums.DoorStatus.DOOR_ALL_CLOSE)
@@ -83,6 +90,7 @@ namespace Kochi_TVM.Pages.Maintenance
                 }
                 else
                 {
+                    LedOperations.Close();
                     outofservice.Visibility = Visibility.Visible;
                     txtErrorCode.Text = "Door Open";
                     checkDeviceTimerDelegate = new TimerCallback(CheckDeviceAction);

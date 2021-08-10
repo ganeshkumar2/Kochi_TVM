@@ -5,20 +5,10 @@ using Kochi_TVM.PID;
 using Kochi_TVM.Utils;
 using log4net;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using static Kochi_TVM.Utils.Enums;
 
 namespace Kochi_TVM.Pages
@@ -109,7 +99,24 @@ namespace Kochi_TVM.Pages
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             TVMUtility.PlayClick();
-            NavigationService.Navigate(new Pages.JourneyTypePage());
+            switch (Ticket.journeyType)
+            {
+                case JourneyType.Period_Pass:
+                case JourneyType.Trip_Pass:
+                case JourneyType.Topup:
+                    Ticket.journeyType = JourneyType.Unknown;
+                    NavigationService.Navigate(new Pages.CardOperationPage());
+                    break;
+                case JourneyType.Day_Pass:
+                case JourneyType.Weekend_Pass:
+                case JourneyType.Group_Ticket:
+                case JourneyType.RJT:
+                case JourneyType.SJT:
+                    NavigationService.Navigate(new Pages.JourneyTypePage());
+                    break;
+                default:
+                    break;
+            }            
         }
 
         private void btnStationList_Click(object sender, RoutedEventArgs e)
@@ -167,6 +174,10 @@ namespace Kochi_TVM.Pages
                         break;
                     case JourneyType.Weekend_Pass:
                         lblType.Content = MultiLanguage.GetText("weekenddaypass");
+                        break;
+                    case JourneyType.Period_Pass:
+                    case JourneyType.Trip_Pass:
+                        grdInfo.Visibility = Visibility.Collapsed;
                         break;
                 }
                 btnStation1.Content = MultiLanguage.GetText(Stations.GetStation(1).description);
@@ -274,7 +285,7 @@ namespace Kochi_TVM.Pages
             if (selectedStationId != Ticket.startStation.id)
             {
                 Ticket.endStation = Stations.GetStation(selectedStationId);
-                //PageControl.ShowPage(Pages.cardOperationPage);
+                NavigationService.Navigate(new Pages.CardOperationPage());
             }
         }
 

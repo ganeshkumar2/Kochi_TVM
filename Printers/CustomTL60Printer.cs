@@ -50,6 +50,7 @@ namespace Kochi_TVM.Printers
             public string text;
             public Bitmap image;
         }
+        
         private static CustomTL60Printer _instance = null;
         public static CustomTL60Printer Instance
         {
@@ -193,7 +194,243 @@ namespace Kochi_TVM.Printers
 
             startPosition = ((pageSize - objectSize) / 2);
             return startPosition;
-        }      
+        }
+        public void MaintenanceSummary(bool BNRTest,bool HopperTest,List<CoinOperation> coinAddOperations, List<CoinOperation> coinDispOperations, List<CoinOperation> coinEmptyOperations, 
+            List<QR_RPT_Operation> qR_RPT_OperationsAdd, List<QR_RPT_Operation> qR_RPT_OperationsDisp, List<QR_RPT_Operation> qR_RPT_OperationsEmpty,
+            List<SendToBox> sendToBoxes, List<SendToBox> removecashbox,List<AddNote> addNotes)
+        {
+            lineY = 2;
+            printList = new List<PrintObject>();
+            bool isPrintAdd = false;
+            string headerAddress = "Images\\kmrl_icon.png";
+            Image img = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + headerAddress);
+            System.Drawing.Bitmap logo = new System.Drawing.Bitmap(img);
+            logo = new System.Drawing.Bitmap(logo, new System.Drawing.Size(120, 49));
+            AddImage(logo);
+            //logo.RotateFlip(System.Drawing.RotateFlipType.Rotate180FlipY);
+            AddText("KOCHI METRO");
+            AddText("Date/Time", DateTime.Now.ToString("yyyy-MM-dd HH:mm"), 80);
+            AddText("TVM ID", Parameters.TVMDynamic.GetParameter("unitId"), 80);
+            AddText("Station", Stations.currentStation.name, 80);
+            AddText("User", Parameters.userId, 80);
+
+            if (BNRTest)
+            {
+                isPrintAdd = true;
+                AddText("BNA Device Test Result");
+                AddText("------------------------------------------------------------------------------");
+                AddText(Constants.BNRStatus == "DISABLED" ? "Succesfull" : "Failed. Check Connection");
+                AddText("------------------------------------------------------------------------------");
+                AddText("");
+            }
+
+            if(HopperTest)
+            {
+                isPrintAdd = true;
+                AddText("Hopper Board Test Result");
+                AddText("------------------------------------------------------------------------------");
+                AddText(CCTalkManager.Instance.coinHopperEV4000_1.Manufacture != null ? "Succesfull" : "Failed. Check Connection");
+                AddText("------------------------------------------------------------------------------");
+                AddText("");
+            }
+
+            bool firstIteration = true;
+            foreach (var addNote in addNotes)
+            {
+                isPrintAdd = true;
+
+                if (firstIteration)
+                    AddText("--Banknote Replenish--");
+                firstIteration = false;
+                AddText("------------------------------------------------------------------------------");
+                AddText(string.Format("Added Notes: Rs.{0}", addNote.notes1));
+                AddText("Added Count", addNote.count1.ToString(), 100);
+                AddText("Added Amount", "Rs." + (addNote.count1 * addNote.notes1).ToString(), 100);
+                AddText("------------------------------------------------------------------------------");
+                AddText(string.Format("Added Notes: Rs.{0}", addNote.notes2));
+                AddText("Added Count", addNote.count2.ToString(), 100);
+                AddText("Added Amount", "Rs." + (addNote.count2 * addNote.notes2).ToString(), 100);
+                AddText("------------------------------------------------------------------------------");
+                AddText(string.Format("Added Notes: Rs.{0}", addNote.notes3));
+                AddText("Added Count", addNote.count3.ToString(), 100);
+                AddText("Added Amount", "Rs." + (addNote.count3 * addNote.notes3).ToString(), 100);
+                AddText("------------------------------------------------------------------------------");
+                AddText("Total Count", (addNote.count1 + addNote.count2 + addNote.count3).ToString(), 100);
+                AddText("------------------------------------------------------------------------------");
+                AddText("");
+            }
+
+            firstIteration = true;
+            foreach (var sendtobox in sendToBoxes)
+            {
+                isPrintAdd = true;
+
+                if (firstIteration)
+                    AddText("--Send Box--");
+                firstIteration = false;                
+                AddText("------------------------------------------------------------------------------");
+                AddText("Sent Bill", "Rs." + sendtobox.billType, 110);
+                AddText("Sent Count", sendtobox.count.ToString(), 110);
+                AddText("Sent Amount", "Rs." + (sendtobox.count * sendtobox.billType).ToString(), 110);
+                AddText("------------------------------------------------------------------------------");
+                AddText("");
+            }
+
+            firstIteration = true;
+            foreach (var removebox in removecashbox)
+            {
+                if (firstIteration)
+                    AddText("--Cash Box Clear--");
+                firstIteration = false;
+                
+                AddText("------------------------------------------------------------------------------");
+                AddText("Removed Count", removebox.count.ToString(), 110);
+                AddText("Removed Amount", "Rs." + removebox.billType, 110);
+                AddText("------------------------------------------------------------------------------");
+                AddText("");
+            }
+
+            firstIteration = true;
+            foreach (var coinfun in coinAddOperations)
+            {
+                isPrintAdd = true;
+
+                if (firstIteration)
+                    AddText("--Coin Replenish--");
+                firstIteration = false;
+                
+                AddText("------------------------------------------------------------------------------");
+                AddText("Added Coin", "Rs." + coinfun.coin.ToString(), 80);
+                AddText("Added Count", coinfun.count.ToString(), 80);
+                AddText("Added Amount", "Rs." + (coinfun.count * coinfun.coin).ToString(), 80);
+                AddText("------------------------------------------------------------------------------");
+                AddText("Available Count", coinfun.stock.ToString(), 80);
+                AddText("------------------------------------------------------------------------------");
+            }
+
+            firstIteration = true;
+            foreach (var coinfun in coinDispOperations)
+            {
+                isPrintAdd = true;
+
+                if (firstIteration)
+                    AddText("--Coin Removing--");
+                firstIteration = false;
+                
+                AddText("------------------------------------------------------------------------------");
+                AddText(string.Format("Hopper: Hopper{0}.", coinfun.coin));
+                AddText("Removed Coin", "Rs." + coinfun.coin.ToString(), 110);
+                AddText("Removed Count", coinfun.count.ToString(), 110);
+                AddText("Removed Amount", "Rs." + (coinfun.count * coinfun.coin).ToString(), 110);
+                AddText("------------------------------------------------------------------------------");
+                AddText("Available Count", coinfun.stock.ToString(), 110);
+                AddText("------------------------------------------------------------------------------");
+            }                     
+
+            foreach(var qrOrrpt in qR_RPT_OperationsAdd)
+            {
+                isPrintAdd = true;
+                switch (qrOrrpt.transactionType)
+                {
+                    case TransactionType.TT_QR:
+                        AddText("--QR Slip Replenish--");
+                        AddText("------------------------------------------------------------------------------");
+                        AddText("");
+                        AddText("Added Type", "QR Slip", 100);
+                        AddText("Added Count", qrOrrpt.count.ToString(), 100);
+                        AddText("Total Count", qrOrrpt.stock.ToString(), 100);
+                        AddText("------------------------------------------------------------------------------");
+                        AddText("");
+                        break;
+                    case TransactionType.TT_RPT:
+
+                        AddText("--RPT Replenish--");
+                        AddText("------------------------------------------------------------------------------");
+                        AddText("Added Type", "RPT", 100);
+                        AddText("Added Count", qrOrrpt.count.ToString(), 100);
+                        AddText("Total Count", qrOrrpt.stock.ToString(), 100);
+                        AddText("------------------------------------------------------------------------------");
+                        AddText("");
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            foreach (var qrOrrpt in qR_RPT_OperationsDisp)
+            {
+                isPrintAdd = true;
+                switch (qrOrrpt.transactionType)
+                {
+                    case TransactionType.TT_QR:
+
+                        AddText("--QR Slip Removing--");
+                        AddText("------------------------------------------------------------------------------");
+                        AddText("Removed Type", "QR Slip", 100);
+                        AddText("Removed Count", qrOrrpt.count.ToString(), 100);
+                        AddText("Total Count", qrOrrpt.stock.ToString(), 100);
+                        AddText("------------------------------------------------------------------------------");
+                        AddText("");
+                        break;
+                    case TransactionType.TT_RPT:
+
+                        AddText("--RPT Removing--");
+                        AddText("------------------------------------------------------------------------------");
+                        AddText("Removed Type", "RPT", 100);
+                        AddText("Removed Count", qrOrrpt.count.ToString(), 100);
+                        AddText("Total Count", qrOrrpt.stock.ToString(), 100);
+                        AddText("------------------------------------------------------------------------------");
+                        AddText("");
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            foreach (var qrOrrpt in qR_RPT_OperationsEmpty)
+            {
+                isPrintAdd = true;
+                switch (qrOrrpt.transactionType)
+                {
+                    case TransactionType.TT_QR:
+                        AddText("--QR Slip Empty--");
+                        AddText("");
+                        AddText("------------------------------------------------------------------------------");
+                        AddText("");
+                        AddText("Removed Type", "QR Slip", 100);
+                        AddText("Removed Count", qrOrrpt.count.ToString(), 100);
+                        AddText("");
+                        AddText("------------------------------------------------------------------------------");
+                        AddText("");
+                        break;
+                    case TransactionType.TT_RPT:
+                        AddText("--RPT Empty--");
+                        AddText("------------------------------------------------------------------------------");
+                        AddText("Removed Type", "RPT", 100);
+                        AddText("Removed Count", qrOrrpt.count.ToString(), 100);
+                        AddText("------------------------------------------------------------------------------");
+                        AddText("");
+                        break;
+                    default:
+                        break;
+                }
+            }
+            if (isPrintAdd)
+            {
+                PrintDocument Document1 = new PrintDocument();
+                PrintController printController = new StandardPrintController();
+                Document1.PrintController = printController;
+                Document1.PrintPage += new PrintPageEventHandler(printDocumentPrintPage);
+                Document1.PrinterSettings.PrinterName = PrinterName;
+                Document1.Print();
+            }
+            else
+            {
+                lineY = 2;
+                printList = new List<PrintObject>();
+                isPrintAdd = false;
+            }
+        }
         public void TestBNA()
         {
             lineY = 2;
@@ -328,7 +565,7 @@ namespace Kochi_TVM.Printers
             Document1.PrinterSettings.PrinterName = PrinterName;
             Document1.Print();
         }
-        public void TVMInfoReceipt()
+        public void TVMInfoReceipt(string farever)
         {
             lineY = 2;
             printList = new List<PrintObject>();
@@ -347,10 +584,11 @@ namespace Kochi_TVM.Printers
 
             AddText("------------------------------------------------------------------------------");
             //AddText("Date/Time", DateTime.Now.ToString("yyyy-MM-dd HH:mm"), 80);
-            AddText("TVM ID", Parameters.TVMDynamic.GetParameter("unitId"), 80);
-            AddText("Equipment ID", Parameters.TVMDynamic.GetParameter("sys_EquipmentId"), 80);
+            //AddText("TVM ID", Parameters.TVMDynamic.GetParameter("unitId"), 80);
+            AddText("Equipment ID", Parameters.TVMDynamic.GetParameter("descCode"), 80);
             AddText("App Version", Parameters.TVMStatic.GetParameter("appVersion"), 80);
             AddText("Parameter Version", Parameters.TVMDynamic.GetParameter("sys_CCVersion"), 105);
+            AddText("Fare Version", farever, 105);
             AddText("Last Sync Date", Parameters.lastSync.ToString(), 105);
             AddText("Central Computer", Parameters.TVMDynamic.GetParameter("AfcConn") == "1" ? "Connect" : "Disconnect", 105);
             AddText("OCC", Parameters.TVMDynamic.GetParameter("AfcConn") == "1" ? "Connect" : "Disconnect", 105);
@@ -632,9 +870,9 @@ namespace Kochi_TVM.Printers
                 AddText("RPT Sale(SJT Cash)");
                 AddText(string.Format("Count: {0}", RPTSJTCashCount));
                 AddText(string.Format("Amount: {0} Rs", RPTSJTCashAmount));
-                AddText("RPT Sale(RJT Cash)");
-                AddText(string.Format("Count: {0}", RPTRJTCashCount));
-                AddText(string.Format("Amount: {0} Rs", RPTRJTCashAmount));
+                //AddText("RPT Sale(RJT Cash)");
+                //AddText(string.Format("Count: {0}", RPTRJTCashCount));
+                //AddText(string.Format("Amount: {0} Rs", RPTRJTCashAmount));
                 AddText("RPT Sale(Onc day Pass Cash)");
                 AddText(string.Format("Count: {0}", RPTDayPassCashCount));
                 AddText(string.Format("Amount: {0} Rs", RPTDayPassCashAmount));
@@ -749,7 +987,7 @@ namespace Kochi_TVM.Printers
 
             AddText("KOCHI METRO");
             AddText("Date/Time", DateTime.Now.ToString("yyyy-MM-dd HH:mm"), 80);
-            AddText("TVM ID", Parameters.TVMDynamic.GetParameter("sys_EquipmentId"), 80);
+            AddText("TVM ID", Parameters.TVMDynamic.GetParameter("unitId"), 80);
             AddText("Station", Stations.currentStation.name, 80);
             AddText("User", Parameters.userId, 80);
 
@@ -828,7 +1066,7 @@ namespace Kochi_TVM.Printers
             AddText("------------------------------------------------------------------------------");
             AddText("QR Slip Count", qr.ToString(), 120);
             //PrinterFunctions.AddText("Receipt Slip Count", receipt.ToString(), 120);
-            //PrinterFunctions.AddText("RPT Count", rpt.ToString(), 120);
+            AddText("RPT Count", rpt.ToString(), 120);
 
             AddText("Rs." + Constants.HopperAddress1Coin + " Coin Count", coin1.ToString(), 120);
             AddText("Rs." + Constants.HopperAddress2Coin+" Coin Count", coin2.ToString(), 120);
@@ -1104,7 +1342,6 @@ namespace Kochi_TVM.Printers
             Document1.PrinterSettings.PrinterName = PrinterName;
             Document1.Print();
         }
-
         public void UnableToPrintQR(string ticketActivateDts,string explanation,string From,string to,string count)
         {
             lineY = 2;
@@ -1162,5 +1399,31 @@ namespace Kochi_TVM.Printers
                 }
             }
         }       
+    }
+    public struct CoinOperation
+    {
+        public int count;
+        public int coin;
+        public int stock;
+    }
+    public struct QR_RPT_Operation
+    {
+        public int count;
+        public TransactionType transactionType;
+        public int stock;
+    }
+    public struct SendToBox
+    {
+        public int count;
+        public int billType;
+    }
+    public struct AddNote
+    {
+        public int count1;
+        public int notes1;
+        public int count2;
+        public int notes2;
+        public int count3;
+        public int notes3;
     }
 }

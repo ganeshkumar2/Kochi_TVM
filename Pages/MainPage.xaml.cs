@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using System.Xml;
 using static Kochi_TVM.Utils.Enums;
@@ -438,6 +439,7 @@ namespace Kochi_TVM.Pages
                                        {
                                            Parameters.TvmMonitoringData.SpecialMode = "OutOffServiceMode";
                                            txtErrorCode.Text = "Out Of Service Mode";
+                                           imgStationClosedMode.Source = new BitmapImage((new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\out_of_service.jpg")));
                                            outofservice.Visibility = Visibility.Visible;
                                            LedOperations.Close();
                                        }));
@@ -481,6 +483,7 @@ namespace Kochi_TVM.Pages
                                            Parameters.TvmMonitoringData.SpecialMode = "Emergency";
                                            txtErrorCode.Text = "Emergency Mode";
                                            outofservice.Visibility = Visibility.Visible;
+                                           imgStationClosedMode.Source = new BitmapImage((new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\emergency_std.jpg")));
                                            LedOperations.Emergency();
                                        }));
                                     break;
@@ -584,6 +587,7 @@ namespace Kochi_TVM.Pages
                                        {
                                            Parameters.TvmMonitoringData.SpecialMode = "OutOffServiceMode";
                                            txtErrorCode.Text = "Out Of Service Mode";
+                                           imgStationClosedMode.Source = new BitmapImage((new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\out_of_service.jpg")));
                                            outofservice.Visibility = Visibility.Visible;
                                            LedOperations.Close();
                                        }));
@@ -626,6 +630,7 @@ namespace Kochi_TVM.Pages
                                        {
                                            Parameters.TvmMonitoringData.SpecialMode = "EmergencyMode";
                                            txtErrorCode.Text = "Emergency Mode";
+                                           imgStationClosedMode.Source = new BitmapImage((new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\emergency_std.jpg")));
                                            outofservice.Visibility = Visibility.Visible;
                                            LedOperations.Emergency();
                                        }));
@@ -717,6 +722,7 @@ namespace Kochi_TVM.Pages
                      {
                          Parameters.TvmMonitoringData.SpecialMode = "ScreenLock";
                          txtErrorCode.Text = "Screen Lock Mode";
+                         imgStationClosedMode.Source = new BitmapImage((new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\out_of_service.jpg")));
                          outofservice.Visibility = Visibility.Visible;
                      }));
             }
@@ -755,6 +761,7 @@ namespace Kochi_TVM.Pages
                   {
                       LedOperations.GreenText("STATION CLOSE");
                       Parameters.TvmMonitoringData.SpecialMode = "StationClose";
+                      imgStationClosedMode.Source = new BitmapImage((new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\station_closed.jpg")));
                       txtErrorCode.Text = "Station Close";
                       outofservice.Visibility = Visibility.Visible;
                   }));
@@ -799,13 +806,13 @@ namespace Kochi_TVM.Pages
                     Parameters.TVMDynamic.FillOrUpdateParameters();
                     DateTime startDate = DateTime.Parse(Parameters.TVMDynamic.GetParameter("sys_WorkHoursStart"));
                     DateTime endDate = DateTime.Parse(Parameters.TVMDynamic.GetParameter("sys_WorkHoursEnd"));
-
+                    DateTimeUtil.Instance.SetSystemDateTime(Parameters.TVMDynamic.SysTime);
                     if (Parameters.TvmMonitoringData.SpecialMode == "Normal")
                     {
-                        //if (!((startDate <= DateTime.Now) && (endDate >= DateTime.Now)))
-                        //{
-                        //    NavigationService.Navigate(new Pages.StationClosedPage());
-                        //}
+                        if (!((startDate <= DateTime.Now) && (endDate >= DateTime.Now)))
+                        {
+                            NavigationService.Navigate(new Pages.StationClosedPage());
+                        }
 
                         int status = KMY200DoorAlarm.Instance.GetStatus();
                         Enums.DoorStatus doorStatus = (Enums.DoorStatus)(status);
@@ -813,22 +820,9 @@ namespace Kochi_TVM.Pages
                         {
                             Parameters.TvmMonitoringData.doorSensorStatus = "Door Closed";
                             outofservice.Visibility = Visibility.Collapsed;
-                        }
-                        else
-                        {
-                            Parameters.TvmMonitoringData.doorSensorStatus = "Door Open";
-                            txtErrorCode.Text = "Door Open";
-                            outofservice.Visibility = Visibility.Visible;
-                        }
-
-                        if (Parameters.TVMDynamic.GetAfcConnStatus())
-                        {
-                            Parameters.TVMDynamic.AddOrUpdateParameter("AfcConn", "1");
-                            Parameters.TVMStatic.AddOrUpdateParameter("SCConn", "1");
                             if (i == 0)
                                 i = 1;
-                            btnSelectTicket.IsEnabled = true;
-                            btnSelectTicket.Opacity = 1;
+
                             if (i == 1)
                             {
                                 outofservice.Visibility = Visibility.Collapsed;
@@ -839,16 +833,44 @@ namespace Kochi_TVM.Pages
                         }
                         else
                         {
+                            Parameters.TvmMonitoringData.doorSensorStatus = "Door Open";
+                            txtErrorCode.Text = "Door Open";
+                            imgStationClosedMode.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\out_of_service.jpg"));
+                            outofservice.Visibility = Visibility.Visible;
+                            i = 0;
+                            LedOperations.Close();
+                            return;
+                        }
+
+                        if (Parameters.TVMDynamic.GetAfcConnStatus())
+                        {
+                            Parameters.TVMDynamic.AddOrUpdateParameter("AfcConn", "1");
+                            Parameters.TVMStatic.AddOrUpdateParameter("SCConn", "1");
+                            //if (i == 0)
+                            //    i = 1;
+                            //btnSelectTicket.IsEnabled = true;
+                            //btnSelectTicket.Opacity = 1;
+                            //if (i == 1)
+                            //{
+                            //    outofservice.Visibility = Visibility.Collapsed;
+                            //    i = 2;
+                            //    lblNoConnection.Content = "";
+                            //    LedOperations.GreenText("WELCOME TO " + Stations.currentStation.name + " " + PIDMessageLog.getMessage());
+                            //}
+                        }
+                        else
+                        {
                             Parameters.TVMDynamic.AddOrUpdateParameter("AfcConn", "0");
                             Parameters.TVMStatic.AddOrUpdateParameter("SCConn", "0");
-                            i = 0;
-                            outofservice.Visibility = Visibility.Visible;
-                            txtErrorCode.Text = "No Connection";
-                            LedOperations.Close();
-                            lblNoConnection.Content = "No Connection!";
-                            btnSelectTicket.IsEnabled = false;
-                            btnSelectTicket.Opacity = 0.2;
-                            return;
+                            //i = 0;
+                            //imgStationClosedMode.Source = new BitmapImage((new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\out_of_service.jpg")));
+                            //outofservice.Visibility = Visibility.Visible;
+                            //txtErrorCode.Text = "No Connection";
+                            //LedOperations.Close();
+                            //lblNoConnection.Content = "No Connection!";
+                            //btnSelectTicket.IsEnabled = false;
+                            //btnSelectTicket.Opacity = 0.2;
+                            //return;
                         }
 
                         BNRManager.Instance.PollingAction();
@@ -869,6 +891,7 @@ namespace Kochi_TVM.Pages
                         else
                         {
                             j = 0;
+                            imgStationClosedMode.Source = new BitmapImage((new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\out_of_service.jpg")));
                             outofservice.Visibility = Visibility.Visible;
                             txtErrorCode.Text = "BNR Printer Error";
                             LedOperations.Close();
@@ -898,6 +921,7 @@ namespace Kochi_TVM.Pages
                         else
                         {
                             j = 0;
+                            imgStationClosedMode.Source = new BitmapImage((new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\out_of_service.jpg")));
                             outofservice.Visibility = Visibility.Visible;
                             LedOperations.Close();
                             Check_QRprinter = false;
@@ -960,6 +984,7 @@ namespace Kochi_TVM.Pages
                 }
                 else
                 {
+                    imgStationClosedMode.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\out_of_service.jpg"));
                     outofservice.Visibility = Visibility.Visible;
                     Parameters.TVMDynamic.AddOrUpdateParameter("AfcConn", "0");
                     Parameters.TVMStatic.AddOrUpdateParameter("SCConn", "0");
@@ -969,8 +994,9 @@ namespace Kochi_TVM.Pages
                     btnSelectTicket.Opacity = 0.2;
                     return;
                 }
-                if ((Constants.Cassette1NoteCont <= Constants.NoChangeAvailable && Constants.Cassette2NoteCont <= Constants.NoChangeAvailable && Constants.Cassette3NoteCont <= Constants.NoChangeAvailable) || (StockOperations.coin1 <= Constants.NoChangeAvailable && StockOperations.coin2 <= Constants.NoChangeAvailable && StockOperations.coin1 <= Constants.NoChangeAvailable))
+                if (StockOperations.coin1 <= Constants.NoChangeAvailable && StockOperations.coin2 <= Constants.NoChangeAvailable && StockOperations.coin1 <= Constants.NoChangeAvailable)
                 {
+                    Constants.NoChangeMode = true;
                     if (!Check_Receiptprinter)
                     {
                         NavigationService.Navigate(new Pages.NoChangeOrReceiptPage(true, true));
@@ -982,10 +1008,12 @@ namespace Kochi_TVM.Pages
                 }
                 else if (!Check_Receiptprinter)
                 {
+                    Constants.NoChangeMode = false;
                     NavigationService.Navigate(new Pages.NoChangeOrReceiptPage(false, true));
                 }
                 else
                 {
+                    Constants.NoChangeMode = false;
                     ElectronicJournal.OrderStarted();
                     NavigationService.Navigate(new Pages.JourneyTypePage());
                 }
@@ -999,7 +1027,9 @@ namespace Kochi_TVM.Pages
         
         private void btnSelectCard_Click(object sender, RoutedEventArgs e)
         {
-
+            TVMUtility.PlayClick();
+            ElectronicJournal.OrderStarted();
+            NavigationService.Navigate(new Pages.CardOperationPage());
         }
 
         private void btnLang1_Click(object sender, RoutedEventArgs e)
@@ -1159,6 +1189,8 @@ namespace Kochi_TVM.Pages
                 LedOperations.GreenText("WELCOME TO " + Stations.currentStation.name + " " + PIDMessageLog.getMessage());
 
                 Message();
+
+                //KMY200DoorAlarm.HelpButtonInputEvent += new KMY200DoorAlarm.HelpButtonInputEventHandler(CheckHelpAction);
                 //timerOccConnMsg.Tick += timerOccConnMsg_Tick;
                 //timerOccConnMsg.Interval = TimeSpan.FromSeconds(1);
                 //timerOccConnMsg.Start();
@@ -1167,6 +1199,13 @@ namespace Kochi_TVM.Pages
             {
                 log.Error("Error MainPage -> Page_Loaded() : " + ex.ToString());
             }
+        }
+        private void CheckHelpAction()
+        {
+            bool result = Parameters.InsNStationAlarm(Stations.currentStation.id, Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId")), 1,
+                         string.Format("Help button pressed!"));
+
+            log.Debug("InsNStationAlarm Help button pressed --> result : " + (result == true ? "true" : "false"));
         }
         private void Page_Unloaded(object sender, RoutedEventArgs e)
         {

@@ -91,6 +91,7 @@ namespace Kochi_TVM.Sensors
                 if (port.BytesToRead > 0)
                 {
                     byte[] a = new byte[2];
+                    int cnt = port.Read(a, 0, 1);                    
                     a[0] = (byte)port.ReadByte();
                     a[1] = (byte)port.ReadByte();
 
@@ -106,7 +107,7 @@ namespace Kochi_TVM.Sensors
                             VibrationSensorInputEvent();
                     }
 
-                    if (a[0] == 27 && a[1] == 91)
+                    if (a[0] == 85 && a[1] == 85)
                     {
                         if (HelpButtonInputEvent != null)
                             HelpButtonInputEvent();

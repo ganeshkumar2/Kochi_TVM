@@ -3,19 +3,10 @@ using Kochi_TVM.Models;
 using Kochi_TVM.Printers;
 using Kochi_TVM.Utils;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Kochi_TVM.Pages.Maintenance
 {
@@ -32,6 +23,10 @@ namespace Kochi_TVM.Pages.Maintenance
         int QRRJTCashAmount = 0;
         int QRRJTNonCashCount = 0;
         int QRRJTNonCashAmount = 0;
+        int QRGroupCashCount = 0;
+        int QRGroupCashAmount = 0;
+        int QRGroupNonCashCount = 0;
+        int QRGroupNonCashAmount = 0;
         int RPTSJTCashCount = 0;
         int RPTSJTCashAmount = 0;
         int RPTSJTNonCashCount = 0;
@@ -89,6 +84,11 @@ namespace Kochi_TVM.Pages.Maintenance
                             QRRJTNonCashCount = Convert.ToInt32(data.Count);
                             QRRJTNonCashAmount = Convert.ToInt32(data.Amount);
                         }
+                        if (Convert.ToString(data.Transaction) == "Group Ticket-CASH")
+                        {
+                            QRGroupCashCount = Convert.ToInt32(data.Count);
+                            QRGroupCashAmount = Convert.ToInt32(data.Amount);
+                        }
                         else if (Convert.ToString(data.Transaction) == "RPT SJT-CASH")
                         {
                             RPTSJTCashCount = Convert.ToInt32(data.Count);
@@ -140,26 +140,47 @@ namespace Kochi_TVM.Pages.Maintenance
             lblQRSJTCashCount.Content = QRSJTCashCount;
             lblQRSJTCashAmount.Content = Conversion.MoneyFormat(QRSJTCashAmount);
 
-            lblQRSJTNonCashCount.Content = QRSJTNonCashCount;
-            lblQRSJTNonCashAmount.Content = Conversion.MoneyFormat(QRSJTNonCashAmount);
+            //lblQRSJTNonCashCount.Content = QRSJTNonCashCount;
+            //lblQRSJTNonCashAmount.Content = Conversion.MoneyFormat(QRSJTNonCashAmount);
+
+            lblQRSJTTotalCount.Content = QRSJTCashCount + QRSJTNonCashCount;
+            lblQRSJTTotalAmount.Content = Conversion.MoneyFormat(QRSJTCashAmount + QRSJTNonCashAmount);
 
             lblQRRJTCashCount.Content = QRRJTCashCount;
             lblQRRJTCashAmount.Content = Conversion.MoneyFormat(QRRJTCashAmount);
 
-            lblQRRJTNonCashCount.Content = QRRJTNonCashCount;
-            lblQRRJTNonCashAmount.Content = Conversion.MoneyFormat(QRRJTNonCashAmount);
+            //lblQRRJTNonCashCount.Content = QRRJTNonCashCount;
+            //lblQRRJTNonCashAmount.Content = Conversion.MoneyFormat(QRRJTNonCashAmount);
+
+            lblQRRJTTotalCount.Content = QRRJTCashCount + QRRJTNonCashCount;
+            lblQRRJTTotalAmount.Content = Conversion.MoneyFormat(QRRJTCashAmount + QRRJTNonCashAmount);         
+
+            lblQRGroupCashCount.Content = QRGroupCashCount;
+            lblQRGroupCashAmount.Content = Conversion.MoneyFormat(QRGroupCashAmount);
+
+            lblQRGroupTotalCount.Content = QRGroupCashCount + QRGroupNonCashCount;
+            lblQRGroupTotalAmount.Content = Conversion.MoneyFormat(QRGroupCashAmount + QRGroupNonCashAmount);
 
             lblRPTQRSJTCashCount.Content = RPTSJTCashCount;
             lblRPTQRSJTCashAmount.Content = Conversion.MoneyFormat(RPTSJTCashAmount);
 
-            lblRPTQRRJTCashCount.Content = RPTRJTCashCount;
-            lblRPTQRRJTCashAmount.Content = Conversion.MoneyFormat(RPTRJTCashAmount);
+            lblRPTQRSJTTotalCount.Content = RPTSJTCashCount;
+            lblRPTQRSJTTotalAmount.Content = Conversion.MoneyFormat(RPTSJTCashAmount);
 
             lblRPTDayPassCashCount.Content = RPTDayPassCashCount;
             lblRPTDayPassCashAmount.Content = Conversion.MoneyFormat(RPTDayPassCashAmount);
 
+            lblRPTDayPassTotalCount.Content = RPTDayPassCashCount;
+            lblRPTDayPassTotalAmount.Content = Conversion.MoneyFormat(RPTDayPassCashAmount);
+
             lblRPTWeekendCashCount.Content = RPTWeekendPassCashCount;
             lblRPTWeekendCashAmount.Content = Conversion.MoneyFormat(RPTWeekendPassCashAmount);
+
+            lblRPTWeekendTotalCount.Content = RPTWeekendPassCashCount;
+            lblRPTWeekendTotalAmount.Content = Conversion.MoneyFormat(RPTWeekendPassCashAmount);
+
+            lblSummaryCount.Content = QRSJTCashCount + QRSJTNonCashCount + QRRJTCashCount + QRRJTNonCashCount + QRGroupCashCount + QRGroupNonCashCount+ RPTSJTCashCount+ RPTDayPassCashCount+ RPTWeekendPassCashCount;
+            lblSummaryAmount.Content = Conversion.MoneyFormat(QRSJTCashAmount + QRSJTNonCashAmount+ QRRJTCashAmount + QRRJTNonCashAmount+ QRGroupCashAmount + QRGroupNonCashAmount+ RPTSJTCashAmount+ RPTDayPassCashAmount+ RPTWeekendPassCashAmount);
         }
 
         private void Page_Unloaded(object sender, RoutedEventArgs e)

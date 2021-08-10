@@ -1,0 +1,39 @@
+﻿<Page x:Class="Kochi_TVM.Pages.Card.CardStatusPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Kochi_TVM.Pages.Card" xmlns:RounderProgressBar="clr-namespace:Kochi_TVM.Pages.Custom"
+      mc:Ignorable="d" 
+       d:DesignHeight="798" 
+      d:DesignWidth="1024"
+      Background="Transparent"
+      Title="CardStatusPage">
+    <Grid Name="gridMain" Width="Auto" Height="Auto">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Grid Name="gridInfo" Grid.Column="1" Grid.Row="1" Height="Auto" Width="Auto"  >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Image Name="imgKochi1Card" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Source="..\..\Images\kochi1Card.png" />
+            <RounderProgressBar:RounderProgressBarControl Grid.Row="1" Grid.Column="0" Height="Auto" Width="Auto" />
+            <TextBlock Name="tbHeader" Grid.Row="3" Text="Please wait we are reading your Kochi-1 card" TextWrapping="Wrap" FontFamily="Titillium" FontSize="60" TextAlignment ="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource MainFontColor}" FontWeight="Bold"/>
+        </Grid>
+    </Grid>
+</Page>

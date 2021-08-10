@@ -49,28 +49,33 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="8*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="68*" />
-                <RowDefinition Height="191*" />
-                <RowDefinition Height="46*" />
-                <RowDefinition Height="170*" />
-                <RowDefinition Height="67*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
-            <Label Name="lblCard" Content="Card : " Grid.Column="1" Style="{StaticResource styleLabelHeader3}" Grid.ColumnSpan="2" Margin="0.2,52,25.4,94.2" Grid.RowSpan="2" />
-            <TextBox x:Name="lblTypeCount" IsReadOnly="True" Text="0" Grid.Column="2" Style="{StaticResource styleCountText}" FontFamily="Titillium" FontSize="48" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2" Margin="25.2,52,0.4,101.2" Grid.RowSpan="2" PreviewMouseDown="lblTypeCount_PreviewMouseDown"/>
-            <Button x:Name="btnAdd" Grid.Column="4" Content="Add"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnAdd_Click" Grid.ColumnSpan="2" Margin="24.6,52,0,101.2" Grid.RowSpan="2" />
-            <Button x:Name="btnMinus" Grid.Column="7" Content="Less"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnMinus_Click" Grid.ColumnSpan="2" Margin="0.4,52,24.4,101.2" Grid.RowSpan="2" />
-            <Button x:Name="btnEmpty" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="5" Content="Empty Dispenser"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnEmpty_Click" Margin="24.6,0.2,24.4,94.2" />
+            <Label x:Name="lblQr" Content=" QR : " Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader2}" />
+            <TextBox x:Name="lblQrCount" IsReadOnly="True" Text="0" Grid.Row="1" Grid.Column="3" Style="{StaticResource styleCountText}" FontFamily="Titillium" FontSize="48" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" PreviewMouseDown="lblQrCount_PreviewMouseDown"/>
+            <Button x:Name="btnQrAdd" Grid.Row="1" Grid.Column="5" Content="Add"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnQrAdd_Click" />
+            <Button x:Name="btnQrMinus" Grid.Row="1" Grid.Column="7" Content="Less"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnQrMinus_Click" />
+            <Button x:Name="btnQrEmpty" Grid.Row="1" Grid.Column="9" Content="Reset"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnQrEmpty_Click" />
 
-            <Label x:Name="lblQr" Content="QR : " Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader3}" Grid.ColumnSpan="2" Margin="0.2,95,25.4,0.2" />
-            <TextBox x:Name="lblQrCount" IsReadOnly="True" Text="0" Grid.Row="1" Grid.Column="2" Style="{StaticResource styleCountText}" FontFamily="Titillium" FontSize="48" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2" Margin="24.2,95,1.4,0.2" PreviewMouseDown="lblQrCount_PreviewMouseDown"/>
-            <Button x:Name="btnQrAdd" Grid.Row="1" Grid.Column="4" Content="Add"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnQrAdd_Click" Grid.ColumnSpan="2" Margin="24.6,95,0,0.2" />
-            <Button x:Name="btnQrMinus" Grid.Row="1" Grid.Column="7" Content="Less"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnQrMinus_Click" Grid.ColumnSpan="2" Margin="0.4,95,24.4,0.2" />
-            <Button x:Name="btnQrEmpty" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="4" Content="Remove Qr Tickets"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnQrEmpty_Click" Margin="23.6,94.2,0.6,0.2" />
-
-            <Label x:Name="lblCardInfo" Content="Dispenser Card Count : 102" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource styleLabel1}" Height="75" Margin="0.2,0.2,0.4,0" VerticalAlignment="Top"/>
-            <Label x:Name="lblQrInfo" Content="QR Ticket Count : 102" Grid.Row="3" Grid.ColumnSpan="4" Style="{StaticResource styleLabel1}" Height="75" Margin="24,94.2,1.4,0" VerticalAlignment="Top"/>
+            <Rectangle Grid.Row="1" Grid.RowSpan="3" Grid.Column="6" VerticalAlignment="Stretch" Fill="White" Width="5"/>
+            
+            <Label Name="lblCard" Content="RPT :" Grid.Row="3" Grid.Column="1" Style="{StaticResource styleLabelHeader2}" />
+            <TextBox x:Name="lblTypeCount" Grid.Row="3" IsReadOnly="True" Text="0" Grid.Column="3" Style="{StaticResource styleCountText}" FontFamily="Titillium" FontSize="48" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" PreviewMouseDown="lblTypeCount_PreviewMouseDown"/>
+            <Button x:Name="btnAdd" Grid.Row="3" Grid.Column="5" Content="Add"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnAdd_Click"  />
+            <Button x:Name="btnMinus" Grid.Row="3" Grid.Column="7" Content="Less"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnMinus_Click" />
+            <Button x:Name="btnEmpty" Grid.Row="3" Grid.Column="9" Content="Reset"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnEmpty_Click" />
+            <Label x:Name="lblQrInfo" Content="QR Ticket Count : 102" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="4" Style="{StaticResource styleLabel1}" Height="75" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            <Label x:Name="lblCardInfo" Content="RPT Count : 102" Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="5" Style="{StaticResource styleLabel1}" Height="75" VerticalAlignment="Center" HorizontalAlignment="Right"/>
         </Grid>
 
         <Grid x:Name="grdUserControl" Grid.Column="1" Grid.Row="3" Visibility="Collapsed">

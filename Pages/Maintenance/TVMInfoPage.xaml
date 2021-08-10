@@ -57,7 +57,7 @@
             </Grid.ColumnDefinitions>
 
 
-            <Button x:Name="btnPrint" Grid.Row="8" Grid.Column="2" Content="Print Page"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnPrint_Click" />
+            <Button x:Name="btnPrint" Grid.Row="8" Grid.Column="2" Content="Print TVM Info"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnPrint_Click" />
         </Grid>
 
         <Grid Name="navigationGrid" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3">

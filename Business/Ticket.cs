@@ -411,7 +411,7 @@ namespace Kochi_TVM.Business
 
                 using (var context = new Models.TVM_Entities())
                 {
-                    var val = context.sp_SelEmvPass(type).ToList();
+                    var val = context.sp_SelEmvPass(type).ToList().OrderBy(x => x.tripCount);
 
                     foreach(var item in val)
                     {

@@ -52,11 +52,11 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="btnPrint" Grid.Row="8" Grid.Column="2" Content="Print Page"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnPrint_Click" Margin="10.4,0,0.4,0.4" />
+            <Button x:Name="btnPrint" Grid.Row="8" Grid.Column="2" Content="Print TVM Devices Info"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnPrint_Click" Margin="10.4,0,0.4,0.4" />
         </Grid>
 
         <Grid Name="navigationGrid" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3">

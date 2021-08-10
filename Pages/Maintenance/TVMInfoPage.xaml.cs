@@ -24,6 +24,7 @@ namespace Kochi_TVM.Pages.Maintenance
     /// </summary>
     public partial class TVMInfoPage : Page
     {
+        int? version = 0;
         public TVMInfoPage()
         {
             InitializeComponent();
@@ -31,22 +32,29 @@ namespace Kochi_TVM.Pages.Maintenance
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            UpdDevStat();
-
+            versionLoad();
+            UpdDevStat();           
             lblAppVersion.Content = "App Version : " + Parameters.TVMStatic.GetParameter("appVersion");
             lblEquipmentID.Content = "Equipment ID : " + Parameters.TVMDynamic.GetParameter("descCode");
             btnFinish.Content = "Cancel";
         }
+        async void versionLoad()
+        {            
+            using (var context = new Models.TVM_Entities())
+            {
+                version = context.FareTables.Where(x => x.isActive == 1 && x.isDeleted == false && DateTime.Now >= x.validityDateBegin && DateTime.Now <= x.validityDateEnd).OrderByDescending(x => x.version).Select(x => x.version).FirstOrDefault();
+            }
+            await Task.Delay(200);
+        }
         private void UpdDevStat()
         {
-            //add real value
-
+            //add real value           
+                
             //TVMId
             DeviceInfoControl TVMId = new DeviceInfoControl("TVM ID", Parameters.TVMDynamic.GetParameter("unitId"));
             Grid.SetRow(TVMId, 0);
             Grid.SetColumn(TVMId, 0);
             operationGrid.Children.Add(TVMId);
-
 
             //EquipmentId
             DeviceInfoControl EquipmentId = new DeviceInfoControl("Equipment ID", Parameters.TVMDynamic.GetParameter("descCode"));
@@ -72,21 +80,27 @@ namespace Kochi_TVM.Pages.Maintenance
             Grid.SetColumn(ParamVersion, 0);
             operationGrid.Children.Add(ParamVersion);
 
+            //FareVersion
+            DeviceInfoControl FareVersion = new DeviceInfoControl("Fare Version", Convert.ToString(version));
+            Grid.SetRow(FareVersion, 0);
+            Grid.SetColumn(FareVersion, 2);
+            operationGrid.Children.Add(FareVersion);
+
             //CentralComputer
             DeviceInfoControl CentralComputer = new DeviceInfoControl("Central Computer", Parameters.TVMDynamic.GetParameter("AfcConn") == "1" ? "Connect" : "Disconnect");
-            Grid.SetRow(CentralComputer, 0);
+            Grid.SetRow(CentralComputer, 2);
             Grid.SetColumn(CentralComputer, 2);
             operationGrid.Children.Add(CentralComputer);
 
             //OCC
             DeviceInfoControl OCC = new DeviceInfoControl("OCC", Parameters.TVMDynamic.GetParameter("AfcConn") == "1" ? "Connect" : "Disconnect");
-            Grid.SetRow(OCC, 2);
+            Grid.SetRow(OCC, 4);
             Grid.SetColumn(OCC, 2);
             operationGrid.Children.Add(OCC);
 
             //StationComputer
             DeviceInfoControl StationComputer = new DeviceInfoControl("Station Computer", Parameters.TVMDynamic.GetParameter("SCConn") == "1" ? "Connect" : "Disconnect");
-            Grid.SetRow(StationComputer, 4);
+            Grid.SetRow(StationComputer, 6);
             Grid.SetColumn(StationComputer, 2);
             operationGrid.Children.Add(StationComputer);
         }
@@ -99,7 +113,7 @@ namespace Kochi_TVM.Pages.Maintenance
         {
             if (CustomTL60Printer.Instance.getStatusWithUsb() == Enums.PRINTER_STATE.OK)
             {
-                CustomTL60Printer.Instance.TVMInfoReceipt();
+                CustomTL60Printer.Instance.TVMInfoReceipt(Convert.ToString(version));
             }
         }
 

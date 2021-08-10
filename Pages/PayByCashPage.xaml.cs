@@ -113,7 +113,8 @@ namespace Kochi_TVM.Pages
                 btnFinish.FontSize = 24;
                 lblSaleUnSucc.FontSize = 24;
                 lblPleaseCollect.FontSize = 24;
-                lblMaxAccept.FontSize = 16;
+                lblMaxAccept.FontSize = 18;
+                lblCusomerMsg.FontSize = 16;
             }
             else
             {
@@ -126,6 +127,7 @@ namespace Kochi_TVM.Pages
                 lblSaleUnSucc.FontSize = 18;
                 lblPleaseCollect.FontSize = 18;
                 lblMaxAccept.FontSize = 13;
+                lblCusomerMsg.FontSize = 12;
             }
 
             lblTotalAmountValue.FontSize = 24;
@@ -185,11 +187,16 @@ namespace Kochi_TVM.Pages
                     lblNoOfTickets.Content = Ticket.ticketCount;
                     lblAmount.Content = Conversion.MoneyFormat(Ticket.totalPrice);
                     break;
+                case JourneyType.Topup:
+                case JourneyType.Period_Pass:
+                case JourneyType.Trip_Pass:
+                    grdInfo.Visibility = Visibility.Collapsed;
+                    break;
                 default:
                     break;
             }
 
-            if ((Constants.Cassette1NoteCont <= Constants.NoChangeAvailable && Constants.Cassette2NoteCont <= Constants.NoChangeAvailable && Constants.Cassette3NoteCont <= Constants.NoChangeAvailable) || (StockOperations.coin1 <= Constants.NoChangeAvailable && StockOperations.coin2 <= Constants.NoChangeAvailable && StockOperations.coin1 <= Constants.NoChangeAvailable))
+            if (StockOperations.coin1 <= Constants.NoChangeAvailable && StockOperations.coin2 <= Constants.NoChangeAvailable && StockOperations.coin1 <= Constants.NoChangeAvailable)
             {
                 if (Ticket.totalPrice > 5 && Ticket.totalPrice <= 10)
                 {
@@ -241,7 +248,7 @@ namespace Kochi_TVM.Pages
                     grdMoney500.Visibility = Visibility.Visible;
                     grdMoney2000.Visibility = Visibility.Visible;
                 }
-                if (Ticket.totalPrice > 100 && Ticket.totalPrice <= 200)
+                if (Ticket.totalPrice > 100 && Ticket.totalPrice < 500)
                 {
                     lblMoney10.Visibility = Visibility.Visible;
                     lblMoney20.Visibility = Visibility.Visible;
@@ -256,7 +263,7 @@ namespace Kochi_TVM.Pages
                     grdMoney500.Visibility = Visibility.Visible;
                     grdMoney2000.Visibility = Visibility.Visible;
                 }
-                if (Ticket.totalPrice > 200 && Ticket.totalPrice <= 1500)
+                if (Ticket.totalPrice >= 500 && Ticket.totalPrice <= 1500)
                 {
                     lblMoney10.Visibility = Visibility.Visible;
                     lblMoney20.Visibility = Visibility.Visible;
@@ -848,9 +855,18 @@ namespace Kochi_TVM.Pages
                             await Task.Delay(200);
                             BNRManager.Instance.GetCassetteStatus();
                             await Task.Delay(500);
-                            balance = Convert.ToInt32((Convert.ToDecimal(receivedCash)) - TotalAmountToCollect);
-                            Int32 cashincast = await checkAvalabeBalance(balance);
-                            log.Debug("PayByCashOrCoinPage -> cashincast : " + cashincast);
+                            Int32 cashincast = 0;
+                            balance = Convert.ToInt32(Convert.ToDecimal(receivedCash) - TotalAmountToCollect);
+                            if (Constants.NoChangeMode && balance <= 5)
+                            {
+                                cashincast = 0;
+                                balance = 0;
+                            }
+                            else
+                            {                                
+                                cashincast = await checkAvalabeBalance(balance);
+                                log.Debug("PayByCashOrCoinPage -> cashincast : " + cashincast);
+                            }
                             if (cashincast == 0)
                             {
                                 Constants.Change = balance;
@@ -964,6 +980,10 @@ namespace Kochi_TVM.Pages
                                                 isCancel = true;
                                                 returncash(false, false);
                                             }
+                                            break;
+                                        case JourneyType.Topup:
+                                        case JourneyType.Period_Pass:
+                                        case JourneyType.Trip_Pass:
                                             break;
                                         default:
                                             break;
@@ -1108,6 +1128,10 @@ namespace Kochi_TVM.Pages
                                             returncash(false, false);
                                         }
                                         break;
+                                    case JourneyType.Topup:
+                                    case JourneyType.Period_Pass:
+                                    case JourneyType.Trip_Pass:
+                                        break;
                                     default:
                                         break;
                                 }
@@ -1118,7 +1142,8 @@ namespace Kochi_TVM.Pages
                             }
                             return;
                         }
-
+                        customerMsgGrid.Background = System.Windows.Media.Brushes.Red;
+                        customerMsgGrid.Visibility = Visibility.Hidden;
                         if (noteCount == maxNoteAccept)
                         {
                             try
@@ -1173,6 +1198,8 @@ namespace Kochi_TVM.Pages
                 result = RPTOperations.GiveRPTTicket();
                 if (result)
                 {
+                    long trxId = Convert.ToInt64(TransactionInfo.SelTrxId((long)TransactionType.TT_REMOVE_RPT));
+                    StockOperations.InsStock(trxId, (int)StockType.Rpt, (int)DeviceType.Dispenser, (int)UpdateType.Decrease, Ticket.ticketCount);
                     log.Debug("LogTypes.Info : GiveRPTTicket return true");
                 }
                 else

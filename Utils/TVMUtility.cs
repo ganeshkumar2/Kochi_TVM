@@ -146,7 +146,7 @@ namespace Kochi_TVM.Utils
             // for accepting all
             //1111 1111 -> FF
 
-            if ((Constants.Cassette1NoteCont <= Constants.NoChangeAvailable && Constants.Cassette2NoteCont <= Constants.NoChangeAvailable && Constants.Cassette3NoteCont <= Constants.NoChangeAvailable) || (StockOperations.coin1 <= Constants.NoChangeAvailable && StockOperations.coin2 <= Constants.NoChangeAvailable && StockOperations.coin1 <= Constants.NoChangeAvailable))
+            if (StockOperations.coin1 <= Constants.NoChangeAvailable && StockOperations.coin2 <= Constants.NoChangeAvailable && StockOperations.coin1 <= Constants.NoChangeAvailable)
             {
                 if (Amount <= 5)
                     ivar = ivar & 0x01;
@@ -158,9 +158,9 @@ namespace Kochi_TVM.Utils
                     ivar = ivar & 0x0F;
                 if (Amount > 50 && Amount <= 100)
                     ivar = ivar & 0x1F;
-                if (Amount > 100 && Amount <= 200)
+                if (Amount > 100 && Amount < 500)
                     ivar = ivar & 0x3F;
-                if (Amount > 200 && Amount <= 1500)
+                if (Amount > 500 && Amount <= 1500)
                     ivar = ivar & 0x7F;
                 if (Amount > 1500)
                     ivar = ivar & 0xFF;

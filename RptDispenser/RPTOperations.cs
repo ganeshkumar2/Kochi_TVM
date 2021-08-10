@@ -64,10 +64,10 @@ namespace Kochi_TVM.RptDispenser
                     ticketObject = new TicketRJT { stationInOut = Convert.ToByte(Ticket.startStation.id), stationOutIn = Convert.ToByte(Ticket.endStation.id), price = Convert.ToUInt16(Ticket.ticketPrice) };
                     break;
                 case JourneyType.Day_Pass:
-                    ticketObject = new TicketDayPass { price = Convert.ToUInt16(Ticket.ticketPrice) };
+                    ticketObject = new TicketDayPass { institutionId = Convert.ToByte(Constants.ApplicationVersion), price = Convert.ToUInt16(Ticket.ticketPrice) };
                     break;
                 case JourneyType.Weekend_Pass:
-                    ticketObject = new TicketWeekendPass { passType = Convert.ToByte(0), price = Convert.ToUInt16(Ticket.ticketPrice) };
+                    ticketObject = new TicketWeekendPass { institutionId = Convert.ToByte(Constants.ApplicationVersion), passType = Convert.ToByte(0), price = Convert.ToUInt16(Ticket.ticketPrice) };
                     break;
                 case JourneyType.Group_Ticket:
                     ticketObject = new TicketGroup { stationIn = Convert.ToByte(Ticket.startStation.id), stationOut = Convert.ToByte(Ticket.endStation.id), peopleCount = Convert.ToByte(Ticket.peopleCount), price = Convert.ToUInt16(Ticket.ticketPrice) };
@@ -77,7 +77,9 @@ namespace Kochi_TVM.RptDispenser
                     break;
             }
 
-            var persoSector = new RPTPersoSector(Convert.ToByte(Ticket.startStation.id), DateTime.Now, ticketObject);
+            log.Debug("pass ticketObject TicketDayPass : "+ ticketObject.ToString() + " startStation id - " + Ticket.startStation.id + " startStation byte - " + Convert.ToByte(Ticket.startStation.id) + " institutionId "+ Constants.ApplicationVersion + " institutionByte " + Convert.ToByte(Constants.ApplicationVersion));
+
+            var persoSector = new RPTPersoSector(Convert.ToByte(Stations.currentStation.id), DateTime.Now, ticketObject);
 
             result = Dispenser.Instance.Personalize(out uid, persoSector);
 
@@ -145,21 +147,29 @@ namespace Kochi_TVM.RptDispenser
             {
                 using (var context = new TVM_Entities())
                 {
-                    Int64 i = 0;
-                    byte j = 0;
-                    decimal k = 0;
-                    var courses = context.sp_InsTicketTransaction(i, j, k, Convert.ToByte(Utils.Enums.TransactionType.TT_RPT), (byte)PaymentType.cash, Ticket.totalPrice, 0, Ticket.totalPrice,
-                        0, Constants.Change,
-                        0, Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId")), tempTransactionId,
-                        Convert.ToInt32(Parameters.TVMDynamic.GetParameter("stationId")), 0);
 
-                    tempTransactionId = Convert.ToInt64(courses);
+                    int unitId = Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId").ToString());
+                    int stationId = Convert.ToInt32(Parameters.TVMDynamic.GetParameter("stationId"));
+                    int? courses = 0;
+                    courses = context.sp_InsTicketTransaction(0, 0, Ticket.totalPrice, Convert.ToByte(Utils.Enums.TransactionType.TT_RPT),
+                                    (byte)PaymentType.cash, Ticket.totalPrice, 0, Ticket.totalPrice,
+                                    0,
+                                    Constants.Change,
+                                   0, unitId, tempTransactionId,
+                                    stationId, 0).FirstOrDefault();
+
+                    //var courses = context.sp_InsTicketTransaction(i, j, k, Convert.ToByte(Utils.Enums.TransactionType.TT_RPT), (byte)PaymentType.cash, Ticket.totalPrice, 0, Ticket.totalPrice,
+                    //    0, Constants.Change,
+                    //    0, Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId")), tempTransactionId,
+                    //    Convert.ToInt32(Parameters.TVMDynamic.GetParameter("stationId")), 0);
+                    
+                    tempTransactionId = (int)courses;
 
                     if (tempTransactionId > 0)
                         result = true;
                     else
                         result = false;
-
+                    //result = true;
                 }                    
             }
             catch (Exception ex)
@@ -181,7 +191,7 @@ namespace Kochi_TVM.RptDispenser
                 {
                     int courses = context.sp_InsRFIDTicket((int)Ticket.journeyType, Ticket.ticketPrice, Ticket.startStation.id, Ticket.endStation.id, 0, Ticket.ticketActivateDts, Ticket.ticketExpiryDts, cardId, (short)Ticket.peopleCount, "N", Convert.ToInt32(Parameters.TVMDynamic.GetParameter("stationId")), Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId")), Convert.ToInt32(transactionId), 0);
                     
-                    if(courses >= 0)
+                    //if(courses >= 0)
                         result = true;
                 }               
                 

@@ -188,9 +188,12 @@ namespace Kochi_TVM.Pages.Maintenance
 
         private void btnPrint_Click(object sender, RoutedEventArgs e)
         {
-            CustomTL60Printer.Instance.StockStatusReport(StockOperations.coin1, StockOperations.coin2, StockOperations.coin5, StockOperations.qrSlip,
+            if (CustomTL60Printer.Instance.getStatusWithUsb() == Enums.PRINTER_STATE.OK)
+            {
+                CustomTL60Printer.Instance.StockStatusReport(StockOperations.coin1, StockOperations.coin2, StockOperations.coin5, StockOperations.qrSlip,
                StockOperations.rpt, StockOperations.receiptSlip, noteincasset1, noteincasset2, noteincasset3, notevalincasset1, notevalincasset2, notevalincasset3,
                Convert.ToInt32(MoneyOperations.box));
+            }
         }
     }
 }

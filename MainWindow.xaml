@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kochi_TVM"
         mc:Ignorable="d"
-        Title="MainWindow"  Height="768" Width="1024"  ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen" Topmost="False" Background="{StaticResource MainColor}">
+        Title="MainWindow"  Height="768" Width="1024" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen" Topmost="False" Background="{StaticResource MainColor}">
     <Grid Name="mainGrid" Width="Auto" Height="Auto">
         <Grid.RowDefinitions>
             <RowDefinition Height="13*"/>

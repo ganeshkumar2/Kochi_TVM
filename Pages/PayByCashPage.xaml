@@ -106,7 +106,7 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.5*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Name="lblCusomerMsg" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Helvetica" FontSize="20px" FontWeight="SemiBold" />
+                        <Label Name="lblCusomerMsg" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Helvetica" FontWeight="SemiBold" />
                     </Grid>
                 </Border>
 
@@ -289,7 +289,7 @@
                 </Grid.ColumnDefinitions>
                 <Button x:Name="btnBack" Grid.Row="0" Grid.Column="3" Content="Back"  Style="{StaticResource styleBackBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnBack_Click" />
                 <Button x:Name="btnFinish" Grid.Row="0" Grid.Column="1" Content="Cancel"  Style="{StaticResource styleFinishBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnFinish_Click"/>
-                <Grid Grid.Row="0" Grid.Column="2" Margin="20,0,20,0">
+                <Grid x:Name="grdInfo" Grid.Row="0" Grid.Column="2" Margin="20,0,20,0">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Label Grid.Column="0" Name="lblType" Content="Ticket Type" FontSize="14" FontFamily="Titillium" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource MainColor}"/>
                         <Path Grid.Column="1"  Stroke="{StaticResource MainColor}" Fill="{StaticResource MainColor}" Stretch="Uniform" HorizontalAlignment="Center" Height="20" Width="40" VerticalAlignment="Center" Data="M 10 0 L 16 4 L 10 8 M 0 4 L 16 4" />

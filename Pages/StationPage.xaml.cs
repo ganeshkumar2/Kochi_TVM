@@ -81,6 +81,10 @@ namespace Kochi_TVM.Pages
                     case JourneyType.Weekend_Pass:
                         lblType.Content = MultiLanguage.GetText("weekenddaypass");
                         break;
+                    case JourneyType.Period_Pass:
+                    case JourneyType.Trip_Pass:
+                        grdInfo.Visibility = Visibility.Collapsed;
+                        break;
                 }
                 SetHeaderText();
                 bool isOk = CreateGridStations();
@@ -247,13 +251,9 @@ namespace Kochi_TVM.Pages
             TVMUtility.PlayClick();
             int selectedStationId = 0;
             selectedStationId = Convert.ToInt32(((Button)sender).Tag.ToString());//Stations.GetStation().id;
-            //if (Stations.stationList.ContainsKey(selectedStationId))
-            //    SetStation(selectedStationId);
-            Ticket.endStation = Stations.GetStation(selectedStationId);
-            Ticket.startStation = Stations.currentStation;
-            ElectronicJournal.DestinationSelected(Ticket.endStation.name.ToString());
-            Constants.IsMapPageActive = false;
-            NavigationService.Navigate(new Pages.TicketCountPage());
+            if (Stations.stationList.ContainsKey(selectedStationId))
+                SetStation(selectedStationId);
+
             //PageControl.ShowPage(Pages.journeyPage);
         }
         private void SetStation(int selectedStationId)
@@ -276,7 +276,7 @@ namespace Kochi_TVM.Pages
         private void SetSecondStation(int selectedStationId)
         {
             Ticket.endStation = Stations.GetStation(selectedStationId);
-            //PageControl.ShowPage(Pages.cardOperationPage);
+            NavigationService.Navigate(new Pages.CardOperationPage());
         }
 
         private void SetFirstStation(int selectedStationId)
@@ -290,13 +290,18 @@ namespace Kochi_TVM.Pages
         {
             if (selectedStationId != Stations.currentStation.id)
             {
-                string tmp = MultiLanguage.GetCurrentLanguage();
-                MultiLanguage.ChangeLanguage("EN");
-                Stations.FillStationList();
+                //string tmp = MultiLanguage.GetCurrentLanguage();
+                //MultiLanguage.ChangeLanguage("EN");
+                //Stations.FillStationList();
+                //Ticket.endStation = Stations.GetStation(selectedStationId);
+                //Ticket.startStation = Stations.currentStation;
+                //MultiLanguage.ChangeLanguage(tmp);
+                //Stations.FillStationList();
                 Ticket.endStation = Stations.GetStation(selectedStationId);
                 Ticket.startStation = Stations.currentStation;
-                MultiLanguage.ChangeLanguage(tmp);
-                Stations.FillStationList();
+                ElectronicJournal.DestinationSelected(Ticket.endStation.name.ToString());
+                Constants.IsMapPageActive = false;
+                NavigationService.Navigate(new Pages.TicketCountPage());
                 //PageControl.ShowPage(Pages.journeyPage);
             }
         }
@@ -322,7 +327,24 @@ namespace Kochi_TVM.Pages
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             TVMUtility.PlayClick();
-            NavigationService.Navigate(new Pages.JourneyTypePage());
+            switch (Ticket.journeyType)
+            {
+                case JourneyType.Period_Pass:
+                case JourneyType.Trip_Pass:
+                case JourneyType.Topup:
+                    Ticket.journeyType = JourneyType.Unknown;
+                    NavigationService.Navigate(new Pages.CardOperationPage());
+                    break;
+                case JourneyType.Day_Pass:
+                case JourneyType.Weekend_Pass:
+                case JourneyType.Group_Ticket:
+                case JourneyType.RJT:
+                case JourneyType.SJT:
+                    NavigationService.Navigate(new Pages.JourneyTypePage());
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

@@ -11,6 +11,152 @@
       Loaded="Page_Loaded" 
       Unloaded="Page_Unloaded"
       Title="BNROperationPage">
+    <Page.Resources>
+        <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="60" />
+                </Grid.ColumnDefinitions>
+                <Border
+                  x:Name="Border" 
+                  Grid.ColumnSpan="2"
+                  CornerRadius="0"
+                  Background="{StaticResource MainColor}"/>
+                <Border 
+                  Grid.Column="0"
+                  CornerRadius="0" 
+                  Margin="1" 
+                  Background="White">
+                </Border>
+                <Path 
+                  x:Name="Arrow"
+                  Grid.Column="1"     
+                  Fill="White"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  Data="M 0 0 L 10 14 L 20 0 Z"
+                />
+            </Grid>
+
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="ComboBoxTextBox" TargetType="{x:Type TextBox}">
+            <Border x:Name="PART_ContentHost" Focusable="False" Background="{TemplateBinding Background}" />
+        </ControlTemplate>
+
+        <Style x:Key="{x:Type ComboBox}" TargetType="{x:Type ComboBox}">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="MinWidth" Value="120"/>
+            <Setter Property="MinHeight" Value="50"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ComboBox}">
+                        <Grid>
+                            <ToggleButton 
+                            Name="ToggleButton" 
+                            Template="{StaticResource ComboBoxToggleButton}" 
+                            Grid.Column="2" 
+                            Focusable="false"
+                            IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}"
+                            ClickMode="Press">
+                            </ToggleButton>
+                            <ContentPresenter Name="ContentSite" IsHitTestVisible="False"  Content="{TemplateBinding SelectionBoxItem}"
+                            ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                            ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"                     
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left" />
+                            <TextBox x:Name="PART_EditableTextBox"
+                            Style="{x:Null}" 
+                            Template="{StaticResource ComboBoxTextBox}" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Center" 
+                            Focusable="True" 
+                            Background="White"
+                            Foreground="Black" Margin="2"
+                            IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                            <Popup 
+                            Name="Popup"
+                            Placement="Bottom"
+                            IsOpen="{TemplateBinding IsDropDownOpen}"
+                            AllowsTransparency="True" 
+                            Focusable="False"
+                            PopupAnimation="Slide">
+
+                                <Grid Name="DropDown"
+                              SnapsToDevicePixels="True"                
+                              MinWidth="{TemplateBinding ActualWidth}"
+                              MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border 
+                                x:Name="DropDownBorder"
+                                Background="White"
+
+                                BorderThickness="1"
+                                BorderBrush="#888888"/>
+                                    <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="HasItems" Value="false">
+                                <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsGrouping" Value="true">
+                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                            </Trigger>
+                            <Trigger SourceName="Popup" Property="Popup.AllowsTransparency" Value="true">
+                                <Setter TargetName="DropDownBorder" Property="CornerRadius" Value="0"/>
+                                <Setter TargetName="DropDownBorder" Property="Margin" Value="0,0,0,0"/>
+                            </Trigger>
+                            <Trigger Property="IsEditable"  Value="true">
+                                <Setter Property="IsTabStop" Value="false"/>
+                                <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible"/>
+                                <Setter TargetName="ContentSite" Property="Visibility" Value="Hidden"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+            </Style.Triggers>
+        </Style>
+
+        <!-- SimpleStyles: ComboBoxItem -->
+        <Style x:Key="{x:Type ComboBoxItem}" TargetType="{x:Type ComboBoxItem}">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                        <Border Name="Border"
+                              Padding="2"
+                              SnapsToDevicePixels="true">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsHighlighted" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="#FF4F4F4F"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="#888888"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
     <Grid x:Name="mainGrid" Background="Transparent">
         <Grid.RowDefinitions>
             <!--Top space -->
@@ -36,18 +182,18 @@
             <!--Right space -->
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Label Name="lblHeader" Content="Manage Banknotes" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader1}" Margin="0.2,0.6,0.2,1.4" />
+        <Label Name="lblHeader" Content="Manage Banknotes" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader2}" />
 
         <Grid Name="operationGrid" Grid.Column="1" Grid.Row="3" Margin="0.2,0.4,0.2,22.4" Grid.RowSpan="2" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*"/>
                 <ColumnDefinition Width="5*"/>
                 <ColumnDefinition Width="15"/>
-                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="15"/>
-                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="6*"/>
                 <ColumnDefinition Width="15"/>
-                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="4*"/>
                 <ColumnDefinition Width="0.5*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -68,35 +214,37 @@
                 <Label x:Name="lblBNR" Style="{StaticResource styleLabel2}" />
             </StackPanel>
 
-            <Label Grid.Row="0" Grid.Column="1" Content="Denomination" Style="{StaticResource styleLabelHeader3}"/>
-            <Label Grid.Row="0" Grid.Column="3" Content="Count" Style="{StaticResource styleLabelHeader3}"/>
-            <Label Grid.Row="0" Grid.Column="5" Content="Amount" Style="{StaticResource styleLabelHeader3}"/>
+            <Label Grid.Row="0" Grid.Column="1" Content="Denomination" Style="{StaticResource styleLabelHeader2}"/>
+            <Label Grid.Row="0" Grid.Column="3" Content="Count" Style="{StaticResource styleLabelHeader2}"/>
+            <Label Grid.Row="0" Grid.Column="5" Content="Amount" Style="{StaticResource styleLabelHeader2}"/>
 
-            <Label Grid.Row="1" Grid.Column="3" x:Name="lblCassette1Count" Style="{StaticResource styleLabelHeader3}"/>
-            <Label Grid.Row="3" Grid.Column="3" x:Name="lblCassette2Count" Style="{StaticResource styleLabelHeader3}"/>
-            <Label Grid.Row="5" Grid.Column="3" x:Name="lblCassette3Count" Style="{StaticResource styleLabelHeader3}"/>
+            <Label Grid.Row="1" Grid.Column="3" x:Name="lblCassette1Count" Style="{StaticResource styleLabelHeader2}"/>
+            <Label Grid.Row="3" Grid.Column="3" x:Name="lblCassette2Count" Style="{StaticResource styleLabelHeader2}"/>
+            <Label Grid.Row="5" Grid.Column="3" x:Name="lblCassette3Count" Style="{StaticResource styleLabelHeader2}"/>
 
-            <Label Grid.Row="1" Grid.Column="5" x:Name="lblCassette1Amount" Style="{StaticResource styleLabelHeader3}"/>
-            <Label Grid.Row="3" Grid.Column="5" x:Name="lblCassette2Amount" Style="{StaticResource styleLabelHeader3}"/>
-            <Label Grid.Row="5" Grid.Column="5" x:Name="lblCassette3Amount" Style="{StaticResource styleLabelHeader3}"/>
+            <Label Grid.Row="1" Grid.Column="5" x:Name="lblCassette1Amount" Style="{StaticResource styleLabelHeader2}"/>
+            <Label Grid.Row="3" Grid.Column="5" x:Name="lblCassette2Amount" Style="{StaticResource styleLabelHeader2}"/>
+            <Label Grid.Row="5" Grid.Column="5" x:Name="lblCassette3Amount" Style="{StaticResource styleLabelHeader2}"/>
 
-            <Label Name="lblCassette1" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader3}"/>
-            <Button x:Name="btnAddMoney" Content="Start Accepting" Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnAddMoney_Click" />
+            <Label Name="lblCassette1" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader2}"/>
+            <Button x:Name="btnAddMoney" Content="Cash Replenish" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3" Width="250" HorizontalAlignment="Center" Style="{StaticResource styleLanguageBtn}"  VerticalAlignment="Stretch" Click="btnAddMoney_Click" />
             <Button x:Name="btnSendBox1" Content="Send to box" Grid.Row="1" Grid.Column="7" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnSendBox1_Click"/>
-            <Label Name="lblCassette2" Grid.Row="3" Grid.Column="1" Style="{StaticResource styleLabelHeader3}"/>
+            <Label Name="lblCassette2" Grid.Row="3" Grid.Column="1" Style="{StaticResource styleLabelHeader2}"/>
             
             <Button x:Name="btnSendBox2" Content="Send to box" Grid.Row="3" Grid.Column="7" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnSendBox2_Click"/>
             
-            <Label Name="lblCassette3" Grid.Row="5" Grid.Column="1" Style="{StaticResource styleLabelHeader3}"/>            
+            <Label Name="lblCassette3" Grid.Row="5" Grid.Column="1" Style="{StaticResource styleLabelHeader2}"/>            
             <Button x:Name="btnSendBox3" Content="Send to box" Grid.Row="5" Grid.Column="7" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnSendBox3_Click" />
             
-            <Label Name="lblBox" Content="Cash Box" Grid.Row="7" Grid.Column="1" Style="{StaticResource styleLabelHeader3}"/>
-            <Label x:Name="lblBoxCount" Grid.Row="7" Grid.Column="3" Style="{StaticResource styleLabelHeader3}"/>
-            <Label x:Name="lblBoxInfo" Grid.Row="7" Grid.Column="5" Style="{StaticResource styleLabelHeader3}" />
-            <Button x:Name="btnClearBox" Content="Clear Box" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="2" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnClearBox_Click" />
+            <Label Name="lblBox" Content="Cash Box" Grid.Row="7" Grid.Column="1" Style="{StaticResource styleLabelHeader2}"/>
+            <Label x:Name="lblBoxCount" Grid.Row="7" Grid.Column="3" Style="{StaticResource styleLabelHeader2}"/>
+            <Label x:Name="lblBoxInfo" Grid.Row="7" Grid.Column="5" Style="{StaticResource styleLabelHeader2}" />
+            <Button x:Name="btnClearBox" Content="Clear Box" Grid.Row="7" Grid.Column="7"  Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnClearBox_Click" />
+            <Button x:Name="btnDispense" Content="Cash Dispense" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="4" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Center" Margin="0,0,120,0" Width="250" VerticalAlignment="Stretch" Click="btnDispense_Click" />
+            <Rectangle Grid.Row="9"  Grid.Column="4" VerticalAlignment="Stretch" Fill="White" Width="5"/>
         </Grid>
 
-        <Grid Name="grdMoneyAccept" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" Visibility="Hidden">
+        <Grid Name="grdMoneyAccept" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" Visibility="Collapsed">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
@@ -126,19 +274,19 @@
                         <RowDefinition Height="80"/>
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <Label Name="lblCassette1Add" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader3}"/>
-                        <Label Content=": Count -" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader3}"/>
-                        <Label Name="lblAddCount1" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader3}"/>
+                        <Label Name="lblCassette1Add" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader2}"/>
+                        <Label Content=": Count -" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader2}"/>
+                        <Label Name="lblAddCount1" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader2}"/>
                     </StackPanel>
                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <Label Name="lblCassette2Add" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader3}"/>
-                        <Label Content=": Count -" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader3}"/>
-                        <Label Name="lblAddCount2" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader3}"/>
+                        <Label Name="lblCassette2Add" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader2}"/>
+                        <Label Content=": Count -" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader2}"/>
+                        <Label Name="lblAddCount2" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader2}"/>
                     </StackPanel>
                     <StackPanel Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <Label Name="lblCassette3Add" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader3}"/>
-                        <Label Content=": Count -" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader3}"/>
-                        <Label Name="lblAddCount3" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader3}"/>
+                        <Label Name="lblCassette3Add" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader2}"/>
+                        <Label Content=": Count -" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader2}"/>
+                        <Label Name="lblAddCount3" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader2}"/>
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Row="1" Grid.Column="1">
@@ -152,7 +300,7 @@
                 <Button x:Name="btnStopMoney" Content="Finish" Grid.Row="3" Grid.Column="1" Style="{StaticResource styleFinishBtn}" HorizontalAlignment="Stretch" Width="250" Height="80" VerticalAlignment="Stretch" Click="btnStopMoney_Click" />
             </Grid>
         </Grid>
-
+        
         <Grid Name="navigationGrid" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3" Margin="0,0.6,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -185,6 +333,110 @@
                 </Grid.ColumnDefinitions>
                 <Label Name="lblAppVersion" Content="App Version : 1.0.0.2" Grid.Row="0" Grid.Column="1" Style="{StaticResource styleLabelHeader4}"/>
                 <Label Name="lblEquipmentID" Content="Equipment ID : 1001" Grid.Row="0" Grid.Column="8" Style="{StaticResource styleLabelHeader4}"/>
+            </Grid>
+        </Grid>
+
+        <Grid Name="grdDispence" Grid.Row="1" Grid.Column="1" Grid.RowSpan="6"  Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Height="670" Background="Black" Opacity="0.6">
+            </Grid>
+            <Border Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" CornerRadius="9" Background="LightGray">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Content="BNA Dispense" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Titillium" Foreground="Black" Style="{StaticResource LableMaintanAllWhiteFont}"></Label>
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="300"/>
+                            <ColumnDefinition Width="250"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="1" Grid.Column="0" Background="Transparent" Width="250">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Cassette 1: " VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Titillium" Foreground="Black" Style="{StaticResource LableMaintanAllWhiteFont}"></Label>
+                                <Label Name="lblnoteincasset1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Titillium" Foreground="Black" Style="{StaticResource LableMaintanAllWhiteFont}"></Label>
+                            </StackPanel>
+                            <!--<ComboBox  Name="cbBillTypeDisp1" Text="Bill Type" IsEditable="True" IsReadOnly="True" FontFamily="Titillium" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Stretch"></ComboBox>-->
+                        </Grid>
+
+                        <Grid Grid.Row="2" Grid.Column="0" Background="Transparent" Width="250">
+
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Cassette 2 : " VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Titillium" Foreground="Black" Style="{StaticResource LableMaintanAllWhiteFont}"></Label>
+                                <Label Name="lblnoteincasset2" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Titillium" Foreground="Black" Style="{StaticResource LableMaintanAllWhiteFont}"></Label>
+                            </StackPanel>
+                            <!--<ComboBox  Name="cbBillTypeDisp2" Text="Bill Type" IsEditable="True" IsReadOnly="True" FontFamily="Titillium" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Stretch"></ComboBox>-->
+                        </Grid>
+
+                        <Grid Grid.Row="3" Grid.Column="0" Background="Transparent" Width="250">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Cassette 3: " VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Titillium" Foreground="Black" Style="{StaticResource LableMaintanAllWhiteFont}"></Label>
+                                <Label Name="lblnoteincasset3" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Titillium" Foreground="Black" Style="{StaticResource LableMaintanAllWhiteFont}"></Label>
+                            </StackPanel>
+                            <!--<ComboBox  Name="cbBillTypeDisp3" Text="Bill Type" IsEditable="True" IsReadOnly="True" FontFamily="Titillium" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Stretch"></ComboBox>-->
+                        </Grid>
+
+                        <Border Grid.Row="1" Grid.Column="1" Background="Transparent" Width="180">
+                            <ComboBox  Name="cbNumberDisp1" Text="Number" IsEditable="True" IsReadOnly="True" FontFamily="Titillium" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Stretch"></ComboBox>
+                        </Border>
+
+                        <Border Grid.Row="2" Grid.Column="1" Background="Transparent" Width="180">
+                            <ComboBox  Name="cbNumberDisp2" Text="Number" IsEditable="True" IsReadOnly="True" FontFamily="Titillium" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Stretch"></ComboBox>
+                        </Border>
+
+                        <Border Grid.Row="3" Grid.Column="1" Background="Transparent" Width="180">
+                            <ComboBox  Name="cbNumberDisp3" Text="Number" IsEditable="True" IsReadOnly="True" FontFamily="Titillium" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Stretch"></ComboBox>
+                        </Border>
+
+                        <Grid Name="gridCloseDispens" Grid.Row="4" Grid.Column="0" Height="80" Width="160" MouseLeftButtonDown="gridCloseDispens_MouseLeftButtonDown">
+                            <Button Content="Cancel" Style="{StaticResource styleFinishBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        </Grid>
+
+                        <Grid Name="gridDispenseSeq" Grid.Row="4" Grid.Column="1" Height="80" Width="160" MouseLeftButtonDown="GridDispenseSeq_MouseLeftButtonDown">
+                            <Button Content="Dispense" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        </Grid>
+
+                        <Label x:Name="lblmessage" Grid.Row="5" Grid.ColumnSpan="2" Content="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Red" FontSize="20" FontWeight="Bold" Visibility="Hidden"/>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Grid Name="grdCashBoxRemove" Grid.Column="1" Grid.Row="3" Grid.RowSpan="3" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Height="670" Background="Black" Opacity="0.6">
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="600" Width="750" Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Source="..\..\Images\CashBox.png"></Image>
+                <Label Grid.Row="1" VerticalAlignment="Center" FontSize="30" Content="Please remove cash box and put back cash box." HorizontalAlignment="Center" FontFamily="Titillium" FontWeight="Bold" Foreground="Black"/>
             </Grid>
         </Grid>
     </Grid>

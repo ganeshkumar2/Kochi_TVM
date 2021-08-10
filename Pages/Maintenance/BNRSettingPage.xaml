@@ -20,7 +20,7 @@
                   x:Name="Border" 
                   Grid.ColumnSpan="2"
                   CornerRadius="0"
-                  Background="#28a7e2"/>
+                  Background="{StaticResource MainColor}"/>
                 <Border 
                   Grid.Column="0"
                   CornerRadius="0" 
@@ -201,7 +201,7 @@
                 <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
                 <Border Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="6" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
                 <Border Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="6" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
-                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Cassette Status" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Titillium" Foreground="Black" Style="{StaticResource LableMaintanAllWhiteFont}"></Label>
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Cassette Status" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Titillium" Foreground="Black" Style="{StaticResource styleLabelHeader2}"></Label>
                 <Label Grid.Row="1" Content="Cassette 1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Titillium" Foreground="Black" Style="{StaticResource LableMaintanAllWhiteFont}"></Label>
                 <Label Grid.Row="2" Content="Cassette 2" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Titillium" Foreground="Black" Style="{StaticResource LableMaintanAllWhiteFont}"></Label>
                 <Label Grid.Row="3" Content="Cassette 3" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Titillium" Foreground="Black" Style="{StaticResource LableMaintanAllWhiteFont}"></Label>
@@ -211,7 +211,7 @@
                         <Label Name="lblCassete1Type" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                        <Label Content="Bill :" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
+                        <Label Content="Denomination :" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
                         <Label Name="lblCassete1Bill" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
@@ -226,7 +226,7 @@
                         <Label Name="lblCassete2Type" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                        <Label Content="Bill :" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
+                        <Label Content="Denomination :" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
                         <Label Name="lblCassete2Bill" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
@@ -241,7 +241,7 @@
                         <Label Name="lblCassete3Type" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                        <Label Content="Bill :" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
+                        <Label Content="Denomination :" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
                         <Label Name="lblCassete3Bill" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" FontFamily="Titillium" Foreground="Black" FontWeight="Bold"></Label>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
@@ -260,7 +260,7 @@
                 </Grid.RowDefinitions>
                 <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6" Grid.RowSpan="3" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
 
-                <Label Grid.Row="0" Content="Cassette Settings" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Titillium" Foreground="Black" Style="{StaticResource LableMaintanAllWhiteFont}"></Label>
+                <Label Grid.Row="0" Content="Cassette Settings" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Titillium" Foreground="Black" Style="{StaticResource styleLabelHeader2}"></Label>
                 <Border Grid.Row="1" Name="borCombo" Grid.Column="2" Background="Transparent" Width="450">
                     <ComboBox  Name="cbCassette" Text="Select Cassette No." IsEditable="True" IsReadOnly="True" FontFamily="Titillium" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Stretch" SelectionChanged="cbCassette_SelectionChanged"></ComboBox>
                 </Border>
@@ -288,11 +288,8 @@
                     </StackPanel>
                 </StackPanel>
 
-                <Border Grid.Row="3" Grid.ColumnSpan="2"  BorderBrush="Black" Height="60" Width="130" MouseLeftButtonDown="GridSubmitSetting_MouseLeftButtonDown" BorderThickness="0,0,0,0" CornerRadius="10" Background="#f3f3f3">
-                    <Border.Effect>
-                        <DropShadowEffect />
-                    </Border.Effect>
-                    <Label Content="Submit" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Titillium" FontSize="25" FontWeight="Bold"/>
+                <Border Grid.Row="3" Grid.ColumnSpan="2" Height="60" Width="130" MouseLeftButtonDown="GridSubmitSetting_MouseLeftButtonDown" Background="{StaticResource MainColor}" BorderBrush="{StaticResource ShadowColor}" BorderThickness="3" CornerRadius="10">
+                   <Label Content="Submit" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White" FontFamily="Titillium" FontSize="20" FontWeight="Bold"/>
                 </Border>
                 <Label x:Name="lblmessage" Grid.Row="4" Content=""  HorizontalContentAlignment="Center" Foreground="White" FontSize="21"  FontWeight="Bold"/>
             </Grid>

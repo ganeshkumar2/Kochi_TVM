@@ -186,8 +186,8 @@
     <system:String x:Key="onedaypass">ദിവസത്തെ പാസ്</system:String>
     <system:String x:Key="weekenddaypass">വാരാന്ത്യ പാസ്</system:String>
     <system:String x:Key="RFIDPaper">RFID പേപ്പർ ടിക്കറ്റ്</system:String>
-    <system:String x:Key="MaxNoteAccept">പരമാവധി കുറിപ്പ് സ്വീകാര്യത :</system:String>
-    <system:String x:Key="PaymentSccess">നിങ്ങളുടെ പേയ്‌മെന്റ് വിജയകരമായിരുന്നു</system:String>
+    <system:String x:Key="MaxNoteAccept">പരമാവധി സ്വീകാര്യമായ നോട്ട്:</system:String>
+    <system:String x:Key="PaymentSccess">നിങ്ങളുടെ പേയ്മെന്റ് വിജയകരമായിരിക്കുന്നു</system:String>
     <system:String x:Key="DispTicketType">ടിക്കറ്റ് തരം</system:String>
     <system:String x:Key="DispDestination">ലക്ഷ്യസ്ഥാനം</system:String>
     <system:String x:Key="DispNoOfTickets">ടിക്കറ്റുകളുടെ എണ്ണം</system:String>

@@ -68,9 +68,13 @@ namespace Kochi_TVM.Pages.Maintenance
                 lblCoin2Count.Content = StockOperations.coin2.ToString();
                 lblCoin5Count.Content = StockOperations.coin5.ToString();
 
-                lblCoin1Info.Content = "₹ " + Constants.HopperAddress1Coin + " Coin Count : " + StockOperations.coin1.ToString();
-                lblCoin2Info.Content = "₹ " + Constants.HopperAddress2Coin + " Coin Count : " + StockOperations.coin2.ToString();
-                lblCoin5Info.Content = "₹ " + Constants.HopperAddress3Coin + " Coin Count : " + StockOperations.coin5.ToString();
+                lblCoin1Amount.Content = "₹" + (Constants.HopperAddress1Coin * StockOperations.coin1);
+                lblCoin2Amount.Content = "₹" + (Constants.HopperAddress2Coin * StockOperations.coin2);
+                lblCoin5Amount.Content = "₹" + (Constants.HopperAddress3Coin * StockOperations.coin5);
+
+                lblCoin1Info.Content = "₹" + Constants.HopperAddress1Coin + " Coin Count :" + StockOperations.coin1.ToString();
+                lblCoin2Info.Content = "₹" + Constants.HopperAddress2Coin + " Coin Count :" + StockOperations.coin2.ToString();
+                lblCoin5Info.Content = "₹" + Constants.HopperAddress3Coin + " Coin Count :" + StockOperations.coin5.ToString();
             }), DispatcherPriority.Background);
         }
 
@@ -151,6 +155,14 @@ namespace Kochi_TVM.Pages.Maintenance
                     return;
                 }
 
+                if ((count+ StockOperations.coin1) > 1000)
+                {
+                    coin1 = false;
+                    lblTypeCoin1.Text = "0";
+                    MessageBoxOperations.ShowMessage("ATTENTION!!", "Please enter count less than or equal to 1000.", MessageBoxButtonSet.OKCancel);
+                    return;
+                }
+
                 if (Convert.ToInt32(count) < 0)
                 {
                     MessageBoxOperations.ShowMessage("ATTENTION!!", "Please enter valid count", MessageBoxButtonSet.OKCancel);
@@ -162,10 +174,12 @@ namespace Kochi_TVM.Pages.Maintenance
                     if (MoneyOperations.InsMoney(Convert.ToInt64(trxId), (int)StockType.Coin1, (int)DeviceType.Hopper1, (int)UpdateType.Increase, Convert.ToDecimal(lblTypeCoin1.Text) * Constants.HopperAddress1Coin))
                         if (StockOperations.SelStockStatus())
                         {
-                            if (CustomTL60Printer.Instance.getStatusWithUsb() == Enums.PRINTER_STATE.OK)
-                            {
-                                CustomTL60Printer.Instance.CoinAddPrint(Convert.ToInt32(lblTypeCoin1.Text), Constants.HopperAddress1Coin, StockOperations.coin1);
-                            }
+                            CoinOperation coinOperation = new CoinOperation { count = Convert.ToInt32(lblTypeCoin1.Text), coin = Constants.HopperAddress1Coin, stock = StockOperations.coin1 };
+                            Constants.CoinAddOperations.Add(coinOperation);
+                            //if (CustomTL60Printer.Instance.getStatusWithUsb() == Enums.PRINTER_STATE.OK)
+                            //{
+                            //    CustomTL60Printer.Instance.CoinAddPrint(Convert.ToInt32(lblTypeCoin1.Text), Constants.HopperAddress1Coin, StockOperations.coin1);
+                            //}
                             UpdValOnScr();
                             MessageBoxOperations.ShowMessage("ADD COIN", "Added Type : ₹ " + Constants.HopperAddress1Coin + "\n" + "Added Count : " + count +
                                                     "\nAdded Amount : " + "₹ " + count * Constants.HopperAddress1Coin + "\n", MessageBoxButtonSet.OK);
@@ -221,10 +235,12 @@ namespace Kochi_TVM.Pages.Maintenance
                         if (MoneyOperations.InsMoney((Int64)trxId, (int)StockType.Coin1, (int)DeviceType.Hopper1, (int)UpdateType.Decrease, Convert.ToDecimal(count) * Constants.HopperAddress1Coin))
                             if (StockOperations.SelStockStatus())
                             {
-                                if (CustomTL60Printer.Instance.getStatusWithUsb() == Enums.PRINTER_STATE.OK)
-                                {
-                                    CustomTL60Printer.Instance.CoinDispatchPrint(count, Constants.HopperAddress1Coin, StockOperations.coin1);
-                                }
+                                CoinOperation coinOperation = new CoinOperation { count = count, coin = Constants.HopperAddress1Coin, stock = StockOperations.coin1 };
+                                Constants.CoinDispOperations.Add(coinOperation);
+                                //if (CustomTL60Printer.Instance.getStatusWithUsb() == Enums.PRINTER_STATE.OK)
+                                //{
+                                //    CustomTL60Printer.Instance.CoinDispatchPrint(count, Constants.HopperAddress1Coin, StockOperations.coin1);
+                                //}
                                 UpdValOnScr();
                                 MessageBoxOperations.ShowMessage("LESS COIN", "Removed Type : ₹ " + Constants.HopperAddress1Coin + "\nRemoved Count : " + count +
                                                 "\nRemoved Amount : " + "₹ " + count * Constants.HopperAddress1Coin + "\n", MessageBoxButtonSet.OK);
@@ -266,10 +282,12 @@ namespace Kochi_TVM.Pages.Maintenance
                         if (MoneyOperations.InsMoney((Int64)trxId, (int)StockType.Coin1, (int)DeviceType.Hopper1, (int)UpdateType.Empty, Convert.ToDecimal(stock) * Constants.HopperAddress1Coin))
                             if (StockOperations.SelStockStatus())
                             {
-                                if (CustomTL60Printer.Instance.getStatusWithUsb() == Enums.PRINTER_STATE.OK)
-                                {
-                                    CustomTL60Printer.Instance.CoinEmptyBoxPrint(stock, Constants.HopperAddress1Coin, StockOperations.coin1);
-                                }
+                                CoinOperation coinOperation = new CoinOperation { count = stock, coin = Constants.HopperAddress1Coin, stock = StockOperations.coin1 };
+                                Constants.CoinEmptyOperations.Add(coinOperation);
+                                //if (CustomTL60Printer.Instance.getStatusWithUsb() == Enums.PRINTER_STATE.OK)
+                                //{
+                                //    CustomTL60Printer.Instance.CoinEmptyBoxPrint(stock, Constants.HopperAddress1Coin, StockOperations.coin1);
+                                //}
                                 UpdValOnScr();
                             }
 
@@ -299,6 +317,14 @@ namespace Kochi_TVM.Pages.Maintenance
                     return;
                 }
 
+                if ((count+ StockOperations.coin2) > 1000)
+                {
+                    coin2 = false;
+                    lblTypeCoin2.Text = "0";
+                    MessageBoxOperations.ShowMessage("ATTENTION!!", "Please enter count less than or equal to 1000.", MessageBoxButtonSet.OKCancel);
+                    return;
+                }
+
                 if (Convert.ToInt32(count) < 0)
                 {
                     MessageBoxOperations.ShowMessage("ATTENTION!!", "Please enter valid count", MessageBoxButtonSet.OKCancel);
@@ -310,10 +336,12 @@ namespace Kochi_TVM.Pages.Maintenance
                     if (MoneyOperations.InsMoney(Convert.ToInt64(trxId), (int)StockType.Coin2, (int)DeviceType.Hopper2, (int)UpdateType.Increase, Convert.ToDecimal(lblTypeCoin2.Text) * Constants.HopperAddress2Coin))
                         if (StockOperations.SelStockStatus())
                         {
-                            if (CustomTL60Printer.Instance.getStatusWithUsb() == Enums.PRINTER_STATE.OK)
-                            {
-                                CustomTL60Printer.Instance.CoinAddPrint(Convert.ToInt32(lblTypeCoin2.Text), Constants.HopperAddress2Coin, StockOperations.coin2);
-                            }
+                            CoinOperation coinOperation = new CoinOperation { count = Convert.ToInt32(lblTypeCoin2.Text), coin = Constants.HopperAddress2Coin, stock = StockOperations.coin2 };
+                            Constants.CoinAddOperations.Add(coinOperation);
+                            //if (CustomTL60Printer.Instance.getStatusWithUsb() == Enums.PRINTER_STATE.OK)
+                            //{
+                            //    CustomTL60Printer.Instance.CoinAddPrint(Convert.ToInt32(lblTypeCoin2.Text), Constants.HopperAddress2Coin, StockOperations.coin2);
+                            //}
                             UpdValOnScr();
                             MessageBoxOperations.ShowMessage("ADD COIN", "Added Type : ₹ " + Constants.HopperAddress2Coin + "\n" + "Added Count : " + count +
                                                     "\nAdded Amount : " + "₹ " + count * Constants.HopperAddress2Coin + "\n", MessageBoxButtonSet.OK);
@@ -367,10 +395,12 @@ namespace Kochi_TVM.Pages.Maintenance
                         if (MoneyOperations.InsMoney((Int64)trxId, (int)StockType.Coin2, (int)DeviceType.Hopper2, (int)UpdateType.Decrease, Convert.ToDecimal(count) * Constants.HopperAddress2Coin))
                             if (StockOperations.SelStockStatus())
                             {
-                                if (CustomTL60Printer.Instance.getStatusWithUsb() == Enums.PRINTER_STATE.OK)
-                                {
-                                    CustomTL60Printer.Instance.CoinDispatchPrint(count, Constants.HopperAddress2Coin, StockOperations.coin2);
-                                }
+                                CoinOperation coinOperation = new CoinOperation { count = count, coin = Constants.HopperAddress2Coin, stock = StockOperations.coin2 };
+                                Constants.CoinDispOperations.Add(coinOperation);
+                                //if (CustomTL60Printer.Instance.getStatusWithUsb() == Enums.PRINTER_STATE.OK)
+                                //{
+                                //    CustomTL60Printer.Instance.CoinDispatchPrint(count, Constants.HopperAddress2Coin, StockOperations.coin2);
+                                //}
                                 UpdValOnScr();
                                 MessageBoxOperations.ShowMessage("LESS COIN", "Removed Type : ₹ " + Constants.HopperAddress2Coin + "\nRemoved Count : " + count +
                                                 "\nRemoved Amount : " + "₹ " + count * Constants.HopperAddress2Coin + "\n", MessageBoxButtonSet.OK);
@@ -412,10 +442,12 @@ namespace Kochi_TVM.Pages.Maintenance
                         if (MoneyOperations.InsMoney((Int64)trxId, (int)StockType.Coin2, (int)DeviceType.Hopper2, (int)UpdateType.Empty, Convert.ToDecimal(stock) * Constants.HopperAddress2Coin))
                             if (StockOperations.SelStockStatus())
                             {
-                                if (CustomTL60Printer.Instance.getStatusWithUsb() == Enums.PRINTER_STATE.OK)
-                                {
-                                    CustomTL60Printer.Instance.CoinEmptyBoxPrint(stock, Constants.HopperAddress2Coin, StockOperations.coin2);
-                                }
+                                CoinOperation coinOperation = new CoinOperation { count = stock, coin = Constants.HopperAddress2Coin, stock = StockOperations.coin2 };
+                                Constants.CoinEmptyOperations.Add(coinOperation);
+                                //if (CustomTL60Printer.Instance.getStatusWithUsb() == Enums.PRINTER_STATE.OK)
+                                //{
+                                //    CustomTL60Printer.Instance.CoinEmptyBoxPrint(stock, Constants.HopperAddress2Coin, StockOperations.coin2);
+                                //}
                                 UpdValOnScr();
                             }
 
@@ -444,6 +476,14 @@ namespace Kochi_TVM.Pages.Maintenance
                     return;
                 }
 
+                if ((count+ StockOperations.coin5) > 1000)
+                {
+                    coin3 = false;
+                    lblTypeCoin5.Text = "0";
+                    MessageBoxOperations.ShowMessage("ATTENTION!!", "Please enter count less than or equal to 1000.", MessageBoxButtonSet.OKCancel);
+                    return;
+                }
+
                 if (Convert.ToInt32(count) < 0)
                 {
                     MessageBoxOperations.ShowMessage("ATTENTION!!", "Please enter valid count", MessageBoxButtonSet.OKCancel);
@@ -455,10 +495,12 @@ namespace Kochi_TVM.Pages.Maintenance
                     if (MoneyOperations.InsMoney(Convert.ToInt64(trxId), (int)StockType.Coin5, (int)DeviceType.Hopper5, (int)UpdateType.Increase, Convert.ToDecimal(lblTypeCoin5.Text) * Constants.HopperAddress3Coin))
                         if (StockOperations.SelStockStatus())
                         {
-                            if (CustomTL60Printer.Instance.getStatusWithUsb() == Enums.PRINTER_STATE.OK)
-                            {
-                                CustomTL60Printer.Instance.CoinAddPrint(Convert.ToInt32(lblTypeCoin5.Text), Constants.HopperAddress3Coin, StockOperations.coin5);
-                            }
+                            CoinOperation coinOperation = new CoinOperation { count = Convert.ToInt32(lblTypeCoin5.Text), coin = Constants.HopperAddress3Coin, stock = StockOperations.coin5 };
+                            Constants.CoinAddOperations.Add(coinOperation);
+                            //if (CustomTL60Printer.Instance.getStatusWithUsb() == Enums.PRINTER_STATE.OK)
+                            //{
+                            //    CustomTL60Printer.Instance.CoinAddPrint(Convert.ToInt32(lblTypeCoin5.Text), Constants.HopperAddress3Coin, StockOperations.coin5);
+                            //}
                             UpdValOnScr();
                             MessageBoxOperations.ShowMessage("ADD COIN", "Added Type : ₹ " + Constants.HopperAddress3Coin + "\n" + "Added Count : " + count +
                                                     "\nAdded Amount : " + "₹ " + count * Constants.HopperAddress3Coin + "\n", MessageBoxButtonSet.OK);
@@ -512,10 +554,12 @@ namespace Kochi_TVM.Pages.Maintenance
                         if (MoneyOperations.InsMoney((Int64)trxId, (int)StockType.Coin5, (int)DeviceType.Hopper5, (int)UpdateType.Decrease, Convert.ToDecimal(count) * Constants.HopperAddress3Coin))
                             if (StockOperations.SelStockStatus())
                             {
-                                if (CustomTL60Printer.Instance.getStatusWithUsb() == Enums.PRINTER_STATE.OK)
-                                {
-                                    CustomTL60Printer.Instance.CoinDispatchPrint(count, Constants.HopperAddress3Coin, StockOperations.coin5);
-                                }
+                                CoinOperation coinOperation = new CoinOperation { count = count, coin = Constants.HopperAddress3Coin, stock = StockOperations.coin5};
+                                Constants.CoinDispOperations.Add(coinOperation);
+                                //if (CustomTL60Printer.Instance.getStatusWithUsb() == Enums.PRINTER_STATE.OK)
+                                //{
+                                //    CustomTL60Printer.Instance.CoinDispatchPrint(count, Constants.HopperAddress3Coin, StockOperations.coin5);
+                                //}
                                 UpdValOnScr();
                                 MessageBoxOperations.ShowMessage("LESS COIN", "Removed Type : ₹ " + Constants.HopperAddress3Coin + "\nRemoved Count : " + count +
                                                 "\nRemoved Amount : " + "₹ " + count * Constants.HopperAddress3Coin + "\n", MessageBoxButtonSet.OK);
@@ -557,10 +601,12 @@ namespace Kochi_TVM.Pages.Maintenance
                         if (MoneyOperations.InsMoney((Int64)trxId, (int)StockType.Coin5, (int)DeviceType.Hopper5, (int)UpdateType.Empty, Convert.ToDecimal(stock) * 1))
                             if (StockOperations.SelStockStatus())
                             {
-                                if (CustomTL60Printer.Instance.getStatusWithUsb() == Enums.PRINTER_STATE.OK)
-                                {
-                                    CustomTL60Printer.Instance.CoinEmptyBoxPrint(stock, Constants.HopperAddress3Coin, StockOperations.coin5);
-                                }
+                                CoinOperation coinOperation = new CoinOperation { count = stock, coin = Constants.HopperAddress3Coin, stock = StockOperations.coin5 };
+                                Constants.CoinEmptyOperations.Add(coinOperation);
+                                //if (CustomTL60Printer.Instance.getStatusWithUsb() == Enums.PRINTER_STATE.OK)
+                                //{
+                                //    CustomTL60Printer.Instance.CoinEmptyBoxPrint(stock, Constants.HopperAddress3Coin, StockOperations.coin5);
+                                //}
                                 UpdValOnScr();
                             }
 

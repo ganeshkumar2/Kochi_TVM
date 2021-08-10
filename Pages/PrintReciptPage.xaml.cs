@@ -105,7 +105,7 @@ namespace Kochi_TVM.Pages
                         break;
                     case JourneyType.Day_Pass:
                     case JourneyType.Weekend_Pass:
-                        RPT();
+                        PrintQR();
                         break;
                     default:
                         break;
@@ -130,30 +130,6 @@ namespace Kochi_TVM.Pages
             {
                 log.Error("Error PrintReciptPage -> PrintQR() : " + ex.ToString());
             }
-        }
-
-        private bool RPT()
-        {
-            bool result = false;
-            try
-            {
-                result = RPTOperations.GiveRPTTicket();
-                if (result)
-                {
-                    log.Debug("LogTypes.Info : GiveRPTTicket return true");
-                }
-                else
-                {
-                    result = false;
-                    log.Debug("LogTypes.Warning : GiveRPTTicket return false");
-                }
-            }
-            catch (Exception ex)
-            {
-                result = false;
-                log.Error("LogTypes.Error " + ex.ToString());
-            }
-            return result;
         }
 
         async void LastMessage()
@@ -196,7 +172,7 @@ namespace Kochi_TVM.Pages
                         break;
                     case JourneyType.Day_Pass:
                     case JourneyType.Weekend_Pass:
-                        RPT();
+                        PrintQR();
                         break;
                     default:
                         break;
@@ -298,7 +274,7 @@ namespace Kochi_TVM.Pages
                             break;
                         case JourneyType.Day_Pass:
                         case JourneyType.Weekend_Pass:
-                            RPT();
+                            PrintQR();
                             break;
                         default:
                             break;

@@ -26,30 +26,47 @@ namespace Kochi_TVM.Pages.Maintenance
             InitializeComponent();
             lblAppVersion.Content = "App Version : " + Parameters.TVMStatic.GetParameter("appVersion");
             lblEquipmentID.Content = "Equipment ID : " + Parameters.TVMDynamic.GetParameter("descCode");
-            lblTypeCoin1.Text = Convert.ToString(Constants.HopperAddress1Coin);
-            lblTypeCoin2.Text = Convert.ToString(Constants.HopperAddress2Coin);
-            lblTypeCoin3.Text = Convert.ToString(Constants.HopperAddress3Coin);
+            StockOperations.SelStockStatus();
+            cbCoinType1.Items.Add("1");
+            cbCoinType1.Items.Add("2");
+            cbCoinType1.Items.Add("5");
+            cbCoinType1.Items.Add("10");
+            cbCoinType1.SelectedValue = Constants.HopperAddress1Coin.ToString();
+
+            cbCoinType2.Items.Add("1");
+            cbCoinType2.Items.Add("2");
+            cbCoinType2.Items.Add("5");
+            cbCoinType2.Items.Add("10");
+            cbCoinType2.SelectedValue = Constants.HopperAddress2Coin.ToString();
+
+            cbCoinType3.Items.Add("1");
+            cbCoinType3.Items.Add("2");
+            cbCoinType3.Items.Add("5");
+            cbCoinType3.Items.Add("10");
+            cbCoinType3.SelectedValue = Constants.HopperAddress3Coin.ToString();
         }
 
-        bool coin1 = false;
         private void btnAddCoin1_Click(object sender, RoutedEventArgs e)
         {
             TVMUtility.PlayClick();
-            if (!coin1)
-                return;
-
-            if (lblTypeCoin1.Text != "0")
+            if (cbCoinType1.SelectedIndex != -1)
             {
+                if (cbCoinType1.SelectedValue.ToString() == Constants.HopperAddress2Coin.ToString() || cbCoinType1.SelectedValue.ToString() == Constants.HopperAddress3Coin.ToString())
+                {
+                    MessageBoxOperations.ShowMessage("COIN", "Please try with different coin type.", MessageBoxButtonSet.OK);
+                    return;
+                }
+
                 if (CCTalkManager.Instance.coinHopperEV4000_1.Category != null)
                 {
                     CCTalkManager.Instance.coinHopperEV4000_1.GetHighLowStatus();
 
-                    if (level  == "Low Level")
+                    if (level  == "Low Level" && StockOperations.coin1 == 0)
                     {
-                        if (Constants.CoinAvailable.Contains(lblTypeCoin1.Text))
+                        if (Constants.CoinAvailable.Contains(cbCoinType1.SelectedValue.ToString()))
                         {
-                            CoinValues.setCoin1(lblTypeCoin1.Text);
-                            Constants.HopperAddress1Coin = Convert.ToInt16(lblTypeCoin1.Text);
+                            CoinValues.setCoin1(cbCoinType1.SelectedValue.ToString());
+                            Constants.HopperAddress1Coin = Convert.ToInt16(cbCoinType1.SelectedValue.ToString());
                             MessageBoxOperations.ShowMessage("COIN", "Coin hopper 1 value saved.", MessageBoxButtonSet.OK);
                         }
                         else
@@ -66,29 +83,30 @@ namespace Kochi_TVM.Pages.Maintenance
             else
             {
                 MessageBoxOperations.ShowMessage("COIN", "Please enter the coin value.", MessageBoxButtonSet.OK);
-                lblTypeCoin1.Focus();
             }
-            coin1 = false;
         }
-        bool coin2 = false;
         private void btnAddCoin2_Click(object sender, RoutedEventArgs e)
         {
             TVMUtility.PlayClick();
-            if (!coin2)
-                return;
 
-            if (lblTypeCoin2.Text != "0")
+            if (cbCoinType2.SelectedIndex != -1)
             {
+                if (cbCoinType2.SelectedValue.ToString() == Constants.HopperAddress1Coin.ToString() || cbCoinType2.SelectedValue.ToString() == Constants.HopperAddress3Coin.ToString())
+                {
+                    MessageBoxOperations.ShowMessage("COIN", "Please try with different coin type.", MessageBoxButtonSet.OK);
+                    return;
+                }
+
                 if (CCTalkManager.Instance.coinHopperEV4000_2.Category != null)
                 {
                     CCTalkManager.Instance.coinHopperEV4000_2.GetHighLowStatus();
 
-                    if (level == "Low Level")
+                    if (level == "Low Level" && StockOperations.coin2 == 0)
                     {
-                        if (Constants.CoinAvailable.Contains(lblTypeCoin1.Text))
+                        if (Constants.CoinAvailable.Contains(cbCoinType2.SelectedValue.ToString()))
                         {
-                            CoinValues.setCoin2(lblTypeCoin2.Text);
-                            Constants.HopperAddress2Coin = Convert.ToInt16(lblTypeCoin2.Text);
+                            CoinValues.setCoin2(cbCoinType2.SelectedValue.ToString());
+                            Constants.HopperAddress2Coin = Convert.ToInt16(cbCoinType2.SelectedValue.ToString());
                             MessageBoxOperations.ShowMessage("COIN", "Coin hopper 2 value saved.", MessageBoxButtonSet.OK);
                         }
                         else
@@ -105,30 +123,31 @@ namespace Kochi_TVM.Pages.Maintenance
             else
             {
                 MessageBoxOperations.ShowMessage("COIN", "Please enter the coin value.", MessageBoxButtonSet.OK);
-                lblTypeCoin2.Focus();
             }
-            coin2 = false;
         }
 
-        bool coin3 = false;
         private void btnAddCoin3_Click(object sender, RoutedEventArgs e)
         {
             TVMUtility.PlayClick();
-            if (!coin3)
-                return;
 
-            if (lblTypeCoin3.Text != "0")
+            if (cbCoinType3.SelectedIndex != -1)
             {
+                if (cbCoinType3.SelectedValue.ToString() == Constants.HopperAddress1Coin.ToString() || cbCoinType3.SelectedValue.ToString() == Constants.HopperAddress2Coin.ToString())
+                {
+                    MessageBoxOperations.ShowMessage("COIN", "Please try with different coin type.", MessageBoxButtonSet.OK);
+                    return;
+                }
+
                 if (CCTalkManager.Instance.coinHopperEV4000_3.Category != null)
                 {
                     CCTalkManager.Instance.coinHopperEV4000_3.GetHighLowStatus();
 
-                    if (level == "Low Level")
+                    if (level == "Low Level" && StockOperations.coin5 == 0)
                     {
-                        if (Constants.CoinAvailable.Contains(lblTypeCoin1.Text))
+                        if (Constants.CoinAvailable.Contains(cbCoinType3.SelectedValue.ToString()))
                         {
-                            CoinValues.setCoin3(lblTypeCoin3.Text);
-                            Constants.HopperAddress3Coin = Convert.ToInt16(lblTypeCoin3.Text);
+                            CoinValues.setCoin3(cbCoinType3.SelectedValue.ToString());
+                            Constants.HopperAddress3Coin = Convert.ToInt16(cbCoinType3.SelectedValue.ToString());
                             MessageBoxOperations.ShowMessage("COIN", "Coin hopper 3 value saved.", MessageBoxButtonSet.OK);
                         }
                         else
@@ -145,9 +164,7 @@ namespace Kochi_TVM.Pages.Maintenance
             else
             {
                 MessageBoxOperations.ShowMessage("COIN", "Please enter the coin value.", MessageBoxButtonSet.OK);
-                lblTypeCoin3.Focus();
             }
-            coin3 = false;
         }
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
@@ -203,68 +220,6 @@ namespace Kochi_TVM.Pages.Maintenance
         private void Page_Unloaded(object sender, RoutedEventArgs e)
         {
             dk.CctalkLib.Devices.CoinHopperEV4000.ResponseReceivedInputEvent -= new dk.CctalkLib.Devices.CoinHopperEV4000.ResponseReceivedEventHandler(HooperManager_HopperStateInputEvent);
-        }
-
-        private void lblTypeCoin1_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
-        {
-            var textBox = sender as TextBox;
-            e.Handled = Regex.IsMatch(e.Text, "[^0-9]+");
-        }
-        int selected = 0;
-        private void lblTypeCoin1_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            grdUserControl.Visibility = Visibility.Visible;
-            selected = 1;
-        }
-
-        private void lblTypeCoin2_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            grdUserControl.Visibility = Visibility.Visible;
-            selected = 2;
-        }
-
-        private void lblTypeCoin3_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            grdUserControl.Visibility = Visibility.Visible;
-            selected = 3;
-        }
-
-        private void btnOK_Click(object sender, RoutedEventArgs e)
-        {
-            if (selected == 1 && numberpad.txtTypeNumber.Text != "0")
-            {
-                lblTypeCoin1.Text = numberpad.txtTypeNumber.Text;
-                coin1 = true;
-            }
-            else if (selected == 1 && numberpad.txtTypeNumber.Text == "0")
-            {
-                lblTypeCoin1.Text = Convert.ToString(Constants.HopperAddress1Coin);
-            }
-
-            if (selected == 2 && numberpad.txtTypeNumber.Text != "0")
-            {
-                lblTypeCoin2.Text = numberpad.txtTypeNumber.Text;
-                coin2 = true;
-            }
-            else if (selected == 2 && numberpad.txtTypeNumber.Text == "0")
-            {
-                lblTypeCoin2.Text = Convert.ToString(Constants.HopperAddress2Coin);
-            }
-
-            if (selected == 3 && numberpad.txtTypeNumber.Text != "0")
-            {
-                lblTypeCoin3.Text = numberpad.txtTypeNumber.Text;
-                coin3 = true;
-            }
-            else if (selected == 3 && numberpad.txtTypeNumber.Text == "0")
-            {
-                lblTypeCoin3.Text = Convert.ToString(Constants.HopperAddress3Coin);
-            }
-
-            selected = 0;
-            numberpad.number = 0;
-            numberpad.txtTypeNumber.Text = "0";
-            grdUserControl.Visibility = Visibility.Collapsed;
         }
     }
 }
