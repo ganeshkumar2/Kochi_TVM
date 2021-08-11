@@ -1,7 +1,6 @@
 ﻿using Kochi_TVM.Business;
 using Kochi_TVM.Logs;
 using Kochi_TVM.MultiLanguages;
-using Kochi_TVM.PID;
 using Kochi_TVM.Utils;
 using log4net;
 using System;
@@ -71,7 +70,6 @@ namespace Kochi_TVM.Pages
                     gridGrp.IsEnabled = true;
                 }
                 Message();
-                LedOperations.GreenText("SELECT TICKET TYPE");
             }
             catch (Exception ex)
             {

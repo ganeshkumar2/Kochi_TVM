@@ -1,26 +1,15 @@
 ﻿using Kochi_TVM.Business;
 using Kochi_TVM.Logs;
 using Kochi_TVM.MultiLanguages;
-using Kochi_TVM.PID;
 using Kochi_TVM.Printers;
-using Kochi_TVM.RptDispenser;
 using Kochi_TVM.Utils;
 using log4net;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using static Kochi_TVM.Utils.Enums;
 
 namespace Kochi_TVM.Pages
@@ -42,7 +31,6 @@ namespace Kochi_TVM.Pages
             InitializeComponent();
             try
             {
-                LedOperations.GreenText("PAYMENT SUCCESSFUL");
                 RecAmt = ReceivedAmt;
                 ChaAmt = ChangeAmt;
                 returnCashImageGif.Source = new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\giving_money.gif");
@@ -121,7 +109,6 @@ namespace Kochi_TVM.Pages
         {
             try
             {
-                LedOperations.GreenText("PLEASE COLLECT TICKET");
                 LastMessage();
                 await Task.Delay(100);
                 NavigationService.Navigate(new Pages.MainPage());

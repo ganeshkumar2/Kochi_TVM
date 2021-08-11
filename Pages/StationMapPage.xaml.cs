@@ -1,7 +1,6 @@
 ﻿using Kochi_TVM.Business;
 using Kochi_TVM.Logs;
 using Kochi_TVM.MultiLanguages;
-using Kochi_TVM.PID;
 using Kochi_TVM.Utils;
 using log4net;
 using System;
@@ -51,6 +50,8 @@ namespace Kochi_TVM.Pages
                 lblDestination.FontSize = 14;
                 lblNoOfTickets.FontSize = 14;
                 lblAmount.FontSize = 14;
+                lblType.FontSize = 14;
+                lblDisType.FontSize = 14;
             }
             else
             {
@@ -79,6 +80,8 @@ namespace Kochi_TVM.Pages
                 lblDestination.FontSize = 12;
                 lblNoOfTickets.FontSize = 12;
                 lblAmount.FontSize = 12;
+                lblType.FontSize = 12;
+                lblDisType.FontSize = 12;
             }
         }
         void Message()
@@ -147,10 +150,10 @@ namespace Kochi_TVM.Pages
             try
             {
                 initialTimer();
-                LedOperations.GreenText("Select Destination");
                 Message();
                 btnBack.Content = MultiLanguage.GetText("back");
                 btnFinish.Content = MultiLanguage.GetText("cancel");
+                lblDisType.Content = MultiLanguage.GetText("DispTicketType");
                 btnStationList.Content = MultiLanguage.GetText("showStationList");
                 lblDestination.Content = MultiLanguage.GetText("DispDestination");
                 lblNoOfTickets.Content = MultiLanguage.GetText("DispNoOfTickets");

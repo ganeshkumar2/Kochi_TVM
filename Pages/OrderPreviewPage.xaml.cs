@@ -3,7 +3,6 @@ using Kochi_TVM.Business;
 using Kochi_TVM.Logs;
 using Kochi_TVM.MultiLanguages;
 using Kochi_TVM.Pages.Custom;
-using Kochi_TVM.PID;
 using Kochi_TVM.Printers;
 using Kochi_TVM.Utils;
 using log4net;
@@ -36,7 +35,32 @@ namespace Kochi_TVM.Pages
             try
             {
                 initialTimer();
-                LedOperations.GreenText("PAY USING CASH");
+                if (Ticket.language == Languages.English || Ticket.language == Languages.Hint)
+                {
+                    lblDestination.FontSize = 14;
+                    lblDisDestination.FontSize = 14;
+                    lblNoOfTickets.FontSize = 14;
+                    lblDisNoOfTickets.FontSize = 14;
+                    lblAmount.FontSize = 14;
+                    lblDisAmount.FontSize = 14;
+                    lblType.FontSize = 14;
+                    lblDisType.FontSize = 14;
+                }
+                else
+                {
+                    lblDestination.FontSize = 12;
+                    lblDisDestination.FontSize = 12;
+                    lblNoOfTickets.FontSize = 12;
+                    lblDisNoOfTickets.FontSize = 12;
+                    lblAmount.FontSize = 12;
+                    lblDisAmount.FontSize = 12;
+                    lblType.FontSize = 12;
+                    lblDisType.FontSize = 12;
+                }
+                lblDisType.Content = MultiLanguage.GetText("DispTicketType");
+                lblDisDestination.Content = MultiLanguage.GetText("DispDestination");
+                lblDisNoOfTickets.Content = MultiLanguage.GetText("DispNoOfTickets");
+                lblDisAmount.Content = MultiLanguage.GetText("DispAmount");
                 lblInfo.Content = MultiLanguage.GetText("startPaymentProc");
                 btnBack.Content = MultiLanguage.GetText("back");
                 btnFinish.Content = MultiLanguage.GetText("cancel");
@@ -218,6 +242,7 @@ namespace Kochi_TVM.Pages
                         lblLine4Key.Content = MultiLanguage.GetText("amount"); lblLine4Value.Content = Conversion.MoneyFormat(Ticket.totalPrice);
                         lblType.Content = Ticket.journeyTypeText.ToString();
                         lblDestination.Visibility = Visibility.Collapsed;
+                        lblDisDestination.Visibility = Visibility.Collapsed;
                         arrorDest.Visibility = Visibility.Collapsed;
                         lblNoOfTickets.Content = Ticket.ticketCount;
                         lblAmount.Content = Conversion.MoneyFormat(Ticket.totalPrice);

@@ -1,23 +1,14 @@
 ﻿using Kochi_TVM.Business;
 using Kochi_TVM.Logs;
 using Kochi_TVM.MultiLanguages;
-using Kochi_TVM.PID;
 using Kochi_TVM.Utils;
 using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using static Kochi_TVM.Utils.Enums;
 
 namespace Kochi_TVM.Pages
@@ -41,13 +32,14 @@ namespace Kochi_TVM.Pages
             try
             {
                 initialTimer();
-                LedOperations.GreenText("Select Destination");
                 if (Ticket.language == Languages.English || Ticket.language == Languages.Hint)
                 {
                     lblHeader.FontSize = 22;
                     lblDestination.FontSize = 14;
                     lblNoOfTickets.FontSize = 14;
                     lblAmount.FontSize = 14;
+                    lblType.FontSize = 14;
+                    lblDisType.FontSize = 14;
                 }
                 else
                 {
@@ -55,11 +47,14 @@ namespace Kochi_TVM.Pages
                     lblDestination.FontSize = 12;
                     lblNoOfTickets.FontSize = 12;
                     lblAmount.FontSize = 12;
+                    lblType.FontSize = 12;
+                    lblDisType.FontSize = 12;
                 }
                 Message();
                 btnBack.Content = MultiLanguage.GetText("back");
                 btnFinish.Content = MultiLanguage.GetText("cancel");
                 btnStationMap.Content = MultiLanguage.GetText("showStationMap");
+                lblDisType.Content = MultiLanguage.GetText("DispTicketType");
                 lblDestination.Content = MultiLanguage.GetText("DispDestination");
                 lblNoOfTickets.Content = MultiLanguage.GetText("DispNoOfTickets");
                 lblAmount.Content = MultiLanguage.GetText("DispAmount");
@@ -344,6 +339,51 @@ namespace Kochi_TVM.Pages
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void btnAlphabet_Click(object sender, RoutedEventArgs e)
+        {
+            bool isOk = CreateGridStations();
+            if (isOk)
+                ListStationsInGridFilter(((Button)sender).Tag.ToString());
+        }
+
+        private void ListStationsInGridFilter(string val)
+        {
+            var a = 0;
+            var b = 0;
+            try
+            {
+                var listData = Stations.stationList.Where(p => p.Value.name.Contains(val)).ToDictionary(p => p.Key, p => p.Value); 
+                var style = Application.Current.FindResource("styleStationSelectionBtn") as Style;
+                for (var i = 1; i <= listData.Count; i++)
+                {
+
+                    if (listData[i].id == Convert.ToInt32(Parameters.TVMDynamic.GetParameter("stationId")) /*|| Stations.stationList[i].id == 22*/) continue;
+                    var buttonTo = new Button
+                    {
+                        Content = MultiLanguage.GetText(listData[i].name),
+                        Name = "btnStation" + i,
+                        Tag = listData[i].id,
+                        Style = style,
+                        FontSize = Ticket.language == Languages.English || Ticket.language == Languages.Hint ? 20 : 13,
+                        VerticalAlignment = VerticalAlignment.Stretch,
+                        HorizontalAlignment = HorizontalAlignment.Stretch
+                    };
+                    buttonTo.Click += btnStation_Click;
+                    Grid.SetRow(buttonTo, b);
+                    Grid.SetColumn(buttonTo, a);
+                    GridStations.Children.Add(buttonTo);
+                    a = a + 2;
+                    if (a != 8) continue;
+                    b = b + 2;
+                    a = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error("Error StationPage -> ListStationsInGrid() : " + ex.ToString());
             }
         }
     }

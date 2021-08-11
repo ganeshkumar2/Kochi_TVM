@@ -191,5 +191,5 @@
     <system:String x:Key="DispTicketType">ടിക്കറ്റ് തരം</system:String>
     <system:String x:Key="DispDestination">ലക്ഷ്യസ്ഥാനം</system:String>
     <system:String x:Key="DispNoOfTickets">ടിക്കറ്റുകളുടെ എണ്ണം</system:String>
-    <system:String x:Key="DispAmount">തുക</system:String>
+    <system:String x:Key="DispAmount">പേയ്മെന്റ്</system:String>
 </ResourceDictionary>

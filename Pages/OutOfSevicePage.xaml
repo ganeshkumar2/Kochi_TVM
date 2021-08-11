@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Kochi_TVM.Pages"
+      xmlns:local="clr-namespace:Kochi_TVM.Pages" xmlns:RounderProgressBar="clr-namespace:Kochi_TVM.Pages.Custom"
       mc:Ignorable="d" 
       d:DesignHeight="768"
       d:DesignWidth="1024"
@@ -15,11 +15,19 @@
             <RowDefinition Height="0.8*"/>
             <RowDefinition Height="0.2*"/>
         </Grid.RowDefinitions>
-        <Image Grid.Row="0" Name="imgLoading" Source="/Kochi_TVM;component/Images/out_of_service.jpg" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.8*"/>
+                <RowDefinition Height="0.2*"/>
+            </Grid.RowDefinitions>
+            <RounderProgressBar:RounderProgressBarControl Grid.Row="0" Height="Auto" Width="Auto" />
+            <Label Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Green" Content="Please wait we are processing..." FontFamily="Titillium" FontSize="36"/>
+        </Grid>
+        
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label x:Name="outOfServiceLbl"  Content="" Height="80" FontSize="36"/>
-            <Label x:Name="outOfServiceGreenLbl" Visibility="Collapsed" Content="OK" Height="80" FontSize="36" Foreground="Green" />
-            <Label x:Name="outOfServiceRedLbl"  Visibility="Collapsed" Content="Not OK" Height="80" FontSize="36" Foreground="Red" />
+            <Label x:Name="outOfServiceLbl"  Content="" Height="80" FontSize="36" FontFamily="Titillium"/>
+            <Label x:Name="outOfServiceGreenLbl" Visibility="Collapsed" Content="OK" Height="80" FontSize="36" Foreground="Green" FontFamily="Titillium"/>
+            <Label x:Name="outOfServiceRedLbl"  Visibility="Collapsed" Content="Not OK" Height="80" FontSize="36" Foreground="Red" FontFamily="Titillium"/>
         </StackPanel>        
     </Grid>
 </Page>

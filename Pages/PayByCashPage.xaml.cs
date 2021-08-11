@@ -5,7 +5,6 @@ using Kochi_TVM.CCTalk;
 using Kochi_TVM.Logs;
 using Kochi_TVM.MultiLanguages;
 using Kochi_TVM.Pages.Custom;
-using Kochi_TVM.PID;
 using Kochi_TVM.Printers;
 using Kochi_TVM.RptDispenser;
 using Kochi_TVM.Utils;
@@ -115,6 +114,14 @@ namespace Kochi_TVM.Pages
                 lblPleaseCollect.FontSize = 24;
                 lblMaxAccept.FontSize = 18;
                 lblCusomerMsg.FontSize = 16;
+                lblDestination.FontSize = 14;
+                lblDisDestination.FontSize = 14;
+                lblNoOfTickets.FontSize = 14;
+                lblDisNoOfTickets.FontSize = 14;
+                lblAmount.FontSize = 14;
+                lblDisAmount.FontSize = 14;
+                lblType.FontSize = 14;
+                lblDisType.FontSize = 14;
             }
             else
             {
@@ -128,6 +135,14 @@ namespace Kochi_TVM.Pages
                 lblPleaseCollect.FontSize = 18;
                 lblMaxAccept.FontSize = 13;
                 lblCusomerMsg.FontSize = 12;
+                lblDestination.FontSize = 12;
+                lblDisDestination.FontSize = 12;
+                lblNoOfTickets.FontSize = 12;
+                lblDisNoOfTickets.FontSize = 12;
+                lblAmount.FontSize = 12;
+                lblDisAmount.FontSize = 12;
+                lblType.FontSize = 12;
+                lblDisType.FontSize = 12;
             }
 
             lblTotalAmountValue.FontSize = 24;
@@ -135,8 +150,11 @@ namespace Kochi_TVM.Pages
             lblChangeAmountValue.FontSize = 24;
             lblMaxNoteAccept.FontSize = 18;
 
-            lblMaxNoteAccept.Content = 20;           
-
+            lblMaxNoteAccept.Content = 20;
+            lblDisType.Content = MultiLanguage.GetText("DispTicketType");
+            lblDisDestination.Content = MultiLanguage.GetText("DispDestination");
+            lblDisNoOfTickets.Content = MultiLanguage.GetText("DispNoOfTickets");
+            lblDisAmount.Content = MultiLanguage.GetText("DispAmount");
             lblMaxAccept.Content = MultiLanguage.GetText("MaxNoteAccept");
             lblTotalAmountKey.Content = MultiLanguage.GetText("totalPrice");
             lblPaidAmountKey.Content = MultiLanguage.GetText("insertedAmount");
@@ -169,6 +187,7 @@ namespace Kochi_TVM.Pages
                 case JourneyType.Day_Pass:
                 case JourneyType.Weekend_Pass:
                     lblType.Content = Ticket.journeyTypeText.ToString();
+                    lblDisDestination.Visibility = Visibility.Collapsed;
                     lblDestination.Visibility = Visibility.Collapsed;
                     arrorDest.Visibility = Visibility.Collapsed;
                     lblNoOfTickets.Content = Ticket.ticketCount;
@@ -414,7 +433,6 @@ namespace Kochi_TVM.Pages
         {
             try
             {
-                LedOperations.GreenText("CASH PAYMENT IN PROGRESS");
                 TotalAmountToCollect = Ticket.totalPrice;
                 BNRManager.BNRStateInputEvent += new BNRManager.BNRStateEventHandler(BNRManager_BNRStateInputEvent);
                 BNRManager.BNRBillTableInputEvent += new BNRManager.BNRBillTableEventHandler(BNRManager_BNRBillTableInputEvent);
@@ -1440,7 +1458,6 @@ namespace Kochi_TVM.Pages
                     {
                         TVMUtility.PlayVoice(8, null, Convert.ToString(Convert.ToInt16(balance)), "IN");
                     }
-                    LedOperations.GreenText("PLEASE COLLECT BALANCE");
                     await Task.Delay(1000);
                     
                     waitGrid.Visibility = Visibility.Hidden;
@@ -1461,7 +1478,6 @@ namespace Kochi_TVM.Pages
                 }
                 else if (isReturn && isCancel)
                 {
-                    LedOperations.GreenText("PAYMENT UNSUCCESSFUL");
                     waitGrid.Visibility = Visibility.Hidden;
                     mainGrid.Visibility = Visibility.Hidden;
                     cashGrid.Visibility = Visibility.Hidden;

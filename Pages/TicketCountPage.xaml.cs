@@ -43,14 +43,18 @@ namespace Kochi_TVM.Pages
             if (Ticket.language == Languages.English || Ticket.language == Languages.Hint)
             {
                 lblType.FontSize = 12;
+                lblDisType.FontSize = 12;
                 lblDestination.FontSize = 12;
+                lblDisDestination.FontSize = 12;
                 lblNoOfTickets.FontSize = 12;
                 lblAmount.FontSize = 12;
             }
             else
             {
                 lblType.FontSize = 10;
+                lblDisType.FontSize = 10;
                 lblDestination.FontSize = 10;
+                lblDisDestination.FontSize = 10;
                 lblNoOfTickets.FontSize = 10;
                 lblAmount.FontSize = 10;
             }
@@ -72,9 +76,11 @@ namespace Kochi_TVM.Pages
                     lblType.Content = MultiLanguage.GetText("weekenddaypass");
                     break;
             }
+            lblDisType.Content = MultiLanguage.GetText("DispTicketType");
             lblNoOfTickets.Content = MultiLanguage.GetText("DispNoOfTickets");
             lblAmount.Content = MultiLanguage.GetText("DispAmount");
             lblDestination.Content = MultiLanguage.GetText(Ticket.endStation.name);
+            lblDisDestination.Content = MultiLanguage.GetText("DispDestination");
             lblHeader.Content = MultiLanguage.GetText("selectTicketCount");
             btnBack.Content = MultiLanguage.GetText("back");
             btnFinish.Content = MultiLanguage.GetText("cancel");
@@ -178,6 +184,7 @@ namespace Kochi_TVM.Pages
                     gridGrp.Visibility = System.Windows.Visibility.Hidden;
                     gridWeekendPass.Visibility = System.Windows.Visibility.Hidden;
                     gridDayPass.Visibility = System.Windows.Visibility.Visible;
+                    lblDisDestination.Visibility = Visibility.Collapsed;
                     lblDestination.Visibility = Visibility.Collapsed;
                     arrorDest.Visibility = Visibility.Collapsed;
                     isOk = CreateTicketCountGrid();
@@ -189,6 +196,7 @@ namespace Kochi_TVM.Pages
                     gridGrp.Visibility = System.Windows.Visibility.Hidden;
                     gridDayPass.Visibility = System.Windows.Visibility.Hidden;
                     gridWeekendPass.Visibility = System.Windows.Visibility.Visible;
+                    lblDisDestination.Visibility = Visibility.Collapsed;
                     lblDestination.Visibility = Visibility.Collapsed;
                     arrorDest.Visibility = Visibility.Collapsed;
                     isOk = CreateTicketCountGrid();

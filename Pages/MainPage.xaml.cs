@@ -222,74 +222,76 @@ namespace Kochi_TVM.Pages
             {
                 try
                 {
-                    StockOperations.SelStockStatus();
-                    //string qrSlip = "", coin1 = "", coin2 = "", coin5 = "", banknote10 = "", banknote20 = "", escrow = "";
-                    if (StockOperations.qrSlip <= 10)
+                    if (Parameters.TVMDynamic.GetParameter("SCConn") == "1")
                     {
-                        bool result = Parameters.InsNStationAlarm(Stations.currentStation.id, Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId")), 1,
-                            string.Format("QR PAPER STOCK IS LESS! Please ADD PAPER"));
+                        StockOperations.SelStockStatus();
+                        //string qrSlip = "", coin1 = "", coin2 = "", coin5 = "", banknote10 = "", banknote20 = "", escrow = "";
+                        if (StockOperations.qrSlip <= 10)
+                        {
+                            bool result = Parameters.InsNStationAlarm(Stations.currentStation.id, Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId")), 1,
+                                string.Format("QR PAPER STOCK IS LESS! Please ADD PAPER"));
 
-                        log.Debug("InsNStationAlarm qr --> result : " + (result == true ? "true" : "false"));
-                        //qrSlip = "QR PAPER STOCK IS LESS! Please ADD PAPER";
+                            log.Debug("InsNStationAlarm qr --> result : " + (result == true ? "true" : "false"));
+                            //qrSlip = "QR PAPER STOCK IS LESS! Please ADD PAPER";
+                        }
+
+                        if (StockOperations.coin1 == 0)
+                        {
+                            bool result = Parameters.InsNStationAlarm(Stations.currentStation.id, Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId")), 1,
+                                string.Format("Rs " + Constants.HopperAddress1Coin + " stock is empty! Please refill."));
+
+                            log.Debug("InsNStationAlarm coin1 --> result : " + (result == true ? "true" : "false"));
+                            //coin1 = string.Format("Rs " + Constants.HopperAddress1Coin + " stock is empty! Please refill.");
+                        }
+
+                        if (StockOperations.coin2 == 0)
+                        {
+                            bool result = Parameters.InsNStationAlarm(Stations.currentStation.id, Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId")), 1,
+                                string.Format("Rs " + Constants.HopperAddress2Coin + " stock is empty! Please refill."));
+
+                            log.Debug("InsNStationAlarm coin2 --> result : " + (result == true ? "true" : "false"));
+                            //coin2 = string.Format("Rs " + Constants.HopperAddress2Coin + " stock is empty! Please refill.");
+                        }
+
+                        if (StockOperations.coin5 == 0)
+                        {
+                            bool result = Parameters.InsNStationAlarm(Stations.currentStation.id, Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId")), 1,
+                                string.Format("Rs " + Constants.HopperAddress3Coin + " stock is empty! Please refill."));
+
+                            log.Debug("InsNStationAlarm coin5 --> result : " + (result == true ? "true" : "false"));
+                            //coin5 = string.Format("Rs " + Constants.HopperAddress3Coin + " stock is empty! Please refill.");
+                        }
+
+                        if (StockOperations.banknote10 <= 5)
+                        {
+                            bool result = Parameters.InsNStationAlarm(Stations.currentStation.id, Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId")), 1,
+                            string.Format("Rs " + TVMUtility.BillTypeToBillValue(Constants.Cassette1Note) + " currency (Cassette 1) stock is less! Please add notes."));
+
+                            log.Debug("InsNStationAlarm banknote10 --> result : " + (result == true ? "true" : "false"));
+                            //banknote10 = string.Format("Rs " + TVMUtility.BillTypeToBillValue(Constants.Cassette1Note) + " currency (Cassette 1) stock is less! Please add notes.");
+                        }
+
+                        if (StockOperations.banknote20 <= 5)
+                        {
+                            bool result = Parameters.InsNStationAlarm(Stations.currentStation.id, Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId")), 1,
+                            string.Format("Rs " + TVMUtility.BillTypeToBillValue(Constants.Cassette2Note) + " currency (Cassette 2) stock is less! Please add notes."));
+
+                            log.Debug("InsNStationAlarm banknote20 --> result : " + (result == true ? "true" : "false"));
+                            //banknote20 = string.Format("Rs " + TVMUtility.BillTypeToBillValue(Constants.Cassette2Note) + " currency (Cassette 2) stock is less! Please add notes.");
+                        }
+
+                        if (StockOperations.escrow <= 5)
+                        {
+                            bool result = Parameters.InsNStationAlarm(Stations.currentStation.id, Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId")), 1,
+                            string.Format("Rs " + TVMUtility.BillTypeToBillValue(Constants.Cassette3Note) + " currency (Cassette 3) stock is less! Please add notes."));
+                            //escrow = string.Format("Rs " + TVMUtility.BillTypeToBillValue(Constants.Cassette3Note) + " currency (Cassette 3) stock is less! Please add notes.");
+
+                            log.Debug("InsNStationAlarm banknote20 --> result : " + (result == true ? "true" : "false"));
+                        }
+
+                        //bool result = Parameters.InsNStationAlarm(Stations.currentStation.id, Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId")), 1,
+                        //    string.Format(qrSlip + coin1 + coin2 + coin5 + banknote10 + banknote20 + escrow));
                     }
-
-                    if (StockOperations.coin1 == 0)
-                    {
-                        bool result = Parameters.InsNStationAlarm(Stations.currentStation.id, Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId")), 1,
-                            string.Format("Rs " + Constants.HopperAddress1Coin + " stock is empty! Please refill."));
-
-                        log.Debug("InsNStationAlarm coin1 --> result : " + (result == true ? "true" : "false"));
-                        //coin1 = string.Format("Rs " + Constants.HopperAddress1Coin + " stock is empty! Please refill.");
-                    }
-
-                    if (StockOperations.coin2 == 0)
-                    {
-                        bool result = Parameters.InsNStationAlarm(Stations.currentStation.id, Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId")), 1,
-                            string.Format("Rs " + Constants.HopperAddress2Coin + " stock is empty! Please refill."));
-
-                        log.Debug("InsNStationAlarm coin2 --> result : " + (result == true ? "true" : "false"));
-                        //coin2 = string.Format("Rs " + Constants.HopperAddress2Coin + " stock is empty! Please refill.");
-                    }
-
-                    if (StockOperations.coin5 == 0)
-                    {
-                        bool result = Parameters.InsNStationAlarm(Stations.currentStation.id, Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId")), 1,
-                            string.Format("Rs " + Constants.HopperAddress3Coin + " stock is empty! Please refill."));
-
-                        log.Debug("InsNStationAlarm coin5 --> result : " + (result == true ? "true" : "false"));
-                        //coin5 = string.Format("Rs " + Constants.HopperAddress3Coin + " stock is empty! Please refill.");
-                    }
-
-                    if (StockOperations.banknote10 <= 5)
-                    {
-                        bool result = Parameters.InsNStationAlarm(Stations.currentStation.id, Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId")), 1,
-                        string.Format("Rs " + TVMUtility.BillTypeToBillValue(Constants.Cassette1Note) + " currency (Cassette 1) stock is less! Please add notes."));
-
-                        log.Debug("InsNStationAlarm banknote10 --> result : " + (result == true ? "true" : "false"));
-                        //banknote10 = string.Format("Rs " + TVMUtility.BillTypeToBillValue(Constants.Cassette1Note) + " currency (Cassette 1) stock is less! Please add notes.");
-                    }
-
-                    if (StockOperations.banknote20 <= 5)
-                    {
-                        bool result = Parameters.InsNStationAlarm(Stations.currentStation.id, Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId")), 1,
-                        string.Format("Rs " + TVMUtility.BillTypeToBillValue(Constants.Cassette2Note) + " currency (Cassette 2) stock is less! Please add notes."));
-
-                        log.Debug("InsNStationAlarm banknote20 --> result : " + (result == true ? "true" : "false"));
-                        //banknote20 = string.Format("Rs " + TVMUtility.BillTypeToBillValue(Constants.Cassette2Note) + " currency (Cassette 2) stock is less! Please add notes.");
-                    }
-
-                    if (StockOperations.escrow <= 5)
-                    {
-                        bool result = Parameters.InsNStationAlarm(Stations.currentStation.id, Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId")), 1,
-                        string.Format("Rs " + TVMUtility.BillTypeToBillValue(Constants.Cassette3Note) + " currency (Cassette 3) stock is less! Please add notes."));
-                        //escrow = string.Format("Rs " + TVMUtility.BillTypeToBillValue(Constants.Cassette3Note) + " currency (Cassette 3) stock is less! Please add notes.");
-
-                        log.Debug("InsNStationAlarm banknote20 --> result : " + (result == true ? "true" : "false"));
-                    }
-
-                    //bool result = Parameters.InsNStationAlarm(Stations.currentStation.id, Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId")), 1,
-                    //    string.Format(qrSlip + coin1 + coin2 + coin5 + banknote10 + banknote20 + escrow));
-
                 }
                 catch (Exception ex)
                 {
@@ -754,7 +756,6 @@ namespace Kochi_TVM.Pages
         {
             try
             {
-
                 Application.Current.Dispatcher.BeginInvoke(
                   DispatcherPriority.Background,
                   new Action(() =>
@@ -842,36 +843,36 @@ namespace Kochi_TVM.Pages
                             return;
                         }
 
-                        if (Parameters.TVMDynamic.GetAfcConnStatus())
-                        {
-                            Parameters.TVMDynamic.AddOrUpdateParameter("AfcConn", "1");
-                            Parameters.TVMStatic.AddOrUpdateParameter("SCConn", "1");
-                            //if (i == 0)
-                            //    i = 1;
-                            //btnSelectTicket.IsEnabled = true;
-                            //btnSelectTicket.Opacity = 1;
-                            //if (i == 1)
-                            //{
-                            //    outofservice.Visibility = Visibility.Collapsed;
-                            //    i = 2;
-                            //    lblNoConnection.Content = "";
-                            //    LedOperations.GreenText("WELCOME TO " + Stations.currentStation.name + " " + PIDMessageLog.getMessage());
-                            //}
-                        }
-                        else
-                        {
-                            Parameters.TVMDynamic.AddOrUpdateParameter("AfcConn", "0");
-                            Parameters.TVMStatic.AddOrUpdateParameter("SCConn", "0");
-                            //i = 0;
-                            //imgStationClosedMode.Source = new BitmapImage((new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\out_of_service.jpg")));
-                            //outofservice.Visibility = Visibility.Visible;
-                            //txtErrorCode.Text = "No Connection";
-                            //LedOperations.Close();
-                            //lblNoConnection.Content = "No Connection!";
-                            //btnSelectTicket.IsEnabled = false;
-                            //btnSelectTicket.Opacity = 0.2;
-                            //return;
-                        }
+                        //if (Parameters.TVMDynamic.GetAfcConnStatus())
+                        //{
+                        //    Parameters.TVMDynamic.AddOrUpdateParameter("AfcConn", "1");
+                        //    Parameters.TVMStatic.AddOrUpdateParameter("SCConn", "1");
+                        //    //if (i == 0)
+                        //    //    i = 1;
+                        //    //btnSelectTicket.IsEnabled = true;
+                        //    //btnSelectTicket.Opacity = 1;
+                        //    //if (i == 1)
+                        //    //{
+                        //    //    outofservice.Visibility = Visibility.Collapsed;
+                        //    //    i = 2;
+                        //    //    lblNoConnection.Content = "";
+                        //    //    LedOperations.GreenText("WELCOME TO " + Stations.currentStation.name + " " + PIDMessageLog.getMessage());
+                        //    //}
+                        //}
+                        //else
+                        //{
+                        //    Parameters.TVMDynamic.AddOrUpdateParameter("AfcConn", "0");
+                        //    Parameters.TVMStatic.AddOrUpdateParameter("SCConn", "0");
+                        //    //i = 0;
+                        //    //imgStationClosedMode.Source = new BitmapImage((new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\out_of_service.jpg")));
+                        //    //outofservice.Visibility = Visibility.Visible;
+                        //    //txtErrorCode.Text = "No Connection";
+                        //    //LedOperations.Close();
+                        //    //lblNoConnection.Content = "No Connection!";
+                        //    //btnSelectTicket.IsEnabled = false;
+                        //    //btnSelectTicket.Opacity = 0.2;
+                        //    //return;
+                        //}
 
                         BNRManager.Instance.PollingAction();
                         if (Constants.BNRStatus != "")

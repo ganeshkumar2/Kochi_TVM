@@ -191,5 +191,5 @@
     <system:String x:Key="DispTicketType">टिकिट का प्रकार</system:String>
     <system:String x:Key="DispDestination">गंतव्य</system:String>
     <system:String x:Key="DispNoOfTickets">टिकटों की संख्या</system:String>
-    <system:String x:Key="DispAmount">रकम</system:String>
+    <system:String x:Key="DispAmount">भुगतान</system:String>
 </ResourceDictionary>

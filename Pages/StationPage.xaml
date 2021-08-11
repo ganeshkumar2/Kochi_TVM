@@ -21,7 +21,8 @@
             <!--Top space -->
             <RowDefinition Height="*"/>
             <!--Operation Area -->
-            <RowDefinition Height="24*"/>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="2*"/>
             <!--Top space -->
             <RowDefinition Height="*"/>
             <!--Navigate -->
@@ -43,9 +44,40 @@
         <ScrollViewer  Name="svToRoots" Grid.Column="1"  Grid.Row="3" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" CanContentScroll="True">
             <ScrollViewer.Resources>
             </ScrollViewer.Resources>
-
         </ScrollViewer>
-        <Grid Name="borderGrid" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3">
+
+        <StackPanel Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <Button Tag="A" Content="A" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="B" Content="B" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="C" Content="C" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="D" Content="D" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="E" Content="E" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="F" Content="F" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="G" Content="G" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="H" Content="H" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="I" Content="I" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="J" Content="J" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="K" Content="K" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="L" Content="L" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="M" Content="M" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="N" Content="N" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="O" Content="O" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="P" Content="P" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="Q" Content="Q" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="R" Content="R" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="S" Content="S" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="T" Content="T" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="U" Content="U" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="V" Content="V" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="W" Content="W" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="X" Content="X" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="Y" Content="Y" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            <Button Tag="Z" Content="Z" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
+            
+        </StackPanel>
+        
+        
+        <Grid Name="borderGrid" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="5*"/>
                 <RowDefinition Height="*"/>
@@ -56,7 +88,7 @@
             </Grid.ColumnDefinitions>
             <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Background="{StaticResource ViceColor}" />
         </Grid>
-        <Grid Name="navigationGrid" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3">
+        <Grid Name="navigationGrid" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
@@ -71,13 +103,16 @@
             <Button x:Name="btnFinish" Grid.Row="0" Grid.Column="1" Content="Cancel"  Style="{StaticResource styleFinishBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnFinish_Click"/>
             <Grid x:Name="grdInfo" Grid.Row="0" Grid.Column="2" Margin="20,0,20,0">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Label Grid.Column="0" Name="lblType" Content="Ticket Type" FontFamily="Titillium" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource MainColor}"/>
-                    <Path Grid.Column="1"  Stroke="{StaticResource MainColor}" Fill="{StaticResource MainColor}" Stretch="Uniform" HorizontalAlignment="Center" Height="20" Width="40" VerticalAlignment="Center" Data="M 10 0 L 16 4 L 10 8 M 0 4 L 16 4" />
-                    <Label Grid.Column="2" Name="lblDestination" Content="Destination" FontFamily="Titillium" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black"/>
-                    <Path Grid.Column="3"  Stroke="Black" Fill="Black" Stretch="Uniform" HorizontalAlignment="Center" Height="20" Width="40" VerticalAlignment="Center" Data="M 10 0 L 16 4 L 10 8 M 0 4 L 16 4" />
+                    <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Label Name="lblDisType" Content="Ticket Type" FontFamily="Titillium" HorizontalAlignment="Center" FontWeight="Bold" Foreground="{StaticResource MainColor}"/>
+                        <Label Name="lblType" Content="Ticket Type" FontFamily="Titillium" FontWeight="Bold" Foreground="{StaticResource MainColor}"/>
+                    </StackPanel>
+                    <Path Grid.Column="1"  Stroke="{StaticResource MainColor}" Fill="{StaticResource MainColor}" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 10 0 L 16 4 L 10 8 M 0 4 L 16 4" />
+                    <Label Grid.Column="2" Name="lblDestination" Content="Destination" FontFamily="Titillium" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="CadetBlue"/>
+                    <Path Grid.Column="3"  Stroke="CadetBlue" Fill="CadetBlue" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 10 0 L 16 4 L 10 8 M 0 4 L 16 4" />
                     <Label Grid.Column="4" Name="lblNoOfTickets" Content="No. Of Tickets" FontFamily="Titillium" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black"/>
-                    <Path Grid.Column="5"  Stroke="Black" Fill="Black" Stretch="Uniform" HorizontalAlignment="Center" Height="20" Width="40" VerticalAlignment="Center" Data="M 10 0 L 16 4 L 10 8 M 0 4 L 16 4" />
-                    <Label Grid.Column="6" Name="lblAmount" Content="Amount" FontFamily="Titillium" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black"/>
+                    <Path Grid.Column="5"  Stroke="Black" Fill="Black" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 10 0 L 16 4 L 10 8 M 0 4 L 16 4" />
+                    <Label Grid.Column="6" Name="lblAmount" Content="Payment" FontFamily="Titillium" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black"/>
                 </StackPanel>
             </Grid>
         </Grid>

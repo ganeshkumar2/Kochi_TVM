@@ -110,6 +110,11 @@
                     </Grid>
                 </Border>
 
+                <StackPanel Orientation="Horizontal" Grid.Row="18" Grid.Column="11" Grid.RowSpan="2" Grid.ColumnSpan="12" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <Label Name="lblMaxAccept" Content="Maximum Note Acceptance :" VerticalAlignment="Stretch"  Style="{StaticResource styleLabelAcceptableNotes}"/>
+                    <Label Name="lblMaxNoteAccept" VerticalAlignment="Stretch"  Style="{StaticResource styleLabelAcceptableNotes}"/>
+                </StackPanel>
+                
                 <Label Name="lblNotes" Content="Acceptable Notes : " Grid.Row="11" Grid.Column="11" Grid.RowSpan="3" Grid.ColumnSpan="9" HorizontalAlignment="Left" VerticalAlignment="Stretch"  Style="{StaticResource styleLabelAcceptableNotes}"/>
 
 
@@ -155,12 +160,13 @@
                     <Grid Name="grdMoney10" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                         <Viewbox HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Stretch="Fill">
                             <Grid>
-                                <Line  X1="0" Y1="0" X2="100" Y2="100" Stroke="Red" StrokeThickness="8" />
-                                <Line  X1="0" Y1="100" X2="100" Y2="0" Stroke="Red" StrokeThickness="8" />
+                                <Line  X1="0" Y1="0" X2="100" Y2="100" Stroke="DimGray" StrokeThickness="8" />
+                                <Line  X1="0" Y1="100" X2="100" Y2="0" Stroke="DimGray" StrokeThickness="8" />
                             </Grid>
                         </Viewbox>
-                    </Grid>                    
-                    
+                    </Grid>
+                    <Label Content="₹10" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" Style="{StaticResource styleLabelAcceptableNotes}"/>
+
                     <Image Name="lblMoney20" Grid.Column="2" Grid.Row="0"  HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Image.Source>
                             <TransformedBitmap Source="/Kochi_TVM;component/Images/Rupi_20.jpg">
@@ -173,12 +179,13 @@
                     <Grid Name="grdMoney20" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
                         <Viewbox HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Stretch="Fill">
                             <Grid>
-                                <Line  X1="0" Y1="0" X2="100" Y2="100" Stroke="Red" StrokeThickness="8" />
-                                <Line  X1="0" Y1="100" X2="100" Y2="0" Stroke="Red" StrokeThickness="8" />
+                                <Line  X1="0" Y1="0" X2="100" Y2="100" Stroke="DimGray" StrokeThickness="8" />
+                                <Line  X1="0" Y1="100" X2="100" Y2="0" Stroke="DimGray" StrokeThickness="8" />
                             </Grid>
                         </Viewbox>
-                    </Grid>                    
-                    
+                    </Grid>
+                    <Label Content="₹20" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" Style="{StaticResource styleLabelAcceptableNotes}"/>
+
                     <Image Name="lblMoney50" Grid.Column="4" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Image.Source>
                             <TransformedBitmap Source="/Kochi_TVM;component/Images/Rupi_50.jpg">
@@ -191,11 +198,13 @@
                     <Grid Name="grdMoney50" Grid.Column="4" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
                         <Viewbox HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Stretch="Fill">
                             <Grid>
-                                <Line  X1="0" Y1="0" X2="100" Y2="100" Stroke="Red" StrokeThickness="8" />
-                                <Line  X1="0" Y1="100" X2="100" Y2="0" Stroke="Red" StrokeThickness="8" />
+                                <Line  X1="0" Y1="0" X2="100" Y2="100" Stroke="DimGray" StrokeThickness="8" />
+                                <Line  X1="0" Y1="100" X2="100" Y2="0" Stroke="DimGray" StrokeThickness="8" />
                             </Grid>
                         </Viewbox>
                     </Grid>
+                    <Label Content="₹50" Grid.Column="4" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" Style="{StaticResource styleLabelAcceptableNotes}"/>
+
 
                     <Image Name="lblMoney100" Grid.Column="6" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Image.Source>
@@ -209,11 +218,12 @@
                     <Grid Name="grdMoney100" Grid.Column="6" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
                         <Viewbox HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Stretch="Fill">
                             <Grid>
-                                <Line  X1="0" Y1="0" X2="100" Y2="100" Stroke="Red" StrokeThickness="8" />
-                                <Line  X1="0" Y1="100" X2="100" Y2="0" Stroke="Red" StrokeThickness="8" />
+                                <Line  X1="0" Y1="0" X2="100" Y2="100" Stroke="DimGray" StrokeThickness="8" />
+                                <Line  X1="0" Y1="100" X2="100" Y2="0" Stroke="DimGray" StrokeThickness="8" />
                             </Grid>
                         </Viewbox>
                     </Grid>
+                    <Label Content="₹100" Grid.Column="6" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" Style="{StaticResource styleLabelAcceptableNotes}"/>
 
                     <Image Name="lblMoney200" Grid.Column="8" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Image.Source>
@@ -227,11 +237,12 @@
                     <Grid Name="grdMoney200" Grid.Column="8" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
                         <Viewbox HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Stretch="Fill">
                             <Grid>
-                                <Line  X1="0" Y1="0" X2="100" Y2="100" Stroke="Red" StrokeThickness="8" />
-                                <Line  X1="0" Y1="100" X2="100" Y2="0" Stroke="Red" StrokeThickness="8" />
+                                <Line  X1="0" Y1="0" X2="100" Y2="100" Stroke="DimGray" StrokeThickness="8" />
+                                <Line  X1="0" Y1="100" X2="100" Y2="0" Stroke="DimGray" StrokeThickness="8" />
                             </Grid>
                         </Viewbox>
                     </Grid>
+                    <Label Content="₹200" Grid.Column="8" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" Style="{StaticResource styleLabelAcceptableNotes}"/>
 
                     <Image Name="lblMoney500" Grid.Column="10" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Image.Source>
@@ -245,11 +256,12 @@
                     <Grid Name="grdMoney500" Grid.Column="10" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
                         <Viewbox HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Stretch="Fill">
                             <Grid>
-                                <Line  X1="0" Y1="0" X2="100" Y2="100" Stroke="Red" StrokeThickness="8" />
-                                <Line  X1="0" Y1="100" X2="100" Y2="0" Stroke="Red" StrokeThickness="8" />
+                                <Line  X1="0" Y1="0" X2="100" Y2="100" Stroke="DimGray" StrokeThickness="8" />
+                                <Line  X1="0" Y1="100" X2="100" Y2="0" Stroke="DimGray" StrokeThickness="8" />
                             </Grid>
                         </Viewbox>
                     </Grid>
+                    <Label Content="₹500" Grid.Column="10" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" Style="{StaticResource styleLabelAcceptableNotes}"/>
 
                     <Image Name="lblMoney2000" Grid.Column="12" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Image.Source>
@@ -263,16 +275,13 @@
                     <Grid Name="grdMoney2000" Grid.Column="12" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
                         <Viewbox HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Stretch="Fill">
                             <Grid>
-                                <Line  X1="0" Y1="0" X2="100" Y2="100" Stroke="Red" StrokeThickness="8" />
-                                <Line  X1="0" Y1="100" X2="100" Y2="0" Stroke="Red" StrokeThickness="8" />
+                                <Line  X1="0" Y1="0" X2="100" Y2="100" Stroke="DimGray" StrokeThickness="8" />
+                                <Line  X1="0" Y1="100" X2="100" Y2="0" Stroke="DimGray" StrokeThickness="8" />
                             </Grid>
                         </Viewbox>
                     </Grid>
+                    <Label Content="₹2000" Grid.Column="11" Grid.ColumnSpan="2" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="14" Style="{StaticResource styleLabelAcceptableNotes}"/>
 
-                    <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="12" HorizontalAlignment="Left">
-                        <Label Name="lblMaxAccept" Content="Maximum Note Acceptance :" VerticalAlignment="Stretch"  Style="{StaticResource styleLabelAcceptableNotes}"/>
-                        <Label Name="lblMaxNoteAccept" VerticalAlignment="Stretch"  Style="{StaticResource styleLabelAcceptableNotes}"/>
-                    </StackPanel>
                 </Grid>
             </Grid>
 
@@ -291,13 +300,25 @@
                 <Button x:Name="btnFinish" Grid.Row="0" Grid.Column="1" Content="Cancel"  Style="{StaticResource styleFinishBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnFinish_Click"/>
                 <Grid x:Name="grdInfo" Grid.Row="0" Grid.Column="2" Margin="20,0,20,0">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Label Grid.Column="0" Name="lblType" Content="Ticket Type" FontSize="14" FontFamily="Titillium" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource MainColor}"/>
-                        <Path Grid.Column="1"  Stroke="{StaticResource MainColor}" Fill="{StaticResource MainColor}" Stretch="Uniform" HorizontalAlignment="Center" Height="20" Width="40" VerticalAlignment="Center" Data="M 10 0 L 16 4 L 10 8 M 0 4 L 16 4" />
-                        <Label Grid.Column="2" Name="lblDestination" Content="Destination" FontSize="14" FontFamily="Titillium" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource MainColor}"/>
-                        <Path Grid.Column="3" Name="arrorDest" Stroke="{StaticResource MainColor}" Fill="{StaticResource MainColor}" Stretch="Uniform" HorizontalAlignment="Center" Height="20" Width="40" VerticalAlignment="Center" Data="M 10 0 L 16 4 L 10 8 M 0 4 L 16 4" />
-                        <Label Grid.Column="4" Name="lblNoOfTickets" Content="No. Of Tickets" FontSize="14" FontFamily="Titillium" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource MainColor}"/>
-                        <Path Grid.Column="5"  Stroke="{StaticResource MainColor}" Fill="{StaticResource MainColor}" Stretch="Uniform" HorizontalAlignment="Center" Height="20" Width="40" VerticalAlignment="Center" Data="M 10 0 L 16 4 L 10 8 M 0 4 L 16 4" />
-                        <Label Grid.Column="6" Name="lblAmount" Content="Amount" FontSize="14" FontFamily="Titillium" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource MainColor}"/>
+                        <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Label Name="lblDisType" Content="Ticket Type" HorizontalAlignment="Center" FontFamily="Titillium" FontWeight="Bold" Foreground="{StaticResource MainColor}"/>
+                            <Label Name="lblType" Content="Ticket Type" FontFamily="Titillium" FontWeight="Bold" Foreground="{StaticResource MainColor}"/>
+                        </StackPanel>
+                        <Path Grid.Column="1"  Stroke="{StaticResource MainColor}" Fill="{StaticResource MainColor}" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 10 0 L 16 4 L 10 8 M 0 4 L 16 4" />
+                        <StackPanel Grid.Column="2" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Label Name="lblDisDestination" HorizontalAlignment="Center" Content="Destination" FontFamily="Titillium" FontWeight="Bold" Foreground="{StaticResource MainColor}"/>
+                            <Label Name="lblDestination" Content="Destination" FontFamily="Titillium" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource MainColor}"/>
+                        </StackPanel>
+                        <Path Grid.Column="3" Name="arrorDest" Stroke="{StaticResource MainColor}" Fill="{StaticResource MainColor}" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 10 0 L 16 4 L 10 8 M 0 4 L 16 4" />
+                        <StackPanel Grid.Column="4" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Label Name="lblDisNoOfTickets" Content="No. Of Tickets" FontFamily="Titillium" FontWeight="Bold" Foreground="{StaticResource MainColor}"/>
+                            <Label Name="lblNoOfTickets" Content="No. Of Tickets" FontFamily="Titillium" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource MainColor}"/>
+                        </StackPanel>
+                        <Path Grid.Column="5" Stroke="{StaticResource MainColor}" Fill="{StaticResource MainColor}" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 10 0 L 16 4 L 10 8 M 0 4 L 16 4" />
+                        <StackPanel Grid.Column="6" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Label Name="lblDisAmount" Content="Payment" FontFamily="Titillium" FontWeight="Bold" Foreground="{StaticResource MainColor}"/>
+                            <Label Name="lblAmount" Content="Amount" FontFamily="Titillium" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource MainColor}"/>
+                        </StackPanel>
                     </StackPanel>
                 </Grid>
             </Grid>

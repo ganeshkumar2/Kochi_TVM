@@ -239,13 +239,19 @@
             <Button x:Name="btnFinish" Grid.Row="0" Grid.Column="1" Content="Cancel"  Style="{StaticResource styleFinishBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnFinish_Click"/>
             <Grid Grid.Row="0" Grid.Column="2" Margin="20,0,20,0">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
-                <Label Grid.Column="0" Name="lblType" Content="Ticket Type" FontSize="14" FontFamily="Titillium" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource MainColor}"/>
-                <Path Grid.Column="1"  Stroke="{StaticResource MainColor}" Fill="{StaticResource MainColor}" Stretch="Uniform" HorizontalAlignment="Center" Height="20" Width="40" VerticalAlignment="Center" Data="M 10 0 L 16 4 L 10 8 M 0 4 L 16 4" />
-                    <Label Grid.Column="2" Name="lblDestination" Content="Destination" FontFamily="Titillium" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource MainColor}"/>
-                    <Path Grid.Column="3" Name="arrorDest"  Stroke="{StaticResource MainColor}" Fill="{StaticResource MainColor}" Stretch="Uniform" HorizontalAlignment="Center" Height="20" Width="40" VerticalAlignment="Center" Data="M 10 0 L 16 4 L 10 8 M 0 4 L 16 4" />
-                    <Label Grid.Column="4" Name="lblNoOfTickets" Content="No. Of Tickets" FontFamily="Titillium" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black"/>
-                    <Path Grid.Column="5"  Stroke="Black" Fill="Black" Stretch="Uniform" HorizontalAlignment="Center" Height="20" Width="40" VerticalAlignment="Center" Data="M 10 0 L 16 4 L 10 8 M 0 4 L 16 4" />
-                    <Label Grid.Column="6" Name="lblAmount" Content="Amount" FontFamily="Titillium" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black"/>
+                    <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Label Name="lblDisType" Content="Ticket Type" HorizontalAlignment="Center" FontFamily="Titillium" FontWeight="Bold" Foreground="{StaticResource MainColor}"/>
+                        <Label Name="lblType" Content="Ticket Type" FontFamily="Titillium" FontWeight="Bold" Foreground="{StaticResource MainColor}"/>
+                    </StackPanel>
+                    <Path Grid.Column="1"  Stroke="{StaticResource MainColor}" Fill="{StaticResource MainColor}" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 10 0 L 16 4 L 10 8 M 0 4 L 16 4" />
+                    <StackPanel Grid.Column="2" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Label Name="lblDisDestination" HorizontalAlignment="Center" Content="Destination" FontFamily="Titillium" FontWeight="Bold" Foreground="{StaticResource MainColor}"/>
+                        <Label Name="lblDestination" Content="Destination" FontFamily="Titillium" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource MainColor}"/>
+                    </StackPanel>
+                    <Path Grid.Column="3" Name="arrorDest"  Stroke="{StaticResource MainColor}" Fill="{StaticResource MainColor}" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 10 0 L 16 4 L 10 8 M 0 4 L 16 4" />
+                    <Label Grid.Column="4" Name="lblNoOfTickets" Content="No. Of Tickets" FontFamily="Titillium" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="CadetBlue"/>
+                    <Path Grid.Column="5"  Stroke="CadetBlue" Fill="CadetBlue" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 10 0 L 16 4 L 10 8 M 0 4 L 16 4" />
+                    <Label Grid.Column="6" Name="lblAmount" Content="Payment" FontFamily="Titillium" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black"/>
                 </StackPanel>
             </Grid>
         </Grid>

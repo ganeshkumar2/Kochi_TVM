@@ -191,5 +191,5 @@
     <system:String x:Key="DispTicketType">Ticket Type</system:String>
     <system:String x:Key="DispDestination">Destination</system:String>
     <system:String x:Key="DispNoOfTickets">Number Of Tickets</system:String>
-    <system:String x:Key="DispAmount">Amount</system:String>
+    <system:String x:Key="DispAmount">Payment</system:String>
 </ResourceDictionary>
