@@ -344,20 +344,24 @@ namespace Kochi_TVM.Pages
 
         private void btnAlphabet_Click(object sender, RoutedEventArgs e)
         {
-            bool isOk = CreateGridStations();
-            if (isOk)
-                ListStationsInGridFilter(((Button)sender).Tag.ToString());
+            List<Station> listData = Stations.stationsList.Where(p => p.name.StartsWith(((Button)sender).Tag.ToString())).OrderBy(x => x.name).ToList();
+            if (listData.Count > 0)
+            {
+                TVMUtility.PlayClick();
+                bool isOk = CreateGridStations();
+                if (isOk)
+                    ListStationsInGridFilter(listData);
+            }
         }
 
-        private void ListStationsInGridFilter(string val)
+        private void ListStationsInGridFilter(List<Station> listData)
         {
             var a = 0;
             var b = 0;
             try
-            {
-                var listData = Stations.stationList.Where(p => p.Value.name.Contains(val)).ToDictionary(p => p.Key, p => p.Value); 
+            {                 
                 var style = Application.Current.FindResource("styleStationSelectionBtn") as Style;
-                for (var i = 1; i <= listData.Count; i++)
+                for (var i = 0; i <= listData.Count; i++)
                 {
 
                     if (listData[i].id == Convert.ToInt32(Parameters.TVMDynamic.GetParameter("stationId")) /*|| Stations.stationList[i].id == 22*/) continue;
@@ -385,6 +389,14 @@ namespace Kochi_TVM.Pages
             {
                 log.Error("Error StationPage -> ListStationsInGrid() : " + ex.ToString());
             }
+        }
+
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            TVMUtility.PlayClick();
+            bool isOk = CreateGridStations();
+            if (isOk)
+                ListStationsInGrid();
         }
     }
 }

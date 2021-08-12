@@ -54,11 +54,9 @@
 
             <Grid Name="moneyInfoGrid" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" HorizontalAlignment="Center" Background="Transparent">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1.2*"/>
-                    <ColumnDefinition Width="3*"/>
-                    <ColumnDefinition Width="3*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
                     <ColumnDefinition Width="0.2*"/>
+                    <ColumnDefinition Width="4*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -68,19 +66,25 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Label Name="lblLine1Key" Content="SINGLE JOURNEY TICKET" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Center" Style="{StaticResource styleLabelHeader6}"/>
-                <Label Name="lblLine2Key" Content="Destination Station :" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Style="{StaticResource styleLabelHeader6}"/>
-                <Label Name="lblLine3Key" Content="Ticket Type :" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Style="{StaticResource styleLabelHeader6}"/>
-                <Label Name="lblLine4Key" Content="Number Of Tickets :" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Style="{StaticResource styleLabelHeader6}"/>
-                <Label Name="lblLine5Key" Content="Amount :" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Style="{StaticResource styleLabelHeader6}"/>
-                <Label Name="lblLine6Key" Content="Amount :" Grid.Row="5" Grid.Column="1" Visibility="Hidden" HorizontalAlignment="Left" Style="{StaticResource styleLabelHeader6}"/>
+                <Label Name="lblLine1Key" Content="SINGLE JOURNEY TICKET" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" Style="{StaticResource styleLabelHeader6}"/>
+                <Label Name="lblLine2Key" Content="Destination Station" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Style="{StaticResource styleLabelHeader6}"/>
+                <Label Name="lblLine3Key" Content="Ticket Type" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Style="{StaticResource styleLabelHeader6}"/>
+                <Label Name="lblLine4Key" Content="Number Of Tickets" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Style="{StaticResource styleLabelHeader6}"/>
+                <Label Name="lblLine5Key" Content="Amount" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Style="{StaticResource styleLabelHeader6}"/>
+                <Label Name="lblLine6Key" Content="Amount" Grid.Row="5" Grid.Column="0" Visibility="Hidden" HorizontalAlignment="Left" Style="{StaticResource styleLabelHeader6}"/>
+
+                <Label Name="lblLine2Key1" Content=":" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Style="{StaticResource styleLabelHeader6}"/>
+                <Label Name="lblLine3Key1" Content=":" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Style="{StaticResource styleLabelHeader6}"/>
+                <Label Name="lblLine4Key1" Content=":" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Style="{StaticResource styleLabelHeader6}"/>
+                <Label Name="lblLine5Key1" Content=":" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Style="{StaticResource styleLabelHeader6}"/>
+                <Label Name="lblLine6Key1" Content=":" Grid.Row="5" Grid.Column="1" Visibility="Hidden" HorizontalAlignment="Left" Style="{StaticResource styleLabelHeader6}"/>
 
                 <!--<Label Name="lblLine1Value" Content=" Aluva" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" Style="{StaticResource styleLabelHeader6}"/>-->
                 <Label Name="lblLine2Value" Content=" Changampuzha Park" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3" HorizontalAlignment="Left" Style="{StaticResource styleLabelHeader6}"/>
                 <Label Name="lblLine3Value" Content=" QR Ticket" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" Style="{StaticResource styleLabelHeader6}"/>
                 <Label Name="lblLine4Value" Content=" 5" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" Style="{StaticResource styleLabelHeader6}"/>
-                <Label Name="lblLine5Value" Content=": 300" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" Style="{StaticResource styleLabelHeader6}"/>
-                <Label Name="lblLine6Value" Content=": 300" Grid.Row="5" Grid.Column="2" Visibility="Hidden" HorizontalAlignment="Left" Style="{StaticResource styleLabelHeader6}"/>
+                <Label Name="lblLine5Value" Content=" 300" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" Style="{StaticResource styleLabelHeader6}"/>
+                <Label Name="lblLine6Value" Content=" 300" Grid.Row="5" Grid.Column="2" Visibility="Hidden" HorizontalAlignment="Left" Style="{StaticResource styleLabelHeader6}"/>
 
             </Grid>
 

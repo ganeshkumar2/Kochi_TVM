@@ -35,6 +35,10 @@ namespace Kochi_TVM.Pages.Maintenance
         int RPTRJTCashAmount = 0;
         int RPTRJTNonCashCount = 0;
         int RPTRJTNonCashAmount = 0;
+        int RPTGroupCashCount = 0;
+        int RPTGroupCashAmount = 0;
+        int RPTGroupNonCashCount = 0;
+        int RPTGroupNonCashAmount = 0;
         int RPTDayPassCashCount = 0;
         int RPTDayPassCashAmount = 0;
         int RPTDayPassNonCashCount = 0;
@@ -98,6 +102,16 @@ namespace Kochi_TVM.Pages.Maintenance
                         {
                             RPTSJTNonCashCount = Convert.ToInt32(data.Count);
                             RPTSJTNonCashAmount = Convert.ToInt32(data.Amount);
+                        }
+                        else if (Convert.ToString(data.Transaction) == "RPT Group-CASH")
+                        {
+                            RPTGroupCashCount = Convert.ToInt32(data.Count);
+                            RPTGroupCashAmount = Convert.ToInt32(data.Amount);
+                        }
+                        else if (Convert.ToString(data.Transaction) == "RPT Group-NonCASH")
+                        {
+                            RPTGroupNonCashCount = Convert.ToInt32(data.Count);
+                            RPTGroupNonCashAmount = Convert.ToInt32(data.Amount);
                         }
                         else if (Convert.ToString(data.Transaction) == "RPT RJT-CASH")
                         {
@@ -167,6 +181,12 @@ namespace Kochi_TVM.Pages.Maintenance
             lblRPTQRSJTTotalCount.Content = RPTSJTCashCount;
             lblRPTQRSJTTotalAmount.Content = Conversion.MoneyFormat(RPTSJTCashAmount);
 
+            lblRPTQRGroupCashCount.Content = RPTGroupCashCount;
+            lblRPTQRGroupCashAmount.Content = Conversion.MoneyFormat(RPTGroupCashAmount);
+
+            lblRPTQRGroupTotalCount.Content = RPTGroupCashCount;
+            lblRPTQRGroupTotalAmount.Content = Conversion.MoneyFormat(RPTGroupCashAmount);
+
             lblRPTDayPassCashCount.Content = RPTDayPassCashCount;
             lblRPTDayPassCashAmount.Content = Conversion.MoneyFormat(RPTDayPassCashAmount);
 
@@ -179,8 +199,8 @@ namespace Kochi_TVM.Pages.Maintenance
             lblRPTWeekendTotalCount.Content = RPTWeekendPassCashCount;
             lblRPTWeekendTotalAmount.Content = Conversion.MoneyFormat(RPTWeekendPassCashAmount);
 
-            lblSummaryCount.Content = QRSJTCashCount + QRSJTNonCashCount + QRRJTCashCount + QRRJTNonCashCount + QRGroupCashCount + QRGroupNonCashCount+ RPTSJTCashCount+ RPTDayPassCashCount+ RPTWeekendPassCashCount;
-            lblSummaryAmount.Content = Conversion.MoneyFormat(QRSJTCashAmount + QRSJTNonCashAmount+ QRRJTCashAmount + QRRJTNonCashAmount+ QRGroupCashAmount + QRGroupNonCashAmount+ RPTSJTCashAmount+ RPTDayPassCashAmount+ RPTWeekendPassCashAmount);
+            lblSummaryCount.Content = QRSJTCashCount + QRSJTNonCashCount + QRRJTCashCount + QRRJTNonCashCount + QRGroupCashCount + QRGroupNonCashCount+ RPTSJTCashCount + RPTGroupCashCount + RPTDayPassCashCount+ RPTWeekendPassCashCount;
+            lblSummaryAmount.Content = Conversion.MoneyFormat(QRSJTCashAmount + QRSJTNonCashAmount+ QRRJTCashAmount + QRRJTNonCashAmount+ QRGroupCashAmount + QRGroupNonCashAmount+ RPTSJTCashAmount + RPTGroupCashAmount + RPTDayPassCashAmount+ RPTWeekendPassCashAmount);
         }
 
         private void Page_Unloaded(object sender, RoutedEventArgs e)

@@ -404,13 +404,9 @@
                             <ComboBox  Name="cbNumberDisp3" Text="Number" IsEditable="True" IsReadOnly="True" FontFamily="Titillium" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Stretch"></ComboBox>
                         </Border>
 
-                        <Grid Name="gridCloseDispens" Grid.Row="4" Grid.Column="0" Height="80" Width="160" MouseLeftButtonDown="gridCloseDispens_MouseLeftButtonDown">
-                            <Button Content="Cancel" Style="{StaticResource styleFinishBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        </Grid>
+                        <Button x:Name="btnCancel" Content="Cancel" Grid.Row="4" Grid.Column="0" Height="60" Width="160" Style="{StaticResource styleFinishBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnCancel_Click"/>
 
-                        <Grid Name="gridDispenseSeq" Grid.Row="4" Grid.Column="1" Height="80" Width="160" MouseLeftButtonDown="GridDispenseSeq_MouseLeftButtonDown">
-                            <Button Content="Dispense" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                        </Grid>
+                        <Button x:Name="btnDispenseAmount" Content="Dispense" Grid.Row="4" Grid.Column="1" Height="60" Width="160" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnDispenseAmount_Click"/>
 
                         <Label x:Name="lblmessage" Grid.Row="5" Grid.ColumnSpan="2" Content="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Red" FontSize="20" FontWeight="Bold" Visibility="Hidden"/>
                     </Grid>

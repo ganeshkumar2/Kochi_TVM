@@ -62,12 +62,17 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="124*"/>
-                    <ColumnDefinition Width="25*"/>
-                    <ColumnDefinition Width="124*"/>
-                    <ColumnDefinition Width="25*"/>
-                    <ColumnDefinition Width="150*"/>
-                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="8"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="8"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="8"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="8"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="8"/>
+                    <ColumnDefinition Width="120"/>
                 </Grid.ColumnDefinitions>
                 <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" Grid.RowSpan="2" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" Margin="0,0,-0.2,0.4" />
                 <Label Name="receiptsCaption" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Content="Fare Media :" HorizontalAlignment="Left" Style="{StaticResource styleLabel2}" />
@@ -117,17 +122,19 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="8"/>
                     <ColumnDefinition Width="5*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="8"/>
                     <ColumnDefinition Width="5*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="8"/>
                     <ColumnDefinition Width="5*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="8"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="8"/>
+                    <ColumnDefinition Width="120"/>
                 </Grid.ColumnDefinitions>
-                <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="10" Grid.RowSpan="2" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
+                <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="14" Grid.RowSpan="2" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
                 <Label Name="hoppersCaption" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Content="Coins :" HorizontalAlignment="Left" Style="{StaticResource styleLabel2}"/>               
                 <Label Name="hopper5Caption" Grid.Row="0" Grid.Column="6" Content="Hopper 3" Style="{StaticResource styleLabel2}"/>
                 <Label Name="hopper5Value" Grid.Row="1" Grid.Column="6" Content="38x5 = 190 Rs." Style="{StaticResource styleLabel2}"/>

@@ -26,7 +26,7 @@
 	<system:String x:Key="selectLang">Select Your Language</system:String>
 	<system:String x:Key="selectTicketType">Select Ticket Type</system:String>
 	<system:String x:Key="selectTicketCount">Select Ticket Count</system:String>
-	<system:String x:Key="numberOfTickets">Number Of Tickets:</system:String>
+	<system:String x:Key="numberOfTickets">Number Of Tickets</system:String>
 	<system:String x:Key="totalPrice">Total Price</system:String>
 	<system:String x:Key="depositedAmount">Deposited Amount</system:String>
 	<system:String x:Key="rs">₹</system:String>
@@ -34,9 +34,9 @@
 	<system:String x:Key="RJT">RETURN JOURNEY TICKET</system:String>
 	<system:String x:Key="SJT">SINGLE JOURNEY TICKET</system:String>
     <system:String x:Key="GRO">GROUP JOURNEY TICKET</system:String>
-	<system:String x:Key="destination">Destination :</system:String>
-	<system:String x:Key="ticketType">Ticket Type :</system:String>
-	<system:String x:Key="amount">Amount :</system:String>
+	<system:String x:Key="destination">Destination</system:String>
+	<system:String x:Key="ticketType">Ticket Type</system:String>
+	<system:String x:Key="amount">Amount</system:String>
 	<system:String x:Key="startPaymentProc">Start Payment process</system:String>
 	<system:String x:Key="cash">Cash</system:String>
 	<system:String x:Key="back">Back</system:String>
@@ -55,7 +55,7 @@
 	<system:String x:Key="contactCustomerCare">Please contact customer care</system:String>
 	<system:String x:Key="stationClosed">STATION CLOSED</system:String>
 	<system:String x:Key="procPlsWait">Processing, please wait</system:String>
-	<system:String x:Key="insertedAmount">Inserted Amount: </system:String>
+	<system:String x:Key="insertedAmount">Inserted Amount</system:String>
 	<system:String x:Key="operationSucces">OPERATION SUCCESFULL</system:String>
 	<system:String x:Key="ticketSaleSucces">TICKET SALE IS SUCCESFULL</system:String>
 	<system:String x:Key="ticketSaleUnsucces">TICKET SALE IS UNSUCCESFULL</system:String>

@@ -218,11 +218,12 @@ namespace Kochi_TVM.Pages
                 {
                     case JourneyType.Topup:
                         lblLine1Key.Visibility = Visibility.Visible;
-                        lblLine2Key.Visibility = Visibility.Visible; lblLine2Value.Visibility = Visibility.Visible;
+                        lblLine2Key.Visibility = Visibility.Visible; lblLine2Key1.Visibility = Visibility.Visible;
+                        lblLine2Value.Visibility = Visibility.Visible;
                         lblLine1Key.Content = Ticket.journeyTypeText;
                         lblLine2Key.Content = MultiLanguage.GetText("amount"); lblLine2Value.Content = Conversion.MoneyFormat(TransactionInfo.amount);
                         lblLine3Key.Visibility = Visibility.Collapsed;
-                        lblLine4Key.Visibility = Visibility.Collapsed;
+                        lblLine4Key.Visibility = Visibility.Collapsed; lblLine4Key1.Visibility = Visibility.Collapsed;
                         lblLine4Value.Visibility = Visibility.Collapsed;
                         grdInfo.Visibility = Visibility.Collapsed;
                         lblLine3Value.Visibility = Visibility.Collapsed;
@@ -233,9 +234,9 @@ namespace Kochi_TVM.Pages
                     case JourneyType.Day_Pass:
                     case JourneyType.Weekend_Pass:
                         lblLine1Key.Visibility = Visibility.Visible;
-                        lblLine2Key.Visibility = Visibility.Visible; lblLine2Value.Visibility = Visibility.Visible;
-                        lblLine3Key.Visibility = Visibility.Visible; lblLine3Value.Visibility = Visibility.Visible;
-                        lblLine4Key.Visibility = Visibility.Visible; lblLine4Value.Visibility = Visibility.Visible;
+                        lblLine2Key.Visibility = Visibility.Visible; lblLine2Key1.Visibility = Visibility.Visible; lblLine2Value.Visibility = Visibility.Visible;
+                        lblLine3Key.Visibility = Visibility.Visible; lblLine3Key1.Visibility = Visibility.Visible; lblLine3Value.Visibility = Visibility.Visible;
+                        lblLine4Key.Visibility = Visibility.Visible; lblLine4Key1.Visibility = Visibility.Visible; lblLine4Value.Visibility = Visibility.Visible;
                         lblLine1Key.Content = Ticket.journeyTypeText;
                         lblLine2Key.Content = MultiLanguage.GetText("ticketType"); lblLine2Value.Content = MultiLanguage.GetText("RFIDPaper");
                         lblLine3Key.Content = MultiLanguage.GetText("numberOfTickets"); lblLine3Value.Content = Ticket.ticketCount;
@@ -251,15 +252,15 @@ namespace Kochi_TVM.Pages
                     case JourneyType.Period_Pass:
                     case JourneyType.Trip_Pass:
                         lblLine1Key.Visibility = Visibility.Visible;
-                        lblLine2Key.Visibility = Visibility.Visible; lblLine2Value.Visibility = Visibility.Visible;
-                        lblLine3Key.Visibility = Visibility.Visible; lblLine3Value.Visibility = Visibility.Visible;
-                        lblLine4Key.Visibility = Visibility.Visible; lblLine4Value.Visibility = Visibility.Visible;
-                        lblLine5Key.Visibility = Visibility.Visible; lblLine5Value.Visibility = Visibility.Visible;
-                        lblLine6Key.Visibility = Visibility.Visible; lblLine6Value.Visibility = Visibility.Visible;
+                        lblLine2Key.Visibility = Visibility.Visible; lblLine2Key1.Visibility = Visibility.Visible; lblLine2Value.Visibility = Visibility.Visible;
+                        lblLine3Key.Visibility = Visibility.Visible; lblLine3Key1.Visibility = Visibility.Visible; lblLine3Value.Visibility = Visibility.Visible;
+                        lblLine4Key.Visibility = Visibility.Visible; lblLine4Key1.Visibility = Visibility.Visible; lblLine4Value.Visibility = Visibility.Visible;
+                        lblLine5Key.Visibility = Visibility.Visible; lblLine5Key1.Visibility = Visibility.Visible; lblLine5Value.Visibility = Visibility.Visible;
+                        lblLine6Key.Visibility = Visibility.Visible; lblLine6Key1.Visibility = Visibility.Visible; lblLine6Value.Visibility = Visibility.Visible;
                         lblLine1Key.Content = Ticket.journeyTypeText;
-                        lblLine2Key.Content = "Origin Station :"; lblLine2Value.Content = MultiLanguage.GetText(Ticket.startStation.name);
+                        lblLine2Key.Content = "Origin Station"; lblLine2Value.Content = MultiLanguage.GetText(Ticket.startStation.name);
                         lblLine3Key.Content = MultiLanguage.GetText("destination"); lblLine3Value.Content = Ticket.endStation.name;
-                        lblLine4Key.Content = "Number Of Pass : "; lblLine4Value.Content = Ticket.passCount;
+                        lblLine4Key.Content = "Number Of Pass"; lblLine4Value.Content = Ticket.passCount;
                         lblLine5Key.Content = "Validity : "; lblLine5Value.Content = Ticket.ticketExpiryDts.ToString("g");
                         lblLine6Key.Content = MultiLanguage.GetText("amount"); lblLine6Value.Content = Conversion.MoneyFormat(Ticket.totalPrice);
                         lblAmount.Content = Conversion.MoneyFormat(Ticket.totalPrice);
@@ -268,14 +269,14 @@ namespace Kochi_TVM.Pages
                         break;
                     case JourneyType.Group_Ticket:
                         lblLine1Key.Visibility = Visibility.Visible;
-                        lblLine2Key.Visibility = Visibility.Visible; lblLine2Value.Visibility = Visibility.Visible;
-                        lblLine3Key.Visibility = Visibility.Visible; lblLine3Value.Visibility = Visibility.Visible;
-                        lblLine4Key.Visibility = Visibility.Visible; lblLine4Value.Visibility = Visibility.Visible;
-                        lblLine5Key.Visibility = Visibility.Visible; lblLine5Value.Visibility = Visibility.Visible;
+                        lblLine2Key.Visibility = Visibility.Visible; lblLine2Key1.Visibility = Visibility.Visible; lblLine2Value.Visibility = Visibility.Visible;
+                        lblLine3Key.Visibility = Visibility.Visible; lblLine3Key1.Visibility = Visibility.Visible; lblLine3Value.Visibility = Visibility.Visible;
+                        lblLine4Key.Visibility = Visibility.Visible; lblLine4Key1.Visibility = Visibility.Visible; lblLine4Value.Visibility = Visibility.Visible;
+                        lblLine5Key.Visibility = Visibility.Visible; lblLine5Key1.Visibility = Visibility.Visible; lblLine5Value.Visibility = Visibility.Visible;
                         lblLine1Key.Content = Ticket.journeyTypeText;
                         lblLine2Key.Content = MultiLanguage.GetText("destination"); lblLine2Value.Content = MultiLanguage.GetText(Ticket.endStation.name);
                         lblLine3Key.Content = MultiLanguage.GetText("ticketType"); lblLine3Value.Content = Ticket.ticketTypeText;
-                        lblLine4Key.Content = "Number Of Passenger : "; lblLine4Value.Content = Ticket.peopleCount;
+                        lblLine4Key.Content = "Number Of Passenger"; lblLine4Value.Content = Ticket.peopleCount;
                         lblLine5Key.Content = MultiLanguage.GetText("amount"); lblLine5Value.Content = Conversion.MoneyFormat(Ticket.totalPrice);
                         lblType.Content = Ticket.journeyTypeText.ToString();
                         lblDestination.Content = MultiLanguage.GetText(Ticket.endStation.name);
@@ -286,8 +287,11 @@ namespace Kochi_TVM.Pages
                     case JourneyType.RJT:
                     case JourneyType.SJT:                       
                         lblLine1Key.Content = Ticket.journeyTypeText;
+                        lblLine2Key1.Visibility = Visibility.Visible;
+                        lblLine4Key1.Visibility = Visibility.Visible;
                         lblLine2Key.Content = MultiLanguage.GetText("destination"); lblLine2Value.Content = MultiLanguage.GetText(Stations.GetStation(Ticket.endStation.id).name);
                         //lblLine3Key.Content = "Ticket Type :"; lblLine3Value.Content = Ticket.ticketTypeText;
+                        lblLine3Key1.Visibility = Visibility.Visible;
                         lblLine3Key.Content = MultiLanguage.GetText("numberOfTickets"); lblLine3Value.Content = Ticket.ticketCount;
                         lblLine4Key.Content = MultiLanguage.GetText("amount"); lblLine4Value.Content = Conversion.MoneyFormat(Ticket.totalPrice);
                         Constants.EnableBillNotes = TVMUtility.EnableBill(Ticket.totalPrice);
@@ -313,8 +317,8 @@ namespace Kochi_TVM.Pages
         {
             try
             {
-                lblLine5Key.Visibility = Visibility.Hidden; lblLine5Value.Visibility = Visibility.Hidden;
-                lblLine6Key.Visibility = Visibility.Hidden; lblLine6Value.Visibility = Visibility.Hidden;
+                lblLine5Key.Visibility = Visibility.Hidden; lblLine5Key1.Visibility = Visibility.Hidden; lblLine5Value.Visibility = Visibility.Hidden;
+                lblLine6Key.Visibility = Visibility.Hidden; lblLine6Key1.Visibility = Visibility.Hidden; lblLine6Value.Visibility = Visibility.Hidden;
             }
             catch (Exception ex)
             {

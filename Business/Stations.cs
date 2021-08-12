@@ -9,10 +9,12 @@ namespace Kochi_TVM.Business
     {
         public static Station currentStation = new Station();
         public static Dictionary<int, Station> stationList = new Dictionary<int, Station>();
+        public static List<Station> stationsList = new List<Station>();
         public static bool FillStationList()
         {
             bool result = false;
             stationList.Clear();
+            stationsList.Clear();
             try
             {
                 using (var context = new TVM_Entities())
@@ -31,7 +33,7 @@ namespace Kochi_TVM.Business
                             mapColumn = Convert.ToInt32(item.mapColumn),
                             mapHereRow = Convert.ToInt32(item.mapHereRow),
                             mapHereColumn = Convert.ToInt32(item.mapHereColumn)
-                        };
+                        };                        
                         AddStation(listStation);
                     }
                 }
@@ -67,6 +69,7 @@ namespace Kochi_TVM.Business
             {
                 if (!stationList.ContainsKey(listStation.id))
                 {
+                    stationsList.Add(listStation);
                     stationList.Add(listStation.id, listStation);
                 }
                 result = true;

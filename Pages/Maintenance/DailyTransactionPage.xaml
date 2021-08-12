@@ -49,6 +49,7 @@
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"/>
@@ -101,6 +102,7 @@
                     <ColumnDefinition Width="10"/>
                     <ColumnDefinition Width="5*"/>
                 </Grid.ColumnDefinitions>
+                <Label  Grid.Row="0" Grid.Column="0" Content="QR" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
                 <Label  Grid.Row="0" Grid.Column="2" Content="SJT" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
                 <StackPanel Grid.Row="0" Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Label Name="lblQRSJTCashCount" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
@@ -130,8 +132,7 @@
                     <ColumnDefinition Width="5*"/>
                     <ColumnDefinition Width="10"/>
                     <ColumnDefinition Width="5*"/>
-                </Grid.ColumnDefinitions>
-                <Label  Grid.Row="0" Grid.Column="0" Content="QR" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
+                </Grid.ColumnDefinitions>                
                 <Label  Grid.Row="0" Grid.Column="2" Content="RJT" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
                 <StackPanel Grid.Row="0" Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Label Name="lblQRRJTCashCount" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
@@ -180,7 +181,7 @@
                 </StackPanel>
             </Grid>
 
-            <Border Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="12" Grid.RowSpan="3" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
+            <Border Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="12" Grid.RowSpan="4" BorderThickness="5" CornerRadius="20" Background="{StaticResource WhiteFontColor}" BorderBrush="{StaticResource ShadowColor}" />
             <Grid  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="6" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5*"/>
@@ -192,7 +193,8 @@
                     <ColumnDefinition Width="5*"/>
                     <ColumnDefinition Width="10"/>
                     <ColumnDefinition Width="5*"/>
-                </Grid.ColumnDefinitions>                
+                </Grid.ColumnDefinitions>
+                <Label  Grid.Row="0" Grid.Column="0" Content="RPT" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
                 <Label  Grid.Row="0" Grid.Column="2" Content="SJT" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
                 <StackPanel Grid.Row="0" Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Label Name="lblRPTQRSJTCashCount"  Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
@@ -209,8 +211,8 @@
                     <Label Content="/" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
                     <Label Name="lblRPTQRSJTTotalAmount" Content="₹0.00" Grid.Row="0" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
                 </StackPanel>
-            </Grid>           
- 
+            </Grid>
+
             <Grid  Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="6" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5*"/>
@@ -223,7 +225,36 @@
                     <ColumnDefinition Width="10"/>
                     <ColumnDefinition Width="5*"/>
                 </Grid.ColumnDefinitions>
-                <Label  Grid.Row="0" Grid.Column="0" Content="RPT" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
+                <Label  Grid.Row="0" Grid.Column="2" Content="Group" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
+                <StackPanel Grid.Row="0" Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label Name="lblRPTQRGroupCashCount"  Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
+                    <Label Content="/" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
+                    <Label Name="lblRPTQRGroupCashAmount"  Grid.Row="0" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
+                </StackPanel>
+                <StackPanel Grid.Row="0" Grid.Column="6" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label Name="lblRPTQRGroupNonCashCount" Content="0" Grid.Row="0" Grid.Column="8" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
+                    <Label Content="/" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
+                    <Label Name="lblRPTQRGroupNonCashAmount" Content="₹0.00" Grid.Row="0" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
+                </StackPanel>
+                <StackPanel Grid.Row="0" Grid.Column="8" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label Name="lblRPTQRGroupTotalCount" Content="0" Grid.Row="0" Grid.Column="8" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
+                    <Label Content="/" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
+                    <Label Name="lblRPTQRGroupTotalAmount" Content="₹0.00" Grid.Row="0" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
+                </StackPanel>
+            </Grid>
+
+            <Grid  Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="6" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>                
                 <Label  Grid.Row="0" Grid.Column="2" Content="Day Pass" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
                 <StackPanel Grid.Row="0" Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Label Name="lblRPTDayPassCashCount"  Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
@@ -242,7 +273,7 @@
                 </StackPanel>
             </Grid>
 
-            <Grid  Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="6" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Grid  Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="6" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5*"/>
                     <ColumnDefinition Width="10"/>
@@ -271,7 +302,7 @@
                     <Label Name="lblRPTWeekendTotalAmount" Content="₹0.00" Grid.Row="0" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="20" FontFamily="Titillium"/>
                 </StackPanel>
             </Grid>
-            <Grid  Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="6" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Grid  Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="6" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5*"/>
                     <ColumnDefinition Width="10"/>
@@ -294,7 +325,7 @@
                     <Label Name="lblSummaryAmount" Content="₹0.00" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="Black" FontSize="18" FontFamily="Titillium"/>
                 </StackPanel>
             </Grid>
-            <Button x:Name="btnPrint" Grid.Row="8" Grid.Column="2"  Grid.ColumnSpan="3" Content="Print Daily Transaction" Width="350" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Right" VerticalAlignment="Stretch" Click="btnPrint_Click" />
+            <Button x:Name="btnPrint" Grid.Row="9" Grid.Column="2"  Grid.ColumnSpan="3" Content="Print Daily Transaction" Width="350" Style="{StaticResource styleLanguageBtn}" HorizontalAlignment="Right" VerticalAlignment="Stretch" Click="btnPrint_Click" />
         </Grid>
 
         <Grid Name="navigationGrid" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3">

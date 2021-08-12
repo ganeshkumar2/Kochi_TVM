@@ -46,34 +46,35 @@
             </ScrollViewer.Resources>
         </ScrollViewer>
 
-        <StackPanel Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-            <Button Tag="A" Content="A" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="B" Content="B" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="C" Content="C" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="D" Content="D" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="E" Content="E" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="F" Content="F" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="G" Content="G" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="H" Content="H" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="I" Content="I" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="J" Content="J" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="K" Content="K" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="L" Content="L" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="M" Content="M" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="N" Content="N" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="O" Content="O" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="P" Content="P" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="Q" Content="Q" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="R" Content="R" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="S" Content="S" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="T" Content="T" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="U" Content="U" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="V" Content="V" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="W" Content="W" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="X" Content="X" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="Y" Content="Y" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            <Button Tag="Z" Content="Z" Style="{StaticResource styleCardTypeBtn}" Height="30" Width="30" Margin="0,0,5,0" Click="btnAlphabet_Click"/>
-            
+        <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <Button Tag="A" Content="A" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="B" Content="B" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="C" Content="C" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="D" Content="D" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="E" Content="E" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="F" Content="F" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="G" Content="G" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="H" Content="H" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="I" Content="I" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="J" Content="J" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="K" Content="K" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="L" Content="L" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="M" Content="M" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="N" Content="N" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="O" Content="O" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="P" Content="P" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="Q" Content="Q" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="R" Content="R" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="S" Content="S" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="T" Content="T" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="U" Content="U" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="V" Content="V" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="W" Content="W" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="X" Content="X" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="Y" Content="Y" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button Tag="Z" Content="Z" Style="{StaticResource styleCardTypeBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnAlphabet_Click"/>
+            <Button x:Name="btnClear" Style="{StaticResource styleClearBtn}" Height="35" Width="35" Margin="0,0,2,0" Click="btnClear_Click"/>
+
         </StackPanel>
         
         

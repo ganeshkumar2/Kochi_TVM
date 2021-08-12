@@ -26,7 +26,7 @@
 	<system:String x:Key="selectLang">अपनी भाषा चुन लें</system:String>
 	<system:String x:Key="selectTicketType">टिकट का प्रकार चुन लें</system:String>
 	<system:String x:Key="selectTicketCount">टिकट संख्या चुन लें</system:String>
-	<system:String x:Key="numberOfTickets">टिकटों की संख्या :</system:String>
+	<system:String x:Key="numberOfTickets">टिकटों की संख्या</system:String>
 	<system:String x:Key="totalPrice">कुल राशि</system:String>
 	<system:String x:Key="depositedAmount">डाली गयी राशि</system:String>
 	<system:String x:Key="rs">₹</system:String>
@@ -34,9 +34,9 @@
 	<system:String x:Key="RJT">वापसी यात्रा टिकट</system:String>
 	<system:String x:Key="SJT">एक तरफ की यात्रा टिकट</system:String>
     <system:String x:Key="GRO">समूह यात्रा टिकट</system:String>
-	<system:String x:Key="destination">गंतव्य स्टेशन :</system:String>
-	<system:String x:Key="ticketType">टिकट का प्रकार :</system:String>
-	<system:String x:Key="amount">धनराशि :</system:String>
+	<system:String x:Key="destination">गंतव्य स्टेशन</system:String>
+	<system:String x:Key="ticketType">टिकट का प्रकार</system:String>
+	<system:String x:Key="amount">धनराशि</system:String>
 	<system:String x:Key="startPaymentProc">भुगतान प्रक्रिया प्रारंभ करें</system:String>
 	<system:String x:Key="cash">नकद</system:String>
 	<system:String x:Key="back">वापस</system:String>
@@ -55,7 +55,7 @@
 	<system:String x:Key="contactCustomerCare">कृपया ग्राहक सेवा केंद्र से संपर्क करें</system:String>
 	<system:String x:Key="stationClosed">स्टेशन बंद हो गया</system:String>
 	<system:String x:Key="procPlsWait">प्रक्रिया चल रही है, कृपया प्रतीक्षा करें</system:String>
-	<system:String x:Key="insertedAmount">जमा की गई राशि : </system:String>
+	<system:String x:Key="insertedAmount">जमा की गई राशि</system:String>
 	<system:String x:Key="operationSucces">OPERATION SUCCESFULL</system:String>
 	<system:String x:Key="ticketSaleSucces">टिकट बिक्री सफल हुई</system:String>
 	<system:String x:Key="ticketSaleUnsucces">टिकट बिक्री असफल हुई</system:String>

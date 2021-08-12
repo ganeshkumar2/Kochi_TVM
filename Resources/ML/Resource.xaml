@@ -26,7 +26,7 @@
     <system:String x:Key="selectLang">നിങ്ങളുടെ ഭാഷ തിരഞ്ഞെടുക്കുക</system:String>
 	<system:String x:Key="selectTicketType">ടിക്കറ്റ് തിരഞ്ഞെടുക്കുക</system:String>
 	<system:String x:Key="selectTicketCount">എണ്ണം തിരഞ്ഞെടുക്കുക</system:String>
-	<system:String x:Key="numberOfTickets">ടിക്കറ്റുകളുടെ എണ്ണം :</system:String>
+	<system:String x:Key="numberOfTickets">ടിക്കറ്റുകളുടെ എണ്ണം</system:String>
 	<system:String x:Key="totalPrice">ആകെ തുക</system:String>
 	<system:String x:Key="depositedAmount">നിക്ഷേപിച്ച തുക</system:String>
 	<system:String x:Key="rs">₹</system:String>
@@ -34,9 +34,9 @@
 	<system:String x:Key="RJT">മടക്കയാത്ര ടിക്കറ്റ്</system:String>
 	<system:String x:Key="SJT">ഒറ്റയാത്ര ടിക്കറ്റ്</system:String>
     <system:String x:Key="GRO">ഗ്രൂപ്പ് ജേണി ടിക്കറ്റ്</system:String>
-	<system:String x:Key="destination">ലക്ഷ്യസ്ഥാനം :</system:String>
-	<system:String x:Key="ticketType">ടിക്കറ്റ് തരം :</system:String>
-	<system:String x:Key="amount">തുക :</system:String>
+	<system:String x:Key="destination">ലക്ഷ്യസ്ഥാനം</system:String>
+	<system:String x:Key="ticketType">ടിക്കറ്റ് തരം</system:String>
+	<system:String x:Key="amount">തുക</system:String>
 	<system:String x:Key="startPaymentProc">ഇടപാട് ആരംഭിക്കുക</system:String>
 	<system:String x:Key="cash">പണം</system:String>
 	<system:String x:Key="back">തിരികെ</system:String>
@@ -55,7 +55,7 @@
 	<system:String x:Key="contactCustomerCare">ദയവായി ഉപഭോക്തൃ കേന്ദ്രവുമായി ബന്ധപ്പെടുക</system:String>
 	<system:String x:Key="stationClosed">സ്റ്റേഷൻ അടച്ചു</system:String>
 	<system:String x:Key="procPlsWait">ദയവായി കാത്തിരിക്കൂ, പ്രവർത്തനം നടന്നുകൊണ്ടിരിക്കുകയാണ്.</system:String>
-	<system:String x:Key="insertedAmount">നിക്ഷേപിച്ച തുക : </system:String>
+	<system:String x:Key="insertedAmount">നിക്ഷേപിച്ച തുക</system:String>
 	<system:String x:Key="operationSucces">OPERATION SUCCESFULL</system:String>
 	<system:String x:Key="ticketSaleSucces">ടിക്കറ്റ് വിൽപന വിജയിച്ചു</system:String>
 	<system:String x:Key="ticketSaleUnsucces">ടിക്കറ്റ് വിൽപന പരാജയപ്പെട്ടു</system:String>

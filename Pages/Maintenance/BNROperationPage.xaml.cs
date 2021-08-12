@@ -104,7 +104,7 @@ namespace Kochi_TVM.Pages.Maintenance
                             }
                             lblCassette1.Content = "₹" + notevalincasset1;
                             lblCassette1Add.Content = "₹" + notevalincasset1;
-                            lblnoteincasset1.Content = bill;
+                            lblnoteincasset1.Content = "₹" + notevalincasset1;
                             Casette1Billtype = cassetteset.billType;
                             lblCassette1Count.Content = noteincasset1.ToString();
                             lblCassette1Amount.Content = "₹" + (noteincasset1 * notevalincasset1);
@@ -137,7 +137,7 @@ namespace Kochi_TVM.Pages.Maintenance
                             }
                             lblCassette2.Content = "₹" + notevalincasset2;
                             lblCassette2Add.Content = "₹" + notevalincasset2;
-                            lblnoteincasset2.Content = bill;
+                            lblnoteincasset2.Content = "₹" + notevalincasset2;
                             Casette2Billtype = cassetteset.billType;
                             lblCassette2Count.Content = noteincasset2.ToString();
                             lblCassette2Amount.Content = "₹" + (noteincasset2 * notevalincasset2);
@@ -170,7 +170,7 @@ namespace Kochi_TVM.Pages.Maintenance
                             }
                             lblCassette3.Content = "₹" + notevalincasset3;
                             lblCassette3Add.Content = "₹" + notevalincasset3;
-                            lblnoteincasset3.Content = bill;
+                            lblnoteincasset3.Content = "₹" + notevalincasset3;
                             Casette3Billtype = cassetteset.billType;
                             lblCassette3Count.Content = noteincasset3.ToString();
                             lblCassette3Amount.Content = "₹" + (noteincasset3 * notevalincasset3);
@@ -678,63 +678,19 @@ namespace Kochi_TVM.Pages.Maintenance
             }
         }
 
-        private void gridCloseDispens_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            TVMUtility.PlayClick();
-            grdDispence.Visibility = Visibility.Collapsed;
-        }
-
         private void btnDispense_Click(object sender, RoutedEventArgs e)
         {
             TVMUtility.PlayClick();
             grdDispence.Visibility = Visibility.Visible;
         }
 
-        private void NavigateAction(object obj)
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                BNRManager.Instance.PollingAction();
-            }
-            catch (Exception ex)
-            {
-                log.Error("Error TicketTypePage -> DateTimeTimerAction() : " + ex.ToString());
-            }
-        }
-        private void UpdValOnScr()
-        {
-            MoneyOperations.SelMoneyStatus();
-            StockOperations.SelStockStatus();
-            Dispatcher.BeginInvoke(new Action(() =>
-            {
-                lblBoxInfo.Content = String.Format("{0}", "₹" + Convert.ToInt32(MoneyOperations.box));
-                lblBoxCount.Content = String.Format("{0}", StockOperations.box);
-                if (StockOperations.box == 0)
-                {
-                    btnClearBox.IsEnabled = false;
-                    btnClearBox.Opacity = 0.2;
-                }
-                else
-                {
-                    btnClearBox.IsEnabled = true;
-                    btnClearBox.Opacity = 1;
-                }
-            }));
+            TVMUtility.PlayClick();
+            grdDispence.Visibility = Visibility.Collapsed;
         }
 
-        private void UnloadCassette(int cassetteNumber, int count)
-        {
-            try
-            {
-                BNRManager.Instance.UnloadCassette(cassetteNumber, count);
-            }
-            catch (Exception ex)
-            {
-                log.Error("Error BNRTestPage -> UnloadCassette() : " + ex.ToString());
-            }
-        }
-
-        private void GridDispenseSeq_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void btnDispenseAmount_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -789,6 +745,51 @@ namespace Kochi_TVM.Pages.Maintenance
                 log.Error("Error BNROperationPage -> GridDispenseSeq_MouseLeftButtonDown() : " + ex.ToString());
             }
         }
+
+        private void NavigateAction(object obj)
+        {
+            try
+            {
+                BNRManager.Instance.PollingAction();
+            }
+            catch (Exception ex)
+            {
+                log.Error("Error TicketTypePage -> DateTimeTimerAction() : " + ex.ToString());
+            }
+        }
+        private void UpdValOnScr()
+        {
+            MoneyOperations.SelMoneyStatus();
+            StockOperations.SelStockStatus();
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                lblBoxInfo.Content = String.Format("{0}", "₹" + Convert.ToInt32(MoneyOperations.box));
+                lblBoxCount.Content = String.Format("{0}", StockOperations.box);
+                if (StockOperations.box == 0)
+                {
+                    btnClearBox.IsEnabled = false;
+                    btnClearBox.Opacity = 0.2;
+                }
+                else
+                {
+                    btnClearBox.IsEnabled = true;
+                    btnClearBox.Opacity = 1;
+                }
+            }));
+        }
+
+        private void UnloadCassette(int cassetteNumber, int count)
+        {
+            try
+            {
+                BNRManager.Instance.UnloadCassette(cassetteNumber, count);
+            }
+            catch (Exception ex)
+            {
+                log.Error("Error BNRTestPage -> UnloadCassette() : " + ex.ToString());
+            }
+        }
+
         private void DispenseSeqBill(byte[] snd_arr)
         {
             try

@@ -75,10 +75,10 @@ namespace Kochi_TVM.Pages.Maintenance
             operationGrid.Children.Add(LastSyncDts);
 
             ////ParamVersion
-            DeviceInfoControl ParamVersion = new DeviceInfoControl("Parameter Version", Parameters.TVMDynamic.GetParameter("sys_CCVersion"));
-            Grid.SetRow(ParamVersion, 8);
-            Grid.SetColumn(ParamVersion, 0);
-            operationGrid.Children.Add(ParamVersion);
+            //DeviceInfoControl ParamVersion = new DeviceInfoControl("Parameter Version", Parameters.TVMDynamic.GetParameter("sys_CCVersion"));
+            //Grid.SetRow(ParamVersion, 8);
+            //Grid.SetColumn(ParamVersion, 0);
+            //operationGrid.Children.Add(ParamVersion);
 
             //FareVersion
             DeviceInfoControl FareVersion = new DeviceInfoControl("Fare Version", Convert.ToString(version));

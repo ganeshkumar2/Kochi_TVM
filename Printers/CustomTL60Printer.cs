@@ -587,7 +587,7 @@ namespace Kochi_TVM.Printers
             //AddText("TVM ID", Parameters.TVMDynamic.GetParameter("unitId"), 80);
             AddText("Equipment ID", Parameters.TVMDynamic.GetParameter("descCode"), 80);
             AddText("App Version", Parameters.TVMStatic.GetParameter("appVersion"), 80);
-            AddText("Parameter Version", Parameters.TVMDynamic.GetParameter("sys_CCVersion"), 105);
+            //AddText("Parameter Version", Parameters.TVMDynamic.GetParameter("sys_CCVersion"), 105);
             AddText("Fare Version", farever, 105);
             AddText("Last Sync Date", Parameters.lastSync.ToString(), 105);
             AddText("Central Computer", Parameters.TVMDynamic.GetParameter("AfcConn") == "1" ? "Connect" : "Disconnect", 105);
