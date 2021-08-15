@@ -9,7 +9,7 @@
     <system:String x:Key="uyariCalismaSaati">Work Time:</system:String>
 	<system:String x:Key="collectTicket">कृपया अपनी टिकट प्राप्त करें !</system:String>
 	<system:String x:Key="ticketCount">टिकट की संख्या :</system:String>
-	<system:String x:Key="collectTicketChange">कृपया अपनी टिकट और शेष धनराशि प्राप्त करें !</system:String>
+    <system:String x:Key="collectTicketChange">कृपया अपना डिस्पेंस एकत्र करें!</system:String>
 	<system:String x:Key="collectRefund">कृपया अपनी धन की वापसी प्राप्त करें !</system:String>
 	<system:String x:Key="sj">एक तरफ की यात्रा</system:String>
 	<system:String x:Key="rj">वापसी यात्रा</system:String>

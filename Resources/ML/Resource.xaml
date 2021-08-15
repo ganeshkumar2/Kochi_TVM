@@ -9,7 +9,7 @@
     <system:String x:Key="uyariCalismaSaati">Work Time:</system:String>
 	<system:String x:Key="collectTicket">ദയവായി ടിക്കറ്റ് ശേഖരിക്കുക !</system:String>
 	<system:String x:Key="ticketCount">ടിക്കറ്റുകളുടെ എണ്ണം :</system:String>
-	<system:String x:Key="collectTicketChange">ദയവായി ടിക്കറ്റും ബാക്കി തുകയും ശേഖരിക്കുക !</system:String>
+    <system:String x:Key="collectTicketChange">നിങ്ങളുടെ വിതരണം ചെയ്തവ ശേഖരിക്കുക!</system:String>
 	<system:String x:Key="collectRefund">ദയവായി തുക തിരികെ ശേഖരിക്കുക !</system:String>
 	<system:String x:Key="sj">ഒറ്റയാത്ര</system:String>
 	<system:String x:Key="rj">മടക്കയാത്ര</system:String>

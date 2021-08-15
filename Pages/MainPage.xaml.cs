@@ -328,146 +328,128 @@ namespace Kochi_TVM.Pages
             {
                 try
                 {
-                    DateTime startDate = DateTime.Parse(Parameters.TVMDynamic.GetParameter("sys_WorkHoursStart"));
-                    DateTime endDate = DateTime.Parse(Parameters.TVMDynamic.GetParameter("sys_WorkHoursEnd"));
-
-                    using (var context = new TVM_Entities())
+                    if (Parameters.TVMDynamic.GetParameter("SCConn") == "1")
                     {
-                        var trxData = context.sp_SelShiftPaymentReport(Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId")), Stations.currentStation.id, 0, 0, startDate, endDate).ToList();
+                        DateTime startDate = DateTime.Parse(Parameters.TVMDynamic.GetParameter("sys_WorkHoursStart"));
+                        DateTime endDate = DateTime.Parse(Parameters.TVMDynamic.GetParameter("sys_WorkHoursEnd"));
 
-                        foreach (var data in trxData)
+                        using (var context = new TVM_Entities())
                         {
-                            if (Convert.ToString(data.Transaction) == "QR SJT-CASH")
-                            {
-                                QRSJTCashCount = Convert.ToInt32(data.Count);
-                                QRSJTCashAmount = Convert.ToInt32(data.Amount);
-                            }
-                            else if (Convert.ToString(data.Transaction) == "QR SJT-NonCASH")
-                            {
-                                QRSJTNonCashCount = Convert.ToInt32(data.Count);
-                                QRSJTNonCashAmount = Convert.ToInt32(data.Amount);
-                            }
-                            if (Convert.ToString(data.Transaction) == "QR RJT-CASH")
-                            {
-                                QRRJTCashCount = Convert.ToInt32(data.Count);
-                                QRRJTCashAmount = Convert.ToInt32(data.Amount);
-                            }
-                            else if (Convert.ToString(data.Transaction) == "QR RJT-NonCASH")
-                            {
-                                QRRJTNonCashCount = Convert.ToInt32(data.Count);
-                                QRRJTNonCashAmount = Convert.ToInt32(data.Amount);
-                            }
-                            else if (Convert.ToString(data.Transaction) == "RPT SJT-CASH")
-                            {
-                                RPTSJTCashCount = Convert.ToInt32(data.Count);
-                                RPTSJTCashAmount = Convert.ToInt32(data.Amount);
-                            }
-                            else if (Convert.ToString(data.Transaction) == "RPT SJT-NonCASH")
-                            {
-                                RPTSJTNonCashCount = Convert.ToInt32(data.Count);
-                                RPTSJTNonCashAmount = Convert.ToInt32(data.Amount);
-                            }
-                        }
-                    }
-                    
-                    Parameters.TvmMonitoringData.appVersion = Parameters.TVMStatic.GetParameter("appVersion");
-                    Parameters.TvmMonitoringData.banknote10 = StockOperations.banknote10.ToString();
-                    Parameters.TvmMonitoringData.banknote20 = StockOperations.banknote20.ToString();
-                    Parameters.TvmMonitoringData.bnrStatus = Parameters.TVMStatic.GetParameter("bnaStatus");
-                    Parameters.TvmMonitoringData.doorSensorStatus = "OK";
-                    Parameters.TvmMonitoringData.hopperCoins1 = StockOperations.coin1.ToString();
-                    Parameters.TvmMonitoringData.hopperCoins2 = StockOperations.coin2.ToString();
-                    Parameters.TvmMonitoringData.hopperCoins5 = StockOperations.coin5.ToString();
-                    Parameters.TvmMonitoringData.hopperStatus1 = Parameters.TVMStatic.GetParameter("hopper1Status");
-                    Parameters.TvmMonitoringData.hopperStatus2 = Parameters.TVMStatic.GetParameter("hopper2Status");
-                    Parameters.TvmMonitoringData.hopperStatus5 = Parameters.TVMStatic.GetParameter("hopper5Status");
-                    Parameters.TvmMonitoringData.lastTransactionDate = DateTime.Now;
-                    Parameters.TvmMonitoringData.ledPanelStatus = "OK";
-                    Parameters.TvmMonitoringData.numberOfQr = StockOperations.qrSlip;
-                    Parameters.TvmMonitoringData.qrPrinterStatus = Check_QRprinter == true ? "OK" : "ERROR";
-                    Parameters.TvmMonitoringData.QRRJT_Amount = QRRJTCashAmount;
-                    Parameters.TvmMonitoringData.QRRJT_Count = QRRJTCashCount;
-                    Parameters.TvmMonitoringData.QRSJT_Amount = QRSJTCashAmount;
-                    Parameters.TvmMonitoringData.QRSJT_Count = QRSJTCashCount;
-                    Parameters.TvmMonitoringData.receiptPrinterStatus = Check_Receiptprinter == true ? "OK" : "ERROR";
-                    Parameters.TvmMonitoringData.speakerStatus = "OK";
-                    Parameters.TvmMonitoringData.stationId = Stations.currentStation.id;
-                    Parameters.TvmMonitoringData.Total_Amount = QRRJTCashAmount + QRSJTCashAmount;
-                    Parameters.TvmMonitoringData.Total_Count = QRRJTCashCount + QRSJTCashCount;
-                    Parameters.TvmMonitoringData.tvmId = Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId"));
-                    Parameters.TvmMonitoringData.SpecialMode = "Normal";
+                            var trxData = context.sp_SelShiftPaymentReport(Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId")), Stations.currentStation.id, 0, 0, startDate, endDate).ToList();
 
-                    result = Parameters.insTVMStatusReport();
-                    log.Debug("--TVMStatusReport-- Resp : " + result);
-                    if (result != "")
-                    {
-                        XmlDocument xml = new XmlDocument();
-                        xml.LoadXml(result);
-
-                        if (cmdAfc != "")
-                        {
-                            log.Debug("INFO" + $"cmdAfc : {cmdAfc}");
-                            try
+                            foreach (var data in trxData)
                             {
-                                
-                            }
-                            catch (Exception Ex)
-                            {
-                                log.Error("ERROR "+ Ex.Message);
+                                if (Convert.ToString(data.Transaction) == "QR SJT-CASH")
+                                {
+                                    QRSJTCashCount = Convert.ToInt32(data.Count);
+                                    QRSJTCashAmount = Convert.ToInt32(data.Amount);
+                                }
+                                else if (Convert.ToString(data.Transaction) == "QR SJT-NonCASH")
+                                {
+                                    QRSJTNonCashCount = Convert.ToInt32(data.Count);
+                                    QRSJTNonCashAmount = Convert.ToInt32(data.Amount);
+                                }
+                                if (Convert.ToString(data.Transaction) == "QR RJT-CASH")
+                                {
+                                    QRRJTCashCount = Convert.ToInt32(data.Count);
+                                    QRRJTCashAmount = Convert.ToInt32(data.Amount);
+                                }
+                                else if (Convert.ToString(data.Transaction) == "QR RJT-NonCASH")
+                                {
+                                    QRRJTNonCashCount = Convert.ToInt32(data.Count);
+                                    QRRJTNonCashAmount = Convert.ToInt32(data.Amount);
+                                }
+                                else if (Convert.ToString(data.Transaction) == "RPT SJT-CASH")
+                                {
+                                    RPTSJTCashCount = Convert.ToInt32(data.Count);
+                                    RPTSJTCashAmount = Convert.ToInt32(data.Amount);
+                                }
+                                else if (Convert.ToString(data.Transaction) == "RPT SJT-NonCASH")
+                                {
+                                    RPTSJTNonCashCount = Convert.ToInt32(data.Count);
+                                    RPTSJTNonCashAmount = Convert.ToInt32(data.Amount);
+                                }
                             }
                         }
 
-                        for (var ii = 0; ii < xml.ChildNodes.Count; ii++)
-                        {
-                            string cmd = xml.ChildNodes[ii].Attributes[1].Value;
+                        Parameters.TvmMonitoringData.appVersion = Parameters.TVMStatic.GetParameter("appVersion");
+                        Parameters.TvmMonitoringData.banknote10 = StockOperations.banknote10.ToString();
+                        Parameters.TvmMonitoringData.banknote20 = StockOperations.banknote20.ToString();
+                        Parameters.TvmMonitoringData.bnrStatus = Parameters.TVMStatic.GetParameter("bnaStatus");
+                        Parameters.TvmMonitoringData.doorSensorStatus = "OK";
+                        Parameters.TvmMonitoringData.hopperCoins1 = StockOperations.coin1.ToString();
+                        Parameters.TvmMonitoringData.hopperCoins2 = StockOperations.coin2.ToString();
+                        Parameters.TvmMonitoringData.hopperCoins5 = StockOperations.coin5.ToString();
+                        Parameters.TvmMonitoringData.hopperStatus1 = Parameters.TVMStatic.GetParameter("hopper1Status");
+                        Parameters.TvmMonitoringData.hopperStatus2 = Parameters.TVMStatic.GetParameter("hopper2Status");
+                        Parameters.TvmMonitoringData.hopperStatus5 = Parameters.TVMStatic.GetParameter("hopper5Status");
+                        Parameters.TvmMonitoringData.lastTransactionDate = DateTime.Now;
+                        Parameters.TvmMonitoringData.ledPanelStatus = "OK";
+                        Parameters.TvmMonitoringData.numberOfQr = StockOperations.qrSlip;
+                        Parameters.TvmMonitoringData.qrPrinterStatus = Check_QRprinter == true ? "OK" : "ERROR";
+                        Parameters.TvmMonitoringData.QRRJT_Amount = QRRJTCashAmount;
+                        Parameters.TvmMonitoringData.QRRJT_Count = QRRJTCashCount;
+                        Parameters.TvmMonitoringData.QRSJT_Amount = QRSJTCashAmount;
+                        Parameters.TvmMonitoringData.QRSJT_Count = QRSJTCashCount;
+                        Parameters.TvmMonitoringData.receiptPrinterStatus = Check_Receiptprinter == true ? "OK" : "ERROR";
+                        Parameters.TvmMonitoringData.speakerStatus = "OK";
+                        Parameters.TvmMonitoringData.stationId = Stations.currentStation.id;
+                        Parameters.TvmMonitoringData.Total_Amount = QRRJTCashAmount + QRSJTCashAmount;
+                        Parameters.TvmMonitoringData.Total_Count = QRRJTCashCount + QRSJTCashCount;
+                        Parameters.TvmMonitoringData.tvmId = Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId"));
+                        Parameters.TvmMonitoringData.SpecialMode = "Normal";
 
-                            if (cmd != "")
+                        result = Parameters.insTVMStatusReport();
+                        log.Debug("--TVMStatusReport-- Resp : " + result);
+                        if (result != "")
+                        {
+                            XmlDocument xml = new XmlDocument();
+                            xml.LoadXml(result);
+
+                            if (cmdAfc != "")
                             {
+                                log.Debug("INFO" + $"cmdAfc : {cmdAfc}");
                                 try
                                 {
-                                    refNo = xml.ChildNodes[ii].Attributes[3].Value;
+
                                 }
                                 catch (Exception Ex)
                                 {
                                     log.Error("ERROR " + Ex.Message);
                                 }
                             }
-                            switch (cmd)
+
+                            for (var ii = 0; ii < xml.ChildNodes.Count; ii++)
                             {
-                                case "EnterOutOffServiceMode":
-                                    Application.Current.Dispatcher.BeginInvoke(
-                                       DispatcherPriority.Background,
-                                       new Action(() =>
-                                       {
-                                           Parameters.TvmMonitoringData.SpecialMode = "OutOffServiceMode";
-                                           txtErrorCode.Text = "Out Of Service Mode";
-                                           imgStationClosedMode.Source = new BitmapImage((new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\out_of_service.jpg")));
-                                           outofservice.Visibility = Visibility.Visible;
-                                           LedOperations.Close();
-                                       }));
-                                    break;
-                                case "ExitOutOffServiceMode":
-                                    Application.Current.Dispatcher.BeginInvoke(
-                                   DispatcherPriority.Background,
-                                   new Action(() =>
-                                   {
-                                       Parameters.TvmMonitoringData.SpecialMode = "Normal";
-                                       txtErrorCode.Text = "";
-                                       outofservice.Visibility = Visibility.Collapsed;
-                                       LedOperations.GreenText("WELCOME TO " + Stations.currentStation.name + " " + PIDMessageLog.getMessage());
-                                   }));
-                                    break;
-                                case "EnterMaintenanceMode":
-                                    Application.Current.Dispatcher.BeginInvoke(
-                                       DispatcherPriority.Background,
-                                       new Action(() =>
-                                       {
-                                           Parameters.TvmMonitoringData.SpecialMode = "MaintenanceMode";
-                                           NavigationService.Navigate(new Pages.Maintenance.AdminLoginPage());
-                                       }));
-                                    break;
-                                case "ExitMaintenanceMode":
-                                    Application.Current.Dispatcher.BeginInvoke(
+                                string cmd = xml.ChildNodes[ii].Attributes[1].Value;
+
+                                if (cmd != "")
+                                {
+                                    try
+                                    {
+                                        refNo = xml.ChildNodes[ii].Attributes[3].Value;
+                                    }
+                                    catch (Exception Ex)
+                                    {
+                                        log.Error("ERROR " + Ex.Message);
+                                    }
+                                }
+                                switch (cmd)
+                                {
+                                    case "EnterOutOffServiceMode":
+                                        Application.Current.Dispatcher.BeginInvoke(
+                                           DispatcherPriority.Background,
+                                           new Action(() =>
+                                           {
+                                               Parameters.TvmMonitoringData.SpecialMode = "OutOffServiceMode";
+                                               txtErrorCode.Text = "Out Of Service Mode";
+                                               imgStationClosedMode.Source = new BitmapImage((new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\out_of_service.jpg")));
+                                               outofservice.Visibility = Visibility.Visible;
+                                               LedOperations.Close();
+                                           }));
+                                        break;
+                                    case "ExitOutOffServiceMode":
+                                        Application.Current.Dispatcher.BeginInvoke(
                                        DispatcherPriority.Background,
                                        new Action(() =>
                                        {
@@ -476,146 +458,145 @@ namespace Kochi_TVM.Pages
                                            outofservice.Visibility = Visibility.Collapsed;
                                            LedOperations.GreenText("WELCOME TO " + Stations.currentStation.name + " " + PIDMessageLog.getMessage());
                                        }));
-                                    break;
-                                case "EnterEmergencyMode":
-                                    Application.Current.Dispatcher.BeginInvoke(
-                                       DispatcherPriority.Background,
-                                       new Action(() =>
-                                       {
-                                           Parameters.TvmMonitoringData.SpecialMode = "Emergency";
-                                           txtErrorCode.Text = "Emergency Mode";
-                                           outofservice.Visibility = Visibility.Visible;
-                                           imgStationClosedMode.Source = new BitmapImage((new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\emergency_std.jpg")));
-                                           LedOperations.Emergency();
-                                       }));
-                                    break;
-                                case "ExitEmergencyMode":
-                                    Application.Current.Dispatcher.BeginInvoke(
-                                    DispatcherPriority.Background,
-                                    new Action(() =>
-                                    {
-                                        Parameters.TvmMonitoringData.SpecialMode = "Normal";
-                                        txtErrorCode.Text = "";
-                                        outofservice.Visibility = Visibility.Collapsed;
-                                        LedOperations.GreenText("WELCOME TO " + Stations.currentStation.name + " " + PIDMessageLog.getMessage());
-                                    }));
-                                    break;
-                                case "Restart":
-                                    TVMUtility.RestartSystem();
-                                    break;
-                                //case "ExitIncidentMode":
-                                //    Application.Current.Dispatcher.BeginInvoke(
-                                //       DispatcherPriority.Background,
-                                //       new Action(() =>
-                                //       {
-                                //           Parameters.TvmMonitoringData.SpecialMode = "Normal";
-                                //           txtErrorCode.Text = "";
-                                //           outofservice.Visibility = Visibility.Collapsed;
-                                //       }));
-                                //    break;
-                                case "EnterScreenLock":
-                                    ScreenLockMode();
-                                    break;
-                                case "ExitScreenLock":
-                                    ScreenUnLockMode();
-                                    break;
-                                case "EnterStationClosedMode":
-                                    StationClose();
-                                    break;
-                                case "ExitStationClosedMode":
-                                    StationOpen();
-                                    break;
-                                case "EnterSetOcc":
-                                    Application.Current.Dispatcher.BeginInvoke(
-                                      DispatcherPriority.Background,
-                                      new Action(() =>
-                                      {
-                                          Parameters.TvmMonitoringData.SpecialMode = "Normal";
-                                          btnSelectTicket.IsEnabled = true;
-                                          btnSelectTicket.Opacity = 1;
-                                      }));
-                                    break;
-                                case "ExitSetOcc":
-                                    Application.Current.Dispatcher.BeginInvoke(
-                                      DispatcherPriority.Background,
-                                      new Action(() =>
-                                      {
-                                          Parameters.TvmMonitoringData.SpecialMode = "Occ";
-                                          btnSelectTicket.IsEnabled = false;
-                                          btnSelectTicket.Opacity = 0.2;
-                                      }));
-                                    break;
-                            }
-                        }
-
-                    }
-
-                    result = Parameters.insTVMMonitoring();
-                    log.Debug("--SC Conn insTVMMonitoring-- Resp : " + result);
-                    if (result != "")
-                    {
-                        Parameters.TVMStatic.AddOrUpdateParameter("SCConn", "1");
-                        Parameters.lastSync = DateTime.Now;
-                        XmlDocument xml = new XmlDocument();
-                        xml.LoadXml(result);
-
-                        if (cmdAfc != "")
-                        {
-                            log.Debug("Debug " + $"cmdAfc : {cmdAfc}");
-                            return;
-                        }
-
-                        for (var ii = 0; ii < xml.ChildNodes.Count; ii++)
-                        {
-                            string cmd = xml.ChildNodes[ii].Attributes[1].Value;
-
-                            if (cmd != "")
-                            {                               
-                                try
-                                {
-                                    refNo = xml.ChildNodes[ii].Attributes[3].Value;
-                                }
-                                catch (Exception Ex)
-                                {
-                                    log.Error("ERROR " + Ex.Message);
+                                        break;
+                                    case "EnterMaintenanceMode":
+                                        Application.Current.Dispatcher.BeginInvoke(
+                                           DispatcherPriority.Background,
+                                           new Action(() =>
+                                           {
+                                               Parameters.TvmMonitoringData.SpecialMode = "MaintenanceMode";
+                                               NavigationService.Navigate(new Pages.Maintenance.AdminLoginPage());
+                                           }));
+                                        break;
+                                    case "ExitMaintenanceMode":
+                                        Application.Current.Dispatcher.BeginInvoke(
+                                           DispatcherPriority.Background,
+                                           new Action(() =>
+                                           {
+                                               Parameters.TvmMonitoringData.SpecialMode = "Normal";
+                                               txtErrorCode.Text = "";
+                                               outofservice.Visibility = Visibility.Collapsed;
+                                               LedOperations.GreenText("WELCOME TO " + Stations.currentStation.name + " " + PIDMessageLog.getMessage());
+                                           }));
+                                        break;
+                                    case "EnterEmergencyMode":
+                                        Application.Current.Dispatcher.BeginInvoke(
+                                           DispatcherPriority.Background,
+                                           new Action(() =>
+                                           {
+                                               Parameters.TvmMonitoringData.SpecialMode = "Emergency";
+                                               txtErrorCode.Text = "Emergency Mode";
+                                               outofservice.Visibility = Visibility.Visible;
+                                               imgStationClosedMode.Source = new BitmapImage((new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\emergency_std.jpg")));
+                                               LedOperations.Emergency();
+                                           }));
+                                        break;
+                                    case "ExitEmergencyMode":
+                                        Application.Current.Dispatcher.BeginInvoke(
+                                        DispatcherPriority.Background,
+                                        new Action(() =>
+                                        {
+                                            Parameters.TvmMonitoringData.SpecialMode = "Normal";
+                                            txtErrorCode.Text = "";
+                                            outofservice.Visibility = Visibility.Collapsed;
+                                            LedOperations.GreenText("WELCOME TO " + Stations.currentStation.name + " " + PIDMessageLog.getMessage());
+                                        }));
+                                        break;
+                                    case "Restart":
+                                        TVMUtility.RestartSystem();
+                                        break;
+                                    //case "ExitIncidentMode":
+                                    //    Application.Current.Dispatcher.BeginInvoke(
+                                    //       DispatcherPriority.Background,
+                                    //       new Action(() =>
+                                    //       {
+                                    //           Parameters.TvmMonitoringData.SpecialMode = "Normal";
+                                    //           txtErrorCode.Text = "";
+                                    //           outofservice.Visibility = Visibility.Collapsed;
+                                    //       }));
+                                    //    break;
+                                    case "EnterScreenLock":
+                                        ScreenLockMode();
+                                        break;
+                                    case "ExitScreenLock":
+                                        ScreenUnLockMode();
+                                        break;
+                                    case "EnterStationClosedMode":
+                                        StationClose();
+                                        break;
+                                    case "ExitStationClosedMode":
+                                        StationOpen();
+                                        break;
+                                    case "EnterSetOcc":
+                                        Application.Current.Dispatcher.BeginInvoke(
+                                          DispatcherPriority.Background,
+                                          new Action(() =>
+                                          {
+                                              Parameters.TvmMonitoringData.SpecialMode = "Normal";
+                                              btnSelectTicket.IsEnabled = true;
+                                              btnSelectTicket.Opacity = 1;
+                                          }));
+                                        break;
+                                    case "ExitSetOcc":
+                                        Application.Current.Dispatcher.BeginInvoke(
+                                          DispatcherPriority.Background,
+                                          new Action(() =>
+                                          {
+                                              Parameters.TvmMonitoringData.SpecialMode = "Occ";
+                                              btnSelectTicket.IsEnabled = false;
+                                              btnSelectTicket.Opacity = 0.2;
+                                          }));
+                                        break;
                                 }
                             }
-                            switch (cmd)
+
+                        }
+
+                        result = Parameters.insTVMMonitoring();
+                        log.Debug("--SC Conn insTVMMonitoring-- Resp : " + result);
+                        if (result != "")
+                        {
+                            Parameters.lastSync = DateTime.Now;
+                            XmlDocument xml = new XmlDocument();
+                            xml.LoadXml(result);
+
+                            if (cmdAfc != "")
                             {
-                                case "EnterOutOffServiceMode":
-                                    Application.Current.Dispatcher.BeginInvoke(
-                                       DispatcherPriority.Background,
-                                       new Action(() =>
-                                       {
-                                           Parameters.TvmMonitoringData.SpecialMode = "OutOffServiceMode";
-                                           txtErrorCode.Text = "Out Of Service Mode";
-                                           imgStationClosedMode.Source = new BitmapImage((new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\out_of_service.jpg")));
-                                           outofservice.Visibility = Visibility.Visible;
-                                           LedOperations.Close();
-                                       }));
-                                    break;
-                                case "ExitOutOffServiceMode":
-                                    Application.Current.Dispatcher.BeginInvoke(
-                                   DispatcherPriority.Background,
-                                   new Action(() =>
-                                   {
-                                       Parameters.TvmMonitoringData.SpecialMode = "Normal";
-                                       txtErrorCode.Text = "";
-                                       outofservice.Visibility = Visibility.Collapsed;
-                                       LedOperations.GreenText("WELCOME TO " + Stations.currentStation.name + " " + PIDMessageLog.getMessage());
-                                   }));
-                                    break;
-                                case "EnterMaintenanceMode":
-                                    Application.Current.Dispatcher.BeginInvoke(
-                                       DispatcherPriority.Background,
-                                       new Action(() =>
-                                       {
-                                           Parameters.TvmMonitoringData.SpecialMode = "MaintenanceMode";
-                                           NavigationService.Navigate(new Pages.Maintenance.AdminLoginPage());
-                                       }));
-                                    break;
-                                case "ExitMaintenanceMode":
-                                    Application.Current.Dispatcher.BeginInvoke(
+                                log.Debug("Debug " + $"cmdAfc : {cmdAfc}");
+                                return;
+                            }
+
+                            for (var ii = 0; ii < xml.ChildNodes.Count; ii++)
+                            {
+                                string cmd = xml.ChildNodes[ii].Attributes[1].Value;
+
+                                if (cmd != "")
+                                {
+                                    try
+                                    {
+                                        refNo = xml.ChildNodes[ii].Attributes[3].Value;
+                                    }
+                                    catch (Exception Ex)
+                                    {
+                                        log.Error("ERROR " + Ex.Message);
+                                    }
+                                }
+                                switch (cmd)
+                                {
+                                    case "EnterOutOffServiceMode":
+                                        Application.Current.Dispatcher.BeginInvoke(
+                                           DispatcherPriority.Background,
+                                           new Action(() =>
+                                           {
+                                               Parameters.TvmMonitoringData.SpecialMode = "OutOffServiceMode";
+                                               txtErrorCode.Text = "Out Of Service Mode";
+                                               imgStationClosedMode.Source = new BitmapImage((new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\out_of_service.jpg")));
+                                               outofservice.Visibility = Visibility.Visible;
+                                               LedOperations.Close();
+                                           }));
+                                        break;
+                                    case "ExitOutOffServiceMode":
+                                        Application.Current.Dispatcher.BeginInvoke(
                                        DispatcherPriority.Background,
                                        new Action(() =>
                                        {
@@ -624,83 +605,99 @@ namespace Kochi_TVM.Pages
                                            outofservice.Visibility = Visibility.Collapsed;
                                            LedOperations.GreenText("WELCOME TO " + Stations.currentStation.name + " " + PIDMessageLog.getMessage());
                                        }));
-                                    break;
-                                case "EnterEmergencyMode":
-                                    Application.Current.Dispatcher.BeginInvoke(
-                                       DispatcherPriority.Background,
-                                       new Action(() =>
-                                       {
-                                           Parameters.TvmMonitoringData.SpecialMode = "EmergencyMode";
-                                           txtErrorCode.Text = "Emergency Mode";
-                                           imgStationClosedMode.Source = new BitmapImage((new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\emergency_std.jpg")));
-                                           outofservice.Visibility = Visibility.Visible;
-                                           LedOperations.Emergency();
-                                       }));
-                                    break;
-                                case "ExitEmergencyMode":
-                                    Application.Current.Dispatcher.BeginInvoke(
-                                    DispatcherPriority.Background,
-                                    new Action(() =>
-                                    {
-                                        Parameters.TvmMonitoringData.SpecialMode = "Normal";
-                                        txtErrorCode.Text = "";
-                                        outofservice.Visibility = Visibility.Collapsed;
-                                        LedOperations.GreenText("WELCOME TO " + Stations.currentStation.name + " " + PIDMessageLog.getMessage());
-                                    }));
-                                    break;
-                                case "Restart":
-                                    TVMUtility.RestartSystem();
-                                    break;
-                                //case "ExitIncidentMode":
-                                //    Application.Current.Dispatcher.BeginInvoke(
-                                //       DispatcherPriority.Background,
-                                //       new Action(() =>
-                                //       {
-                                //           Parameters.TvmMonitoringData.SpecialMode = "Normal";
-                                //           txtErrorCode.Text = "";
-                                //           outofservice.Visibility = Visibility.Collapsed;
-                                //       }));
-                                //    break;
-                                case "EnterScreenLock":
-                                    ScreenLockMode();
-                                    break;
-                                case "ExitScreenLock":
-                                    ScreenUnLockMode();
-                                    break;
-                                case "EnterStationClosedMode":
-                                    StationClose();
-                                    break;
-                                case "ExitStationClosedMode":
-                                    StationOpen();
-                                    break;
-                                case "EnterSetOcc":
-                                    Application.Current.Dispatcher.BeginInvoke(
-                                      DispatcherPriority.Background,
-                                      new Action(() =>
-                                      {
-                                          Parameters.TvmMonitoringData.SpecialMode = "Normal";
-                                          btnSelectTicket.IsEnabled = true;
-                                          btnSelectTicket.Opacity = 1;
-                                      }));
-                                    break;
-                                case "ExitSetOcc":
-                                    Application.Current.Dispatcher.BeginInvoke(
-                                      DispatcherPriority.Background,
-                                      new Action(() =>
-                                      {
-                                          Parameters.TvmMonitoringData.SpecialMode = "Occ";
-                                          btnSelectTicket.IsEnabled = false;
-                                          btnSelectTicket.Opacity = 0.2;
-                                      }));
-                                    break;
+                                        break;
+                                    case "EnterMaintenanceMode":
+                                        Application.Current.Dispatcher.BeginInvoke(
+                                           DispatcherPriority.Background,
+                                           new Action(() =>
+                                           {
+                                               Parameters.TvmMonitoringData.SpecialMode = "MaintenanceMode";
+                                               NavigationService.Navigate(new Pages.Maintenance.AdminLoginPage());
+                                           }));
+                                        break;
+                                    case "ExitMaintenanceMode":
+                                        Application.Current.Dispatcher.BeginInvoke(
+                                           DispatcherPriority.Background,
+                                           new Action(() =>
+                                           {
+                                               Parameters.TvmMonitoringData.SpecialMode = "Normal";
+                                               txtErrorCode.Text = "";
+                                               outofservice.Visibility = Visibility.Collapsed;
+                                               LedOperations.GreenText("WELCOME TO " + Stations.currentStation.name + " " + PIDMessageLog.getMessage());
+                                           }));
+                                        break;
+                                    case "EnterEmergencyMode":
+                                        Application.Current.Dispatcher.BeginInvoke(
+                                           DispatcherPriority.Background,
+                                           new Action(() =>
+                                           {
+                                               Parameters.TvmMonitoringData.SpecialMode = "EmergencyMode";
+                                               txtErrorCode.Text = "Emergency Mode";
+                                               imgStationClosedMode.Source = new BitmapImage((new Uri(AppDomain.CurrentDomain.BaseDirectory + @"\Images\emergency_std.jpg")));
+                                               outofservice.Visibility = Visibility.Visible;
+                                               LedOperations.Emergency();
+                                           }));
+                                        break;
+                                    case "ExitEmergencyMode":
+                                        Application.Current.Dispatcher.BeginInvoke(
+                                        DispatcherPriority.Background,
+                                        new Action(() =>
+                                        {
+                                            Parameters.TvmMonitoringData.SpecialMode = "Normal";
+                                            txtErrorCode.Text = "";
+                                            outofservice.Visibility = Visibility.Collapsed;
+                                            LedOperations.GreenText("WELCOME TO " + Stations.currentStation.name + " " + PIDMessageLog.getMessage());
+                                        }));
+                                        break;
+                                    case "Restart":
+                                        TVMUtility.RestartSystem();
+                                        break;
+                                    //case "ExitIncidentMode":
+                                    //    Application.Current.Dispatcher.BeginInvoke(
+                                    //       DispatcherPriority.Background,
+                                    //       new Action(() =>
+                                    //       {
+                                    //           Parameters.TvmMonitoringData.SpecialMode = "Normal";
+                                    //           txtErrorCode.Text = "";
+                                    //           outofservice.Visibility = Visibility.Collapsed;
+                                    //       }));
+                                    //    break;
+                                    case "EnterScreenLock":
+                                        ScreenLockMode();
+                                        break;
+                                    case "ExitScreenLock":
+                                        ScreenUnLockMode();
+                                        break;
+                                    case "EnterStationClosedMode":
+                                        StationClose();
+                                        break;
+                                    case "ExitStationClosedMode":
+                                        StationOpen();
+                                        break;
+                                    case "EnterSetOcc":
+                                        Application.Current.Dispatcher.BeginInvoke(
+                                          DispatcherPriority.Background,
+                                          new Action(() =>
+                                          {
+                                              Parameters.TvmMonitoringData.SpecialMode = "Normal";
+                                              btnSelectTicket.IsEnabled = true;
+                                              btnSelectTicket.Opacity = 1;
+                                          }));
+                                        break;
+                                    case "ExitSetOcc":
+                                        Application.Current.Dispatcher.BeginInvoke(
+                                          DispatcherPriority.Background,
+                                          new Action(() =>
+                                          {
+                                              Parameters.TvmMonitoringData.SpecialMode = "Occ";
+                                              btnSelectTicket.IsEnabled = false;
+                                              btnSelectTicket.Opacity = 0.2;
+                                          }));
+                                        break;
+                                }
                             }
+
                         }
-                      
-                    }
-                    else
-                    {
-                        Parameters.TVMStatic.AddOrUpdateParameter("SCConn", "0");
-                        log.Debug("--SC Conn Error--");
                     }
                 }
                 catch (Exception ex)
@@ -995,7 +992,7 @@ namespace Kochi_TVM.Pages
                     btnSelectTicket.Opacity = 0.2;
                     return;
                 }
-                if (StockOperations.coin1 <= Constants.NoChangeAvailable && StockOperations.coin2 <= Constants.NoChangeAvailable && StockOperations.coin1 <= Constants.NoChangeAvailable)
+                if ((StockOperations.coin1 <= Constants.NoChangeAvailable && StockOperations.coin2 <= Constants.NoChangeAvailable && StockOperations.coin1 <= Constants.NoChangeAvailable) || (Constants.Cassette1NoteCont <= Constants.NoChangeAvailable && Constants.Cassette2NoteCont <= Constants.NoChangeAvailable && Constants.Cassette3NoteCont <= Constants.NoChangeAvailable))
                 {
                     Constants.NoChangeMode = true;
                     if (!Check_Receiptprinter)
@@ -1191,7 +1188,6 @@ namespace Kochi_TVM.Pages
 
                 Message();
 
-                //KMY200DoorAlarm.HelpButtonInputEvent += new KMY200DoorAlarm.HelpButtonInputEventHandler(CheckHelpAction);
                 //timerOccConnMsg.Tick += timerOccConnMsg_Tick;
                 //timerOccConnMsg.Interval = TimeSpan.FromSeconds(1);
                 //timerOccConnMsg.Start();
@@ -1201,13 +1197,7 @@ namespace Kochi_TVM.Pages
                 log.Error("Error MainPage -> Page_Loaded() : " + ex.ToString());
             }
         }
-        private void CheckHelpAction()
-        {
-            bool result = Parameters.InsNStationAlarm(Stations.currentStation.id, Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId")), 1,
-                         string.Format("Help button pressed!"));
-
-            log.Debug("InsNStationAlarm Help button pressed --> result : " + (result == true ? "true" : "false"));
-        }
+        
         private void Page_Unloaded(object sender, RoutedEventArgs e)
         {
             try

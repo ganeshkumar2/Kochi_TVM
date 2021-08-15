@@ -22,6 +22,9 @@ namespace Kochi_TVM.Pages
 
         private static Timer idleTimer;
         private static TimerCallback idleTimerDelegate;
+
+        private static Timer infoTimer;
+        private static TimerCallback infoTimerDelegate;
         public JourneyTypePage()
         {
             InitializeComponent();
@@ -198,6 +201,42 @@ namespace Kochi_TVM.Pages
         {
             if (idleTimer != null)
                 idleTimer.Dispose();
+
+            if (infoTimer != null)
+                infoTimer.Dispose();
+        }
+
+        private void borInfoButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            TVMUtility.PlayClick();
+
+            grdInfo.Visibility = Visibility.Visible;
+
+            infoTimerDelegate = new TimerCallback(CloseInfoAction);
+            infoTimer = new Timer(infoTimerDelegate, null, 30000, 0);
+        }
+        private void CloseInfoAction(object obj)
+        {
+            try
+            {
+                this.Dispatcher.Invoke(() =>
+                {
+                    grdInfo.Visibility = Visibility.Collapsed;
+                });
+            }
+            catch (Exception ex)
+            {
+                log.Error("Error TicketTypePage -> CloseInfoAction() : " + ex.ToString());
+            }
+        }
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            TVMUtility.PlayClick();
+
+            if (infoTimer != null)
+                infoTimer.Dispose();
+
+            grdInfo.Visibility = Visibility.Collapsed;
         }
     }
 }

@@ -39,8 +39,7 @@
             </Grid.ColumnDefinitions>
             <Label Name="lblHeader" Content="" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader2}"/>
             <Label x:Name="lblRemain" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"  Grid.ColumnSpan="2" Content="1" FontSize="30" Style="{StaticResource styleTimerLbl}" HorizontalAlignment="Right" Margin="0,0,5,0"  VerticalAlignment="Center"/>
-
-            <Grid Name="operationGrid" Grid.Column="1" Grid.Row="3" >
+            <Grid Name="operationGrid" Grid.Column="1" Grid.Row="3">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -284,7 +283,6 @@
 
                 </Grid>
             </Grid>
-
             <Grid Name="navigationGrid" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -322,8 +320,6 @@
                     </StackPanel>
                 </Grid>
             </Grid>
-
-
         </Grid>
         <Grid Name="cashGrid" Visibility="Hidden">
             <Grid.RowDefinitions>
@@ -346,12 +342,41 @@
                 <RowDefinition Height="0.10*"/>
                 <RowDefinition Height="0.05*"/>
             </Grid.RowDefinitions>
-
-            <MediaElement x:Name="loadingImageGif" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" MediaEnded="loadingImageGif_MediaEnded" UnloadedBehavior="Manual" LoadedBehavior="Play" Stretch="None"/>
-
-            <TextBlock Grid.Row="1" Style="{StaticResource MainInstructionTextblock}"
-                   Text="Processing, please wait"/>
-            <TextBlock Name="txtBNRStatus" Grid.Row="2" FontSize="25" Style="{StaticResource MainInstructionTextblock}"
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <MediaElement x:Name="loadingImageGif" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" MediaEnded="loadingImageGif_MediaEnded" UnloadedBehavior="Manual" LoadedBehavior="Play" Stretch="None"/>
+            <Grid x:Name="grdPrintInfo" Grid.Row="0" Grid.Column="1" Margin="20,0,20,0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <StackPanel Grid.Column="0" Orientation="Vertical" >
+                        <Label Name="lblSuccessMsg" HorizontalAlignment="Center" FontFamily="Titillium" FontWeight="Bold" Style="{StaticResource styleLabelCashInfo}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="0" Orientation="Horizontal" >
+                        <Label Name="lblPrintDisType" Content="Ticket Type" HorizontalAlignment="Center" Width="120" FontFamily="Titillium" FontWeight="Bold" Style="{StaticResource styleLabelCashInfo}"/>
+                        <Label Content=":" FontFamily="Titillium" FontWeight="Bold" Style="{StaticResource styleLabelCash}" />
+                        <Label Name="lblPrintType" Content="Ticket Type" FontFamily="Titillium" FontWeight="Bold" Style="{StaticResource styleLabelCashInfo}" />
+                    </StackPanel>
+                    <StackPanel x:Name="stackDest" Grid.Column="2" Orientation="Horizontal">
+                        <Label Name="lblPrintDisDestination" Content="Destination" FontFamily="Titillium" Width="120" FontWeight="Bold" Style="{StaticResource styleLabelCashInfo}" />
+                        <Label Content=":" FontFamily="Titillium" FontWeight="Bold" Style="{StaticResource styleLabelCashInfo}" />
+                        <Label Name="lblPrintDestination" Content="Destination" FontFamily="Titillium" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource styleLabelCashInfo}" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="4" Orientation="Horizontal">
+                        <Label Name="lblPrintDisNoOfTickets" Content="No. Of Tickets" FontFamily="Titillium" Width="120" FontWeight="Bold" Style="{StaticResource styleLabelCashInfo}" />
+                        <Label Content=":" FontFamily="Titillium" FontWeight="Bold" Style="{StaticResource styleLabelCashInfo}" />
+                        <Label Name="lblPrintNoOfTickets" Content="No. Of Tickets" FontFamily="Titillium" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource styleLabelCashInfo}" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="6" Orientation="Horizontal" >
+                        <Label Name="lblPrintDisAmount" Content="Payment" FontFamily="Titillium" FontWeight="Bold" Width="120" Style="{StaticResource styleLabelCashInfo}" />
+                        <Label Content=":" FontFamily="Titillium" FontWeight="Bold" Style="{StaticResource styleLabelCashInfo}" />
+                        <Label Name="lblPrintAmount" Content="Amount" FontFamily="Titillium" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource styleLabelCashInfo}" />
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource MainInstructionTextblock}"
+                   Text="Please wait while we are processing your ticket..."/>
+            <TextBlock Name="txtBNRStatus" Grid.Row="2" FontSize="25" Style="{StaticResource MainInstructionTextblock}" Visibility="Collapsed"
                    Text="BNR Status"/>
         </Grid>
         <Grid x:Name="TranUnSuccGrid" Visibility="Hidden">
@@ -374,6 +399,5 @@
                 </StackPanel>
             </StackPanel>
         </Grid>
-
     </Grid>    
 </Page>

@@ -25,6 +25,7 @@ namespace Kochi_TVM.Pages
             InitializeComponent();
             if (Ticket.language == Languages.English || Ticket.language == Languages.Hint)
             {
+                lblHeader.FontSize = 22;
                 btnStation1.FontSize = 14;
                 btnStation2.FontSize = 14;
                 btnStation3.FontSize = 14;
@@ -55,6 +56,7 @@ namespace Kochi_TVM.Pages
             }
             else
             {
+                lblHeader.FontSize = 16;
                 btnStation1.FontSize = 12;
                 btnStation2.FontSize = 12;
                 btnStation3.FontSize = 12;

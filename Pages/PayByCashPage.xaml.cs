@@ -114,6 +114,7 @@ namespace Kochi_TVM.Pages
                 lblPleaseCollect.FontSize = 24;
                 lblMaxAccept.FontSize = 18;
                 lblCusomerMsg.FontSize = 16;
+                lblSuccessMsg.FontSize = 16;
                 lblDestination.FontSize = 14;
                 lblDisDestination.FontSize = 14;
                 lblNoOfTickets.FontSize = 14;
@@ -135,6 +136,7 @@ namespace Kochi_TVM.Pages
                 lblPleaseCollect.FontSize = 18;
                 lblMaxAccept.FontSize = 13;
                 lblCusomerMsg.FontSize = 12;
+                lblSuccessMsg.FontSize = 12;
                 lblDestination.FontSize = 12;
                 lblDisDestination.FontSize = 12;
                 lblNoOfTickets.FontSize = 12;
@@ -151,10 +153,18 @@ namespace Kochi_TVM.Pages
             lblMaxNoteAccept.FontSize = 18;
 
             lblMaxNoteAccept.Content = 20;
+
+            lblSuccessMsg.Content = MultiLanguage.GetText("PaymentSccess");
             lblDisType.Content = MultiLanguage.GetText("DispTicketType");
             lblDisDestination.Content = MultiLanguage.GetText("DispDestination");
             lblDisNoOfTickets.Content = MultiLanguage.GetText("DispNoOfTickets");
             lblDisAmount.Content = MultiLanguage.GetText("DispAmount");
+
+            lblPrintDisType.Content = MultiLanguage.GetText("DispTicketType");
+            lblPrintDisDestination.Content = MultiLanguage.GetText("DispDestination");
+            lblPrintDisNoOfTickets.Content = MultiLanguage.GetText("DispNoOfTickets");
+            lblPrintDisAmount.Content = MultiLanguage.GetText("DispAmount");
+
             lblMaxAccept.Content = MultiLanguage.GetText("MaxNoteAccept");
             lblTotalAmountKey.Content = MultiLanguage.GetText("totalPrice");
             lblPaidAmountKey.Content = MultiLanguage.GetText("insertedAmount");
@@ -187,35 +197,46 @@ namespace Kochi_TVM.Pages
                 case JourneyType.Day_Pass:
                 case JourneyType.Weekend_Pass:
                     lblType.Content = Ticket.journeyTypeText.ToString();
+                    lblPrintType.Content = Ticket.journeyTypeText.ToString();
                     lblDisDestination.Visibility = Visibility.Collapsed;
                     lblDestination.Visibility = Visibility.Collapsed;
                     arrorDest.Visibility = Visibility.Collapsed;
+                    stackDest.Visibility = Visibility.Collapsed;
                     lblNoOfTickets.Content = Ticket.ticketCount;
                     lblAmount.Content = Conversion.MoneyFormat(Ticket.totalPrice);
                     break;
                 case JourneyType.Group_Ticket:
                     lblType.Content = Ticket.journeyTypeText.ToString();
+                    lblPrintType.Content = Ticket.journeyTypeText.ToString();
                     lblDestination.Content = MultiLanguage.GetText(Ticket.endStation.name);
                     lblNoOfTickets.Content = Ticket.ticketCount;
                     lblAmount.Content = Conversion.MoneyFormat(Ticket.totalPrice);
+                    lblPrintDestination.Content = MultiLanguage.GetText(Ticket.endStation.name);
+                    lblPrintNoOfTickets.Content = Ticket.ticketCount;
+                    lblPrintAmount.Content = Conversion.MoneyFormat(Ticket.totalPrice);
                     break;
                 case JourneyType.RJT:
                 case JourneyType.SJT:
                     lblType.Content = Ticket.journeyTypeText.ToString();
+                    lblPrintType.Content = Ticket.journeyTypeText.ToString();
                     lblDestination.Content = MultiLanguage.GetText(Ticket.endStation.name);
                     lblNoOfTickets.Content = Ticket.ticketCount;
                     lblAmount.Content = Conversion.MoneyFormat(Ticket.totalPrice);
+                    lblPrintDestination.Content = MultiLanguage.GetText(Ticket.endStation.name);
+                    lblPrintNoOfTickets.Content = Ticket.ticketCount;
+                    lblPrintAmount.Content = Conversion.MoneyFormat(Ticket.totalPrice);
                     break;
                 case JourneyType.Topup:
                 case JourneyType.Period_Pass:
                 case JourneyType.Trip_Pass:
                     grdInfo.Visibility = Visibility.Collapsed;
+                    grdPrintInfo.Visibility = Visibility.Collapsed;
                     break;
                 default:
                     break;
             }
 
-            if (StockOperations.coin1 <= Constants.NoChangeAvailable && StockOperations.coin2 <= Constants.NoChangeAvailable && StockOperations.coin1 <= Constants.NoChangeAvailable)
+            if ((StockOperations.coin1 <= Constants.NoChangeAvailable && StockOperations.coin2 <= Constants.NoChangeAvailable && StockOperations.coin1 <= Constants.NoChangeAvailable) || (Constants.Cassette1NoteCont <= Constants.NoChangeAvailable && Constants.Cassette2NoteCont <= Constants.NoChangeAvailable && Constants.Cassette3NoteCont <= Constants.NoChangeAvailable))
             {
                 if (Ticket.totalPrice > 5 && Ticket.totalPrice <= 10)
                 {
@@ -851,7 +872,69 @@ namespace Kochi_TVM.Pages
                         lblPaidAmountValue.Content = "₹" + receivedCash + ".00";
                         customerMsgGrid.Visibility = Visibility.Hidden;
                         resetTimmer();
-                        decimal disbalance = TotalAmountToCollect - (Convert.ToDecimal(receivedCash));
+                        decimal disbalance = TotalAmountToCollect - Convert.ToDecimal(receivedCash);
+
+                        if (disbalance > 5 && disbalance <= 10)
+                        {
+                            grdMoney10.Visibility = Visibility.Collapsed;
+                            grdMoney20.Visibility = Visibility.Visible;
+                            grdMoney50.Visibility = Visibility.Visible;
+                            grdMoney100.Visibility = Visibility.Visible;
+                            grdMoney200.Visibility = Visibility.Visible;
+                            grdMoney500.Visibility = Visibility.Visible;
+                            grdMoney2000.Visibility = Visibility.Visible;
+                        }
+                        if (disbalance > 10 && disbalance <= 20)
+                        {
+                            grdMoney10.Visibility = Visibility.Collapsed;
+                            grdMoney20.Visibility = Visibility.Collapsed;
+                            grdMoney50.Visibility = Visibility.Visible;
+                            grdMoney100.Visibility = Visibility.Visible;
+                            grdMoney200.Visibility = Visibility.Visible;
+                            grdMoney500.Visibility = Visibility.Visible;
+                            grdMoney2000.Visibility = Visibility.Visible;
+                        }
+                        if (disbalance > 20 && disbalance <= 50)
+                        {
+                            grdMoney10.Visibility = Visibility.Collapsed;
+                            grdMoney20.Visibility = Visibility.Collapsed;
+                            grdMoney50.Visibility = Visibility.Collapsed;
+                            grdMoney100.Visibility = Visibility.Visible;
+                            grdMoney200.Visibility = Visibility.Visible;
+                            grdMoney500.Visibility = Visibility.Visible;
+                            grdMoney2000.Visibility = Visibility.Visible;
+                        }
+                        if (disbalance > 50 && disbalance <= 100)
+                        {
+                            grdMoney10.Visibility = Visibility.Collapsed;
+                            grdMoney20.Visibility = Visibility.Collapsed;
+                            grdMoney50.Visibility = Visibility.Collapsed;
+                            grdMoney100.Visibility = Visibility.Collapsed;
+                            grdMoney200.Visibility = Visibility.Visible;
+                            grdMoney500.Visibility = Visibility.Visible;
+                            grdMoney2000.Visibility = Visibility.Visible;
+                        }
+                        if (disbalance > 100 && disbalance < 500)
+                        {
+                            grdMoney10.Visibility = Visibility.Collapsed;
+                            grdMoney20.Visibility = Visibility.Collapsed;
+                            grdMoney50.Visibility = Visibility.Collapsed;
+                            grdMoney100.Visibility = Visibility.Collapsed;
+                            grdMoney200.Visibility = Visibility.Collapsed;
+                            grdMoney500.Visibility = Visibility.Visible;
+                            grdMoney2000.Visibility = Visibility.Visible;
+                        }
+                        if (disbalance >= 500 && disbalance <= 1500)
+                        {
+                            grdMoney10.Visibility = Visibility.Collapsed;
+                            grdMoney20.Visibility = Visibility.Collapsed;
+                            grdMoney50.Visibility = Visibility.Collapsed;
+                            grdMoney100.Visibility = Visibility.Collapsed;
+                            grdMoney200.Visibility = Visibility.Collapsed;
+                            grdMoney500.Visibility = Visibility.Collapsed;
+                            grdMoney2000.Visibility = Visibility.Visible;
+                        }
+
                         lblChangeAmountValue.Content = "₹" + (disbalance > 0 ? disbalance : disbalance * (-1));
                         btnBack.Visibility = Visibility.Hidden;
                         await Task.Delay(250);

@@ -1,5 +1,6 @@
 ﻿using Kochi_TVM.Business;
 using Kochi_TVM.MultiLanguages;
+using Kochi_TVM.Sensors;
 using Kochi_TVM.Utils;
 using log4net;
 using System;
@@ -45,15 +46,22 @@ namespace Kochi_TVM
                 if (ConfigurationManager.AppSettings["VoiceEnable"].ToString() == "True")
                     Constants.IsVoiceEnabled = true;
                 else
-                    Constants.IsVoiceEnabled = false;
-
+                    Constants.IsVoiceEnabled = false;                
                 //frameHomeMain.Navigate(new Pages.MainPage());
                 frameHomeMain.Navigate(new Pages.OutOfSevicePage());
+                KMY200DoorAlarm.HelpButtonInputEvent += new KMY200DoorAlarm.HelpButtonInputEventHandler(CheckHelpAction);
             }
             catch (Exception ex)
             {
                 log.Error(ex.ToString());
             }
+        }
+        private void CheckHelpAction()
+        {
+            bool result = Parameters.InsNStationAlarm(Stations.currentStation.id, Convert.ToInt32(Parameters.TVMDynamic.GetParameter("unitId")), 1,
+                         string.Format("Help button pressed!"));
+
+            log.Debug("InsNStationAlarm Help button pressed --> result : " + (result == true ? "true" : "false"));
         }
         private void ConfigLog4net()
         {

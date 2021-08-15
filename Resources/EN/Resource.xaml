@@ -9,7 +9,7 @@
     <system:String x:Key="uyariCalismaSaati">Work Time:</system:String>
 	<system:String x:Key="collectTicket">Please collect your ticket!</system:String>
 	<system:String x:Key="ticketCount">Number of Ticket :</system:String>
-	<system:String x:Key="collectTicketChange">Please collect your ticket and change!</system:String>
+    <system:String x:Key="collectTicketChange">Please collect your dispensed!</system:String>
 	<system:String x:Key="collectRefund">Please collect your refund!</system:String>
 	<system:String x:Key="sj">Single Journey</system:String>
 	<system:String x:Key="rj">Return Journey</system:String>

@@ -606,6 +606,9 @@
     <Content Include="Images\information.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\info_icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\kmlr_QR_logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Kochi_TVM.Pages.Maintenance
 {
@@ -24,6 +26,9 @@ namespace Kochi_TVM.Pages.Maintenance
     /// </summary>
     public partial class TVMInfoPage : Page
     {
+        private static Timer checkDeviceTimer;
+        private static TimerCallback checkDeviceTimerDelegate;
+
         int? version = 0;
         public TVMInfoPage()
         {
@@ -32,11 +37,29 @@ namespace Kochi_TVM.Pages.Maintenance
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            checkDeviceTimerDelegate = new TimerCallback(CheckDeviceAction);
+            checkDeviceTimer = new Timer(checkDeviceTimerDelegate, null, 1000, Constants.CheckDeviceTime);
+
             versionLoad();
             UpdDevStat();           
             lblAppVersion.Content = "App Version : " + Parameters.TVMStatic.GetParameter("appVersion");
             lblEquipmentID.Content = "Equipment ID : " + Parameters.TVMDynamic.GetParameter("descCode");
             btnFinish.Content = "Cancel";
+        }
+        private void CheckDeviceAction(object o)
+        {
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                try
+                {
+                    Parameters.TVMDynamic.FillOrUpdateParameters();
+                    versionLoad();
+                    UpdDevStat();
+                }
+                catch (Exception ex)
+                {
+                }
+            }), DispatcherPriority.Background);
         }
         async void versionLoad()
         {            
@@ -106,7 +129,7 @@ namespace Kochi_TVM.Pages.Maintenance
         }
         private void Page_Unloaded(object sender, RoutedEventArgs e)
         {
-
+            checkDeviceTimer.Dispose();
         }
 
         private void btnPrint_Click(object sender, RoutedEventArgs e)

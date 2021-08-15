@@ -21,7 +21,7 @@
 
             <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Label Name="lblSaleSucc" Content="TICKET SALE IS SUCCESSFUL" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Style="{StaticResource styleLabelPrint}" Margin="0,-80,0,100"/>
-                <Label Name="lblCollect"  Content="Please collect your ticket and change!"  HorizontalAlignment="Center" Style="{StaticResource styleLabelPrint}" Margin="0,0,0,20"/>
+                <Label Name="lblCollect"  Content="Please collect your dispensed!"  HorizontalAlignment="Center" Style="{StaticResource styleLabelPrint}" Margin="0,0,0,20"/>
                 <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center">
                     <Label Name="lblNoOfTick" Content="Number of Ticket : "  HorizontalAlignment="Center" Style="{StaticResource styleLabelPrint}" Margin="0,0,0,20"/>
                     <Label Name="lblTicketCount"  HorizontalAlignment="Center" Style="{StaticResource styleLabelPrint}" Margin="0,0,0,20"/>

@@ -35,8 +35,17 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Name="lblHeader" Content="" Grid.Row="1" Grid.Column="1" Style="{StaticResource styleLabelHeader2}"/>
-        <Label Name="lblWarning" Content="" Grid.Row="1" Grid.Column="1" Visibility="Hidden" Style="{StaticResource styleLabel4}"/>
-        
+        <Label Name="lblWarning" Content="" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="1" Visibility="Collapsed" Style="{StaticResource styleLabel4}"/>
+        <Image Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,0,0,0" Height="27" Width="27" Source="/Kochi_TVM;component/images/big_bus.png" />
+        <Image Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,0,0,0" Height="27" Width="27" Source="/Kochi_TVM;component/images/train.png"  />
+        <Button x:Name="btnStation2" Tag="2" Content="Pulinchodu" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,30,0,0" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+
+        <Image Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,-340" Height="27" Width="27" Source="/Kochi_TVM;component/images/train.png"  />
+        <Image Height="27" Width="36"  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,25,-340" Source="/Kochi_TVM;component/images/big_bus.png" />
+        <Button x:Name="btnStation18" Tag="18"  Content="Kadavanthra"  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,55,-270" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+        <Button x:Name="btnStation22" Tag="22" Content="Petta" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,48,270"  Style="{StaticResource styleStationBtn}" Click="btnStation_Click"/>
+
+
         <Grid Name="operationGrid" Grid.Column="1" Grid.Row="2" Height="550" Width="800" Margin="0,-60,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -244,65 +253,79 @@
             </Grid.ColumnDefinitions>
             <Image Name="imgMap" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="100" Grid.RowSpan="100" VerticalAlignment="Top" HorizontalAlignment="Left" Stretch="Fill" Source=".\..\images\stationMap.png" />
             <Image Name="imgHere" Grid.Row="11" Grid.Column="6" Grid.ColumnSpan="5" Grid.RowSpan="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Source=".\..\images\youAreHere.png" RenderTransformOrigin="-0.205,0.264" />
-            <Button x:Name="btnStation1" Tag="1" Content="Aluva" Grid.Row="5" Grid.Column="4" Grid.RowSpan="8" Grid.ColumnSpan="25" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
-            <Button Tag="1" Grid.Row="8" Foreground="Transparent" Background="Transparent" Grid.Column="1" Width="25" Height="25" BorderBrush="Transparent" Grid.RowSpan="8" Grid.ColumnSpan="10" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnStation_Click" />
+            <Button x:Name="btnStation1" Tag="1" Content="Aluva" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="10" Grid.RowSpan="5" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+            <Button Tag="1" Grid.Row="8" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="3" Height="15" Width="15" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
 
-            <Image  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="6" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" Width="27" Source="/Kochi_TVM;component/images/big_bus.png" />
-            <Image  Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="6" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" Width="27" Source="/Kochi_TVM;component/images/train.png"  />
-
-            <Button x:Name="btnStation2" Tag="2" Content="Pulinchodu" Grid.Row="11" Grid.Column="9" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
-            <Button Tag="2" Grid.Row="13" Grid.Column="7" Foreground="Transparent" Background="Transparent" Width="25" Height="25" BorderBrush="Transparent" Grid.RowSpan="8" Grid.ColumnSpan="10" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnStation_Click" />
+            <Button Tag="2" Grid.Row="12" Grid.Column="3" Grid.RowSpan="8" Height="15" Width="15" Grid.ColumnSpan="11" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
             
-            <Button x:Name="btnStation3" Tag="3" Content="Companypady" Grid.Row="16" Grid.Column="15" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
-            <Button Tag="3" Grid.Row="17" Grid.Column="13" Foreground="Transparent" Background="Transparent" Width="25" Height="25" BorderBrush="Transparent" Grid.RowSpan="8" Grid.ColumnSpan="10" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnStation_Click" />
+            <Button x:Name="btnStation3" Tag="3" Content="Companypady" Grid.Row="17" Grid.Column="16" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+            <Button Tag="3" Grid.Row="17" Grid.Column="10" Grid.RowSpan="8" Height="15" Width="15" Grid.ColumnSpan="9" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
 
-            <Button x:Name="btnStation4" Tag="4" Content="Ambattukavu" Grid.Row="21" Grid.Column="22" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
-            <Button Tag="4" Grid.Row="22" Grid.Column="20" Foreground="Transparent" Background="Transparent" Width="25" Height="25" BorderBrush="Transparent" Grid.RowSpan="8" Grid.ColumnSpan="10" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnStation_Click" />
+            <Button x:Name="btnStation4" Tag="4" Content="Ambattukavu" Grid.Row="24" Grid.Column="8" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+            <Button Tag="4" Grid.Row="22" Grid.Column="16" Grid.RowSpan="8" Grid.ColumnSpan="10" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
 
-            <Button x:Name="btnStation5" Tag="5" Content="Muttom" Grid.Row="26" Grid.Column="28" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
-            <Button Tag="5" Grid.Row="26" Grid.Column="25" Foreground="Transparent" Background="Transparent" Width="25" Height="25" BorderBrush="Transparent" Grid.RowSpan="8" Grid.ColumnSpan="10" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnStation_Click" />
+            <Button x:Name="btnStation5" Tag="5" Content="Muttom" Grid.Row="27" Grid.Column="28" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+            <Button Tag="5" Grid.Row="26" Grid.Column="21" Grid.RowSpan="8" Height="15" Width="15" Grid.ColumnSpan="12" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
 
-            <Button x:Name="btnStation6" Tag="6" Content="Kalamassery" Grid.Row="30" Grid.Column="34" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+            <Button x:Name="btnStation6" Tag="6" Content="Kalamassery" Grid.Row="34" Grid.Column="20" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+            <Button Tag="6" Grid.Row="31" Grid.Column="28" Grid.RowSpan="8" Height="15" Width="15" Grid.ColumnSpan="9" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+
             <Button x:Name="btnStation7" Tag="7"  Content="Cochin Universty" Grid.Row="34" Grid.Column="38" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
-            <Button x:Name="btnStation8" Tag="8"  Content="Pathadipalam" Grid.Row="39" Grid.Column="44" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+            <Button Tag="7" Grid.Row="35" Grid.Column="33" Grid.RowSpan="8" Height="15" Width="15" Grid.ColumnSpan="9" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+
+            <Button x:Name="btnStation8" Tag="8"  Content="Pathadipalam" Grid.Row="42" Grid.Column="30" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+            <Button Tag="8" Grid.Row="39" Grid.Column="39" Height="15" Width="15" Grid.RowSpan="8" Grid.ColumnSpan="8" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+
             <Button x:Name="btnStation9" Tag="9"  Content="Edapally" Grid.Row="43" Grid.Column="50" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
-            <Button x:Name="btnStation10" Tag="10"  Content="Changampuzha Park" Grid.Row="46" Grid.Column="54" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+            <Button Tag="9" Grid.Row="43" Grid.Column="44" Grid.RowSpan="8" Height="15" Width="15" Grid.ColumnSpan="9" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+
+            <Button x:Name="btnStation10" Tag="10"  Content="Changampuzha Park" Grid.Row="51" Grid.Column="34" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+            <Button Tag="10" Grid.Row="47" Grid.Column="49" Grid.RowSpan="8" Height="15" Width="15" Grid.ColumnSpan="9" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+
             <Button x:Name="btnStation11" Tag="11"  Content="Palarivattom" Grid.Row="50" Grid.Column="59" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
-            <Button x:Name="btnStation12" Tag="12"  Content="JLN Stadium" Grid.Row="54" Grid.Column="64" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+            <Button Tag="11" Grid.Row="51" Grid.Column="54" Grid.RowSpan="8" Height="15" Width="15" Grid.ColumnSpan="9" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+
+            <Button x:Name="btnStation12" Tag="12"  Content="JLN Stadium" Grid.Row="58" Grid.Column="50" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+            <Button Tag="12" Grid.Row="55" Grid.Column="59" Grid.RowSpan="8" Height="15" Width="15" Grid.ColumnSpan="9" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+
             <Button x:Name="btnStation13" Tag="13"  Content="Kaloor" Grid.Row="59" Grid.Column="70" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+            <Button Tag="13" Grid.Row="59" Grid.Column="64" Grid.RowSpan="8" Height="15" Width="15" Grid.ColumnSpan="9" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
 
             <Image  Grid.Row="65" Grid.Column="65" Grid.ColumnSpan="4" Grid.RowSpan="6" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" Width="27" Source="/Kochi_TVM;component/images/big_bus.png" />
 
-
             <Button x:Name="btnStation14" Tag="14"  Content="Lissie" Grid.Row="64" Grid.Column="75" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+            <Button Tag="14" Grid.Row="64" Grid.Column="70" Grid.RowSpan="8" Height="15" Width="15" Grid.ColumnSpan="9" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
 
             <Image  Grid.Row="68" Grid.Column="70" Grid.ColumnSpan="4" Grid.RowSpan="6" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" Width="27" Source="/Kochi_TVM;component/images/train.png"  />
 
-
-
             <Button x:Name="btnStation15" Tag="15"  Content="MG Road" Grid.Row="79" Grid.Column="65" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+            <Button Tag="15" Grid.Row="78" Grid.Column="70" Grid.RowSpan="8" Height="15" Width="15" Grid.ColumnSpan="9" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+
             <Button x:Name="btnStation16" Tag="16"  Content="Maharajas College" Grid.Row="87" Grid.Column="74" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+            <Button Tag="16" Grid.Row="81" Grid.Column="75" Grid.RowSpan="8" Height="15" Width="15" Grid.ColumnSpan="9" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
             <Image  Grid.Row="78" Grid.Column="78" Grid.ColumnSpan="4" Grid.RowSpan="6" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" Width="27" Source="/Kochi_TVM;component/images/waterway-01.png" />
 
+            <Button x:Name="btnStation17" Tag="17"  Content="Ernakulam South" Grid.Row="83" Grid.Column="83" Grid.RowSpan="5" Grid.ColumnSpan="20" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" Margin="-18,3,0,0" />
+            <Button Tag="17" Grid.Row="78" Grid.Column="80" Grid.RowSpan="8" Height="15" Width="15" Grid.ColumnSpan="9" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
 
+            <Button Tag="18" Grid.Row="75" Grid.Column="84" Grid.RowSpan="8" Height="15" Width="15" Grid.ColumnSpan="9" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
 
-            <Button x:Name="btnStation17" Tag="17"  Content="Ernakulam South" Grid.Row="82" Grid.Column="85" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" Margin="-18,3,0,0" />
-            <Image  Grid.Row="86" Grid.Column="88" Grid.ColumnSpan="4" Grid.RowSpan="6" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" Width="27" Source="/Kochi_TVM;component/images/train.png"  />
-            <Image  Grid.Row="86" Grid.Column="93" Grid.ColumnSpan="4" Grid.RowSpan="6" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" Width="36" Source="/Kochi_TVM;component/images/big_bus.png" />
-
-
-            <Button x:Name="btnStation18" Tag="18"  Content="Kadavanthra" Grid.Row="76" Grid.Column="90" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
             <Button x:Name="btnStation19" Tag="19"  Content="Elamkulam" Grid.Row="61" Grid.Column="90" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+            <Button Tag="19" Grid.Row="60" Grid.Column="84" Grid.RowSpan="9" Height="15" Width="15" Grid.ColumnSpan="9" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+
             <Button x:Name="btnStation20" Tag="20"  Content="Vytila" Grid.Row="49" Grid.Column="90" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+            <Button Tag="20" Grid.Row="44" Grid.Column="84" Grid.RowSpan="9" Height="15" Width="15" Grid.ColumnSpan="9" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+
             <Image  Grid.Row="47" Grid.Column="84" Grid.ColumnSpan="4" Grid.RowSpan="6" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" Width="27" Source="/Kochi_TVM;component/images/big_bus.png" />
             <Image  Grid.Row="47" Grid.Column="80" Grid.ColumnSpan="4" Grid.RowSpan="6" HorizontalAlignment="Right" VerticalAlignment="Top" Height="27" Width="27" Source="/Kochi_TVM;component/images/waterway-01.png" />
 
 
             <Button x:Name="btnStation21" Tag="21"  Content="Thykoodam" Grid.Row="40" Grid.Column="83" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+            <Button Tag="21" Grid.Row="41" Grid.Column="88" Grid.RowSpan="9" Height="15" Width="15" Grid.ColumnSpan="9" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
+
             <Image  Grid.Row="44" Grid.Column="95" Grid.ColumnSpan="4" Grid.RowSpan="6" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" Width="27" Source="/Kochi_TVM;component/images/waterway-01.png" />
-            <Button x:Name="btnStation22" Tag="22"  Content="Petta" Grid.Row="28" Grid.Column="88" Grid.RowSpan="5" Grid.ColumnSpan="9" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" Margin="1,0.256,0,0.456" Width="77" />
 
-
+            <Button Tag="22" Grid.Row="26" Grid.Column="91" Grid.RowSpan="9" Height="15" Width="15" Grid.ColumnSpan="9" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />
 
             <!--<Button x:Name="btnStation22" Tag="22"  Content="Petta" Grid.Row="27" Grid.Column="89" Grid.RowSpan="5" Grid.ColumnSpan="20" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource styleStationBtn}" Click="btnStation_Click" />-->
 
